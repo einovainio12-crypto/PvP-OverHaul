@@ -21,7 +21,7 @@ git push -u origin main
 Alternatively, upload the extracted contents using GitHub's **Add file → Upload files**, including the `.github` and `.devcontainer` folders. Do not upload only the ZIP: GitHub cannot build files inside it.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.1.0.jar`**, not the `-sources.jar`, in your game's `mods` folder.
+5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.2.0.jar`**, not the `-sources.jar`, in your game's `mods` folder.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
@@ -57,41 +57,43 @@ You do not need to install Gradle separately: the wrapper downloads the pinned v
 
 ## Implemented features
 
-| Tier | Bow skills | Damage bonus | Crossbow magazine | Shield disable duration scale |
-| --- | --- | --- | --- | --- |
-| Wood | Zoom | 0% | 1 volley | 1.00× |
-| Copper | Zoom, Target Lock | 5% | 1 volley | 0.88× |
-| Iron | Zoom, Target Lock, Dead Eye | 10% | 3 volleys | 0.76× |
-| Gold | Zoom, Target Lock, faster draw | 15% | 4 volleys | 0.64× |
-| Diamond | Zoom, Target Lock, Dead Eye | 20% | 5 volleys | 0.52× |
-| Netherite | All three skills | 25% | 6 volleys | 0.40× |
+| Tier | Bow skills | Bow damage bonus | Full bow draw | Crossbow damage bonus | Magazine |
+| --- | --- | --- | --- | --- | --- |
+| Wood | Zoom | 0% | 20 ticks | 0% | 1 volley |
+| Copper | Zoom, Target Lock | 3% | 20 ticks | 5% | 1 volley |
+| Iron | Zoom, Target Lock, Dead Eye | 6% | 20 ticks | 10% | 3 volleys |
+| Gold | Zoom, Target Lock, faster draw | 0% | 18 ticks | 15% | 4 volleys |
+| Diamond | Zoom, Target Lock, Dead Eye | 9% | 20 ticks | 20% | 5 volleys |
+| Netherite | All three skills | 12% | 20 ticks | 25% | 6 volleys |
+
+Gold trades impact damage and durability for an 18-tick draw. Its unenchanted damage-per-full-draw rate stays below netherite's. Crossbow tier damage and magazines are retained from v0.1. Shield stun-duration scales remain 1.00/0.88/0.76/0.64/0.52/0.40 across the six tiers.
 
 Crossbows have Zoom at every tier; netherite additionally has Target Lock and Dead Eye. A magazine fires **one volley per click**, with a six-tick firing cooldown. Vanilla Multishot still determines arrows per volley; each extra volley loads and pays for another ammo unit. Insufficient ammo produces a partially filled magazine. Creative/infinite projectiles remain non-pickup copies.
 
-- **50 added items:** six tiers each of bows, crossbows, knives, spears, battleaxes and shields, thirteen custom arrows, and a Dragon Scale ingredient.
+- **44 added items:** six tiers each of bows, crossbows, knives, battleaxes and shields, thirteen custom arrows, and a Dragon Scale ingredient. Spears use the seven existing Minecraft spear items, including stone; the mod registers no additional spear items.
 - Knives: 3–8 base damage, 3.2 attack speed, one block less interaction range. Sneaking **or** invisibility doubles final melee damage, including vanilla charge/critical/enchantment calculations. Right-click throws a knife without an enchantment.
-- Spears: vanilla 26.3 kinetic/piercing components retained, including native Lunge. Add Throwable for sneak-right-click throwing or Pole Jump for a ground vault. Throwable is incompatible with Lunge and Pole Jump; Pole Jump can coexist with Lunge. Native and custom spears can use Throwable.
+- Spears: the original Minecraft items, models, crafting recipes and kinetic/piercing stats are retained, including native Lunge. Add Throwable for sneak-right-click throwing or Pole Jump for a ground vault. Throwable is incompatible with Lunge and Pole Jump; Pole Jump can coexist with Lunge. Old v0.1 mod spear IDs decode as the matching native spears, retaining saved count and component patches; subsequent saves use the native IDs.
 - Battleaxes: increased melee damage, 0.8 attack speed, vanilla-style five-second shield disable before shield-tier scaling; Sharpness plus new Cleaving and Impact options. Cleaving shares the vanilla damage-enchantment exclusion set.
 - Shields: tiered durability and progressively shorter stun recovery using vanilla's `blocks_attacks` component. High tiers still get stunned; this implementation interprets “harder to stun” as a shorter duration, not a random immunity roll.
 - Tridents: craftable with prismarine shards and sticks; +1 main-hand entity interaction range supplied as a normal item attribute. Depth Strider boots allow an enchanted Riptide trident to activate in dry conditions. You still need Riptide on the trident.
 - Axes/battleaxes: Throwable enables sneak-right-click throwing. Loyalty also supports thrown knives, axes and spears.
-- Boots: Double Jump I–II gives one extra jump per airtime; Speed I–III adds 4% movement speed per level. Double Jump preserves accumulated fall distance.
-- Elytra: Boost I–III adds a directional impulse while gliding and consumes durability. Aerodynamics I–II increases that boost and reduces its cooldown. All eight new enchantments are available through enchanting/trades/loot as well as `/enchant`.
+- Boots: Speed I–III grants +3%/+6%/+9% movement speed. Speed and Double Jump are mutually exclusive mobility choices; existing boots carrying both retain Speed and cannot activate Double Jump. Depth Strider and Soul Speed stay compatible with either. Double Jump I–II still preserves accumulated fall distance.
+- Elytra: Boost I–III applies a 0.30/0.40/0.50 directional impulse with an 8/7/6-second cooldown, a base three durability cost (Unbreaking applies normally), and 0.6 hunger exhaustion. Aerodynamics adds 0.025 impulse and removes 0.25 seconds of cooldown per level, capped at level II. Boost adds no speed above 1.8 blocks/tick; it never truncates existing rocket/Riptide momentum. It requires gliding, usable elytra durability, and no vehicle or creative flight. All eight new enchantments remain available through enchanting/trades/loot and `/enchant`. Boost and Speed are less common enchanting-table choices than before.
 
 ### Controls
 
 | Default key | Action |
 | --- | --- |
 | Hold Z | Zoom with a mod bow/crossbow in the main hand |
-| R | Acquire a visible target within 32 blocks and a narrow aiming cone; 5-second lock, 12-second cooldown |
-| V | Dead Eye for 3 seconds; reduced arrow spread and +15% projectile base damage, 15-second cooldown |
-| B | Elytra Boost; 3-second cooldown reduced by Aerodynamics |
+| R | One charged shot within three seconds; visible target within 24 blocks and roughly ten degrees of your crosshair; 16-second cooldown |
+| V | One charged shot within three seconds; 40% less random spread and +5% projectile base damage; 20-second cooldown |
+| B | Elytra Boost; 8/7/6-second cooldown by level, slightly reduced by Aerodynamics |
 | G | Pole Jump from the ground; 2-second cooldown |
 | Press Jump again in the air | Double Jump with enchanted boots |
 | Right-click a knife | Throw |
 | Sneak-right-click a Throwable axe/spear | Throw |
 
-Rebind these in Minecraft's controls. The server validates enchantments, movement state, range, line of sight and cooldowns; packet contents cannot set damage or arbitrary velocity. Skill cooldowns are per player during the session. Target Lock redirects the initial shot only; arrows keep normal gravity and collision, and are not homing missiles.
+Rebind these in Minecraft's controls. The server validates enchantments, movement state, range, line of sight and cooldowns; packet contents cannot set damage or arbitrary velocity. Skill cooldowns are per player during the session. Target Lock only assists a fully drawn bow shot (or netherite crossbow volley), rechecks line of sight and the aiming cone at release, and is consumed by that charged shot. Dead Eye is also consumed by one charged shot/volley. Partial bow shots receive neither the Dead Eye damage/spread bonus nor aim correction. Arrows keep normal gravity and collision.
 
 ### Ammunition
 
@@ -116,26 +118,29 @@ Craft Dragon Scale from Dragon Breath + Echo Shard + Popped Chorus Fruit. This i
 
 ## Compatibility and known limits
 
-The code avoids replacing `Player.attack`, global cooldowns, critical-hit rules, mace attacks, enchantment processing and swap handling. Knife damage changes only the final damage argument when a knife is in the main hand. Trident reach is an ordinary main-hand attribute. **Attribute swapping, stun slams and other techniques need in-game regression testing before compatibility can be promised.** This is a v0.1 prototype, not a complete balanced release.
+The code avoids replacing `Player.attack`, global cooldowns, critical-hit rules, mace attacks, enchantment processing and swap handling. Knife damage changes only the final damage argument when a knife is in the main hand. Trident reach is an ordinary main-hand attribute. **Attribute swapping, stun slams and other techniques need in-game regression testing before compatibility can be promised.** This is a v0.2 prototype; multiplayer balance still needs gameplay testing.
 
 Important current limits:
 
-- Custom thrown weapons use vanilla trident projectiles and Loyalty/pickup persistence. Their **flying model looks like a trident**; their item stack returns as the original weapon. Bows, crossbows and shields reuse vanilla visuals; new melee weapons and arrows have small generated icons. Custom models/renderers are future polish.
+- There are **92 original, editable 16×16 placeholder textures**: material-specific bows and crossbows with pulling/loaded states, knives, battleaxes, arrows, shield inventory icons, and Dragon Scale. They use weapon silhouettes and vanilla-style small palettes. Held shields still use the vanilla 3D renderer; native spears keep native visuals. Custom thrown weapons still use the vanilla trident flying model and return their original item stack.
 - Vanilla Loyalty's JSON definition is replaced only to widen its supported-item set. Datapacks/mods that also replace that definition may conflict. Other vanilla enchantment definitions are not overwritten.
 - Spectral arrows and vanilla rockets are reused; custom firework arrows do not create fireworks or damage blocks. Breeze arrows use a direct knockback effect rather than a wind-charge entity.
 - Movement/skill state is session-local and resets on disconnect/server restart. There is no saved progression tree or skill XP system because the original concept did not define one.
-- Spear numerical stats, crafting costs, skill durations and cooldowns are initial defaults. Vanilla spear combat is retained, while item icons do not have a dedicated spear renderer.
+- Vanilla spear melee/kinetic stats and recipes are retained. Mod throwing damage is 5/6/6/7/8/9/10 for wood/stone/copper/iron/gold/diamond/netherite. Costs and cooldowns are initial PvP tuning values, not a claim of finished balance.
 - The resource checker validates internal structure and references, not Minecraft's full runtime datapack codecs.
 
 See [TESTING.md](TESTING.md) for the actual validation performed and the gameplay checklist.
 
 ## Editing the mod
 
-- `Tier.java`: damage bonuses, bow tiers, magazine capacities and shield stun scaling.
+- `Balance.java` and `Tier.java`: movement safety limits, bow/skill tuning, magazine capacities and shield stun scaling.
 - `Ammo.java`: tier restrictions and accuracy.
 - `Combat.java` and `mixin/`: narrow combat hooks, shield effects and Riptide extension.
 - `Skills.java`: server checks, cooldowns and movement abilities.
 - `Interactions.java`: throwing, waxing and fletching upgrades.
-- `scripts/generate_resources.py`: recipes, enchantment data, item tags, models, translations and original icons. Run it with Python 3 after changing these defaults, then run `scripts/validate_resources.py`.
+- `scripts/generate_resources.py` and `scripts/pixel_art.py`: recipes, enchantment data, item tags, models, translations and original pixel-art geometry. Regenerate with Python 3, then run `scripts/validate_resources.py`.
+- `LegacySpears.java` / `mixin/ItemCodecMixin.java`: v0.1 saved-spear ID conversion without duplicate registration.
+- `scripts/obsolete_resources.json`: exact old spear files excluded from the JAR if a browser upload leaves them in your checkout.
+- `src/test/java/dev/pvpoverhaul/BalanceChecks.java`: bow tradeoffs and movement bounds, included in Gradle `check`.
 
 Java changes require rebuilding the JAR. Version pins are in `gradle.properties`. Updating just the Minecraft version number is not a safe port: recheck APIs and run the gameplay checklist. Source and original generated icons are MIT licensed; vanilla models/textures are referenced from the game and are not bundled.
