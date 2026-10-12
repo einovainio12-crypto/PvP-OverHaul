@@ -52,7 +52,16 @@ public final class ModItems {
             CROSSBOWS.put(t,tiered(t,"crossbow",base(t).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
             KNIVES.put(t,tiered(t,"knife",base(t).attributes(melee(3+t.rank,3.2,-1))
                 .component(DataComponents.WEAPON,new Weapon(1)),Item::new));
-            SPEARS.put(t,tiered(t,"spear",new Item.Properties().spear(t.material,0.95f,0.95f,0.6f,2.5f,11f,6.75f,5.1f,11.25f,4.6f),Item::new));
+            // Extend the existing game item instead of registering a second spear per material.
+            Item spear=switch(t) {
+                case WOOD -> Items.WOODEN_SPEAR;
+                case COPPER -> Items.COPPER_SPEAR;
+                case IRON -> Items.IRON_SPEAR;
+                case GOLD -> Items.GOLDEN_SPEAR;
+                case DIAMOND -> Items.DIAMOND_SPEAR;
+                case NETHERITE -> Items.NETHERITE_SPEAR;
+            };
+            SPEARS.put(t,spear);TIERS.put(spear,t);
             BATTLEAXES.put(t,tiered(t,"battleaxe",base(t).axe(t.material,8,-3.2f)
                 .component(DataComponents.WEAPON,new Weapon(1,5.0f)),Item::new));
             SHIELDS.put(t,tiered(t,"shield",base(t).equippableUnswappable(EquipmentSlot.OFFHAND)
@@ -66,7 +75,7 @@ public final class ModItems {
         CreativeModeTabEvents.modifyOutputEvent(ResourceKey.create(Registries.CREATIVE_MODE_TAB,net.minecraft.resources.Identifier.withDefaultNamespace("combat"))).register(output->ALL.forEach(output::accept));
     }
     public static boolean isKnife(ItemStack s) { return KNIVES.containsValue(s.getItem()); }
-    public static boolean isSpear(ItemStack s) { return SPEARS.containsValue(s.getItem()) || s.has(DataComponents.KINETIC_WEAPON); }
+    public static boolean isSpear(ItemStack s) { return s.is(net.minecraft.tags.ItemTags.SPEARS); }
     public static boolean isBattleaxe(ItemStack s) { return BATTLEAXES.containsValue(s.getItem()); }
     private ModItems() {}
 }

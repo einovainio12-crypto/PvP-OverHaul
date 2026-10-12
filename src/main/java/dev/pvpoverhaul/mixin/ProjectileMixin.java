@@ -10,7 +10,7 @@ public abstract class ProjectileMixin {
     @ModifyVariable(method="shoot",at=@At("HEAD"),argsOnly=true,ordinal=1)
     private float pvp$materialAccuracy(float original) {
         if ((Object)this instanceof AbstractArrow arrow && arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item)
-            return item.ammo.uncertainty*(arrow.getOwner() instanceof LivingEntity owner && Skills.deadEyeActive(owner)?0.15f:1f);
+            return item.ammo.uncertainty*(arrow.isCritArrow() && arrow.getOwner() instanceof LivingEntity owner && Skills.deadEyeActive(owner,arrow.getWeaponItem())?Balance.DEAD_EYE_SPREAD:1f);
         return original;
     }
 }

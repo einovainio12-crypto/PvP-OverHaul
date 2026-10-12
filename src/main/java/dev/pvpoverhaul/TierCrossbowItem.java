@@ -41,12 +41,13 @@ public final class TierCrossbowItem extends CrossbowItem {
         weapon.set(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.ofNonEmpty(all.subList(0,end)));
         float volleyPower=all.subList(0,end).stream().anyMatch(s->s.is(Items.FIREWORK_ROCKET))?1.6f:3.15f;
         super.performShooting(level,shooter,hand,weapon,volleyPower,uncertainty,target);
+        if (all.subList(0,end).stream().anyMatch(s->s.getItem() instanceof ArrowItem)) Skills.finishShot(shooter);
         if (!weapon.isEmpty() && end<all.size()) weapon.set(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.ofNonEmpty(all.subList(end,all.size())));
         if (shooter instanceof net.minecraft.world.entity.player.Player player) player.getCooldowns().addCooldown(weapon,6);
     }
     @Override protected Projectile createProjectile(Level level,LivingEntity shooter,ItemStack weapon,ItemStack ammo,boolean crit) {
         Projectile p=super.createProjectile(level,shooter,weapon,ammo,crit);
-        Combat.adjustProjectile(p,shooter,tier);return p;
+        Combat.adjustProjectile(p,shooter,tier.damageMultiplier());return p;
     }
     @Override protected void shootProjectile(LivingEntity shooter,Projectile projectile,int index,float power,float uncertainty,float angle,LivingEntity target) {
         // Only netherite crossbows unlock the full skill set.

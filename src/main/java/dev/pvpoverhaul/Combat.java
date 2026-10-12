@@ -16,11 +16,11 @@ public final class Combat {
         float value=1;
         if (projectile instanceof AbstractArrow arrow && arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item)
             value=item.ammo.uncertainty;
-        return Skills.deadEyeActive(shooter) ? value*0.15f : value;
+        return projectile instanceof AbstractArrow arrow && arrow.isCritArrow() && Skills.deadEyeActive(shooter,arrow.getWeaponItem()) ? value*Balance.DEAD_EYE_SPREAD : value;
     }
-    public static void adjustProjectile(Projectile p,LivingEntity shooter,Tier tier) {
+    public static void adjustProjectile(Projectile p,LivingEntity shooter,double multiplier) {
         if (!(p instanceof AbstractArrow arrow)) return;
-        arrow.setBaseDamage(((dev.pvpoverhaul.mixin.AbstractArrowAccessor)arrow).pvp$getBaseDamage()*tier.damageMultiplier()*(Skills.deadEyeActive(shooter)?1.15:1));
+        arrow.setBaseDamage(((dev.pvpoverhaul.mixin.AbstractArrowAccessor)arrow).pvp$getBaseDamage()*multiplier*(arrow.isCritArrow() && Skills.deadEyeActive(shooter,arrow.getWeaponItem())?Balance.DEAD_EYE_DAMAGE:1));
         if (arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item && (item.ammo==Ammo.BLAZE || item.ammo==Ammo.FIRE_CHARGE)) arrow.igniteForSeconds(5);
     }
     public static float knifeDamage(Player player,float damage) {
@@ -59,7 +59,7 @@ public final class Combat {
         ItemStack weapon=projectile.getPickupItemStackOrigin();
         Tier t=ModItems.TIERS.get(weapon.getItem());
         if (ModItems.isKnife(weapon)) return 3+t.rank;
-        if (ModItems.isSpear(weapon)) return t==null ? vanilla : 5+t.rank;
+        if (ModItems.isSpear(weapon)) return weapon.is(Items.STONE_SPEAR)?6:5+(t==null?0:t.rank);
         if (ModItems.isBattleaxe(weapon)) return 8+t.rank;
         if (weapon.is(net.minecraft.tags.ItemTags.AXES)) return (float)weapon.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY).compute(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE,1,EquipmentSlot.MAINHAND);
         return vanilla;

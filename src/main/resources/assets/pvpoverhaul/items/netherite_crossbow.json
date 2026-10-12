@@ -7,14 +7,14 @@
         "when": "arrow",
         "model": {
           "type": "minecraft:model",
-          "model": "minecraft:item/crossbow_arrow"
+          "model": "pvpoverhaul:item/netherite_crossbow_arrow"
         }
       },
       {
         "when": "rocket",
         "model": {
           "type": "minecraft:model",
-          "model": "minecraft:item/crossbow_firework"
+          "model": "pvpoverhaul:item/netherite_crossbow_firework"
         }
       }
     ],
@@ -23,28 +23,28 @@
       "property": "minecraft:using_item",
       "on_false": {
         "type": "minecraft:model",
-        "model": "minecraft:item/crossbow"
+        "model": "pvpoverhaul:item/netherite_crossbow"
       },
       "on_true": {
         "type": "minecraft:range_dispatch",
         "property": "minecraft:crossbow/pull",
         "fallback": {
           "type": "minecraft:model",
-          "model": "minecraft:item/crossbow_pulling_0"
+          "model": "pvpoverhaul:item/netherite_crossbow_pulling_0"
         },
         "entries": [
           {
             "threshold": 0.58,
             "model": {
               "type": "minecraft:model",
-              "model": "minecraft:item/crossbow_pulling_1"
+              "model": "pvpoverhaul:item/netherite_crossbow_pulling_1"
             }
           },
           {
             "threshold": 1,
             "model": {
               "type": "minecraft:model",
-              "model": "minecraft:item/crossbow_pulling_2"
+              "model": "pvpoverhaul:item/netherite_crossbow_pulling_2"
             }
           }
         ]

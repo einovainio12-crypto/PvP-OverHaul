@@ -1,27 +1,45 @@
 {
   "model": {
-    "type": "minecraft:condition",
-    "property": "minecraft:using_item",
-    "on_false": {
-      "type": "minecraft:special",
-      "base": "minecraft:item/shield",
-      "model": {
-        "type": "minecraft:shield"
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+    "cases": [
+      {
+        "when": [
+          "gui",
+          "ground",
+          "fixed",
+          "on_shelf"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvpoverhaul:item/netherite_shield"
+        }
       }
-    },
-    "on_true": {
-      "type": "minecraft:special",
-      "base": "minecraft:item/shield_blocking",
-      "model": {
-        "type": "minecraft:shield"
+    ],
+    "fallback": {
+      "type": "minecraft:condition",
+      "property": "minecraft:using_item",
+      "on_false": {
+        "type": "minecraft:special",
+        "base": "minecraft:item/shield",
+        "model": {
+          "type": "minecraft:shield"
+        }
+      },
+      "on_true": {
+        "type": "minecraft:special",
+        "base": "minecraft:item/shield_blocking",
+        "model": {
+          "type": "minecraft:shield"
+        }
+      },
+      "transformation": {
+        "scale": [
+          1,
+          -1,
+          -1
+        ]
       }
-    },
-    "transformation": {
-      "scale": [
-        1,
-        -1,
-        -1
-      ]
     }
   }
 }

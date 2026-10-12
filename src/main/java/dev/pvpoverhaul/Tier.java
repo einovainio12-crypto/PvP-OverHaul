@@ -18,6 +18,8 @@ public enum Tier {
         this.id = id; this.rank = rank; this.durability = durability; this.material = material;
     }
     public double damageMultiplier() { return 1.0 + rank * 0.05; }
+    public double bowDamageMultiplier() { return Balance.bowMultiplier(rank); }
+    public int bowDrawTicks() { return Balance.bowDrawTicks(rank); }
     public int magazineSize() { return rank < 2 ? 1 : rank + 1; }
     public boolean targetLock() { return rank >= 1; }
     public boolean deadEye() { return this == IRON || this == DIAMOND || this == NETHERITE; }

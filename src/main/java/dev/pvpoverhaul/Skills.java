@@ -43,26 +43,31 @@ public final class Skills {
                 if (skillTier(held)==null || !skillTier(held).targetLock() || now<s.nextLock) return;
                 LivingEntity target=findTarget(p);
                 if (target==null) { p.sendOverlayMessage(Component.literal("No visible target near your crosshair."));return; }
-                s.target=target.getUUID();s.lockUntil=now+100;s.nextLock=now+240;
-                p.sendOverlayMessage(Component.literal("Target lock: 5 seconds"));
+                s.target=target.getUUID();s.lockUntil=now+Balance.LOCK_DURATION;s.nextLock=now+Balance.LOCK_COOLDOWN;
+                p.sendOverlayMessage(Component.literal("Target lock: one charged shot within 3 seconds"));
             }
             case SkillPayload.DEAD_EYE -> {
                 if (skillTier(held)==null || !skillTier(held).deadEye() || now<s.nextDead) return;
-                s.deadUntil=now+60;s.nextDead=now+300;
-                p.sendOverlayMessage(Component.literal("Dead Eye: 3 seconds"));
+                s.deadUntil=now+Balance.DEAD_EYE_DURATION;s.nextDead=now+Balance.DEAD_EYE_COOLDOWN;
+                p.sendOverlayMessage(Component.literal("Dead Eye: one charged shot within 3 seconds"));
             }
             case SkillPayload.BOOST -> {
                 ItemStack elytra=p.getItemBySlot(EquipmentSlot.CHEST);int boost=Enchantments.level(p,elytra,"boost");
                 if (!p.isFallFlying() || boost==0 || now<s.nextBoost) return;
                 int aerodynamics=Enchantments.level(p,elytra,"aerodynamics");
-                s.nextBoost=now+60-aerodynamics*10;
-                impulse(p,p.getLookAngle().scale(0.6+boost*0.2+aerodynamics*0.1));
-                elytra.hurtAndBreak(1,p,EquipmentSlot.CHEST);
+                if (elytra.getMaxDamage()-elytra.getDamageValue()<=Balance.BOOST_DURABILITY_COST || p.isPassenger() || p.getAbilities().flying) return;
+                Vec3 velocity=p.getDeltaMovement(),direction=p.getLookAngle();
+                double amount=Balance.allowedBoostImpulse(velocity.x,velocity.y,velocity.z,direction.x,direction.y,direction.z,boost,aerodynamics);
+                if (amount<1e-6) return;
+                s.nextBoost=now+Balance.boostCooldown(boost,aerodynamics);
+                impulse(p,direction.normalize().scale(amount));
+                elytra.hurtAndBreak(Balance.BOOST_DURABILITY_COST,p,EquipmentSlot.CHEST);
+                p.causeFoodExhaustion(0.6f);
             }
             case SkillPayload.DOUBLE_JUMP -> {
                 if (p.onGround() || s.airborneTicks<3 || s.jumped || p.isFallFlying() || p.isPassenger() || p.isInWater() || p.getAbilities().flying) return;
                 int n=Enchantments.level(p,p.getItemBySlot(EquipmentSlot.FEET),"double_jump");
-                if (n==0) return;
+                if (n==0 || Enchantments.level(p,p.getItemBySlot(EquipmentSlot.FEET),"speed")>0) return;
                 s.jumped=true; p.setDeltaMovement(p.getDeltaMovement().x,0.42+n*0.06,p.getDeltaMovement().z);
                 p.needsSync=true;p.syncVelocity=true;
                 // Preserve accumulated fall distance so this cannot silently erase falling damage or smash setups.
@@ -79,25 +84,39 @@ public final class Skills {
     }
     private static void impulse(ServerPlayer p,Vec3 impulse) { p.push(impulse);p.syncVelocity=true; }
     private static LivingEntity findTarget(ServerPlayer p) {
-        return p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(32),e->e!=p && e.isAlive() && !e.isSpectator() &&
-            !p.isAlliedTo(e) && (!(e instanceof Player other) || p.canHarmPlayer(other)) && p.hasLineOfSight(e) &&
-            p.getLookAngle().dot(e.getEyePosition().subtract(p.getEyePosition()).normalize())>0.96)
+        return p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(Balance.LOCK_RANGE),e->e!=p && e.isAlive() && !e.isSpectator() &&
+            p.distanceToSqr(e)<=Balance.LOCK_RANGE*Balance.LOCK_RANGE && !p.isAlliedTo(e) && (!(e instanceof Player other) || p.canHarmPlayer(other)) && p.hasLineOfSight(e) &&
+            p.getLookAngle().dot(e.getEyePosition().subtract(p.getEyePosition()).normalize())>Balance.LOCK_CONE)
             .stream().min(Comparator.comparingDouble(e->1-p.getLookAngle().dot(e.getEyePosition().subtract(p.getEyePosition()).normalize()))).orElse(null);
     }
     public static boolean deadEyeActive(LivingEntity user) {
         if (!(user instanceof ServerPlayer p) || skillTier(p.getMainHandItem())==null || !skillTier(p.getMainHandItem()).deadEye()) return false;
         State s=STATES.get(p.getUUID()); return s!=null && p.level().getGameTime()<s.deadUntil;
     }
+    public static boolean deadEyeActive(LivingEntity user,ItemStack firedWeapon) {
+        Tier tier=firedWeapon==null?null:skillTier(firedWeapon);
+        return tier!=null && tier.deadEye() && deadEyeActive(user);
+    }
     public static boolean aim(LivingEntity user,Projectile projectile,float power,float angle) {
         if (!(user instanceof ServerPlayer p) || skillTier(p.getMainHandItem())==null || !skillTier(p.getMainHandItem()).targetLock()) return false;
+        if (!(projectile instanceof net.minecraft.world.entity.projectile.arrow.AbstractArrow arrow)) return false;
+        Tier firedTier=arrow.getWeaponItem()==null?null:skillTier(arrow.getWeaponItem());
+        if (firedTier==null || !firedTier.targetLock()) return false;
         State s=STATES.get(p.getUUID());
-        if (s==null || s.target==null || p.level().getGameTime()>=s.lockUntil || angle!=0) return false;
+        if (s==null || s.target==null || p.level().getGameTime()>=s.lockUntil || angle!=0 || power<3f) return false;
         Entity entity=p.level().getEntity(s.target);
-        if (!(entity instanceof LivingEntity target) || !target.isAlive() || target.isSpectator() || p.distanceToSqr(target)>1024 ||
+        if (!(entity instanceof LivingEntity target) || !target.isAlive() || target.isSpectator() || p.distanceToSqr(target)>Balance.LOCK_RANGE*Balance.LOCK_RANGE ||
             !p.hasLineOfSight(target) || p.isAlliedTo(target) || (target instanceof Player other && !p.canHarmPlayer(other))) return false;
+        if (p.getLookAngle().dot(target.getEyePosition().subtract(p.getEyePosition()).normalize())<Balance.LOCK_CONE) return false;
         Vec3 delta=target.getEyePosition().subtract(projectile.position());
         // Aim correction at release only; arrows retain vanilla flight, gravity and collision.
         projectile.shoot(delta.x,delta.y+delta.horizontalDistance()*0.12,delta.z,power,Combat.uncertainty(projectile,user));return true;
+    }
+    public static void finishShot(LivingEntity user) {
+        if (user instanceof ServerPlayer p) {
+            State s=STATES.get(p.getUUID());
+            if (s!=null) { s.lockUntil=0;s.deadUntil=0;s.target=null; }
+        }
     }
     private static Tier skillTier(ItemStack stack) {
         if (stack.getItem() instanceof TierBowItem bow) return bow.tier;
