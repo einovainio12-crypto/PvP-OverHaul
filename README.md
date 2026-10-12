@@ -25,7 +25,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.2.1.jar`**, not the `-sources.jar`, in your game's `mods` folder.
+5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.3.0.jar`**, not the `-sources.jar`, in your game's `mods` folder.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
@@ -82,7 +82,7 @@ Crossbows have Zoom at every tier; netherite additionally has Target Lock and De
 - Tridents: craftable with prismarine shards and sticks; +1 main-hand entity interaction range supplied as a normal item attribute. Depth Strider boots allow an enchanted Riptide trident to activate in dry conditions. You still need Riptide on the trident.
 - Axes/battleaxes: Throwable enables sneak-right-click throwing. Loyalty also supports thrown knives, axes and spears.
 - Boots: Speed I–III grants +3%/+6%/+9% movement speed. Speed and Double Jump are mutually exclusive mobility choices; existing boots carrying both retain Speed and cannot activate Double Jump. Depth Strider and Soul Speed stay compatible with either. Double Jump I–II still preserves accumulated fall distance.
-- Elytra: Boost I–III applies a 0.30/0.40/0.50 directional impulse with an 8/7/6-second cooldown, a base three durability cost (Unbreaking applies normally), and 0.6 hunger exhaustion. Aerodynamics adds 0.025 impulse and removes 0.25 seconds of cooldown per level, capped at level II. Boost adds no speed above 1.8 blocks/tick; it never truncates existing rocket/Riptide momentum. It requires gliding, usable elytra durability, and no vehicle or creative flight. All eight new enchantments remain available through enchanting/trades/loot and `/enchant`. Boost and Speed are less common enchanting-table choices than before.
+- Elytra: Boost I–III applies a 0.36/0.48/0.60 directional impulse, 20% stronger than v0.2, with an 8/7/6-second cooldown, a base three durability cost (Unbreaking applies normally), and 0.6 hunger exhaustion. Aerodynamics adds 0.025 impulse and removes 0.25 seconds of cooldown per level, capped at level II. Boost adds no speed above 1.8 blocks/tick; it never truncates existing rocket/Riptide momentum. It requires gliding, usable elytra durability, and no vehicle or creative flight. All eight new enchantments remain available through enchanting/trades/loot and `/enchant`. Boost and Speed are less common enchanting-table choices than before.
 
 ### Controls
 
@@ -105,7 +105,7 @@ Wood/stone/flint arrows work in every mod bow/crossbow. Copper unlocks copper ar
 
 Arrow spread values (lower is more accurate): wood 1.8, stone 1.5, flint 1.0, copper 0.8, iron 0.6, gold 0.5, Dragon Scale 0.2, netherite 0.05. Special arrows use 0.7–0.9. Custom arrow material accuracy also applies when a vanilla bow/crossbow fires that arrow.
 
-Blunt arrows disable a frontal blocking shield for a base two seconds after resolving its block; shield tier scales that time. Blaze/fire charge arrows ignite on a successful hit, breeze arrows knock back, and firework arrows **mark with Glowing for five seconds**. Firework arrows are a safe starter effect rather than explosions. Actual vanilla firework rockets remain supported in the offhand for diamond/netherite crossbows.
+Blunt arrows disable a frontal blocking shield for a base two seconds after resolving its block. Blaze/fire charge arrows ignite on a successful hit, and breeze arrows knock back. Firework arrows are consumed on the first entity or block impact and create a **vanilla one-star firework explosion** on the next server tick. It replaces the ordinary arrow hit, dealing up to 7 damage before armor with vanilla distance falloff over 5 blocks and sight checks. It has normal rocket particles/sound and shooter attribution, can harm the shooter at close range, and does not destroy blocks. Piercing cannot make one arrow explode repeatedly. Bow damage bonuses and Power do not multiply this native explosion damage. Actual vanilla firework rockets remain supported in the offhand for diamond/netherite crossbows.
 
 ### Crafting and fletching
 
@@ -126,7 +126,7 @@ The code avoids replacing `Player.attack`, global cooldowns, critical-hit rules,
 
 Important current limits:
 
-- There are **92 original, editable 16×16 placeholder textures**: material-specific bows and crossbows with pulling/loaded states, knives, battleaxes, arrows, shield inventory icons, and Dragon Scale. They use weapon silhouettes and vanilla-style small palettes. Held shields still use the vanilla 3D renderer; native spears keep native visuals. Custom thrown weapons still use the vanilla trident flying model and return their original item stack.
+- There are **86 original, editable 16×16 placeholder textures** for bows/crossbows and their states, knives, battleaxes, arrows, and Dragon Scale. The six shields use the supplied Blockbench cube geometry and original embedded 64×64 textures in inventory, on the ground, in both hands and while blocking. `shield.bbmodel` maps to wood; the other files map to their named material. `scripts/shield_assets.py` exports them during each build; editable originals are in `scripts/shields`. These regular item models need no OptiFine renderer. Banner patterns are not drawn on these supplied models. Native spears keep native visuals. Custom thrown weapons still use the vanilla trident flying model and return their original item stack.
 - Vanilla Loyalty's JSON definition is replaced only to widen its supported-item set. Datapacks/mods that also replace that definition may conflict. Other vanilla enchantment definitions are not overwritten.
 - Spectral arrows and vanilla rockets are reused; custom firework arrows do not create fireworks or damage blocks. Breeze arrows use a direct knockback effect rather than a wind-charge entity.
 - Movement/skill state is session-local and resets on disconnect/server restart. There is no saved progression tree or skill XP system because the original concept did not define one.
@@ -142,9 +142,10 @@ See [TESTING.md](TESTING.md) for the actual validation performed and the gamepla
 - `Combat.java` and `mixin/`: narrow combat hooks, shield effects and Riptide extension.
 - `Skills.java`: server checks, cooldowns and movement abilities.
 - `Interactions.java`: throwing, waxing and fletching upgrades.
-- `scripts/generate_resources.py` and `scripts/pixel_art.py`: recipes, enchantment data, item tags, models, translations and original pixel-art geometry. The build regenerates these files before validation and packaging. Make persistent texture/data changes in these scripts, because edits to their generated PNG/JSON outputs are overwritten on the next build.
+- `scripts/generate_resources.py` and `scripts/pixel_art.py`: recipes, enchantment data, item tags, models, translations and original pixel-art geometry. `scripts/shield_assets.py` and `scripts/shields/*.bbmodel` supply the custom shields. The build regenerates these files before validation and packaging. Make persistent texture/data changes in these sources, because generated PNG/JSON outputs are overwritten on the next build.
+- `FireworkArrows.java` and `mixin/FireworkRocketAccessor.java`: native firework payload and impact detonation timing; ordinary arrows/rockets keep their normal behavior.
 - `LegacySpears.java` / `mixin/ItemCodecMixin.java`: v0.1 saved-spear ID conversion without duplicate registration.
 - `scripts/obsolete_resources.json`: exact old spear files excluded from the JAR if a browser upload leaves them in your checkout.
 - `src/test/java/dev/pvpoverhaul/BalanceChecks.java`: bow tradeoffs and movement bounds, included in Gradle `check`.
 
-Java changes require rebuilding the JAR. Version pins are in `gradle.properties`. Updating just the Minecraft version number is not a safe port: recheck APIs and run the gameplay checklist. Source and original generated icons are MIT licensed; vanilla models/textures are referenced from the game and are not bundled.
+Java changes require rebuilding the JAR. Version pins are in `gradle.properties`. Updating just the Minecraft version number is not a safe port: recheck APIs and run the gameplay checklist. Source and original generated icons are MIT licensed. The supplied shield models/textures are included as user-provided assets; their original licensing is not changed by this project. Vanilla models/textures are referenced from the game and are not bundled.

@@ -17,7 +17,7 @@ public final class Balance {
         return 180-20*bounded(level,3)-5*bounded(aerodynamics,2);
     }
     public static double boostStrength(int level,int aerodynamics) {
-        return 0.20+0.10*bounded(level,3)+0.025*bounded(aerodynamics,2);
+        return 0.24+0.12*bounded(level,3)+0.025*bounded(aerodynamics,2);
     }
     /** Limit only the new impulse; never truncate momentum from rockets, Riptide or other techniques. */
     public static double allowedBoostImpulse(double vx,double vy,double vz,double dx,double dy,double dz,int level,int aerodynamics) {

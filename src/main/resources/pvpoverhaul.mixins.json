@@ -9,7 +9,8 @@
     "ThrownTridentMixin",
     "ProjectileMixin",
     "AbstractArrowAccessor",
-    "ItemCodecMixin"
+    "ItemCodecMixin",
+    "FireworkRocketAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -52,7 +52,6 @@ public final class Combat {
                 Vec3 push=arrow.getDeltaMovement().normalize().scale(0.8);
                 living.push(push.x,0.45,push.z);living.syncVelocity=true;
             }
-            if (item.ammo==Ammo.FIREWORK) living.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.GLOWING,100));
         }
     }
     public static float thrownDamage(AbstractArrow projectile,float vanilla) {

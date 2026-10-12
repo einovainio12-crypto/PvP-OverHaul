@@ -1,3 +1,10 @@
+# 0.3.0
+
+- Firework arrows now detonate as one-star vanilla fireworks on the first entity or block impact. Native area damage, falloff, sight checks, particles and sound replace the old Glowing-only effect. The arrow is consumed and cannot make repeated Piercing explosions; no block destruction.
+- Increased Boost's base impulses by 20% to 0.36/0.48/0.60. Cooldowns, costs, Aerodynamics and the incremental 1.8 blocks/tick cap remain unchanged.
+- Integrated all six supplied Blockbench shield meshes and embedded textures, including normal and blocking poses. The supplied `shield.bbmodel` is used for the wood tier. Original models are kept in `scripts/shields` and exported at build time.
+- Complete project and browser upload updated to 52 files. Output: `pvp-overhaul-0.3.0.jar`.
+
 # 0.2.1
 
 Fresh complete source distribution. Includes the Gradle test-discovery fix and automatic resource repair, a complete generated project, and a single browser-upload folder. Gameplay features and balance values match 0.2.0. Output: `pvp-overhaul-0.2.1.jar`.

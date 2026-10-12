@@ -3,7 +3,9 @@
 ## Validation performed in the creation environment
 
 - All main and client Java sources compiled with a Java 25 JDK against the **actual Minecraft 26.3 client JAR**, Fabric Loader 0.19.5, Fabric API 0.162.0+26.3 and the game's dependency libraries. Compilation used `javac --release 25 -proc:none`; this establishes API/type correctness, not gameplay correctness or Mixin application.
-- `python3 scripts/validate_resources.py` passed: 214 JSON resources, 44 added items, internal model/texture links, recipe symbol/result consistency, entrypoint/mixin source coverage and enchantment exclusions.
+- `python3 scripts/validate_resources.py` passed: 220 JSON resources, 44 added items, internal model/texture links, recipe symbol/result consistency, entrypoint/mixin source coverage and enchantment exclusions.
+- Minecraft 26.3's actual client loaders parsed all twelve exported normal/blocking shield models and six conditional item definitions without opening a graphics window. The exported PNGs are byte-identical to the six embedded Blockbench textures; geometry/face UVs are preserved with a constant anchor translation and UV-grid scaling. This does not verify in-hand placement or visual rendering in-game.
+- The v0.3 firework Mixins applied when the real Fabric server loaded Arrow and FireworkRocketEntity classes. The firework definition has exactly one colored explosion star. Native rocket implementation supplies damage and visuals; impact explosions still need the gameplay checks below. ItemStack creation is deferred until impact because Minecraft 26.3 binds item components after mod initialization.
 - A manually packaged mod loaded under **Fabric Loader 0.19.5 + Fabric API 0.162.0+26.3** on the actual 26.3 dedicated-server classes. `KnotServer --initSettings nogui` exited successfully and logged `PvP Overhaul loaded for Minecraft 26.3`. A temporary test initializer forced all six server combat/migration target classes to load with no Mixin injection failure. It verified that all six old spear IDs are absent from the item registry, decode to the correct native items, retain count/damage/name patches, and encode back to native IDs. This checks mod initialization and server Mixin application only; it does not load a world or validate datapacks/gameplay. The EULA was not accepted automatically.
 - The dependency-free Java balance checks passed: sustained gold/netherite bow tradeoff, charge timing, stacked damage bounds, cooldown floors, overleveled-enchantment limits, preservation of above-cap momentum, invalid-motion rejection, and 10,000 seeded boost-vector cases. These checks are also part of Gradle `check`.
 - A fixture reproduced the reported eleven missing wood textures, stale spear enchantment tags, and old Speed/Double Jump definitions. It failed validation with the same three error types, then generation restored current resources and validation passed. A second fixture containing only Java plus the three mod metadata files regenerated and validated the full set.
@@ -33,6 +35,7 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 - Check custom arrow spread in vanilla bows/crossbows and dispensers. Ordinary vanilla arrows retain their original spread unless a mod skill is active.
 - Blunt stun must respect shield facing, resolve the blocking hit before stunning, and scale recovery duration with shield tier.
 - Breeze/fire effects apply only on successful damage. Check teammate protection, disabled PvP and entity invulnerability.
+- Firework arrows: hit entities and blocks; verify one visible/audible explosion, consumption, nearby damage with falloff, no hits through solid walls, armor/shield behavior, team/PvP protection and close-range self-damage. Try bow/crossbow/dispenser shots, Piercing, Multishot and rapid repeated impacts. It replaces direct arrow damage and must not duplicate explosions or destroy blocks. Ordinary arrows and actual rocket ammunition must remain unchanged.
 
 ### Throwing and enchantments
 
@@ -46,11 +49,11 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 
 - Test a second Jump press with/without Double Jump boots, then remove boots midair. Only one extra jump is allowed, and fall distance stays intact.
 - Test landing resets, climbing, water, spectator mode, flying, gliding, passengers, disconnect/reconnect and death.
-- Boost: check 8/7/6-second cooldowns, Aerodynamics bounds, three durability cost before Unbreaking, exhaustion, low-durability rejection, and the 1.8 blocks/tick incremental cap. Existing rocket/Riptide momentum above that cap must stay unchanged.
+- Boost: check the stronger 0.36/0.48/0.60 impulses, 8/7/6-second cooldowns, Aerodynamics bounds, three durability cost before Unbreaking, exhaustion, low-durability rejection, and the 1.8 blocks/tick incremental cap. Existing rocket/Riptide momentum above that cap must stay unchanged.
 - Speed: verify +3%/+6%/+9%, mutually exclusive enchanting/anvil paths with Double Jump, and old boots carrying both (Speed takes priority). Depth Strider and Soul Speed must remain compatible.
 - Pole Jump needs enchanted spear + ground contact and cannot activate with Throwable.
 - Target Lock is limited to one charged shot/volley within three seconds and a 16-second cooldown, obeys line of sight, 24-block range, allies, PvP protection and target validity on release. Swapping to a bow that lacks the skill must not retain its benefit.
 - Dead Eye grants +5% damage and 40% less random spread to one charged shot/volley, with a three-second window and 20-second cooldown. Partial bow shots must not gain the effect. Check cooldown packet spam and reconnect behavior.
-- Confirm key rebinding, zoom, all 92 textures and their bow draw/crossbow load states, shield icons versus held 3D models, native spear visuals, translations and creative entries. Custom thrown projectiles intentionally use the vanilla trident visual in v0.2.
+- Confirm key rebinding, zoom, all 92 textures and their bow draw/crossbow load states, all six custom shield models in both hands, blocking/normal poses, GUI/ground/item-frame/shelf contexts, enchantment glint, native spear visuals, translations and creative entries. Supplied shield geometry does not render banner layers. Custom thrown projectiles intentionally use the vanilla trident visual.
 
 Record the server/client versions, exact combo steps and observed damage/timing before changing combat hooks.

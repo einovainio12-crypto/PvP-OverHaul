@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Reproducible resources; no Minecraft textures or external Python packages required."""
+"""Reproducible resources, including supplied shield assets; no external Python packages required."""
 import json, pathlib
 from pixel_art import render
+from shield_assets import export_shield
 ROOT=pathlib.Path(__file__).resolve().parents[1]/'src/main/resources'
 MOD='pvpoverhaul'
 TIERS=['wood','copper','iron','gold','diamond','netherite']
@@ -36,11 +37,7 @@ def crossbow_model(item,color):
  m=lambda s:{'type':'minecraft:model','model':f'{MOD}:item/{item}{s}'}
  write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:select','property':'minecraft:charge_type','cases':[{'when':'arrow','model':m('_arrow')},{'when':'rocket','model':m('_firework')}],'fallback':{'type':'minecraft:condition','property':'minecraft:using_item','on_false':m(''),'on_true':{'type':'minecraft:range_dispatch','property':'minecraft:crossbow/pull','fallback':m('_pulling_0'),'entries':[{'threshold':.58,'model':m('_pulling_1')},{'threshold':1,'model':m('_pulling_2')}]}}}})
 def shield_model(item,color):
- def special(s):return {'type':'minecraft:special','base':f'minecraft:item/shield{s}','model':{'type':'minecraft:shield'}}
- textured_model(item,'minecraft:item/generated');png(item,'shield',color)
- held={'type':'minecraft:condition','property':'minecraft:using_item','on_false':special(''),'on_true':special('_blocking'),'transformation':{'scale':[1,-1,-1]}}
- icon={'type':'minecraft:model','model':f'{MOD}:item/{item}'}
- write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:select','property':'minecraft:display_context','cases':[{'when':['gui','ground','fixed','on_shelf'],'model':icon}],'fallback':held}})
+ export_shield(ROOT,item)
 obsolete=json.loads((pathlib.Path(__file__).parent/'obsolete_resources.json').read_text())
 for relative in obsolete:(ROOT/relative).unlink(missing_ok=True)
 items=[]
