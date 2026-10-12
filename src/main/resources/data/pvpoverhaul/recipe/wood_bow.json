@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:bow"
+  ],
+  "result": {
+    "id": "pvpoverhaul:wood_bow",
+    "count": 1
+  }
+}

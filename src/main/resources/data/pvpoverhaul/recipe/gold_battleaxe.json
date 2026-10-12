@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "MSM",
+    " S "
+  ],
+  "key": {
+    "M": "minecraft:gold_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "pvpoverhaul:gold_battleaxe",
+    "count": 1
+  }
+}

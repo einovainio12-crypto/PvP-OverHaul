@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "M",
+    "S",
+    "F"
+  ],
+  "key": {
+    "M": "minecraft:netherite_scrap",
+    "S": "minecraft:stick",
+    "F": "minecraft:feather"
+  },
+  "result": {
+    "id": "pvpoverhaul:netherite_arrow",
+    "count": 4
+  }
+}

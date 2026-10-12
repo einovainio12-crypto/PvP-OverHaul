@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_shield",
+    "pvpoverhaul:copper_shield",
+    "pvpoverhaul:iron_shield",
+    "pvpoverhaul:gold_shield",
+    "pvpoverhaul:diamond_shield",
+    "pvpoverhaul:netherite_shield"
+  ]
+}

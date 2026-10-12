@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:dragon_breath",
+    "minecraft:echo_shard",
+    "minecraft:popped_chorus_fruit"
+  ],
+  "result": {
+    "id": "pvpoverhaul:dragon_scale",
+    "count": 1
+  }
+}

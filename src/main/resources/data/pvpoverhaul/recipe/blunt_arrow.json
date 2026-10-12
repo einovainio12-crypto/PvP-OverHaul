@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "M",
+    "S",
+    "F"
+  ],
+  "key": {
+    "M": "minecraft:iron_nugget",
+    "S": "minecraft:stick",
+    "F": "minecraft:feather"
+  },
+  "result": {
+    "id": "pvpoverhaul:blunt_arrow",
+    "count": 4
+  }
+}

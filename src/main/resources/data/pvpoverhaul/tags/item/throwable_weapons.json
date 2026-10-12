@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#pvpoverhaul:spears",
+    "#pvpoverhaul:battleaxes",
+    "#minecraft:axes",
+    "#minecraft:spears"
+  ]
+}

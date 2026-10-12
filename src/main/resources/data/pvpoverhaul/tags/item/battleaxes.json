@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_battleaxe",
+    "pvpoverhaul:copper_battleaxe",
+    "pvpoverhaul:iron_battleaxe",
+    "pvpoverhaul:gold_battleaxe",
+    "pvpoverhaul:diamond_battleaxe",
+    "pvpoverhaul:netherite_battleaxe"
+  ]
+}

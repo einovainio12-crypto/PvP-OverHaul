@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:bow",
+    "minecraft:diamond",
+    "minecraft:diamond",
+    "minecraft:diamond"
+  ],
+  "result": {
+    "id": "pvpoverhaul:diamond_bow",
+    "count": 1
+  }
+}

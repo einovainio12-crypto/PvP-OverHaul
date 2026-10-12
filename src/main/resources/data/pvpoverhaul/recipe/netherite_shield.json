@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:netherite_upgrade_smithing_template",
+  "base": "pvpoverhaul:diamond_shield",
+  "addition": "minecraft:netherite_ingot",
+  "result": {
+    "id": "pvpoverhaul:netherite_shield"
+  }
+}

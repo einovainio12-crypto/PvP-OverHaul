@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "pvpoverhaul",
+  "version": "${version}",
+  "name": "PvP Overhaul",
+  "description": "Tiered ranged weapons, knives, spears, battleaxes, shields and combat enchantments for Minecraft 26.3.",
+  "authors": ["PvP Overhaul contributors"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.pvpoverhaul.PvpOverhaul"],
+    "client": ["dev.pvpoverhaul.client.PvpOverhaulClient"]
+  },
+  "mixins": ["pvpoverhaul.mixins.json", {"config":"pvpoverhaul.client.mixins.json", "environment":"client"}],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.162.0+26.3"
+  }
+}

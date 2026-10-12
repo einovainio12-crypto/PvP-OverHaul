@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  M",
+    " S ",
+    "S  "
+  ],
+  "key": {
+    "M": "minecraft:gold_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "pvpoverhaul:gold_spear",
+    "count": 1
+  }
+}

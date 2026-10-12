@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "M",
+    "S",
+    "F"
+  ],
+  "key": {
+    "M": "minecraft:gold_ingot",
+    "S": "minecraft:stick",
+    "F": "minecraft:feather"
+  },
+  "result": {
+    "id": "pvpoverhaul:gold_arrow",
+    "count": 4
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MSM",
+    "MMM",
+    " M "
+  ],
+  "key": {
+    "M": "minecraft:copper_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "pvpoverhaul:copper_shield",
+    "count": 1
+  }
+}

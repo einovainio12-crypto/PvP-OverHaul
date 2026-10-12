@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:crossbow",
+    "minecraft:copper_ingot",
+    "minecraft:copper_ingot",
+    "minecraft:copper_ingot"
+  ],
+  "result": {
+    "id": "pvpoverhaul:copper_crossbow",
+    "count": 1
+  }
+}

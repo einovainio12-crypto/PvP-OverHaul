@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_knife",
+    "pvpoverhaul:copper_knife",
+    "pvpoverhaul:iron_knife",
+    "pvpoverhaul:gold_knife",
+    "pvpoverhaul:diamond_knife",
+    "pvpoverhaul:netherite_knife"
+  ]
+}

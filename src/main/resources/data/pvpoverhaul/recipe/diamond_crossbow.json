@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:crossbow",
+    "minecraft:diamond",
+    "minecraft:diamond",
+    "minecraft:diamond"
+  ],
+  "result": {
+    "id": "pvpoverhaul:diamond_crossbow",
+    "count": 1
+  }
+}
