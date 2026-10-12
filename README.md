@@ -6,6 +6,10 @@ Pinned toolchain: Minecraft 26.3, Fabric Loader 0.19.5, Fabric API 0.162.0+26.3,
 
 ## Put this in your new GitHub repository
 
+The fresh kit needs **one project upload**. Extract it, open `UPLOAD-THIS`, and drag everything **inside** that folder (including `src`, `scripts` and `gradle`) into the repository root. Create `.github/workflows/build.yml` in GitHub's file editor using the visible `workflow-build.yml.txt` supplied outside that folder. Follow `START-HERE.txt`. `Complete-project` contains the full source and generated textures/resources for local or git-based use; browser users only need `UPLOAD-THIS` plus the workflow.
+
+The build now runs `generateResources` before validation and packaging. The included Python scripts generate all current PNG textures, models, recipes, tags, enchantments and translations, repairing missing images and old definitions. The browser kit therefore only needs Java source plus the three mod metadata files; it does not require hundreds of individual generated resource uploads.
+
 1. Create an empty GitHub repository, for example `pvp-overhaul`. Leave the “add README” and “add license” options unchecked.
 2. Extract the ZIP. Open a terminal **inside the extracted `pvp-overhaul` folder**; `build.gradle` and `.github` must be at the repository root.
 3. Run these commands, replacing `YOURNAME` and the repository name:
@@ -18,10 +22,10 @@ git remote add origin https://github.com/YOURNAME/pvp-overhaul.git
 git push -u origin main
 ```
 
-Alternatively, upload the extracted contents using GitHub's **Add file → Upload files**, including the `.github` and `.devcontainer` folders. Do not upload only the ZIP: GitHub cannot build files inside it.
+For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.2.0.jar`**, not the `-sources.jar`, in your game's `mods` folder.
+5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.2.1.jar`**, not the `-sources.jar`, in your game's `mods` folder.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
@@ -105,7 +109,7 @@ Blunt arrows disable a frontal blocking shield for a base two seconds after reso
 
 ### Crafting and fletching
 
-Regular recipes are in `src/main/resources/data/pvpoverhaul/recipe`. Convert a vanilla bow/crossbow to its wooden tier using a one-item crafting recipe. Add three copper/iron/gold ingots or diamonds to a vanilla bow/crossbow for higher tiers. Netherite crafting uses the usual upgrade template, diamond-tier item and netherite ingot at a smithing table.
+After a build or regeneration, recipes are in `src/main/resources/data/pvpoverhaul/recipe`. Convert a vanilla bow/crossbow to its wooden tier using a one-item crafting recipe. Add three copper/iron/gold ingots or diamonds to a vanilla bow/crossbow for higher tiers. Netherite crafting uses the usual upgrade template, diamond-tier item and netherite ingot at a smithing table.
 
 A fletching table also supports a simple **two-hand upgrade interaction**, with no new GUI:
 
@@ -138,7 +142,7 @@ See [TESTING.md](TESTING.md) for the actual validation performed and the gamepla
 - `Combat.java` and `mixin/`: narrow combat hooks, shield effects and Riptide extension.
 - `Skills.java`: server checks, cooldowns and movement abilities.
 - `Interactions.java`: throwing, waxing and fletching upgrades.
-- `scripts/generate_resources.py` and `scripts/pixel_art.py`: recipes, enchantment data, item tags, models, translations and original pixel-art geometry. Regenerate with Python 3, then run `scripts/validate_resources.py`.
+- `scripts/generate_resources.py` and `scripts/pixel_art.py`: recipes, enchantment data, item tags, models, translations and original pixel-art geometry. The build regenerates these files before validation and packaging. Make persistent texture/data changes in these scripts, because edits to their generated PNG/JSON outputs are overwritten on the next build.
 - `LegacySpears.java` / `mixin/ItemCodecMixin.java`: v0.1 saved-spear ID conversion without duplicate registration.
 - `scripts/obsolete_resources.json`: exact old spear files excluded from the JAR if a browser upload leaves them in your checkout.
 - `src/test/java/dev/pvpoverhaul/BalanceChecks.java`: bow tradeoffs and movement bounds, included in Gradle `check`.

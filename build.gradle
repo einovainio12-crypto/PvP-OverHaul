@@ -5,7 +5,7 @@ plugins {
     id 'maven-publish'
 }
 version = project.mod_version
- group = project.maven_group
+group = project.maven_group
 base { archivesName = project.archives_base_name }
 loom {
     splitEnvironmentSourceSets()
@@ -22,7 +22,12 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 }
 def obsoleteResourcePaths = new JsonSlurper().parse(file("scripts/obsolete_resources.json"))
+tasks.register('generateResources', Exec) {
+    description = 'Generate current textures, models, recipes, tags and enchantments before packaging.'
+    commandLine 'python3', 'scripts/generate_resources.py'
+}
 processResources {
+    dependsOn 'validateResources'
     // Old browser uploads may leave v0.1 spear resources behind; never package those.
     exclude obsoleteResourcePaths
     inputs.property 'version', project.version
@@ -35,8 +40,10 @@ java {
 tasks.withType(JavaCompile).configureEach { options.release = 25 }
 jar { from('LICENSE') { rename { "${it}_${project.base.archivesName.get()}" } } }
 tasks.register('validateResources', Exec) {
+    dependsOn tasks.named('generateResources')
     commandLine 'python3', 'scripts/validate_resources.py'
 }
+tasks.named('sourcesJar') { dependsOn tasks.named('validateResources') }
 tasks.register('balanceChecks', JavaExec) {
     dependsOn tasks.named('testClasses')
     classpath = sourceSets.test.runtimeClasspath

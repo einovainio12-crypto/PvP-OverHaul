@@ -1,4 +1,12 @@
+# 0.2.1
+
+Fresh complete source distribution. Includes the Gradle test-discovery fix and automatic resource repair, a complete generated project, and a single browser-upload folder. Gameplay features and balance values match 0.2.0. Output: `pvp-overhaul-0.2.1.jar`.
+
 # 0.2.0
+
+Resource repair: automatically run the existing generator before resource validation, JAR packaging and source-JAR packaging. Missing texture uploads and old enchantment/tag JSON files are regenerated. The browser kit now has one 43-file project upload.
+
+Build fix: allow the framework `test` task to discover no tests, because `BalanceChecks` runs through its dedicated `balanceChecks` task. Balance/resource checks and actual test failures remain enforced.
 
 - Boost I/II/III: impulse 0.30/0.40/0.50; cooldown 8/7/6 seconds; base three durability cost and 0.6 exhaustion. Aerodynamics adds 0.025 impulse and reduces cooldown by 0.25 seconds per level. Only the added impulse is capped; existing rocket/Riptide momentum is preserved.
 - Speed I/II/III: +3%/+6%/+9%, reduced enchanting weight. Mutually exclusive with Double Jump; Speed takes priority on older boots that already carry both.
