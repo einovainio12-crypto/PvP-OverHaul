@@ -43,3 +43,9 @@ tasks.register('balanceChecks', JavaExec) {
     mainClass = 'dev.pvpoverhaul.BalanceChecks'
 }
 tasks.named('check') { dependsOn 'validateResources', 'balanceChecks' }
+
+// BalanceChecks is a standalone Java main executed by balanceChecks, not a JUnit test.
+// Keep real framework test failures fatal, but permit this source set to discover none.
+tasks.named('test', org.gradle.api.tasks.testing.Test).configure {
+    failOnNoDiscoveredTests.set(false)
+}
