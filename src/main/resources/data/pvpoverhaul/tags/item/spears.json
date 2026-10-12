@@ -1,11 +1,6 @@
 {
   "replace": false,
   "values": [
-    "pvpoverhaul:wood_spear",
-    "pvpoverhaul:copper_spear",
-    "pvpoverhaul:iron_spear",
-    "pvpoverhaul:gold_spear",
-    "pvpoverhaul:diamond_spear",
-    "pvpoverhaul:netherite_spear"
+    "#minecraft:spears"
   ]
 }
