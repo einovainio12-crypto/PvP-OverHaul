@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "dev.pvpoverhaul.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "PlayerMixin",
+    "TridentItemMixin",
+    "AbstractArrowMixin",
+    "ThrownTridentMixin",
+    "ProjectileMixin",
+    "AbstractArrowAccessor",
+    "ItemCodecMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
