@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow_firework",
+  "textures": {
+    "layer0": "pvpoverhaul:item/netherite_crossbow_firework"
+  }
+}

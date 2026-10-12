@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pvpoverhaul:item/iron_shield"
+  }
+}
