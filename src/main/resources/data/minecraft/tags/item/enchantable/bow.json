@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_bow",
+    "pvpoverhaul:copper_bow",
+    "pvpoverhaul:iron_bow",
+    "pvpoverhaul:gold_bow",
+    "pvpoverhaul:diamond_bow",
+    "pvpoverhaul:netherite_bow"
+  ]
+}

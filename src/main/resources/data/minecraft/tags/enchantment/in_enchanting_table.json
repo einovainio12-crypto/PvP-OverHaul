@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:throwable",
+    "pvpoverhaul:pole_jump",
+    "pvpoverhaul:double_jump",
+    "pvpoverhaul:speed",
+    "pvpoverhaul:boost",
+    "pvpoverhaul:aerodynamics",
+    "pvpoverhaul:cleaving",
+    "pvpoverhaul:impact"
+  ]
+}

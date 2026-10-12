@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_arrow",
+    "pvpoverhaul:stone_arrow",
+    "pvpoverhaul:flint_arrow",
+    "pvpoverhaul:copper_arrow",
+    "pvpoverhaul:iron_arrow",
+    "pvpoverhaul:gold_arrow",
+    "pvpoverhaul:dragon_scale_arrow",
+    "pvpoverhaul:netherite_arrow",
+    "pvpoverhaul:blunt_arrow",
+    "pvpoverhaul:blaze_arrow",
+    "pvpoverhaul:breeze_arrow",
+    "pvpoverhaul:firework_arrow",
+    "pvpoverhaul:fire_charge_arrow"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_knife",
+    "pvpoverhaul:copper_knife",
+    "pvpoverhaul:iron_knife",
+    "pvpoverhaul:gold_knife",
+    "pvpoverhaul:diamond_knife",
+    "pvpoverhaul:netherite_knife",
+    "pvpoverhaul:wood_spear",
+    "pvpoverhaul:copper_spear",
+    "pvpoverhaul:iron_spear",
+    "pvpoverhaul:gold_spear",
+    "pvpoverhaul:diamond_spear",
+    "pvpoverhaul:netherite_spear",
+    "pvpoverhaul:wood_battleaxe",
+    "pvpoverhaul:copper_battleaxe",
+    "pvpoverhaul:iron_battleaxe",
+    "pvpoverhaul:gold_battleaxe",
+    "pvpoverhaul:diamond_battleaxe",
+    "pvpoverhaul:netherite_battleaxe"
+  ]
+}

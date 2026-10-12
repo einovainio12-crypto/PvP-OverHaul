@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "pvpoverhaul:wood_crossbow",
+    "pvpoverhaul:copper_crossbow",
+    "pvpoverhaul:iron_crossbow",
+    "pvpoverhaul:gold_crossbow",
+    "pvpoverhaul:diamond_crossbow",
+    "pvpoverhaul:netherite_crossbow"
+  ]
+}
