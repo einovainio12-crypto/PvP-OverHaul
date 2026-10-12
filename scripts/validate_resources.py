@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""Check internal resource links, recipes, item coverage and enchantment rules before packaging."""
+import json,pathlib,re,sys
+root=pathlib.Path(__file__).resolve().parents[1]
+res=root/'src/main/resources';ns='pvpoverhaul';errors=[]
+def error(message):errors.append(message)
+parsed={}
+for p in res.rglob('*.json'):
+ try:parsed[p.relative_to(res).as_posix()]=json.loads(p.read_text())
+ except (OSError,json.JSONDecodeError) as e:error(f'{p}: {e}')
+items={p.stem for p in (res/f'assets/{ns}/items').glob('*.json')}
+expected={f'{t}_{k}' for t in ['wood','copper','iron','gold','diamond','netherite'] for k in ['bow','crossbow','knife','spear','battleaxe','shield']}
+expected.update(['dragon_scale','wood_arrow','stone_arrow','flint_arrow','copper_arrow','iron_arrow','gold_arrow','dragon_scale_arrow','netherite_arrow','blunt_arrow','blaze_arrow','breeze_arrow','firework_arrow','fire_charge_arrow'])
+if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
+lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})
+for item in expected:
+ if f'item.{ns}.{item}' not in lang:error(f'Missing item translation: {item}')
+def walk(value):
+ if isinstance(value,dict):
+  for k,v in value.items():
+   if k in ['model','base','parent'] and isinstance(v,str) and v.startswith(ns+':'):
+    path=f'assets/{ns}/models/{v.split(":",1)[1]}.json'
+    if path not in parsed:error(f'Missing model {path}')
+   if k=='textures':
+    for v2 in v.values():
+     if isinstance(v2,str) and v2.startswith(ns+':') and not (res/f'assets/{ns}/textures/{v2.split(":",1)[1]}.png').exists():error(f'Missing texture {v2}')
+   walk(v)
+ elif isinstance(value,list):
+  for v in value:walk(v)
+for path,d in parsed.items():
+ if path.startswith('assets/'):walk(d)
+ if '/recipe/' in path:
+  result=d.get('result',{})
+  if result.get('id','').startswith(ns+':') and result['id'].split(':')[1] not in items:error(f'Unknown result {path}')
+  if d.get('type')=='minecraft:crafting_shaped':
+   symbols=set(''.join(d['pattern']))-{' '}
+   if symbols!=set(d['key']):error(f'Invalid recipe symbols in {path}')
+ if '/tags/item/' in path:
+  for v in d.get('values',[]):
+   if isinstance(v,str) and v.startswith(ns+':') and v.split(':')[1] not in items:error(f'Unknown item {v} in {path}')
+throwable=parsed.get(f'data/{ns}/enchantment/throwable.json',{})
+pole=parsed.get(f'data/{ns}/enchantment/pole_jump.json',{})
+if set(throwable.get('exclusive_set',[]))!={'minecraft:lunge','pvpoverhaul:pole_jump'}:error('Throwable must exclude Lunge and Pole Jump')
+if pole.get('exclusive_set')!=['pvpoverhaul:throwable']:error('Pole Jump must allow Lunge and exclude Throwable')
+if 'pvpoverhaul:throwable' in parsed.get('data/minecraft/enchantment/loyalty.json',{}).get('exclusive_set',[]):error('Loyalty must allow Throwable')
+# Check declared Java/mixin entrypoints actually exist; catches mispackaged class names.
+meta=parsed.get('fabric.mod.json',{})
+def class_exists(name):return any((root/f'src/{s}/java'/pathlib.Path(name.replace('.','/')+'.java')).exists() for s in ['main','client'])
+for entries in meta.get('entrypoints',{}).values():
+ for name in entries:
+  if not class_exists(name):error(f'Missing entrypoint {name}')
+for path in ['pvpoverhaul.mixins.json','pvpoverhaul.client.mixins.json']:
+ config=parsed.get(path,{})
+ for name in config.get('mixins',[])+config.get('client',[]):
+  if not class_exists(config.get('package','')+'.'+name):error(f'Missing mixin {name}')
+if errors:
+ print('\n'.join(errors),file=sys.stderr);sys.exit(1)
+print(f'PASS: {len(parsed)} JSON files; {len(items)} items; all internal links, recipes and enchantment rules checked.')
