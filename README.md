@@ -1,3 +1,4 @@
+This mod contains a bit of ai code since im still learning so i used some ai code as help but mostof the code is still mine
 # PvP Overhaul
 
 A Fabric mod for Minecraft Java 26.3 that adds weapons, special arrows and movement enchantments. The aim is to give each material a reason to use it, with tradeoffs in damage, speed, durability and abilities.
