@@ -19,6 +19,8 @@ import java.util.function.Predicate;
 public final class Quivers {
     public static final int SLOTS=9;
     private static final String SELECTED="pvpoverhaul_selected_arrow";
+    private static final String ACTIVE="pvpoverhaul_active_quiver";
+    private static final Map<Player,Integer> WARNED=new WeakHashMap<>();
     private record Origin(Player owner,int inventorySlot,ItemStack quiver,int arrowSlot,ItemStack before) {}
     private static final Map<ItemStack,Origin> DRAWN=Collections.synchronizedMap(new WeakHashMap<>());
     public static List<ItemStack> contents(ItemStack quiver) {
@@ -50,13 +52,37 @@ public final class Quivers {
         return -1;
     }
     public static void select(ItemStack quiver,int slot) {
+        if(slot<-1 || slot>=SLOTS) throw new IllegalArgumentException("Invalid arrow selection");
         CustomData.update(DataComponents.CUSTOM_DATA,quiver,tag->tag.putInt(SELECTED,slot));
     }
+    public static boolean active(ItemStack quiver) {
+        return quiver.is(ModItems.QUIVER) && quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getBooleanOr(ACTIVE,false);
+    }
+    public static void activate(List<ItemStack> carried,ItemStack selectedQuiver) {
+        for(ItemStack stack:carried) if(stack.is(ModItems.QUIVER)) {
+            CustomData.update(DataComponents.CUSTOM_DATA,stack,tag->{
+                if(stack==selectedQuiver) tag.putBoolean(ACTIVE,true);else tag.remove(ACTIVE);
+            });
+        }
+    }
+    public static void select(Player player,int inventorySlot,int arrowSlot) {
+        ItemStack quiver=player.getInventory().getItem(inventorySlot);
+        if(!quiver.is(ModItems.QUIVER)) return;
+        List<ItemStack> carried=new ArrayList<>();
+        for(int i=0;i<36;i++) carried.add(player.getInventory().getItem(i));
+        carried.add(player.getOffhandItem());activate(carried,quiver);select(quiver,arrowSlot);
+    }
     public static int find(Player player) {
-        int selected=player.getInventory().getSelectedSlot();
-        if(player.getInventory().getItem(selected).is(ModItems.QUIVER)) return selected;
-        if(player.getOffhandItem().is(ModItems.QUIVER)) return 40;
-        for(int i=0;i<36;i++) if(player.getInventory().getItem(i).is(ModItems.QUIVER)) return i;
+        List<ItemStack> carried=new ArrayList<>();
+        for(int i=0;i<=40;i++) carried.add(player.getInventory().getItem(i));
+        return preferredSlot(carried,player.getInventory().getSelectedSlot());
+    }
+    public static int preferredSlot(List<ItemStack> carried,int selected) {
+        if(selected>=0 && selected<36 && carried.get(selected).is(ModItems.QUIVER)) return selected;
+        for(int i=0;i<36;i++) if(active(carried.get(i))) return i;
+        if(active(carried.get(40))) return 40;
+        if(carried.get(40).is(ModItems.QUIVER)) return 40;
+        for(int i=0;i<36;i++) if(carried.get(i).is(ModItems.QUIVER)) return i;
         return -1;
     }
     public static ItemStack ammunition(Player player,ItemStack weapon) {
@@ -66,11 +92,27 @@ public final class Quivers {
         int inventorySlot=find(player);
         if(inventorySlot<0) return ItemStack.EMPTY;
         ItemStack quiver=player.getInventory().getItem(inventorySlot);int slot=ammunitionSlot(quiver,ranged.getAllSupportedProjectiles());
-        if(slot<0) return ItemStack.EMPTY;
+        if(slot<0) {
+            if(blocksInventoryFallback(player,weapon) && !player.level().isClientSide()
+                    && player.tickCount-WARNED.getOrDefault(player,-100)>=40) {
+                player.sendOverlayMessage(Component.literal("Your selected quiver arrow is not supported by this weapon. Choose another arrow or 0 for inventory ammo."));
+                WARNED.put(player,player.tickCount);
+            }
+            return ItemStack.EMPTY;
+        }
         ItemStack ammo=contents(quiver).get(slot);
         if(ammo.isEmpty() || !(ammo.getItem() instanceof ArrowItem) || !ranged.getAllSupportedProjectiles().test(ammo)) return ItemStack.EMPTY;
         if(!player.level().isClientSide()) DRAWN.put(ammo,new Origin(player,inventorySlot,quiver,slot,ammo.copy()));
         return ammo;
+    }
+    public static boolean blocksInventoryFallback(Player player,ItemStack weapon) {
+        if(player.containerMenu instanceof QuiverMenu || !(weapon.getItem() instanceof ProjectileWeaponItem ranged)) return false;
+        int inventorySlot=find(player);if(inventorySlot<0) return false;
+        ItemStack quiver=player.getInventory().getItem(inventorySlot);
+        if(!quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().contains(SELECTED)) return false;
+        int slot=selected(quiver);if(slot<0) return false;
+        ItemStack arrow=contents(quiver).get(slot);
+        return !arrow.isEmpty() && arrow.getItem() instanceof ArrowItem && !ranged.getAllSupportedProjectiles().test(arrow);
     }
     public static boolean validDraw(ItemStack ammo,LivingEntity shooter) {
         Origin origin=DRAWN.get(ammo);
@@ -105,9 +147,13 @@ public final class Quivers {
                 player.openMenu(new SimpleMenuProvider((id,inventory,user)->new QuiverMenu(id,inventory,payload.inventorySlot()),Component.translatable("container.pvpoverhaul.quiver")));
                 return;
             }
-            select(quiver,payload.arrowSlot());player.getInventory().setChanged();player.inventoryMenu.broadcastChanges();
+            if(player.containerMenu instanceof QuiverMenu) return;
+            select(player,payload.inventorySlot(),payload.arrowSlot());player.getInventory().setChanged();player.inventoryMenu.broadcastChanges();
+            ItemStack weapon=player.getMainHandItem().getItem() instanceof ProjectileWeaponItem?player.getMainHandItem():player.getOffhandItem();
+            player.sendOverlayMessage(Component.literal(blocksInventoryFallback(player,weapon)?"Selected arrow is not supported by this weapon. Choose another arrow or 0 for inventory ammo.":
+                payload.arrowSlot()<0?"Using inventory ammunition":"Quiver arrow slot "+(payload.arrowSlot()+1)+" selected; applies to the next shot/load."));
         });
-        ServerLifecycleEvents.SERVER_STOPPED.register(server->DRAWN.clear());
+        ServerLifecycleEvents.SERVER_STOPPED.register(server->{DRAWN.clear();WARNED.clear();});
     }
     private Quivers() {}
 }

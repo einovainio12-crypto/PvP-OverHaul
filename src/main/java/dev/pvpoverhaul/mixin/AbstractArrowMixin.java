@@ -58,4 +58,11 @@ public abstract class AbstractArrowMixin implements GrapplingArrows.Visual {
         if(hit) Combat.arrowAfterHit(arrow,result);
         return hit;
     }
+    @Redirect(method="onHitEntity",at=@At(value="INVOKE",target="Lnet/minecraft/world/entity/Entity;igniteForSeconds(F)V"))
+    private void pvp$fireDuration(Entity target,float vanillaSeconds) {
+        AbstractArrow arrow=(AbstractArrow)(Object)this;
+        if(arrow.getPickupItemStackOrigin().getItem() instanceof dev.pvpoverhaul.TierArrowItem item && Combat.fireSeconds(item.ammo)>0)
+            target.igniteForSeconds(Combat.fireSeconds(item.ammo));
+        else target.igniteForSeconds(vanillaSeconds);
+    }
 }

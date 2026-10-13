@@ -11,6 +11,6 @@ public abstract class QuiverPlayerMixin {
     @Inject(method="getProjectile",at=@At("HEAD"),cancellable=true)
     private void pvp$quiverAmmo(ItemStack weapon,CallbackInfoReturnable<ItemStack> cir) {
         ItemStack arrow=Quivers.ammunition((Player)(Object)this,weapon);
-        if(!arrow.isEmpty()) cir.setReturnValue(arrow);
+        if(!arrow.isEmpty() || Quivers.blocksInventoryFallback((Player)(Object)this,weapon)) cir.setReturnValue(arrow);
     }
 }

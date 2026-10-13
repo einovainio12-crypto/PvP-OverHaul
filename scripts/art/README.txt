@@ -1,4 +1,4 @@
-BUILD INPUT ART — v0.8.3
+BUILD INPUT ART — v0.8.4
 
 Eighty-six textures/*.png files are the latest user-supplied 16x16 PNGs.
 The additional quiver.png is a generated transparent sprite based on the

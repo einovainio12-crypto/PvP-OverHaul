@@ -9,12 +9,19 @@ import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ProjectileWeaponItem;
 
 /** Click-based emote-style wheel: Escape cancels; selection changes only future ammunition draws. */
 public final class QuiverWheelScreen extends Screen {
     private final int inventorySlot;
     public QuiverWheelScreen(int inventorySlot) { super(Component.translatable("container.pvpoverhaul.quiver"));this.inventorySlot=inventorySlot; }
     private ItemStack quiver() { return minecraft.player==null?ItemStack.EMPTY:minecraft.player.getInventory().getItem(inventorySlot); }
+    private boolean supported(ItemStack arrow) {
+        if(minecraft.player==null || arrow.isEmpty()) return true;
+        ItemStack main=minecraft.player.getMainHandItem(),off=minecraft.player.getOffhandItem();
+        ItemStack held=main.getItem() instanceof ProjectileWeaponItem?main:off;
+        return !(held.getItem() instanceof ProjectileWeaponItem ranged) || ranged.getAllSupportedProjectiles().test(arrow);
+    }
     private double radius() { return Math.min(80,Math.min(width,height)*0.30); }
     private int hovered(double x,double y) {
         double dx=x-width/2.0,dy=y-height/2.0;
@@ -31,7 +38,7 @@ public final class QuiverWheelScreen extends Screen {
         if(!ClientPlayNetworking.canSend(QuiverSelectionPayload.TYPE)) {
             minecraft.player.sendOverlayMessage(Component.literal("PvP Overhaul must also be installed on the server."));onClose();return;
         }
-        Quivers.select(quiver(),slot);
+        Quivers.select(minecraft.player,inventorySlot,slot);
         ClientPlayNetworking.send(new QuiverSelectionPayload(inventorySlot,slot));
         onClose();
     }
@@ -57,7 +64,7 @@ public final class QuiverWheelScreen extends Screen {
         for(int i=0;i<9;i++) {
             double angle=i*Math.PI*2/9-Math.PI/2;
             int x=cx+(int)Math.round(Math.cos(angle)*r),y=cy+(int)Math.round(Math.sin(angle)*r);
-            int color=i==hover?0xff846bb6:i==selected?0xff3c6f71:0xff2c3949;
+            int color=!supported(arrows.get(i))?0xff713d43:i==hover?0xff846bb6:i==selected?0xff3c6f71:0xff2c3949;
             g.fill(x-18,y-17,x+18,y+19,color);
             if(!arrows.get(i).isEmpty()) g.item(arrows.get(i),x-8,y-12);
             g.text(font,Integer.toString(i+1),x-15,y-15,0xffb9c4d0);
@@ -68,6 +75,7 @@ public final class QuiverWheelScreen extends Screen {
         String center="Inventory";g.text(font,center,cx-font.width(center)/2,cy-4,0xffffffff);
         String title="Quiver — select arrows";g.text(font,title,cx-font.width(title)/2,8,0xffffffff);
         String name=hover>=0?(arrows.get(hover).isEmpty()?"Empty slot — inventory fallback":arrows.get(hover).getHoverName().getString()):"Use inventory ammunition";
+        if(hover>=0 && !supported(arrows.get(hover))) name+=" — not supported by held weapon";
         g.text(font,name,cx-font.width(name)/2,Math.min(height-28,cy+outer+5),0xffeeeeff);
         String help="Click / 1–9 · 0 inventory · Esc cancel";g.text(font,help,cx-font.width(help)/2,height-12,0xffb9c4d0);
     }

@@ -1,3 +1,10 @@
+# 0.8.4
+
+- Rotate thrown native spear item models an additional 90 degrees so their upper-left tips point along flight. Knife and axe rotations stay unchanged.
+- Remember the quiver selected in the wheel, even after switching to a weapon or moving it in inventory. Selecting a different quiver replaces that preference. Add server confirmation and weapon-compatibility feedback. Unsupported explicit choices block shooting rather than silently firing different inventory arrows; center/0 restores inventory mode.
+- Blaze arrows burn targets for 8 seconds; fire-charge arrows burn for 4 seconds. Override native flaming-arrow ignition for those two arrow types so the vanilla 5-second burn does not erase their difference. Blocked/failed hits retain native rollback; ordinary Flame arrows retain native behavior.
+- Output: `pvp-overhaul-0.8.4.jar`.
+
 # 0.8.3
 
 - Use all sixty supplied stone/copper/iron/gold/diamond/netherite bow and crossbow textures unchanged. Bow files map to idle and three pulling stages; crossbow files additionally include loaded-arrow and loaded-firework states.

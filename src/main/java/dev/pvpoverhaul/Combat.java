@@ -12,6 +12,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 
 public final class Combat {
+    public static int fireSeconds(Ammo ammo) { return ammo==Ammo.BLAZE?8:ammo==Ammo.FIRE_CHARGE?4:0; }
     public static float uncertainty(Projectile projectile,LivingEntity shooter) {
         float value=1;
         if (projectile instanceof AbstractArrow arrow && arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item)
@@ -21,7 +22,7 @@ public final class Combat {
     public static void adjustProjectile(Projectile p,LivingEntity shooter,double multiplier) {
         if (!(p instanceof AbstractArrow arrow)) return;
         arrow.setBaseDamage(((dev.pvpoverhaul.mixin.AbstractArrowAccessor)arrow).pvp$getBaseDamage()*multiplier*(arrow.isCritArrow() && Skills.deadEyeActive(shooter,arrow.getWeaponItem())?Balance.DEAD_EYE_DAMAGE:1));
-        if (arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item && (item.ammo==Ammo.BLAZE || item.ammo==Ammo.FIRE_CHARGE)) arrow.igniteForSeconds(5);
+        if (arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item && fireSeconds(item.ammo)>0) arrow.igniteForSeconds(fireSeconds(item.ammo));
     }
     public static float knifeDamage(Player player,float damage) {
         return ModItems.isKnife(player.getMainHandItem()) && (player.isShiftKeyDown() || player.isInvisible()) ? damage*2 : damage;
@@ -47,7 +48,7 @@ public final class Combat {
         Entity target=hit.getEntity();
         if (arrow.getOwner() instanceof Player attacker && target instanceof Player defender && !attacker.canHarmPlayer(defender)) return;
         if (target instanceof LivingEntity living) {
-            if (item.ammo==Ammo.BLAZE || item.ammo==Ammo.FIRE_CHARGE) living.igniteForSeconds(4);
+            if (fireSeconds(item.ammo)>0) living.igniteForSeconds(fireSeconds(item.ammo));
             if (item.ammo==Ammo.BREEZE) {
                 Vec3 push=arrow.getDeltaMovement().normalize().scale(0.8);
                 living.push(push.x,0.45,push.z);living.syncVelocity=true;
