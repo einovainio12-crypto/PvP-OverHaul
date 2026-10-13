@@ -7,21 +7,21 @@ import base64, json, pathlib
 
 TIERS = ['wood', 'copper', 'iron', 'gold', 'diamond', 'netherite']
 NORMAL_DISPLAY = {
-    'thirdperson_righthand': {'rotation': [0, -90, 0], 'translation': [10, 6, -4], 'scale': [1, 1, 1]},
-    'thirdperson_lefthand': {'rotation': [0, -90, 0], 'translation': [10, 6, 12], 'scale': [1, 1, 1]},
-    'firstperson_righthand': {'rotation': [0, 0, 5], 'translation': [-10, 1.75, -10], 'scale': [1.25, 1.25, 1.25]},
-    'firstperson_lefthand': {'rotation': [0, 0, 5], 'translation': [10, 0, -10], 'scale': [1.25, 1.25, 1.25]},
-    'gui': {'rotation': [15, 155, -5], 'translation': [2, 3, 0], 'scale': [0.65, 0.65, 0.65]},
-    'fixed': {'rotation': [0, 0, 0], 'translation': [-4.5, 4.5, -5], 'scale': [0.55, 0.55, 0.55]},
-    'on_shelf': {'rotation': [0, 180, 0], 'translation': [11, 18.5, 8.7], 'scale': [1.4, 1.4, 1.4]},
-    'ground': {'rotation': [0, 180, 0], 'translation': [2, 4, 2], 'scale': [0.25, 0.25, 0.25]},
+    'thirdperson_righthand': {'rotation': [0, -90, 0], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
+    'thirdperson_lefthand': {'rotation': [0, -90, 0], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
+    'firstperson_righthand': {'rotation': [0, 0, 5], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
+    'firstperson_lefthand': {'rotation': [0, 0, 5], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
+    'gui': {'rotation': [15, 155, -5], 'translation': [0, 0, 0], 'scale': [0.65, 0.65, 0.65]},
+    'fixed': {'rotation': [0, 0, 0], 'translation': [0, 0, 0], 'scale': [0.55, 0.55, 0.55]},
+    'on_shelf': {'rotation': [0, 180, 0], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
+    'ground': {'rotation': [0, 180, 0], 'translation': [0, 3, 0], 'scale': [0.25, 0.25, 0.25]},
 }
 BLOCKING_DISPLAY = {
     **NORMAL_DISPLAY,
-    'thirdperson_righthand': {'rotation': [45, -25, 0], 'translation': [-3.49, 11, -2], 'scale': [1, 1, 1]},
-    'thirdperson_lefthand': {'rotation': [45, -25, 0], 'translation': [11.51, 7, 2.5], 'scale': [1, 1, 1]},
-    'firstperson_righthand': {'rotation': [0, 0, -5], 'translation': [-15, 3.25, -11], 'scale': [1.25, 1.25, 1.25]},
-    'firstperson_lefthand': {'rotation': [0, 0, -5], 'translation': [5, 5, -11], 'scale': [1.25, 1.25, 1.25]},
+    'thirdperson_righthand': {'rotation': [25, -35, 0], 'translation': [0, 1, -1], 'scale': [1, 1, 1]},
+    'thirdperson_lefthand': {'rotation': [25, -35, 0], 'translation': [0, 1, -1], 'scale': [1, 1, 1]},
+    'firstperson_righthand': {'rotation': [0, -10, -5], 'translation': [-2, 1, -2], 'scale': [1, 1, 1]},
+    'firstperson_lefthand': {'rotation': [0, -10, -5], 'translation': [-2, 1, -2], 'scale': [1, 1, 1]},
 }
 
 def export_shield(resources, item):
@@ -42,9 +42,11 @@ def export_shield(resources, item):
         textures[str(i)] = f'pvpoverhaul:item/{texture_name}'
     textures['particle'] = textures['0']
     elements = []
-    # Anchor around the supplied model's [0,11,-1] pivot, then translate to the
-    # normal item model's [8,8,8] center. Preserve Blockbench's up-axis and face UVs.
-    shift = [8, -3, 9]
+    # Center the grip, not the plate pivot, on the hand's item origin. For the
+    # supplied meshes the handle center is [0,10,1]. Item cubes are centered at 8.
+    handle=next(cube for cube in model['elements'] if cube['name']=='handle')
+    grip=[(a+b)/2 for a,b in zip(handle['from'],handle['to'])]
+    shift=[8-value for value in grip]
     for cube in model['elements']:
         if not cube.get('export', True):
             continue

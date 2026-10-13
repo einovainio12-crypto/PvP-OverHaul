@@ -11,7 +11,7 @@ The fresh kit needs **one project upload**. Extract it, open `UPLOAD-THIS`, and 
 The build now runs `generateResources` before validation and packaging. The included Python scripts generate all current PNG textures, models, recipes, tags, enchantments and translations, repairing missing images and old definitions. The browser kit therefore only needs Java source plus the three mod metadata files; it does not require hundreds of individual generated resource uploads.
 
 1. Create an empty GitHub repository, for example `pvp-overhaul`. Leave the “add README” and “add license” options unchecked.
-2. Extract the ZIP. Open a terminal **inside the extracted `pvp-overhaul` folder**; `build.gradle` and `.github` must be at the repository root.
+2. Extract the ZIP. Open a terminal **inside the extracted `Complete-project` folder**; `build.gradle` and `.github` must be at the repository root.
 3. Run these commands, replacing `YOURNAME` and the repository name:
 
 ```bash
@@ -25,7 +25,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.3.0.jar`**, not the `-sources.jar`, in your game's `mods` folder.
+5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.6.3.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
@@ -75,14 +75,17 @@ Gold trades impact damage and durability for an 18-tick draw. Its unenchanted da
 Crossbows have Zoom at every tier; netherite additionally has Target Lock and Dead Eye. A magazine fires **one volley per click**, with a six-tick firing cooldown. Vanilla Multishot still determines arrows per volley; each extra volley loads and pays for another ammo unit. Insufficient ammo produces a partially filled magazine. Creative/infinite projectiles remain non-pickup copies.
 
 - **44 added items:** six tiers each of bows, crossbows, knives, battleaxes and shields, thirteen custom arrows, and a Dragon Scale ingredient. Spears use the seven existing Minecraft spear items, including stone; the mod registers no additional spear items.
-- Knives: 3–8 base damage, 3.2 attack speed, one block less interaction range. Sneaking **or** invisibility doubles final melee damage, including vanilla charge/critical/enchantment calculations. Right-click throws a knife without an enchantment.
+- Knives: seven materials (wood, stone, copper, iron, gold, diamond, netherite), 3–8 base damage, 3.2 attack speed, one block less interaction range. Sneaking **or** invisibility doubles final melee damage, including vanilla charge/critical/enchantment calculations. Right-click throws a knife without an enchantment.
 - Spears: the original Minecraft items, models, crafting recipes and kinetic/piercing stats are retained, including native Lunge. Add Throwable for sneak-right-click throwing or Pole Jump for a ground vault. Throwable is incompatible with Lunge and Pole Jump; Pole Jump can coexist with Lunge. Old v0.1 mod spear IDs decode as the matching native spears, retaining saved count and component patches; subsequent saves use the native IDs.
 - Battleaxes: increased melee damage, 0.8 attack speed, vanilla-style five-second shield disable before shield-tier scaling; Sharpness plus new Cleaving and Impact options. Cleaving shares the vanilla damage-enchantment exclusion set.
 - Shields: tiered durability and progressively shorter stun recovery using vanilla's `blocks_attacks` component. High tiers still get stunned; this implementation interprets “harder to stun” as a shorter duration, not a random immunity roll.
 - Tridents: craftable with prismarine shards and sticks; +1 main-hand entity interaction range supplied as a normal item attribute. Depth Strider boots allow an enchanted Riptide trident to activate in dry conditions. You still need Riptide on the trident.
 - Axes/battleaxes: Throwable enables sneak-right-click throwing. Loyalty also supports thrown knives, axes and spears.
 - Boots: Speed I–III grants +3%/+6%/+9% movement speed. Speed and Double Jump are mutually exclusive mobility choices; existing boots carrying both retain Speed and cannot activate Double Jump. Depth Strider and Soul Speed stay compatible with either. Double Jump I–II still preserves accumulated fall distance.
-- Elytra: Boost I–III applies a 0.36/0.48/0.60 directional impulse, 20% stronger than v0.2, with an 8/7/6-second cooldown, a base three durability cost (Unbreaking applies normally), and 0.6 hunger exhaustion. Aerodynamics adds 0.025 impulse and removes 0.25 seconds of cooldown per level, capped at level II. Boost adds no speed above 1.8 blocks/tick; it never truncates existing rocket/Riptide momentum. It requires gliding, usable elytra durability, and no vehicle or creative flight. All eight new enchantments remain available through enchanting/trades/loot and `/enchant`. Boost and Speed are less common enchanting-table choices than before.
+- Elytra: Boost I–III is restored to its original 0.30/0.40/0.50 impulses, 8/7/6-second cooldowns, base three durability cost and 0.6 exhaustion. Its added impulse is capped at 1.8 blocks/tick without truncating existing momentum. Aerodynamics now improves passive gliding instead of Boost: I/II reduces gliding gravity by 10%/20% and increases horizontal velocity retention from 0.99 to 0.9925/0.995. It runs on both client and server and still loses height during level flight. It does not change normal falling, erase fall distance, or grant unlimited flight.
+- Overload I: press O while gliding for a 1.5 directional impulse, capped at a resulting 3.0 blocks/tick. It costs **half the Elytra's maximum durability, rounded up**, on every use (216 for a normal 432-durability Elytra). Unbreaking does not reduce that exact cost; activation is refused if the Elytra would stop being usable. Overload has a 20-second cooldown shared with Boost, so they cannot be chained to skip cooldowns. Existing above-cap rocket/Riptide momentum is preserved. Boost and Overload can be enchanted on the same Elytra and have separate keys. All nine new enchantments are included in enchanting/trades/loot and `/enchant`.
+
+The stone knife uses cobblestone above a stick in the crafting grid. It has 4 base damage, 3.2 attack speed, one block less interaction range and 131 durability, with the same stealth bonus, throwing and Loyalty support as the other knives.
 
 ### Controls
 
@@ -91,13 +94,15 @@ Crossbows have Zoom at every tier; netherite additionally has Target Lock and De
 | Hold Z | Zoom with a mod bow/crossbow in the main hand |
 | R | One charged shot within three seconds; visible target within 24 blocks and roughly ten degrees of your crosshair; 16-second cooldown |
 | V | One charged shot within three seconds; 40% less random spread and +5% projectile base damage; 20-second cooldown |
-| B | Elytra Boost; 8/7/6-second cooldown by level, slightly reduced by Aerodynamics |
+| B | Elytra Boost; original strength and 8/7/6-second cooldown by level |
+| O | Elytra Overload; half maximum durability, 20-second shared flight cooldown |
+| C | Open the quiver's arrow selection wheel; click or use 1–9 to select |
 | G | Pole Jump from the ground; 2-second cooldown |
 | Press Jump again in the air | Double Jump with enchanted boots |
 | Right-click a knife | Throw |
 | Sneak-right-click a Throwable axe/spear | Throw |
 
-Rebind these in Minecraft's controls. The server validates enchantments, movement state, range, line of sight and cooldowns; packet contents cannot set damage or arbitrary velocity. Skill cooldowns are per player during the session. Target Lock only assists a fully drawn bow shot (or netherite crossbow volley), rechecks line of sight and the aiming cone at release, and is consumed by that charged shot. Dead Eye is also consumed by one charged shot/volley. Partial bow shots receive neither the Dead Eye damage/spread bonus nor aim correction. Arrows keep normal gravity and collision.
+Rebind these in Minecraft's controls and resolve conflicts with other mods. Tooltips show the currently bound skill keys. Hold a supported weapon in either hand, press R or V, then fully draw and fire the bow within three seconds (or fire a loaded netherite crossbow). Target Lock needs a visible target near the crosshair; it aims at the target's body and rechecks range, visibility, teammates and aim at release. Dead Eye needs no target. Skills bind to the armed weapon type, and a charged shot consumes them. R and V can now be armed in the same tick. The action bar explains unsupported items, cooldowns, low Elytra durability, gliding requirements, and speed caps. The client reports a missing server installation. Server movement skills explicitly send the owner's motion packet. These fixes address hand selection, dropped simultaneous activations, aim overshoot and missing feedback; multiplayer gameplay still needs testing. Partial bow shots receive neither Dead Eye bonuses nor Target Lock correction. Arrows keep normal gravity and collision.
 
 ### Ammunition
 
@@ -111,14 +116,14 @@ Blunt arrows disable a frontal blocking shield for a base two seconds after reso
 
 After a build or regeneration, recipes are in `src/main/resources/data/pvpoverhaul/recipe`. Convert a vanilla bow/crossbow to its wooden tier using a one-item crafting recipe. Add three copper/iron/gold ingots or diamonds to a vanilla bow/crossbow for higher tiers. Netherite crafting uses the usual upgrade template, diamond-tier item and netherite ingot at a smithing table.
 
-A fletching table also supports a simple **two-hand upgrade interaction**, with no new GUI:
+A fletching table supports both arrow crafting and the existing **two-hand upgrade interaction**. Right-click it without a valid upgrade/waxing setup to open a synchronized 3×3 crafting grid. Use the same tip-over-stick-over-feather recipes as at a crafting table, making four custom arrows per craft. Vanilla normal, spectral and tipped-arrow recipes also work. Only arrow results are allowed; unused ingredients return normally when closing the menu. The recipe book uses the normal crafting interface and may show other recipes whose results are blocked at this workstation.
 
 1. Put the bow/crossbow to upgrade in your **offhand**.
 2. Hold at least three ingots/diamonds (or one netherite ingot) in the **main hand**.
 3. Right-click the fletching table. It upgrades to that material if its rank is higher; this route preserves enchantments, names, current damage and loaded ammunition. The netherite fletching upgrade does not require a template.
 4. Hold honeycomb instead to wax a copper bow/crossbow, increasing maximum durability by 50%. Waxing only works once.
 
-Craft Dragon Scale from Dragon Breath + Echo Shard + Popped Chorus Fruit. This is a placeholder survival acquisition recipe, not a new dragon drop. Each arrow recipe makes four arrows using its tip material, a stick and a feather.
+Dragon Scales can now be found in **End City treasure chests**, including the ship's treasure chests: a separate 35% chance for 1–3 scales, keeping the original loot. Previously opened chests are unchanged. The existing Dragon Breath + Echo Shard + Popped Chorus Fruit crafting recipe remains available. Each arrow recipe makes four arrows using its tip material, a stick and a feather.
 
 ## Compatibility and known limits
 
@@ -126,14 +131,27 @@ The code avoids replacing `Player.attack`, global cooldowns, critical-hit rules,
 
 Important current limits:
 
-- There are **86 original, editable 16×16 placeholder textures** for bows/crossbows and their states, knives, battleaxes, arrows, and Dragon Scale. The six shields use the supplied Blockbench cube geometry and original embedded 64×64 textures in inventory, on the ground, in both hands and while blocking. `shield.bbmodel` maps to wood; the other files map to their named material. `scripts/shield_assets.py` exports them during each build; editable originals are in `scripts/shields`. These regular item models need no OptiFine renderer. Banner patterns are not drawn on these supplied models. Native spears keep native visuals. Custom thrown weapons still use the vanilla trident flying model and return their original item stack.
+- The latest 25 supplied 16×16 PNGs provide all seven battleaxes, all seven knives (including stone and copper) and eleven custom arrow textures. The persistent files in `scripts/art/textures` are copied byte-for-byte into the mod. All six supplied shields retain their original geometry and 64×64 textures, with centered grip/display transforms. Banner patterns are not drawn; in-hand placement still needs gameplay verification. Native spears retain native visuals. Thrown weapons use the vanilla trident flying model and return their original stack.
 - Vanilla Loyalty's JSON definition is replaced only to widen its supported-item set. Datapacks/mods that also replace that definition may conflict. Other vanilla enchantment definitions are not overwritten.
-- Spectral arrows and vanilla rockets are reused; custom firework arrows do not create fireworks or damage blocks. Breeze arrows use a direct knockback effect rather than a wind-charge entity.
+- Spectral arrows and vanilla rockets are reused; custom firework arrows create native damaging explosions without destroying blocks. Breeze arrows use a direct knockback effect rather than a wind-charge entity.
 - Movement/skill state is session-local and resets on disconnect/server restart. There is no saved progression tree or skill XP system because the original concept did not define one.
 - Vanilla spear melee/kinetic stats and recipes are retained. Mod throwing damage is 5/6/6/7/8/9/10 for wood/stone/copper/iron/gold/diamond/netherite. Costs and cooldowns are initial PvP tuning values, not a claim of finished balance.
-- The resource checker validates internal structure and references, not Minecraft's full runtime datapack codecs.
+- The build checker validates internal links, recipe coverage and exclusions. Separate native codec checks parsed all 49 mod recipes and all nine enchantments; actual gameplay is still unverified.
 
 See [TESTING.md](TESTING.md) for the actual validation performed and the gameplay checklist.
+
+## Dragon Scale wolf armor and quiver
+
+All **48 added items have survival crafting or smithing recipes**. The resource validator requires a recipe for each item; all 49 mod recipes were also parsed by Minecraft's native recipe codec. Enchantments remain available through enchanting, trading and loot; enchanted books are not crafting recipes. Vanilla spears retain their original recipes.
+
+| New item | Ingredients | 3×3 pattern, top to bottom |
+| --- | --- | --- |
+| Dragon Scale Wolf Armor | 6 Dragon Scales + 1 vanilla wolf armor | `S S` / `SAS` / `S S` (S = scale, A = armor) |
+| Quiver | 7 leather + 1 string | `LSL` / `L L` / `LLL` (L = leather, S = string) |
+
+**Wolf armor:** right-click your tamed adult wolf to equip it, after removing any existing armor with shears. Make it stand and remove its leash before taking off. A wolf within 32 blocks follows while you glide with Elytra, steering toward a position behind you. It keeps ordinary terrain collision and cannot fly through walls. It descends toward you when you land, then restores normal gravity. Flight stops if you separate by more than 128 blocks, change dimension, disconnect, remove/break the armor or make the wolf sit. It receives temporary Slow Falling when flight ends in midair. Saving/reloading resets temporary flight gravity. The armor absorbs eligible damage like vanilla wolf armor, has 128 durability and can be repaired with Dragon Scales while the wolf sits. Its appearance uses the supplied eleven-cube Blockbench armor model and the original 64×32 PNG, converted to native animated wolf parts. Walking, head movement, sitting, shaking and tail animation are retained. Native equipment/glint/crack rendering uses the custom mesh only for Dragon Scale armor. No OptiFine installation or wing animation is needed.
+
+**Quiver:** hold it and right-click to open nine arrow-storage slots. Store vanilla, tipped, spectral or mod arrows; rockets and other items cannot enter it. Carry it anywhere in your normal inventory, or in the offhand. Press **C** to open an emote-style radial wheel; click an arrow slot or press **1–9**. Click the center or press **0** for ordinary inventory ammunition; Escape cancels. The selected compatible arrow takes priority on future bow shots or crossbow loads. Empty/incompatible selections fall back to normal inventory ammo. Already-loaded crossbows retain their ammunition. A held quiver takes priority when carrying several. Arrows and their components, counts and selected slot save inside the quiver when dropped or reloaded. Normal survival ammo consumption, Multishot and native Infinity/creative rules are retained. The source quiver is locked while its storage menu is open.
 
 ## Editing the mod
 
@@ -144,8 +162,11 @@ See [TESTING.md](TESTING.md) for the actual validation performed and the gamepla
 - `Interactions.java`: throwing, waxing and fletching upgrades.
 - `scripts/generate_resources.py` and `scripts/pixel_art.py`: recipes, enchantment data, item tags, models, translations and original pixel-art geometry. `scripts/shield_assets.py` and `scripts/shields/*.bbmodel` supply the custom shields. The build regenerates these files before validation and packaging. Make persistent texture/data changes in these sources, because generated PNG/JSON outputs are overwritten on the next build.
 - `FireworkArrows.java` and `mixin/FireworkRocketAccessor.java`: native firework payload and impact detonation timing; ordinary arrows/rockets keep their normal behavior.
+- `FletchingMenu.java`: arrow-only workstation using the standard crafting screen; `LootAdditions.java`: additive End City scale loot; `mixin/GlidingMixin.java`: passive Aerodynamics glide physics.
+- `scripts/wolf_assets.py` and `scripts/wolf/`: source wolf model/texture and deterministic native-mesh export. `DragonWolfArmorMesh.java` / `client/mixin/WolfArmorLayerMixin.java`: native animated armor rendering. The custom quiver inventory sprite in `scripts/art/textures/quiver.png` uses the supplied leather-quiver reference.
+- `Quivers.java`, `QuiverMenu.java`, `QuiverWheelScreen.java`: saved arrow storage, ammo consumption and selection UI. `DragonWolfFlightGoal.java` / `mixin/DragonWolfMixin.java`: owned wolf flight, armor and reload handling.
 - `LegacySpears.java` / `mixin/ItemCodecMixin.java`: v0.1 saved-spear ID conversion without duplicate registration.
 - `scripts/obsolete_resources.json`: exact old spear files excluded from the JAR if a browser upload leaves them in your checkout.
 - `src/test/java/dev/pvpoverhaul/BalanceChecks.java`: bow tradeoffs and movement bounds, included in Gradle `check`.
 
-Java changes require rebuilding the JAR. Version pins are in `gradle.properties`. Updating just the Minecraft version number is not a safe port: recheck APIs and run the gameplay checklist. Source and original generated icons are MIT licensed. The supplied shield models/textures are included as user-provided assets; their original licensing is not changed by this project. Vanilla models/textures are referenced from the game and are not bundled.
+Java changes require rebuilding the JAR. Version pins are in `gradle.properties`. Updating just the Minecraft version number is not a safe port: recheck APIs and run the gameplay checklist. Source and original generated icons are MIT licensed. The supplied shield/wolf models and textures and axe/arrow/knife art are included as user-provided assets; their original licensing is not changed by this project. Vanilla models/textures are referenced from the game and are not bundled.

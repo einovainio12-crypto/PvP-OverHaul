@@ -56,6 +56,8 @@ public final class Combat {
     }
     public static float thrownDamage(AbstractArrow projectile,float vanilla) {
         ItemStack weapon=projectile.getPickupItemStackOrigin();
+        if(weapon.is(ModItems.STONE_KNIFE)) return 4;
+        if(weapon.is(ModItems.STONE_BATTLEAXE)) return 9;
         Tier t=ModItems.TIERS.get(weapon.getItem());
         if (ModItems.isKnife(weapon)) return 3+t.rank;
         if (ModItems.isSpear(weapon)) return weapon.is(Items.STONE_SPEAR)?6:5+(t==null?0:t.rank);

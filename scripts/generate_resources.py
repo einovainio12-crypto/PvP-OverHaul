@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Reproducible resources, including supplied shield assets; no external Python packages required."""
-import json, pathlib
+import json, pathlib, shutil
 from pixel_art import render
 from shield_assets import export_shield
+from wolf_assets import export_wolf
 ROOT=pathlib.Path(__file__).resolve().parents[1]/'src/main/resources'
 MOD='pvpoverhaul'
 TIERS=['wood','copper','iron','gold','diamond','netherite']
@@ -23,6 +24,10 @@ def model(item,vanilla=None):
  write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:model','model':vanilla or f'{MOD}:item/{item}'}})
  if not vanilla:write(f'assets/{MOD}/models/item/{item}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{item}'}})
 def png(item,kind,color,state=0):
+ source=pathlib.Path(__file__).parent/'art'/'textures'/f'{item}.png'
+ if source.exists():
+  target=ROOT/f'assets/{MOD}/textures/item/{item}.png';target.parent.mkdir(parents=True,exist_ok=True)
+  shutil.copyfile(source,target);return
  render(ROOT/f'assets/{MOD}/textures/item/{item}.png',kind,color,state,item)
 def textured_model(item,parent='minecraft:item/handheld'):
  write(f'assets/{MOD}/models/item/{item}.json',{'parent':parent,'textures':{'layer0':f'{MOD}:item/{item}'}})
@@ -58,15 +63,26 @@ for i,t in enumerate(TIERS):
   else:
    patterns={'knife':['M','S'],'battleaxe':['MMM','MSM',' S '],'shield':['MSM','MMM',' M ']}
    recipe(item,pattern=patterns[kind],key={'M':MATERIAL[i],'S':'minecraft:stick'})
+name('stone_battleaxe');items.append(f'{MOD}:stone_battleaxe');model('stone_battleaxe');png('stone_battleaxe','battleaxe',(115,115,115))
+recipe('stone_battleaxe',pattern=['MMM','MSM',' S '],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
+name('stone_knife');items.append(f'{MOD}:stone_knife');model('stone_knife');png('stone_knife','knife',(115,115,115))
+recipe('stone_knife',pattern=['M','S'],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
 arrow_ingredients=['#minecraft:planks','minecraft:cobblestone','minecraft:flint','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot',f'{MOD}:dragon_scale','minecraft:netherite_scrap','minecraft:iron_nugget','minecraft:blaze_powder','minecraft:wind_charge','minecraft:gunpowder','minecraft:fire_charge']
 for i,a in enumerate(AMMO):
  name(a);model(a);png(a,'arrow',[COLORS[0],(132,139,143),(104,111,119),COLORS[1],COLORS[2],COLORS[3],(176,119,219),COLORS[5],(159,165,175),(255,134,30),(140,229,245),(255,91,172),(235,78,20)][i])
  recipe(a,pattern=['M','S','F'],key={'M':arrow_ingredients[i],'S':'minecraft:stick','F':'minecraft:feather'},count=4)
 name('dragon_scale');model('dragon_scale');png('dragon_scale','scale',(177,118,222))
 recipe('dragon_scale',['minecraft:dragon_breath','minecraft:echo_shard','minecraft:popped_chorus_fruit'])
+name('dragon_scale_wolf_armor');model('dragon_scale_wolf_armor');png('dragon_scale_wolf_armor','wolf_armor',(158,105,211))
+items.append(f'{MOD}:dragon_scale_wolf_armor')
+recipe('dragon_scale_wolf_armor',pattern=['S S','SAS','S S'],key={'S':f'{MOD}:dragon_scale','A':'minecraft:wolf_armor'})
+name('quiver');model('quiver');png('quiver','quiver',(148,93,50))
+recipe('quiver',pattern=['LSL','L L','LLL'],key={'L':'minecraft:leather','S':'minecraft:string'})
+export_wolf(ROOT)
+write(f'assets/{MOD}/equipment/dragon_scale.json',{'layers':{'wolf_body':[{'texture':f'{MOD}:dragon_scale'}]}})
 recipe('craftable_trident',pattern=[' PP',' SP','S  '],key={'P':'minecraft:prismarine_shard','S':'minecraft:stick'},output='minecraft:trident')
 # The recipe is deliberately affordable for a combat mod; adjust it freely in this source.
-bykind=lambda k:[f'{MOD}:{t}_{k}' for t in TIERS]
+bykind=lambda k:[f'{MOD}:{t}_{k}' for t in TIERS]+([f'{MOD}:stone_{k}'] if k in ['battleaxe','knife'] else [])
 for kind in ['knives','spears','battleaxes','shields']:
  singular={'knives':'knife','battleaxes':'battleaxe','shields':'shield'}.get(kind);tag(MOD,kind,bykind(singular) if singular else ['#minecraft:spears'])
 tag(MOD,'throwable_weapons',['#pvpoverhaul:spears','#pvpoverhaul:battleaxes','#minecraft:axes','#minecraft:spears'])
@@ -91,6 +107,7 @@ ench('pole_jump','#pvpoverhaul:spears',['mainhand'],3,exclusive=['pvpoverhaul:th
 ench('double_jump','#minecraft:enchantable/foot_armor',['feet'],2,exclusive=['pvpoverhaul:speed'])
 ench('speed','#minecraft:enchantable/foot_armor',['feet'],3,{'minecraft:attributes':[{'id':'pvpoverhaul:speed','attribute':'minecraft:movement_speed','operation':'add_multiplied_base','amount':linear(.03,.03)}]},exclusive=['pvpoverhaul:double_jump'],weight=2)
 ench('boost','#pvpoverhaul:elytra',['chest'],3,weight=2)
+ench('overload','#pvpoverhaul:elytra',['chest'],1,weight=1)
 ench('aerodynamics','#pvpoverhaul:elytra',['chest'],2)
 ench('cleaving','#pvpoverhaul:battleaxes',['mainhand'],3,{'minecraft:damage':[{'effect':{'type':'minecraft:add','value':linear(1,1)}}]},'#minecraft:exclusive_set/damage')
 ench('impact','#pvpoverhaul:battleaxes',['mainhand'],2,{'minecraft:knockback':[{'effect':{'type':'minecraft:add','value':linear(.5,.5)}}]})
@@ -99,9 +116,11 @@ loyalty={'anvil_cost':2,'description':{'translate':'enchantment.minecraft.loyalt
 write('data/minecraft/enchantment/loyalty.json',loyalty)
 # Compatibility checks both enchantments' exclusive sets; Lunge's original effects stay intact.
 for path in ['in_enchanting_table','tradeable','on_random_loot','on_traded_equipment']:
- write(f'data/minecraft/tags/enchantment/{path}.json',{'replace':False,'values':[f'{MOD}:{n}' for n in ['throwable','pole_jump','double_jump','speed','boost','aerodynamics','cleaving','impact']]})
+ write(f'data/minecraft/tags/enchantment/{path}.json',{'replace':False,'values':[f'{MOD}:{n}' for n in ['throwable','pole_jump','double_jump','speed','boost','overload','aerodynamics','cleaving','impact']]})
 write('data/minecraft/tags/enchantment/exclusive_set/damage.json',{'replace':False,'values':['pvpoverhaul:cleaving']})
-for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump'}.items():LANG[f'key.{MOD}.{key}']=title
+for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel'}.items():LANG[f'key.{MOD}.{key}']=title
+LANG['container.pvpoverhaul.fletching']='Fletching Table'
+LANG['container.pvpoverhaul.quiver']='Quiver'
 LANG['key.category.pvpoverhaul.combat']='PvP Overhaul'
 write(f'assets/{MOD}/lang/en_us.json',LANG)
-print('Generated',len(items)+len(AMMO)+1,'items and all recipes/models/enchantments.')
+print('Generated',len(items)+len(AMMO)+2,'items and all recipes/models/enchantments.')

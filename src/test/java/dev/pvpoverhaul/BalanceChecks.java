@@ -9,7 +9,7 @@ public final class BalanceChecks {
         double goldRate=Balance.bowMultiplier(3)/Balance.bowDrawTicks(3);
         double netheriteRate=Balance.bowMultiplier(5)/Balance.bowDrawTicks(5);
         for(int level=1;level<=3;level++)
-            require(Math.abs(Balance.boostStrength(level,0)-(0.24+0.12*level))<1e-9,"Boost's 20% strength increase must apply at every level");
+            require(Math.abs(Balance.boostStrength(level,0)-(0.20+0.10*level))<1e-9,"Original Boost strength must be restored at every level");
         require(goldRate<=netheriteRate,"Gold's unenchanted draw advantage must not exceed netherite's sustained damage");
         for(int rank=0;rank<=5;rank++) {
             require(Balance.bowMultiplier(rank)*Balance.DEAD_EYE_DAMAGE<=1.20,"Stacked bow/Dead Eye bonus exceeds 20%");
@@ -17,8 +17,10 @@ public final class BalanceChecks {
             require(Math.round((draw-1)*20f/draw)<20,"Bow fully charges before its advertised draw time");
         }
         for(int level=1;level<=20;level++) for(int aero=0;aero<=20;aero++) {
-            require(Balance.boostCooldown(level,aero)>=110,"Overleveled enchantment bypasses boost cooldown floor");
-            require(Balance.boostStrength(level,aero)<=0.65+1e-9,"Boost exceeds bounded impulse");
+            require(Balance.boostCooldown(level,aero)>=120,"Overleveled enchantment bypasses boost cooldown floor");
+            require(Balance.boostStrength(level,aero)<=0.50+1e-9,"Boost exceeds bounded impulse");
+            require(Balance.boostStrength(level,aero)==Balance.boostStrength(level,0),"Aerodynamics must not alter Boost strength");
+            require(Balance.boostCooldown(level,aero)==Balance.boostCooldown(level,0),"Aerodynamics must not alter Boost cooldown");
         }
         require(Balance.allowedBoostImpulse(2.5,0,0,1,0,0,3,2)==0,"Must preserve above-cap rocket momentum without adding speed");
         require(Balance.allowedBoostImpulse(0,0,0,1,0,0,0,2)==0,"No Boost enchantment must mean no boost");
@@ -30,10 +32,34 @@ public final class BalanceChecks {
             double dx=random.nextDouble()-.5,dy=random.nextDouble()-.5,dz=random.nextDouble()-.5;
             double length=Math.sqrt(dx*dx+dy*dy+dz*dz);
             double amount=Balance.allowedBoostImpulse(vx,vy,vz,dx,dy,dz,3,2);
-            require(Double.isFinite(amount) && amount>=0 && amount<=0.65+1e-9,"Invalid boost amount");
+            require(Double.isFinite(amount) && amount>=0 && amount<=0.50+1e-9,"Invalid boost amount");
             double nx=vx+dx/length*amount,ny=vy+dy/length*amount,nz=vz+dz/length*amount;
             require(nx*nx+ny*ny+nz*nz<=Balance.BOOST_SPEED_CAP*Balance.BOOST_SPEED_CAP+1e-9,"Boost exceeds speed ceiling");
+            double overload=Balance.allowedImpulse(vx,vy,vz,dx,dy,dz,Balance.OVERLOAD_STRENGTH,Balance.OVERLOAD_SPEED_CAP);
+            require(Double.isFinite(overload) && overload>=0 && overload<=Balance.OVERLOAD_STRENGTH,"Invalid overload impulse");
+            nx=vx+dx/length*overload;ny=vy+dy/length*overload;nz=vz+dz/length*overload;
+            require(nx*nx+ny*ny+nz*nz<=Balance.OVERLOAD_SPEED_CAP*Balance.OVERLOAD_SPEED_CAP+1e-9,"Overload exceeds its speed ceiling");
         }
-        System.out.println("PASS: bow tradeoffs, charge timing, enchantment bounds and 10,000 boost vectors");
+        require(Balance.overloadCost(432)==216 && Balance.overloadCost(433)==217,"Overload must cost half the maximum durability, rounded up");
+        require(Balance.allowedImpulse(4,0,0,1,0,0,1.5,3)==0,"Overload must not add speed to above-cap momentum");
+        require(glideTicks(2)>glideTicks(1) && glideTicks(1)>glideTicks(0),"Aerodynamics must increase level-glide airtime");
+        for(int level=1;level<=20;level++) {
+            require(Balance.glideGravityMultiplier(level)>=0.8,"Overleveled Aerodynamics must remain bounded");
+            require(Balance.glideHorizontalDrag(level)<1,"Gliding must retain horizontal drag");
+        }
+        System.out.println("PASS: bow tradeoffs, charge timing, enchantment bounds, Overload durability, longer glides and 10,000 Boost/Overload vectors");
+    }
+    /** Native level-pitch glide equations from 100 blocks, with no thrust or rockets. */
+    private static int glideTicks(int level) {
+        double altitude=100,vy=0,vz=1;
+        int ticks=0;
+        while(altitude>0 && ticks<10_000) {
+            vy-=0.02*Balance.glideGravityMultiplier(level);
+            if(vy<0) { double convert=vy*-0.1;vz+=convert;vy+=convert; }
+            vy*=0.98;vz*=Balance.glideHorizontalDrag(level);
+            altitude+=vy;ticks++;
+        }
+        require(ticks<10_000,"Aerodynamics must not provide unlimited level-pitch flight");
+        return ticks;
     }
 }

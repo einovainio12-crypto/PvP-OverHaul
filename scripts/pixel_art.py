@@ -41,7 +41,20 @@ def render(path,kind,color,state=0,item=''):
  c=Canvas();edge,shade,mid,shine=palette(color)
  wood_dark=(64,38,22);wood=(124,78,39);wood_light=(185,131,62)
  leather=(77,44,31);ivory=(232,224,192);steel=(198,210,213)
- if kind=='knife':
+ if kind=='quiver':
+  for x in [5,8,11]:
+   c.line((x,1),(x-2,7),wood_light);c.line((x-1,1),(x+1,3),ivory);c.dot(x,0,steel)
+  c.polygon([(3,6),(11,5),(13,8),(10,14),(5,14),(2,10)],wood_dark)
+  c.polygon([(4,7),(10,6),(11,8),(9,13),(5,13),(3,10)],mid)
+  c.line((5,8),(9,7),shine);c.line((3,8),(5,12),shade)
+  c.line((4,10),(10,9),leather);c.dot(8,10,ivory)
+ elif kind=='wolf_armor':
+  c.polygon([(2,5),(5,2),(10,2),(13,5),(12,11),(10,13),(8,10),(6,13),(3,11)],shade)
+  c.polygon([(4,4),(6,3),(10,3),(11,5),(10,9),(8,8),(6,10),(4,9)],mid)
+  c.line((4,4),(6,3),shine);c.line((7,4),(10,4),shine)
+  for a,b in [((5,5),(7,6)),((8,5),(10,6)),((4,7),(6,8)),((7,7),(9,8))]:c.line(a,b,shade)
+  c.line((3,10),(5,12),shine);c.line((10,10),(11,12),mid)
+ elif kind=='knife':
   c.polygon([(2,12),(4,10),(6,12),(4,14)],leather)
   c.line((3,12),(4,13),(166,110,66));c.dot(2,13,shade)
   c.polygon([(6,9),(8,7),(12,3),(14,1),(13,5),(10,9),(8,11)],shade)

@@ -3,12 +3,16 @@
 ## Validation performed in the creation environment
 
 - All main and client Java sources compiled with a Java 25 JDK against the **actual Minecraft 26.3 client JAR**, Fabric Loader 0.19.5, Fabric API 0.162.0+26.3 and the game's dependency libraries. Compilation used `javac --release 25 -proc:none`; this establishes API/type correctness, not gameplay correctness or Mixin application.
-- `python3 scripts/validate_resources.py` passed: 220 JSON resources, 44 added items, internal model/texture links, recipe symbol/result consistency, entrypoint/mixin source coverage and enchantment exclusions.
+- `python3 scripts/validate_resources.py` passed: 235 JSON resources, 48 added items, internal model/texture links, recipe symbol/result consistency, entrypoint/mixin source coverage and enchantment exclusions.
 - Minecraft 26.3's actual client loaders parsed all twelve exported normal/blocking shield models and six conditional item definitions without opening a graphics window. The exported PNGs are byte-identical to the six embedded Blockbench textures; geometry/face UVs are preserved with a constant anchor translation and UV-grid scaling. This does not verify in-hand placement or visual rendering in-game.
 - The v0.3 firework Mixins applied when the real Fabric server loaded Arrow and FireworkRocketEntity classes. The firework definition has exactly one colored explosion star. Native rocket implementation supplies damage and visuals; impact explosions still need the gameplay checks below. ItemStack creation is deferred until impact because Minecraft 26.3 binds item components after mod initialization.
-- A manually packaged mod loaded under **Fabric Loader 0.19.5 + Fabric API 0.162.0+26.3** on the actual 26.3 dedicated-server classes. `KnotServer --initSettings nogui` exited successfully and logged `PvP Overhaul loaded for Minecraft 26.3`. A temporary test initializer forced all six server combat/migration target classes to load with no Mixin injection failure. It verified that all six old spear IDs are absent from the item registry, decode to the correct native items, retain count/damage/name patches, and encode back to native IDs. This checks mod initialization and server Mixin application only; it does not load a world or validate datapacks/gameplay. The EULA was not accepted automatically.
-- The dependency-free Java balance checks passed: sustained gold/netherite bow tradeoff, charge timing, stacked damage bounds, cooldown floors, overleveled-enchantment limits, preservation of above-cap momentum, invalid-motion rejection, and 10,000 seeded boost-vector cases. These checks are also part of Gradle `check`.
-- A fixture reproduced the reported eleven missing wood textures, stale spear enchantment tags, and old Speed/Double Jump definitions. It failed validation with the same three error types, then generation restored current resources and validation passed. A second fixture containing only Java plus the three mod metadata files regenerated and validated the full set.
+- A manually packaged mod loaded under **Fabric Loader 0.19.5 + Fabric API 0.162.0+26.3** on the actual 26.3 dedicated-server classes. `KnotServer --initSettings nogui` exited successfully and logged `PvP Overhaul loaded for Minecraft 26.3`. A temporary test initializer forced all combat, gliding, wolf-flight, projectile-draw and migration targets to load with no Mixin injection failure. It verified six old spear IDs are absent from the registry, decode to native items, retain count/damage/name patches and encode back to native IDs. This checks initialization and Mixin application; it does not create a world. The EULA was not accepted automatically.
+- A separate JVM used Minecraft's actual tag and dynamic registry loaders with vanilla resources plus the mod resources. All nine custom enchantments loaded, and Boost, Overload and Aerodynamics support Elytra. The additive Dragon Scale loot pool encoded successfully with the native LootPool codec. This audit stops after checking registries and does not create a world or verify actual chest generation.
+- The dependency-free Java checks passed: bow tradeoffs, charge timing, stacked damage bounds, restored Boost values, cooldown floors, Overload's half-maximum durability cost, enchantment bounds, preservation of above-cap momentum, invalid-motion rejection and 10,000 seeded Boost/Overload vector cases. A simulation using native level-pitch glide equations verifies longer but finite gliding at each Aerodynamics level. These checks are part of Gradle `check`.
+- The actual registered stone knife was recognized by shared knife behavior, retained native stone durability and belonged to the runtime knife, durability, sharp-weapon and Loyalty tags. The native Loyalty enchantment accepted it.
+- A dedicated headless Fabric audit forced WolfArmorLayer to load from the actual client JAR with the client armor Mixin temporarily enabled for that audit. Both required model-field redirects and the typed submit injection applied. The exported mesh baked all eleven cubes into an AdultWolfModel and produced finite walking/sitting/walking poses. EquipmentClientInfo decoded and resolved its custom texture to an existing file. This checks geometry, animation compatibility and injection application without an OpenGL render; visual placement and resource-pack reload still need in-game verification. Audit classes/configuration are excluded from the deliverable.
+- Native ItemStack codec round-trips preserved the quiver's sparse nine slots, selection, counts and named tipped-arrow components. Consumption checks accepted exactly-one and zero-use changes and rejected stale replay/count increases. Actual armor components were bound and verified (128 durability, BODY slot). All 49 recipes parsed with the actual Recipe codec. These checks do not simulate a player shooting or a wolf flying.
+- A fixture reproduced the reported eleven missing wood textures, stale spear enchantment tags, and old Speed/Double Jump definitions. It failed validation with the same three error types, then generation restored current resources and validation passed. A second fixture containing Java, scripts and the three mod metadata files regenerated and validated the full set.
 - Resource generation is reproducible from the included Python source and uses no third-party Python dependencies.
 - Minecraft 26.3's official manifest reports Java 25. The Gradle wrapper distribution is pinned to 9.6.0 with its SHA-256 checksum.
 - The supplied GitHub Actions log confirmed main/client compilation, JAR assembly and standalone balance checks passed, then exposed Gradle 9's no-discovered-tests failure. The build script now permits zero framework tests while keeping `balanceChecks` and resource validation mandatory. Its syntax was parsed with the Gradle-bundled Groovy compiler, and the property was verified against Gradle 9.6.0's `AbstractTestTask` API. The amended full GitHub build still needs a rerun.
@@ -16,7 +20,7 @@
 
 ## Required before a public PvP release
 
-Use a disposable test world with two clients and a dedicated Fabric 26.3 server. Build with `./gradlew build`, install the resulting JAR plus Fabric API, and watch client/server logs for Mixin failures and datapack/model loading errors. This is a v0.2 implementation; multiplayer balance and complete technique compatibility have not been verified.
+Use a disposable test world with two clients and a dedicated Fabric 26.3 server. Build with `./gradlew build`, install the resulting JAR plus Fabric API, and watch client/server logs for Mixin failures and datapack/model loading errors. This is v0.4; multiplayer balance and complete technique compatibility have not been verified.
 
 ### Combat regression
 
@@ -24,6 +28,15 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 - Reproduce your exact attribute-swap combos, shield stun/slam chains, spear Lunge tricks, Riptide interactions, and mace smash setups. Verify damage, knockback, charge, reach and timing.
 - Compare +1 trident interaction-range swaps and short-range knife swaps. Ordinary attribute components are used, but packet timing behavior must be tested with your real technique.
 - Knife sneak/invisibility multiplier should apply once, not twice when both conditions are present, and must retain cooldown damage scaling.
+
+### Wolf flight and quiver (new; gameplay testing required)
+
+- Craft every added item in survival. Confirm all ingredients are consumed; test smithing and fletching arrow recipes too.
+- Equip owned adult wolves; reject babies/other owners and full BODY slots. Test armor absorption, breakage, shearing and sitting-scale repair.
+- Fly with a standing wolf within 32 blocks. Test turns, rockets/Boost/Overload, obstacles, landing, sitting, leashing, armor removal/breakage, owner death/disconnect, dimension travel and the 128-block separation cutoff. Wolves must retain collision, descend safely and never keep temporary NoGravity after save/reload. Inspect the supplied custom armor mesh and original texture while standing, walking, sitting, shaking and flying; check damage cracks and glint. Ordinary wolf armor must keep its native appearance.
+- Right-click main/offhand quivers and insert all arrow types, including potion/name/enchantment components. Reject rockets, other items and nested quivers. Test shift-click, hotbar/offhand swaps, drag, quick-craft, source-slot protection, disconnect, death/drop and reload. No arrow duplication/loss.
+- Test C wheel with mouse and 1–9, 0 inventory fallback, Escape, different UI scales, key rebinding and multiple quivers. The game does not pause. Verify selecting future ammunition preserves already-charged crossbows.
+- Shoot vanilla/mod bows and crossbows with selected arrows, empty slots, incompatible tiers, last arrow, Infinity, Multishot, creative and mod magazines. Verify actual consumption and inventory fallback. Try changing selection during charge and closing/opening the storage screen.
 
 ### Ranged weapons and resource economy
 
@@ -39,7 +52,7 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 
 ### Throwing and enchantments
 
-- Throw knives and all axe/spear tiers. Retrieve the original item, durability, name and enchantments.
+- Throw all seven knife materials, including stone, and all axe/spear tiers. Retrieve the original item, durability, name and enchantments.
 - Test Loyalty I–III after entity hits, block hits, chunk unload/reload, player death and server restart. No duplicated survival pickups from creative projectiles.
 - Add Throwable first and then try Lunge/Pole Jump; reverse the order. Both anvil/enchanting paths must reject combinations. Pole Jump + Lunge must work.
 - Verify Cleaving's exclusion with Sharpness/Smite/Bane, Impact knockback, Unbreaking/Mending and normal weapon enchants.
@@ -49,11 +62,16 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 
 - Test a second Jump press with/without Double Jump boots, then remove boots midair. Only one extra jump is allowed, and fall distance stays intact.
 - Test landing resets, climbing, water, spectator mode, flying, gliding, passengers, disconnect/reconnect and death.
-- Boost: check the stronger 0.36/0.48/0.60 impulses, 8/7/6-second cooldowns, Aerodynamics bounds, three durability cost before Unbreaking, exhaustion, low-durability rejection, and the 1.8 blocks/tick incremental cap. Existing rocket/Riptide momentum above that cap must stay unchanged.
+- Boost: check original 0.30/0.40/0.50 impulses, 8/7/6-second cooldowns, three durability cost before Unbreaking, exhaustion, low-durability rejection and the 1.8 blocks/tick cap. Aerodynamics must not alter its strength or cooldown.
+- Overload: check O while gliding, 1.5 impulse, 3.0 speed cap, 216 damage on a normal Elytra and the 20-second shared cooldown. Unbreaking must not discount the price. Refuse to make the Elytra unusable, and test repaired/custom-durability Elytra. Existing above-cap momentum must remain unchanged for both flight skills.
+- Aerodynamics: compare gliding from the same altitude/pitch with no enchantment, I and II. Verify longer glide time/distance, identical client/server movement, normal falling unaffected and no infinite level flight.
+- Fletching table: craft every arrow, shift-click outputs, use the recipe book, close with inputs remaining, move too far away, break the table and disconnect. Ensure ingredient conservation and no non-arrow outputs; verify old upgrades/waxing still work.
+- Loot: open previously unopened End City and ship treasure chests; check extra 1–3 scales occur alongside original loot. Confirm other chests and already filled chests are unaffected.
+- Powers: test both hands, R/V on the same tick, supported and unsupported weapon tiers, full/partial shots, expiration, cooldowns and reconnects. Watch owner velocity changes for Boost, Overload, Double Jump and Pole Jump. Check the tooltip's rebound key labels and messages on a server missing the mod.
 - Speed: verify +3%/+6%/+9%, mutually exclusive enchanting/anvil paths with Double Jump, and old boots carrying both (Speed takes priority). Depth Strider and Soul Speed must remain compatible.
 - Pole Jump needs enchanted spear + ground contact and cannot activate with Throwable.
 - Target Lock is limited to one charged shot/volley within three seconds and a 16-second cooldown, obeys line of sight, 24-block range, allies, PvP protection and target validity on release. Swapping to a bow that lacks the skill must not retain its benefit.
 - Dead Eye grants +5% damage and 40% less random spread to one charged shot/volley, with a three-second window and 20-second cooldown. Partial bow shots must not gain the effect. Check cooldown packet spam and reconnect behavior.
-- Confirm key rebinding, zoom, all 92 textures and their bow draw/crossbow load states, all six custom shield models in both hands, blocking/normal poses, GUI/ground/item-frame/shelf contexts, enchantment glint, native spear visuals, translations and creative entries. Supplied shield geometry does not render banner layers. Custom thrown projectiles intentionally use the vanilla trident visual.
+- Confirm key rebinding, zoom, all 97 textures and their bow draw/crossbow load states, all six custom shield models in both hands, blocking/normal poses, GUI/ground/item-frame/shelf contexts, enchantment glint, native spear visuals, translations and creative entries. Supplied shield geometry does not render banner layers. Custom thrown projectiles intentionally use the vanilla trident visual.
 
 Record the server/client versions, exact combo steps and observed damage/timing before changing combat hooks.

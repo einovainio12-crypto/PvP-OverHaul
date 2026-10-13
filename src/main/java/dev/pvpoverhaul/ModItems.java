@@ -21,7 +21,7 @@ public final class ModItems {
         BATTLEAXES=new EnumMap<>(Tier.class), SHIELDS=new EnumMap<>(Tier.class);
     public static final List<Item> ALL=new ArrayList<>();
     public static final Map<Item,Tier> TIERS=new IdentityHashMap<>();
-    public static Item DRAGON_SCALE;
+    public static Item DRAGON_SCALE,STONE_BATTLEAXE,STONE_KNIFE,DRAGON_SCALE_WOLF_ARMOR,QUIVER;
 
     private static Item register(String path, Item.Properties properties, Function<Item.Properties,Item> factory) {
         ResourceKey<Item> key=ResourceKey.create(Registries.ITEM,PvpOverhaul.id(path));
@@ -47,6 +47,14 @@ public final class ModItems {
     }
     public static void initialize() {
         DRAGON_SCALE=register("dragon_scale",new Item.Properties().rarity(Rarity.RARE),Item::new);
+        DRAGON_SCALE_WOLF_ARMOR=register("dragon_scale_wolf_armor",new Item.Properties()
+            .wolfArmor(net.minecraft.world.item.equipment.ArmorMaterials.ARMADILLO_SCUTE).durability(128).repairable(DRAGON_SCALE).rarity(Rarity.RARE)
+            .component(DataComponents.EQUIPPABLE,net.minecraft.world.item.equipment.Equippable.builder(EquipmentSlot.BODY)
+                .setEquipSound(net.minecraft.world.item.equipment.ArmorMaterials.ARMADILLO_SCUTE.equipSound())
+                .setAsset(ResourceKey.create(net.minecraft.world.item.equipment.EquipmentAssets.ROOT_ID,PvpOverhaul.id("dragon_scale")))
+                .setAllowedEntities(net.minecraft.world.entity.EntityTypes.WOLF).setCanBeSheared(true)
+                .setShearingSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_UNEQUIP_WOLF)).build()),Item::new);
+        QUIVER=register("quiver",new Item.Properties().stacksTo(1).component(DataComponents.CONTAINER,ItemContainerContents.EMPTY),QuiverItem::new);
         for (Tier t:Tier.values()) {
             BOWS.put(t,tiered(t,"bow",base(t),p->new TierBowItem(p,t)));
             CROSSBOWS.put(t,tiered(t,"crossbow",base(t).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
@@ -71,11 +79,19 @@ public final class ModItems {
                     Optional.of(SoundEvents.SHIELD_BLOCK),Optional.of(SoundEvents.SHIELD_BREAK)))
                 .component(DataComponents.BREAK_SOUND,SoundEvents.SHIELD_BREAK),ShieldItem::new));
         }
+        STONE_BATTLEAXE=register("stone_battleaxe",new Item.Properties()
+            .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
+            .repairable(ToolMaterial.STONE.repairItems()).axe(ToolMaterial.STONE,8,-3.2f)
+            .component(DataComponents.WEAPON,new Weapon(1,5.0f)),Item::new);
+        STONE_KNIFE=register("stone_knife",new Item.Properties()
+            .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
+            .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
+            .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
         for (Ammo a:Ammo.values()) register(a.id,new Item.Properties(),p->new TierArrowItem(p,a));
         CreativeModeTabEvents.modifyOutputEvent(ResourceKey.create(Registries.CREATIVE_MODE_TAB,net.minecraft.resources.Identifier.withDefaultNamespace("combat"))).register(output->ALL.forEach(output::accept));
     }
-    public static boolean isKnife(ItemStack s) { return KNIVES.containsValue(s.getItem()); }
+    public static boolean isKnife(ItemStack s) { return s.is(STONE_KNIFE) || KNIVES.containsValue(s.getItem()); }
     public static boolean isSpear(ItemStack s) { return s.is(net.minecraft.tags.ItemTags.SPEARS); }
-    public static boolean isBattleaxe(ItemStack s) { return BATTLEAXES.containsValue(s.getItem()); }
+    public static boolean isBattleaxe(ItemStack s) { return s.is(STONE_BATTLEAXE) || BATTLEAXES.containsValue(s.getItem()); }
     private ModItems() {}
 }

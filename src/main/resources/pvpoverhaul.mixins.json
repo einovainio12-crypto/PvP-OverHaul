@@ -10,7 +10,11 @@
     "ProjectileMixin",
     "AbstractArrowAccessor",
     "ItemCodecMixin",
-    "FireworkRocketAccessor"
+    "FireworkRocketAccessor",
+    "GlidingMixin",
+    "QuiverPlayerMixin",
+    "QuiverDrawMixin",
+    "DragonWolfMixin"
   ],
   "injectors": {
     "defaultRequire": 1

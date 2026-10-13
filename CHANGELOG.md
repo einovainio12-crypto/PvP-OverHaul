@@ -1,3 +1,46 @@
+# 0.6.3
+
+- Integrated the supplied wolf_armor.bbmodel (eleven inflated box-UV cubes) and original 64×32 wolf_armor.png. A deterministic build exporter converts the CEM coordinate system to Minecraft's native wolf skeleton; no OptiFine is needed.
+- Added a client-only armor mesh selector. Dragon Scale armor keeps walking, sitting, head, shaking and tail animations plus normal equipment/glint/crack rendering; ordinary wolf armor keeps its native mesh.
+- Replaced the quiver inventory icon with a transparent 16×16 sprite based on the supplied brown leather quiver/arrow/strap reference. Storage and C-key selection behavior are unchanged.
+- Native client armor Mixin application, eleven-cube baking, animation poses and equipment texture routing passed headless checks. Full visual gameplay and Gradle verification remain outstanding.
+- Preserved all 48 added items, 49 recipes, wolf flight, quiver storage and existing overhaul features.
+- Output: `pvp-overhaul-0.6.3.jar`.
+
+# 0.6.2
+
+- Integrated all seven latest supplied knife PNGs without pixel changes.
+- Added a craftable stone knife: cobblestone above a stick, 4 base damage, 3.2 attack speed, one block shorter interaction range, 131 durability. It uses the same stealth/throwing behavior and weapon/durability/Loyalty tags as the other knives.
+- All 48 added items have survival crafting/smithing routes; there are 49 mod recipes including the vanilla trident recipe.
+- Preserved wolf flight armor, quiver wheel, shields, axe/arrow textures, movement powers and other overhaul features.
+- Output: `pvp-overhaul-0.6.2.jar`.
+
+# 0.6.1
+
+- Replaced all seven battleaxe and eleven arrow art inputs with the latest supplied PNGs, copied without pixel changes. `pixil-frame-5.png` supplies the stone battleaxe.
+- Preserved all 47 items, survival recipes, dragon-scale wolf flight armor, quiver wheel and other overhaul features.
+- Output: `pvp-overhaul-0.6.1.jar`.
+
+# 0.6.0
+
+- Added craftable Dragon Scale Wolf Armor: six scales + native wolf armor, 128 durability, scale repair, native equipment and damage absorption. Owned adult standing/unleashed wolves follow nearby Elytra flight and descend afterward; flight restores gravity and resets on reload.
+- Added craftable nine-stack quiver with native saved item-container components, arrow-only storage and a C-key radial selector. Ordinary arrow components and native consumption rules are retained, with stale-draw and source-slot protections.
+- Added a required survival recipe-coverage audit for all 47 mod items. All 48 recipes passed the actual Minecraft 26.3 recipe codec.
+- Integrated the latest six battleaxe sprites from the supplied sheet, a copper variant and eleven revised arrow textures. Added the stone battleaxe and its recipe/enchantment tags. Art inputs are included in the browser upload so builds reproduce them.
+- Preserved firework damage, shields, native spears, movement enchantments, End City scales, fletching and powers.
+- Output: `pvp-overhaul-0.6.0.jar`; update clients and server together.
+
+# 0.4.0
+
+- Restored original Boost impulses (0.30/0.40/0.50) and 8/7/6-second cooldowns. Aerodynamics no longer boosts its strength or reduces its cooldown.
+- Added Overload I on O: 1.5 impulse, 3.0 resulting-speed cap, exact half-maximum Elytra durability cost and a 20-second cooldown shared with Boost. It refuses to make the Elytra unusable; Unbreaking cannot discount the cost.
+- Aerodynamics I/II now extends gliding via 10%/20% lower glide gravity and less horizontal drag, identically on client and server.
+- Reanchored the custom shields around the grip and removed large display offsets that separated them from the hand. Geometry and embedded textures remain original.
+- Added arrow crafting at fletching tables using a synchronized arrow-only 3×3 grid. Upgrade/waxing interactions remain available.
+- Added 35% chance of 1–3 Dragon Scales to native End City treasure chests as a separate loot pool.
+- Skill activation supports either hand, binds to the chosen weapon type, allows R/V together, gives eligibility/cooldown feedback and explicitly syncs owner movement. Target Lock uses body targeting and corrected gravity compensation instead of the old excessive eye-height correction. Tooltips show bound controls.
+- Output: `pvp-overhaul-0.4.0.jar`.
+
 # 0.3.0
 
 - Firework arrows now detonate as one-star vanilla fireworks on the first entity or block impact. Native area damage, falloff, sight checks, particles and sound replace the old Glowing-only effect. The arrow is consumed and cannot make repeated Piercing explosions; no block destruction.

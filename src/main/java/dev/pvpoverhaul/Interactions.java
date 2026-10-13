@@ -10,6 +10,10 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.network.chat.Component;
 
 public final class Interactions {
     public static void initialize() {
@@ -38,14 +42,14 @@ public final class Interactions {
             Tier tier=ModItems.TIERS.get(weapon.getItem());
             // Waxing preserves names, damage and enchantments. Applying honeycomb twice has no further effect.
             if (material.is(Items.HONEYCOMB) && tier==Tier.COPPER && (weapon.getItem() instanceof TierBowItem || weapon.getItem() instanceof TierCrossbowItem)) {
-                if (weapon.getMaxDamage()>tier.durability) return InteractionResult.PASS;
+                if (weapon.getMaxDamage()>tier.durability) return openFletching(player,level,hit);
                 if (level instanceof ServerLevel) { weapon.set(DataComponents.MAX_DAMAGE,tier.durability*3/2); material.consume(1,player); }
                 return InteractionResult.SUCCESS;
             }
             Tier upgrade=material.is(Items.COPPER_INGOT)?Tier.COPPER:material.is(Items.IRON_INGOT)?Tier.IRON:material.is(Items.GOLD_INGOT)?Tier.GOLD:material.is(Items.DIAMOND)?Tier.DIAMOND:material.is(Items.NETHERITE_INGOT)?Tier.NETHERITE:null;
-            if (upgrade==null || (tier!=null && tier.rank>=upgrade.rank)) return InteractionResult.PASS;
+            if (upgrade==null || (tier!=null && tier.rank>=upgrade.rank)) return openFletching(player,level,hit);
             boolean bow=weapon.getItem() instanceof BowItem, crossbow=weapon.getItem() instanceof CrossbowItem;
-            if (!bow && !crossbow) return InteractionResult.PASS;
+            if (!bow && !crossbow) return openFletching(player,level,hit);
             int cost=upgrade==Tier.NETHERITE?1:3;
             if (!player.hasInfiniteMaterials() && material.getCount()<cost) return InteractionResult.FAIL;
             if (level instanceof ServerLevel) {
@@ -59,6 +63,12 @@ public final class Interactions {
             }
             return InteractionResult.SUCCESS;
         });
+    }
+    private static InteractionResult openFletching(Player player,Level level,BlockHitResult hit) {
+        if(level instanceof ServerLevel) player.openMenu(new SimpleMenuProvider(
+            (id,inventory,user)->new FletchingMenu(id,inventory,ContainerLevelAccess.create(level,hit.getBlockPos())),
+            Component.translatable("container.pvpoverhaul.fletching")));
+        return InteractionResult.SUCCESS;
     }
     private Interactions() {}
 }

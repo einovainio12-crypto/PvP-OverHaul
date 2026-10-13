@@ -13,6 +13,9 @@ for p in res.rglob('*.json'):
 items={p.stem for p in (res/f'assets/{ns}/items').glob('*.json') if p.relative_to(res).as_posix() not in obsolete}
 expected={f'{t}_{k}' for t in ['wood','copper','iron','gold','diamond','netherite'] for k in ['bow','crossbow','knife','battleaxe','shield']}
 expected.update(['dragon_scale','wood_arrow','stone_arrow','flint_arrow','copper_arrow','iron_arrow','gold_arrow','dragon_scale_arrow','netherite_arrow','blunt_arrow','blaze_arrow','breeze_arrow','firework_arrow','fire_charge_arrow'])
+expected.add('stone_battleaxe')
+expected.add('stone_knife')
+expected.update(['dragon_scale_wolf_armor','quiver'])
 if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
 lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})
 for item in expected:
@@ -31,6 +34,11 @@ def walk(value):
   for v in value:walk(v)
 for path,d in parsed.items():
  if path.startswith('assets/'):walk(d)
+ if path.startswith(f'assets/{ns}/equipment/'):
+  for kind,layers in d.get('layers',{}).items():
+   for layer in layers:
+    texture=layer.get('texture','')
+    if texture.startswith(ns+':') and not (res/f'assets/{ns}/textures/entity/equipment/{kind}/{texture.split(":",1)[1]}.png').exists():error(f'Missing equipment texture {texture}')
  if '/recipe/' in path:
   result=d.get('result',{})
   if result.get('id','').startswith(ns+':') and result['id'].split(':')[1] not in items:error(f'Unknown result {path}')
@@ -40,6 +48,11 @@ for path,d in parsed.items():
  if '/tags/item/' in path:
   for v in d.get('values',[]):
    if isinstance(v,str) and v.startswith(ns+':') and v.split(':')[1] not in items:error(f'Unknown item {v} in {path}')
+# Every added item must have a normal crafting or smithing route, never creative-only.
+craftable={d.get('result',{}).get('id','').removeprefix(ns+':') for path,d in parsed.items()
+ if '/recipe/' in path and d.get('type') in ['minecraft:crafting_shaped','minecraft:crafting_shapeless','minecraft:smithing_transform']
+ and d.get('result',{}).get('id','').startswith(ns+':')}
+if expected-craftable:error(f'Missing survival recipes: {sorted(expected-craftable)}')
 throwable=parsed.get(f'data/{ns}/enchantment/throwable.json',{})
 pole=parsed.get(f'data/{ns}/enchantment/pole_jump.json',{})
 if set(throwable.get('exclusive_set',[]))!={'minecraft:lunge','pvpoverhaul:pole_jump'}:error('Throwable must exclude Lunge and Pole Jump')
