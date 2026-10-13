@@ -7,10 +7,10 @@ import base64, json, pathlib
 
 TIERS = ['wood', 'copper', 'iron', 'gold', 'diamond', 'netherite']
 NORMAL_DISPLAY = {
-    'thirdperson_righthand': {'rotation': [0, -90, 0], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
-    'thirdperson_lefthand': {'rotation': [0, -90, 0], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
-    'firstperson_righthand': {'rotation': [0, 0, 5], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
-    'firstperson_lefthand': {'rotation': [0, 0, 5], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
+    'thirdperson_righthand': {'rotation': [0, -90, 0], 'translation': [0, 0, 1.5], 'scale': [1, 1, 1]},
+    'thirdperson_lefthand': {'rotation': [0, -90, 0], 'translation': [0, 0, 1.5], 'scale': [1, 1, 1]},
+    'firstperson_righthand': {'rotation': [0, 0, 5], 'translation': [0, 0, 1.5], 'scale': [1, 1, 1]},
+    'firstperson_lefthand': {'rotation': [0, 0, 5], 'translation': [0, 0, 1.5], 'scale': [1, 1, 1]},
     'gui': {'rotation': [15, 155, -5], 'translation': [0, 0, 0], 'scale': [0.65, 0.65, 0.65]},
     'fixed': {'rotation': [0, 0, 0], 'translation': [0, 0, 0], 'scale': [0.55, 0.55, 0.55]},
     'on_shelf': {'rotation': [0, 180, 0], 'translation': [0, 0, 0], 'scale': [1, 1, 1]},
@@ -18,10 +18,10 @@ NORMAL_DISPLAY = {
 }
 BLOCKING_DISPLAY = {
     **NORMAL_DISPLAY,
-    'thirdperson_righthand': {'rotation': [25, -35, 0], 'translation': [0, 1, -1], 'scale': [1, 1, 1]},
-    'thirdperson_lefthand': {'rotation': [25, -35, 0], 'translation': [0, 1, -1], 'scale': [1, 1, 1]},
-    'firstperson_righthand': {'rotation': [0, -10, -5], 'translation': [-2, 1, -2], 'scale': [1, 1, 1]},
-    'firstperson_lefthand': {'rotation': [0, -10, -5], 'translation': [-2, 1, -2], 'scale': [1, 1, 1]},
+    'thirdperson_righthand': {'rotation': [25, -35, 0], 'translation': [0, 1, 0.5], 'scale': [1, 1, 1]},
+    'thirdperson_lefthand': {'rotation': [25, -35, 0], 'translation': [0, 1, 0.5], 'scale': [1, 1, 1]},
+    'firstperson_righthand': {'rotation': [0, -10, -5], 'translation': [-2, 1, -0.5], 'scale': [1, 1, 1]},
+    'firstperson_lefthand': {'rotation': [0, -10, -5], 'translation': [-2, 1, -0.5], 'scale': [1, 1, 1]},
 }
 
 def export_shield(resources, item):

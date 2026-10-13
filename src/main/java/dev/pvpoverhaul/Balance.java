@@ -6,7 +6,7 @@ public final class Balance {
     public static final double LOCK_RANGE=24, LOCK_CONE=0.985;
     public static final double DEAD_EYE_DAMAGE=1.05;
     public static final float DEAD_EYE_SPREAD=0.60f;
-    public static final double BOOST_SPEED_CAP=1.8;
+    public static final double BOOST_SPEED_CAP=2.0;
     public static final int BOOST_DURABILITY_COST=3;
     public static final double OVERLOAD_STRENGTH=1.5, OVERLOAD_SPEED_CAP=3.0;
     public static final int OVERLOAD_COOLDOWN=400;
@@ -19,7 +19,7 @@ public final class Balance {
         return 180-20*bounded(level,3);
     }
     public static double boostStrength(int level,int aerodynamics) {
-        return 0.20+0.10*bounded(level,3);
+        return 0.24+0.12*bounded(level,3);
     }
     public static int overloadCost(int maximumDurability) { return Math.max(1,(maximumDurability+1)/2); }
     public static double glideGravityMultiplier(int level) { return 1.0-0.10*bounded(level,2); }

@@ -1,3 +1,39 @@
+# 0.8.3
+
+- Use all sixty supplied stone/copper/iron/gold/diamond/netherite bow and crossbow textures unchanged. Bow files map to idle and three pulling stages; crossbow files additionally include loaded-arrow and loaded-firework states.
+- Add craftable stone bows/crossbows with standard vanilla firing, 448 durability and stone-material repair. Recipe: one vanilla matching weapon plus three cobblestone.
+- Include every sprite in the editable project and packed browser build inputs. Custom wooden bows/crossbows remain removed. Output: `pvp-overhaul-0.8.3.jar`.
+
+# 0.8.2
+
+- Remove the duplicate wooden bow and crossbow and their recipes, models, textures and tag entries. Use vanilla bows/crossbows as the starting weapons for upgrades.
+- Saved custom wooden bows/crossbows migrate to vanilla equivalents, keeping stack count and component patches. Browser builds clean up obsolete resources automatically.
+- Output: `pvp-overhaul-0.8.2.jar`.
+
+# 0.8.1
+
+- Use the supplied 16×16 grappling-arrow texture unchanged for its inventory/item model. The flying projectile retains the fishing-bobber model and line.
+- Include the sprite in both the editable complete project and packed browser-upload inputs. Output: `pvp-overhaul-0.8.1.jar`.
+
+# 0.8.0
+
+- Added a craftable Grappling Arrow: ordinary arrow + string + iron ingot. Supported by vanilla/mod bows and crossbows, the quiver and fletching crafting.
+- Uses the actual fishing-bobber sprite and line renderer. Block hits anchor at the surface; player hits follow that player and pull the shooter toward them, with no direct hit damage or forced target motion.
+- One active grapple per shooter: 48-block attachment reach, 64-block tether range, five-second pull, 1.35-block/tick speed cap. Sneak releases; arrival, lost targets/blocks, dimension changes, death/disconnect and expiry release too. Normal terrain collision/fall damage apply.
+- Added synchronized visual markers and save/reload cleanup. Unattached hooks expire after ten seconds; attached hooks do not become permanent saved floating entities.
+- Browser upload sprites are packed into one JSON build input, preserving their exact PNG bytes and keeping the full upload below 100 files.
+- Existing features retained. All 47 added items have recipes; output is `pvp-overhaul-0.8.0.jar`. Update server and all clients together because arrow metadata has changed.
+
+# 0.7.0
+
+- Pulled all six shields another 1.5 model units toward the hand/arm in first/third person, both hands and blocking poses. Geometry, UVs and textures remain unchanged.
+- Removed custom stone and flint arrows, their recipes/resources and tag entries. Saved stacks decode as ordinary vanilla arrows with count and components retained. Blunt adopts the supplied flint texture; blaze and fire-charge textures are swapped without changing their effects.
+- Improved Boost by 20% (0.36/0.48/0.60 impulse) and raised its speed cap to 2.0 blocks/tick. Cooldowns remain 8/7/6 seconds with three durability cost; Overload and Aerodynamics are unchanged.
+- Fixed quiver first-use ammo selection: a loaded quiver automatically finds a compatible arrow until explicitly selected. Inventory mode and incompatible-selection fallback remain explicit. Added Shift+C storage access, accurate wheel click boxes, immediate selection feedback and ammo-component synchronization.
+- Added synchronized original stacks and native item-model rendering for thrown knives, axes, battleaxes and spears. Rotation follows flight; item textures, resource-pack model overrides and glint are retained. Ordinary trident rendering, damage, pickup and Loyalty remain unchanged.
+- Native renderer Mixins, item network codec, quiver selection/migration, all 47 recipes, resource checks and balance checks passed. Full Gradle and actual in-game visual/gameplay verification remain outstanding.
+- All 46 added items have survival recipes. Output: `pvp-overhaul-0.7.0.jar`. Update the server and every client together; the projectile metadata format has changed.
+
 # 0.6.3
 
 - Integrated the supplied wolf_armor.bbmodel (eleven inflated box-UV cubes) and original 64×32 wolf_armor.png. A deterministic build exporter converts the CEM coordinate system to Minecraft's native wolf skeleton; no OptiFine is needed.

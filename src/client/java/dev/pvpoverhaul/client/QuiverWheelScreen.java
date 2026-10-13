@@ -18,15 +18,21 @@ public final class QuiverWheelScreen extends Screen {
     private double radius() { return Math.min(80,Math.min(width,height)*0.30); }
     private int hovered(double x,double y) {
         double dx=x-width/2.0,dy=y-height/2.0;
-        if(dx*dx+dy*dy<24*24) return -1;
-        if(dx*dx+dy*dy>(radius()+28)*(radius()+28)) return -2;
-        double angle=Math.atan2(dy,dx)+Math.PI/2;
-        if(angle<0) angle+=Math.PI*2;
-        return (int)Math.floor(angle/(Math.PI*2/9)+0.5)%9;
+        if(Math.abs(dx)<=27 && Math.abs(dy)<=18) return -1;
+        for(int i=0;i<9;i++) {
+            double angle=i*Math.PI*2/9-Math.PI/2;
+            double sx=Math.round(Math.cos(angle)*radius()),sy=Math.round(Math.sin(angle)*radius());
+            if(dx>=sx-18 && dx<=sx+18 && dy>=sy-17 && dy<=sy+19) return i;
+        }
+        return -2;
     }
     private void select(int slot) {
         if(slot<-1 || slot>8 || !quiver().is(ModItems.QUIVER)) return;
-        if(ClientPlayNetworking.canSend(QuiverSelectionPayload.TYPE)) ClientPlayNetworking.send(new QuiverSelectionPayload(inventorySlot,slot));
+        if(!ClientPlayNetworking.canSend(QuiverSelectionPayload.TYPE)) {
+            minecraft.player.sendOverlayMessage(Component.literal("PvP Overhaul must also be installed on the server."));onClose();return;
+        }
+        Quivers.select(quiver(),slot);
+        ClientPlayNetworking.send(new QuiverSelectionPayload(inventorySlot,slot));
         onClose();
     }
     @Override public boolean isPauseScreen() { return false; }

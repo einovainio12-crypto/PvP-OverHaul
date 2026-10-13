@@ -21,7 +21,7 @@ public final class ModItems {
         BATTLEAXES=new EnumMap<>(Tier.class), SHIELDS=new EnumMap<>(Tier.class);
     public static final List<Item> ALL=new ArrayList<>();
     public static final Map<Item,Tier> TIERS=new IdentityHashMap<>();
-    public static Item DRAGON_SCALE,STONE_BATTLEAXE,STONE_KNIFE,DRAGON_SCALE_WOLF_ARMOR,QUIVER;
+    public static Item DRAGON_SCALE,STONE_BATTLEAXE,STONE_KNIFE,STONE_BOW,STONE_CROSSBOW,DRAGON_SCALE_WOLF_ARMOR,QUIVER;
 
     private static Item register(String path, Item.Properties properties, Function<Item.Properties,Item> factory) {
         ResourceKey<Item> key=ResourceKey.create(Registries.ITEM,PvpOverhaul.id(path));
@@ -55,9 +55,17 @@ public final class ModItems {
                 .setAllowedEntities(net.minecraft.world.entity.EntityTypes.WOLF).setCanBeSheared(true)
                 .setShearingSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ARMOR_UNEQUIP_WOLF)).build()),Item::new);
         QUIVER=register("quiver",new Item.Properties().stacksTo(1).component(DataComponents.CONTAINER,ItemContainerContents.EMPTY),QuiverItem::new);
+        // Basic stone ranged weapons retain vanilla firing behavior and sit below copper in durability.
+        STONE_BOW=register("stone_bow",new Item.Properties().durability(448)
+            .enchantable(ToolMaterial.STONE.enchantmentValue()).repairable(ToolMaterial.STONE.repairItems()),BowItem::new);
+        STONE_CROSSBOW=register("stone_crossbow",new Item.Properties().durability(448)
+            .enchantable(ToolMaterial.STONE.enchantmentValue()).repairable(ToolMaterial.STONE.repairItems())
+            .component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),CrossbowItem::new);
         for (Tier t:Tier.values()) {
-            BOWS.put(t,tiered(t,"bow",base(t),p->new TierBowItem(p,t)));
-            CROSSBOWS.put(t,tiered(t,"crossbow",base(t).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
+            if (t!=Tier.WOOD) {
+                BOWS.put(t,tiered(t,"bow",base(t),p->new TierBowItem(p,t)));
+                CROSSBOWS.put(t,tiered(t,"crossbow",base(t).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
+            }
             KNIVES.put(t,tiered(t,"knife",base(t).attributes(melee(3+t.rank,3.2,-1))
                 .component(DataComponents.WEAPON,new Weapon(1)),Item::new));
             // Extend the existing game item instead of registering a second spear per material.

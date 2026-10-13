@@ -9,7 +9,7 @@ public final class BalanceChecks {
         double goldRate=Balance.bowMultiplier(3)/Balance.bowDrawTicks(3);
         double netheriteRate=Balance.bowMultiplier(5)/Balance.bowDrawTicks(5);
         for(int level=1;level<=3;level++)
-            require(Math.abs(Balance.boostStrength(level,0)-(0.20+0.10*level))<1e-9,"Original Boost strength must be restored at every level");
+            require(Math.abs(Balance.boostStrength(level,0)-(0.24+0.12*level))<1e-9,"Boost must match the advertised 20% improvement");
         require(goldRate<=netheriteRate,"Gold's unenchanted draw advantage must not exceed netherite's sustained damage");
         for(int rank=0;rank<=5;rank++) {
             require(Balance.bowMultiplier(rank)*Balance.DEAD_EYE_DAMAGE<=1.20,"Stacked bow/Dead Eye bonus exceeds 20%");
@@ -18,7 +18,7 @@ public final class BalanceChecks {
         }
         for(int level=1;level<=20;level++) for(int aero=0;aero<=20;aero++) {
             require(Balance.boostCooldown(level,aero)>=120,"Overleveled enchantment bypasses boost cooldown floor");
-            require(Balance.boostStrength(level,aero)<=0.50+1e-9,"Boost exceeds bounded impulse");
+            require(Balance.boostStrength(level,aero)<=0.60+1e-9,"Boost exceeds bounded impulse");
             require(Balance.boostStrength(level,aero)==Balance.boostStrength(level,0),"Aerodynamics must not alter Boost strength");
             require(Balance.boostCooldown(level,aero)==Balance.boostCooldown(level,0),"Aerodynamics must not alter Boost cooldown");
         }
@@ -32,7 +32,7 @@ public final class BalanceChecks {
             double dx=random.nextDouble()-.5,dy=random.nextDouble()-.5,dz=random.nextDouble()-.5;
             double length=Math.sqrt(dx*dx+dy*dy+dz*dz);
             double amount=Balance.allowedBoostImpulse(vx,vy,vz,dx,dy,dz,3,2);
-            require(Double.isFinite(amount) && amount>=0 && amount<=0.50+1e-9,"Invalid boost amount");
+            require(Double.isFinite(amount) && amount>=0 && amount<=0.60+1e-9,"Invalid boost amount");
             double nx=vx+dx/length*amount,ny=vy+dy/length*amount,nz=vz+dz/length*amount;
             require(nx*nx+ny*ny+nz*nz<=Balance.BOOST_SPEED_CAP*Balance.BOOST_SPEED_CAP+1e-9,"Boost exceeds speed ceiling");
             double overload=Balance.allowedImpulse(vx,vy,vz,dx,dy,dz,Balance.OVERLOAD_STRENGTH,Balance.OVERLOAD_SPEED_CAP);

@@ -111,7 +111,10 @@ def render(path,kind,color,state=0,item=''):
   c.polygon([(10,3),(14,1),(13,5),(11,6)],shade)
   c.line((11,3),(14,1),shine);c.dot(12,3,mid);c.dot(12,4,mid)
   c.dot(10,5,leather)
-  if item=='blunt_arrow':
+  if item=='grappling_arrow':
+   c.line((11,2),(14,2),ivory);c.line((14,2),(14,5),steel);c.line((14,5),(12,5),steel);c.dot(12,4,steel)
+   c.line((7,9),(10,7),(221,223,208))
+  elif item=='blunt_arrow':
    c.polygon([(10,1),(14,1),(15,4),(12,6),(10,4)],shade);c.line((11,2),(14,2),shine);c.dot(13,3,mid)
   elif item=='blaze_arrow':
    c.line((13,0),(11,3),(255,210,66));c.line((14,2),(13,4),(239,82,24));c.dot(14,1,(255,238,153))

@@ -12,9 +12,12 @@ for p in res.rglob('*.json'):
  except (OSError,json.JSONDecodeError) as e:error(f'{p}: {e}')
 items={p.stem for p in (res/f'assets/{ns}/items').glob('*.json') if p.relative_to(res).as_posix() not in obsolete}
 expected={f'{t}_{k}' for t in ['wood','copper','iron','gold','diamond','netherite'] for k in ['bow','crossbow','knife','battleaxe','shield']}
-expected.update(['dragon_scale','wood_arrow','stone_arrow','flint_arrow','copper_arrow','iron_arrow','gold_arrow','dragon_scale_arrow','netherite_arrow','blunt_arrow','blaze_arrow','breeze_arrow','firework_arrow','fire_charge_arrow'])
+expected.difference_update(['wood_bow','wood_crossbow'])
+expected.update(['stone_bow','stone_crossbow'])
+expected.update(['dragon_scale','wood_arrow','copper_arrow','iron_arrow','gold_arrow','dragon_scale_arrow','netherite_arrow','blunt_arrow','blaze_arrow','breeze_arrow','firework_arrow','fire_charge_arrow'])
 expected.add('stone_battleaxe')
 expected.add('stone_knife')
+expected.add('grappling_arrow')
 expected.update(['dragon_scale_wolf_armor','quiver'])
 if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
 lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})

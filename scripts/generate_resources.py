@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Reproducible resources, including supplied shield assets; no external Python packages required."""
-import json, pathlib, shutil
+import json, pathlib, shutil, base64
 from pixel_art import render
 from shield_assets import export_shield
 from wolf_assets import export_wolf
@@ -9,8 +9,10 @@ MOD='pvpoverhaul'
 TIERS=['wood','copper','iron','gold','diamond','netherite']
 MATERIAL=['#minecraft:planks','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot','minecraft:diamond','minecraft:netherite_ingot']
 COLORS=[(139,92,47),(213,119,73),(209,218,228),(255,207,67),(73,221,209),(87,73,86)]
-AMMO=['wood_arrow','stone_arrow','flint_arrow','copper_arrow','iron_arrow','gold_arrow','dragon_scale_arrow','netherite_arrow','blunt_arrow','blaze_arrow','breeze_arrow','firework_arrow','fire_charge_arrow']
+AMMO=['wood_arrow','copper_arrow','iron_arrow','gold_arrow','dragon_scale_arrow','netherite_arrow','blunt_arrow','blaze_arrow','breeze_arrow','firework_arrow','fire_charge_arrow']
 LANG={}
+PACKED_PATH=pathlib.Path(__file__).parent/'art'/'sprites_packed.json'
+PACKED_ART=json.loads(PACKED_PATH.read_text()) if PACKED_PATH.exists() else {}
 def write(path,obj):
  p=ROOT/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,indent=2)+'\n')
 def tag(ns,path,values):write(f'data/{ns}/tags/item/{path}.json',{'replace':False,'values':values})
@@ -24,6 +26,9 @@ def model(item,vanilla=None):
  write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:model','model':vanilla or f'{MOD}:item/{item}'}})
  if not vanilla:write(f'assets/{MOD}/models/item/{item}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{item}'}})
 def png(item,kind,color,state=0):
+ if item+'.png' in PACKED_ART:
+  target=ROOT/f'assets/{MOD}/textures/item/{item}.png';target.parent.mkdir(parents=True,exist_ok=True)
+  target.write_bytes(base64.b64decode(PACKED_ART[item+'.png'],validate=True));return
  source=pathlib.Path(__file__).parent/'art'/'textures'/f'{item}.png'
  if source.exists():
   target=ROOT/f'assets/{MOD}/textures/item/{item}.png';target.parent.mkdir(parents=True,exist_ok=True)
@@ -48,14 +53,14 @@ for relative in obsolete:(ROOT/relative).unlink(missing_ok=True)
 items=[]
 for i,t in enumerate(TIERS):
  for kind in ['bow','crossbow','knife','battleaxe','shield']:
+  if t=='wood' and kind in ['bow','crossbow']:continue
   item=f'{t}_{kind}';items.append(f'{MOD}:{item}');name(item)
   if kind=='bow':bow_model(item,t=='gold',COLORS[i])
   elif kind=='crossbow':crossbow_model(item,COLORS[i])
   elif kind=='shield':shield_model(item,COLORS[i])
   else:model(item);png(item,kind,COLORS[i])
   if kind in ['bow','crossbow']:
-   if i==0:recipe(item,[f'minecraft:{kind}'])
-   elif i==5:
+   if i==5:
     write(f'data/{MOD}/recipe/{item}.json',{'type':'minecraft:smithing_transform','template':'minecraft:netherite_upgrade_smithing_template','base':f'{MOD}:diamond_{kind}','addition':'minecraft:netherite_ingot','result':{'id':f'{MOD}:{item}'}})
    else:recipe(item,[f'minecraft:{kind}',MATERIAL[i],MATERIAL[i],MATERIAL[i]])
   elif i==5:
@@ -63,14 +68,22 @@ for i,t in enumerate(TIERS):
   else:
    patterns={'knife':['M','S'],'battleaxe':['MMM','MSM',' S '],'shield':['MSM','MMM',' M ']}
    recipe(item,pattern=patterns[kind],key={'M':MATERIAL[i],'S':'minecraft:stick'})
+for kind in ['bow','crossbow']:
+ item=f'stone_{kind}';name(item);items.append(f'{MOD}:{item}')
+ if kind=='bow':bow_model(item,color=(115,115,115))
+ else:crossbow_model(item,(115,115,115))
+ recipe(item,[f'minecraft:{kind}','minecraft:cobblestone','minecraft:cobblestone','minecraft:cobblestone'])
 name('stone_battleaxe');items.append(f'{MOD}:stone_battleaxe');model('stone_battleaxe');png('stone_battleaxe','battleaxe',(115,115,115))
 recipe('stone_battleaxe',pattern=['MMM','MSM',' S '],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
 name('stone_knife');items.append(f'{MOD}:stone_knife');model('stone_knife');png('stone_knife','knife',(115,115,115))
 recipe('stone_knife',pattern=['M','S'],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
-arrow_ingredients=['#minecraft:planks','minecraft:cobblestone','minecraft:flint','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot',f'{MOD}:dragon_scale','minecraft:netherite_scrap','minecraft:iron_nugget','minecraft:blaze_powder','minecraft:wind_charge','minecraft:gunpowder','minecraft:fire_charge']
+arrow_ingredients=['#minecraft:planks','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot',f'{MOD}:dragon_scale','minecraft:netherite_scrap','minecraft:iron_nugget','minecraft:blaze_powder','minecraft:wind_charge','minecraft:gunpowder','minecraft:fire_charge']
 for i,a in enumerate(AMMO):
- name(a);model(a);png(a,'arrow',[COLORS[0],(132,139,143),(104,111,119),COLORS[1],COLORS[2],COLORS[3],(176,119,219),COLORS[5],(159,165,175),(255,134,30),(140,229,245),(255,91,172),(235,78,20)][i])
+ name(a);model(a);png(a,'arrow',[COLORS[0],COLORS[1],COLORS[2],COLORS[3],(176,119,219),COLORS[5],(159,165,175),(255,134,30),(140,229,245),(255,91,172),(235,78,20)][i])
  recipe(a,pattern=['M','S','F'],key={'M':arrow_ingredients[i],'S':'minecraft:stick','F':'minecraft:feather'},count=4)
+AMMO.append('grappling_arrow')
+name('grappling_arrow');model('grappling_arrow');png('grappling_arrow','arrow',(156,175,184))
+recipe('grappling_arrow',['minecraft:arrow','minecraft:string','minecraft:iron_ingot'])
 name('dragon_scale');model('dragon_scale');png('dragon_scale','scale',(177,118,222))
 recipe('dragon_scale',['minecraft:dragon_breath','minecraft:echo_shard','minecraft:popped_chorus_fruit'])
 name('dragon_scale_wolf_armor');model('dragon_scale_wolf_armor');png('dragon_scale_wolf_armor','wolf_armor',(158,105,211))
@@ -82,7 +95,7 @@ export_wolf(ROOT)
 write(f'assets/{MOD}/equipment/dragon_scale.json',{'layers':{'wolf_body':[{'texture':f'{MOD}:dragon_scale'}]}})
 recipe('craftable_trident',pattern=[' PP',' SP','S  '],key={'P':'minecraft:prismarine_shard','S':'minecraft:stick'},output='minecraft:trident')
 # The recipe is deliberately affordable for a combat mod; adjust it freely in this source.
-bykind=lambda k:[f'{MOD}:{t}_{k}' for t in TIERS]+([f'{MOD}:stone_{k}'] if k in ['battleaxe','knife'] else [])
+bykind=lambda k:[f'{MOD}:{t}_{k}' for t in TIERS if not (t=='wood' and k in ['bow','crossbow'])]+([f'{MOD}:stone_{k}'] if k in ['bow','crossbow','battleaxe','knife'] else [])
 for kind in ['knives','spears','battleaxes','shields']:
  singular={'knives':'knife','battleaxes':'battleaxe','shields':'shield'}.get(kind);tag(MOD,kind,bykind(singular) if singular else ['#minecraft:spears'])
 tag(MOD,'throwable_weapons',['#pvpoverhaul:spears','#pvpoverhaul:battleaxes','#minecraft:axes','#minecraft:spears'])

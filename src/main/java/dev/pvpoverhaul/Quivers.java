@@ -11,6 +11,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.SimpleMenuProvider;
+import java.util.function.Predicate;
 
 /** Native component storage and a consume-once bridge to vanilla projectile drawing. */
 public final class Quivers {
@@ -28,8 +31,23 @@ public final class Quivers {
         quiver.set(DataComponents.CONTAINER,ItemContainerContents.fromItems(items));
     }
     public static int selected(ItemStack quiver) {
-        int slot=quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getIntOr(SELECTED,-1);
+        var tag=quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();
+        if(!tag.contains(SELECTED)) {
+            List<ItemStack> arrows=contents(quiver);
+            for(int i=0;i<SLOTS;i++) if(!arrows.get(i).isEmpty() && arrows.get(i).getItem() instanceof ArrowItem) return i;
+            return -1;
+        }
+        int slot=tag.getIntOr(SELECTED,-1);
         return slot>=0 && slot<SLOTS?slot:-1;
+    }
+    public static int ammunitionSlot(ItemStack quiver,Predicate<ItemStack> supported) {
+        List<ItemStack> arrows=contents(quiver);
+        if(quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().contains(SELECTED)) {
+            int slot=selected(quiver);
+            return slot>=0 && !arrows.get(slot).isEmpty() && arrows.get(slot).getItem() instanceof ArrowItem && supported.test(arrows.get(slot))?slot:-1;
+        }
+        for(int i=0;i<SLOTS;i++) if(!arrows.get(i).isEmpty() && arrows.get(i).getItem() instanceof ArrowItem && supported.test(arrows.get(i))) return i;
+        return -1;
     }
     public static void select(ItemStack quiver,int slot) {
         CustomData.update(DataComponents.CUSTOM_DATA,quiver,tag->tag.putInt(SELECTED,slot));
@@ -47,7 +65,7 @@ public final class Quivers {
         if(!(weapon.getItem() instanceof ProjectileWeaponItem ranged)) return ItemStack.EMPTY;
         int inventorySlot=find(player);
         if(inventorySlot<0) return ItemStack.EMPTY;
-        ItemStack quiver=player.getInventory().getItem(inventorySlot);int slot=selected(quiver);
+        ItemStack quiver=player.getInventory().getItem(inventorySlot);int slot=ammunitionSlot(quiver,ranged.getAllSupportedProjectiles());
         if(slot<0) return ItemStack.EMPTY;
         ItemStack ammo=contents(quiver).get(slot);
         if(ammo.isEmpty() || !(ammo.getItem() instanceof ArrowItem) || !ranged.getAllSupportedProjectiles().test(ammo)) return ItemStack.EMPTY;
@@ -73,16 +91,20 @@ public final class Quivers {
         if(origin==null) return true;
         if(origin.owner.getInventory().getItem(origin.inventorySlot)!=origin.quiver
             || !commitDraw(origin.quiver,origin.arrowSlot,origin.before,ammo)) return false;
-        origin.owner.getInventory().setChanged();return true;
+        origin.owner.getInventory().setChanged();origin.owner.inventoryMenu.broadcastChanges();return true;
     }
     public static void initialize() {
         PayloadTypeRegistry.serverboundPlay().register(QuiverSelectionPayload.TYPE,QuiverSelectionPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(QuiverSelectionPayload.TYPE,(payload,context)->{
             ServerPlayer player=context.player();
-            if(!player.isAlive() || player.isSpectator() || payload.inventorySlot()<0 || payload.inventorySlot()>=player.getInventory().getContainerSize()
-                    || payload.arrowSlot()<-1 || payload.arrowSlot()>=SLOTS) return;
+            if(!player.isAlive() || player.isSpectator() || payload.inventorySlot()<0 || (payload.inventorySlot()>=36 && payload.inventorySlot()!=40)
+                    || payload.arrowSlot()<-2 || payload.arrowSlot()>=SLOTS) return;
             ItemStack quiver=player.getInventory().getItem(payload.inventorySlot());
             if(!quiver.is(ModItems.QUIVER)) return;
+            if(payload.arrowSlot()==-2) {
+                player.openMenu(new SimpleMenuProvider((id,inventory,user)->new QuiverMenu(id,inventory,payload.inventorySlot()),Component.translatable("container.pvpoverhaul.quiver")));
+                return;
+            }
             select(quiver,payload.arrowSlot());player.getInventory().setChanged();player.inventoryMenu.broadcastChanges();
         });
         ServerLifecycleEvents.SERVER_STOPPED.register(server->DRAWN.clear());

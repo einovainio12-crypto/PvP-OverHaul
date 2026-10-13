@@ -36,9 +36,14 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 lines.add(Component.literal("Overload: "+overload.getTranslatedKeyMessage().getString()+" while gliding (requires Overload)"));
                 lines.add(Component.literal("Overload costs "+Balance.overloadCost(stack.getMaxDamage())+" durability; Unbreaking does not reduce it"));
             }
+            if(stack.getItem() instanceof TierArrowItem arrow && arrow.ammo==Ammo.GRAPPLING) {
+                lines.add(Component.literal("Hit a block/player to pull yourself; Sneak releases"));
+                lines.add(Component.literal("48-block reach · 5-second tether · no direct damage"));
+            }
             if(stack.is(ModItems.QUIVER)) {
                 lines.add(Component.literal("Right-click: store arrows (9 stacks)"));
                 lines.add(Component.literal(quiver.getTranslatedKeyMessage().getString()+": radial ammunition selector"));
+                lines.add(Component.literal("Shift + "+quiver.getTranslatedKeyMessage().getString()+": open arrow storage"));
             }
             if(stack.is(ModItems.DRAGON_SCALE_WOLF_ARMOR)) lines.add(Component.literal("Equip your standing adult wolf; it follows your Elytra flight"));
         });
@@ -46,7 +51,13 @@ public final class PvpOverhaulClient implements ClientModInitializer {
             if (mc.player==null || mc.gui.screen()!=null) { jumpWasDown=false;return; }
             while(quiver.consumeClick()) {
                 int slot=Quivers.find(mc.player);
-                if(slot>=0) { mc.gui.setScreen(new QuiverWheelScreen(slot));return; }
+                if(slot>=0) {
+                    if(mc.player.isShiftKeyDown()) {
+                        if(ClientPlayNetworking.canSend(QuiverSelectionPayload.TYPE)) ClientPlayNetworking.send(new QuiverSelectionPayload(slot,-2));
+                        else mc.player.sendOverlayMessage(Component.literal("PvP Overhaul must also be installed on the server."));
+                    } else mc.gui.setScreen(new QuiverWheelScreen(slot));
+                    return;
+                }
                 mc.player.sendOverlayMessage(Component.literal("Carry a quiver to select arrows."));
             }
             while(lock.consumeClick()) send(SkillPayload.TARGET_LOCK);

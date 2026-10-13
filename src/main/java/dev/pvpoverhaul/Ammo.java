@@ -3,11 +3,11 @@ package dev.pvpoverhaul;
 import net.minecraft.world.item.*;
 
 public enum Ammo {
-    WOOD("wood_arrow",0,1.8f), STONE("stone_arrow",0,1.5f), FLINT("flint_arrow",0,1.0f),
+    WOOD("wood_arrow",0,1.8f),
     COPPER("copper_arrow",1,0.8f), IRON("iron_arrow",2,0.6f), GOLD("gold_arrow",3,0.5f),
     DRAGON("dragon_scale_arrow",4,0.2f), NETHERITE("netherite_arrow",5,0.05f),
     BLUNT("blunt_arrow",2,0.9f), BLAZE("blaze_arrow",4,0.7f), BREEZE("breeze_arrow",4,0.7f),
-    FIREWORK("firework_arrow",4,0.8f), FIRE_CHARGE("fire_charge_arrow",4,0.8f);
+    FIREWORK("firework_arrow",4,0.8f), FIRE_CHARGE("fire_charge_arrow",4,0.8f), GRAPPLING("grappling_arrow",0,1.0f);
 
     public final String id;
     public final int rank;
