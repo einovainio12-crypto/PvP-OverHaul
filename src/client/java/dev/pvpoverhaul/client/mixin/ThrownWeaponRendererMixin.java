@@ -30,13 +30,16 @@ public abstract class ThrownWeaponRendererMixin extends EntityRenderer<ThrownTri
         if(state instanceof WeaponProjectileRenderState custom) {
             var stack=((ThrownItemVisual)entity).pvp$getVisualItem();custom.customWeapon=!stack.isEmpty();
             custom.modelPitchOffset=ThrownItemVisual.modelPitchOffset(stack);
+            custom.modelScale=ThrownItemVisual.modelScale(stack);
+            custom.spinDegrees=ThrownItemVisual.spins(stack) && (entity.isNoPhysics() || entity.getDeltaMovement().lengthSqr()>1e-5)?state.ageInTicks*36f:0;
             pvp$resolver.updateForNonLiving(custom.weapon,stack,ItemDisplayContext.NONE,entity);
         }
     }
     @Inject(method="submit(Lnet/minecraft/client/renderer/entity/state/ThrownTridentRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",at=@At("HEAD"),cancellable=true)
     private void pvp$renderWeapon(ThrownTridentRenderState state,PoseStack poses,SubmitNodeCollector collector,CameraRenderState camera,CallbackInfo ci) {
         if(!(state instanceof WeaponProjectileRenderState custom) || !custom.customWeapon) return;
-        poses.pushPose();poses.rotateDegrees(Axis.YP,state.yRot-90);poses.rotateDegrees(Axis.ZP,state.xRot+custom.modelPitchOffset);
+        poses.pushPose();poses.rotateDegrees(Axis.YP,state.yRot-90);poses.rotateDegrees(Axis.ZP,state.xRot+custom.modelPitchOffset+custom.spinDegrees);
+        poses.scale(custom.modelScale,custom.modelScale,custom.modelScale);
         custom.weapon.submit(poses,collector,state.lightCoords,OverlayTexture.NO_OVERLAY,state.outlineColor);
         poses.popPose();super.submit(state,poses,collector,camera);ci.cancel();
     }

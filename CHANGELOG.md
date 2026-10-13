@@ -1,3 +1,14 @@
+# 0.9.0
+
+- Rebuilt quiver input around native buttons, shared visible/click geometry and a compact grid at small GUI sizes. Number/numpad keys select all nine slots. Selected empty/unsupported ammo blocks drawing instead of falling back to another arrow. Server selection also works while a storage menu closes.
+- Command-only Throwable support for any held item, including maces and blocks. `/enchant @s pvpoverhaul:throwable 1`; sneak-use throws one item. Normal levels/permissions/exclusions and table/anvil restrictions remain. Cooperates with Fabric's existing enchant-command handler.
+- Thrown Sharpness gains an extra normal-sized bonus; Sharpness V adds 6 total damage before armor. Axes/battleaxes spin in flight, and spear rendering scales to 135%.
+- Downward native Lunge triggers Pole Jump when a grounded player has both enchantments and looks down at least 55 degrees. Native costs/requirements remain; shared two-second Pole Jump cooldown. Double Jump II also increases the first jump impulse by 25%.
+- Boost: 0.54/0.72/0.90 impulse, 2.4 speed cap; unchanged durability/cooldown. Diamond/netherite bow draws are 26/30 ticks and crossbow loads 32/40 ticks. Gold ranged durability is 48, with a 10-tick bow draw and 16-tick crossbow load. Native Quick Charge applies with a three-tick minimum for custom crossbows.
+- Iron/gold, diamond and netherite shields require 2, 3 and 4 qualifying disable hits respectively, within an eight-second hit chain. Normal shield damage and final recovery scaling remain.
+- Grappling arrows attach to living/non-living entities; self, own vehicle, removed/dead and spectator targets are excluded. Only the shooter moves.
+- All previous features and supplied artwork retained. Output: `pvp-overhaul-0.9.0.jar`.
+
 # 0.8.4
 
 - Rotate thrown native spear item models an additional 90 degrees so their upper-left tips point along flight. Knife and axe rotations stay unchanged.

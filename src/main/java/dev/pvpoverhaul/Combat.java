@@ -3,6 +3,7 @@ package dev.pvpoverhaul;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
@@ -57,6 +58,10 @@ public final class Combat {
     }
     public static float thrownDamage(AbstractArrow projectile,float vanilla) {
         ItemStack weapon=projectile.getPickupItemStackOrigin();
+        float base=thrownBaseDamage(weapon,vanilla);
+        return base+Balance.thrownSharpnessBonus(Enchantments.level(weapon,"minecraft:sharpness"));
+    }
+    public static float thrownBaseDamage(ItemStack weapon,float vanilla) {
         if(weapon.is(ModItems.STONE_KNIFE)) return 4;
         if(weapon.is(ModItems.STONE_BATTLEAXE)) return 9;
         Tier t=ModItems.TIERS.get(weapon.getItem());
@@ -64,6 +69,11 @@ public final class Combat {
         if (ModItems.isSpear(weapon)) return weapon.is(Items.STONE_SPEAR)?6:5+(t==null?0:t.rank);
         if (ModItems.isBattleaxe(weapon)) return 8+t.rank;
         if (weapon.is(net.minecraft.tags.ItemTags.AXES)) return (float)weapon.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY).compute(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE,1,EquipmentSlot.MAINHAND);
+        if(Enchantments.level(weapon,"throwable")>0) {
+            float damage=(float)weapon.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY)
+                .compute(Attributes.ATTACK_DAMAGE,1,EquipmentSlot.MAINHAND);
+            return Math.max(4,damage);
+        }
         return vanilla;
     }
     private Combat() {}

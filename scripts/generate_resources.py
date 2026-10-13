@@ -37,10 +37,11 @@ def png(item,kind,color,state=0):
 def textured_model(item,parent='minecraft:item/handheld'):
  write(f'assets/{MOD}/models/item/{item}.json',{'parent':parent,'textures':{'layer0':f'{MOD}:item/{item}'}})
 def bow_model(item,gold=False,color=None):
+ draw=10 if gold else 26 if item=="diamond_bow" else 30 if item=="netherite_bow" else 20
  for stage,suffix in enumerate(['','_pulling_0','_pulling_1','_pulling_2']):
   textured_model(item+suffix,'minecraft:item/bow'+suffix);png(item+suffix,'bow',color,stage)
  m=lambda s:{'type':'minecraft:model','model':f'{MOD}:item/{item}{s}'}
- write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:condition','property':'minecraft:using_item','on_false':m(''),'on_true':{'type':'minecraft:range_dispatch','property':'minecraft:use_duration','scale':1/18 if gold else .05,'fallback':m('_pulling_0'),'entries':[{'threshold':.65,'model':m('_pulling_1')},{'threshold':.9,'model':m('_pulling_2')}]}}})
+ write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:condition','property':'minecraft:using_item','on_false':m(''),'on_true':{'type':'minecraft:range_dispatch','property':'minecraft:use_duration','scale':1/draw,'fallback':m('_pulling_0'),'entries':[{'threshold':.65,'model':m('_pulling_1')},{'threshold':.9,'model':m('_pulling_2')}]}}})
 def crossbow_model(item,color):
  for stage,suffix in enumerate(['','_pulling_0','_pulling_1','_pulling_2','_arrow','_firework']):
   textured_model(item+suffix,'minecraft:item/crossbow'+suffix);png(item+suffix,'crossbow',color,stage)

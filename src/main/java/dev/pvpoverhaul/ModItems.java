@@ -63,8 +63,8 @@ public final class ModItems {
             .component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),CrossbowItem::new);
         for (Tier t:Tier.values()) {
             if (t!=Tier.WOOD) {
-                BOWS.put(t,tiered(t,"bow",base(t),p->new TierBowItem(p,t)));
-                CROSSBOWS.put(t,tiered(t,"crossbow",base(t).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
+                BOWS.put(t,tiered(t,"bow",base(t).durability(t.rangedDurability()),p->new TierBowItem(p,t)));
+                CROSSBOWS.put(t,tiered(t,"crossbow",base(t).durability(t.rangedDurability()).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
             }
             KNIVES.put(t,tiered(t,"knife",base(t).attributes(melee(3+t.rank,3.2,-1))
                 .component(DataComponents.WEAPON,new Weapon(1)),Item::new));

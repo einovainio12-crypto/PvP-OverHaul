@@ -16,7 +16,7 @@ public final class GrapplingArrows {
     public interface Visual { boolean pvp$isGrapplingArrow(); }
     public static final double ATTACH_RANGE=48,TETHER_RANGE=64,SPEED_CAP=1.35;
     public static final int DURATION=100;
-    private record Tether(ServerPlayer owner,AbstractArrow hook,ServerPlayer target,Vec3 anchor,BlockPos block,long expires) {}
+    private record Tether(ServerPlayer owner,AbstractArrow hook,Entity target,Vec3 anchor,BlockPos block,long expires) {}
     private static final Map<UUID,Tether> ACTIVE=new HashMap<>();
     public static boolean isGrappling(AbstractArrow arrow) { return arrow.getPickupItemStackOrigin().getItem() instanceof TierArrowItem item && item.ammo==Ammo.GRAPPLING; }
     public static boolean tracked(AbstractArrow hook) { return ACTIVE.values().stream().anyMatch(tether->tether.hook==hook); }
@@ -30,10 +30,11 @@ public final class GrapplingArrows {
         if(hook.level().isClientSide()) return true;
         Entity shooter=hook.getOwner();
         if(!(shooter instanceof ServerPlayer owner) || !owner.isAlive() || owner.isSpectator()) { hook.discard();return true; }
-        ServerPlayer target=null;BlockPos block=null;Vec3 anchor=hit.getLocation();
+        Entity target=null;BlockPos block=null;Vec3 anchor=hit.getLocation();
         if(hit instanceof EntityHitResult entityHit) {
-            if(!(entityHit.getEntity() instanceof ServerPlayer player) || player==owner || !player.isAlive() || player.isSpectator()) { hook.discard();return true; }
-            target=player;anchor=player.position().add(0,player.getBbHeight()*0.55,0);
+            Entity entity=entityHit.getEntity();
+            if(!canAttach(owner,entity)) { hook.discard();return true; }
+            target=entity;anchor=entity.position().add(0,entity.getBbHeight()*0.55,0);
         } else if(hit instanceof BlockHitResult blockHit) {
             block=blockHit.getBlockPos();
             anchor=anchor.add(blockHit.getDirection().getStepX()*0.7,blockHit.getDirection().getStepY()*0.7,blockHit.getDirection().getStepZ()*0.7);
@@ -47,6 +48,10 @@ public final class GrapplingArrows {
         owner.sendOverlayMessage(Component.literal("Grapple attached — Sneak to release"));return true;
     }
     private static void release(UUID owner) { Tether tether=ACTIVE.remove(owner);if(tether!=null) tether.hook.discard(); }
+    public static boolean canAttach(Entity owner,Entity target) {
+        return target!=owner && !target.isRemoved() && !target.isSpectator()
+            && (!(target instanceof net.minecraft.world.entity.LivingEntity living) || living.isAlive());
+    }
     public static void initialize() {
         ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->release(handler.player.getUUID()));
         ServerLifecycleEvents.SERVER_STOPPED.register(server->ACTIVE.clear());
@@ -58,7 +63,7 @@ public final class GrapplingArrows {
                 boolean valid=player.isAlive() && !player.isRemoved() && !player.isSpectator() && !player.isShiftKeyDown() && !player.isPassenger()
                     && !hook.isRemoved() && hook.level()==player.level() && player.level().getGameTime()<tether.expires
                     && player.position().distanceToSqr(anchor)<=TETHER_RANGE*TETHER_RANGE;
-                if(tether.target!=null) valid&=tether.target.isAlive() && !tether.target.isRemoved() && !tether.target.isSpectator() && tether.target.level()==player.level();
+                if(tether.target!=null) valid&=canAttach(player,tether.target) && tether.target.level()==player.level();
                 if(tether.block!=null) valid&=player.level().hasChunkAt(tether.block) && !player.level().getBlockState(tether.block).isAir();
                 Vec3 direction=anchor.subtract(player.position().add(0,player.getBbHeight()*0.5,0));
                 if(!valid || direction.lengthSqr()<1.6*1.6) { hook.discard();iterator.remove();continue; }

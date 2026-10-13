@@ -95,7 +95,7 @@ public final class Quivers {
         if(slot<0) {
             if(blocksInventoryFallback(player,weapon) && !player.level().isClientSide()
                     && player.tickCount-WARNED.getOrDefault(player,-100)>=40) {
-                player.sendOverlayMessage(Component.literal("Your selected quiver arrow is not supported by this weapon. Choose another arrow or 0 for inventory ammo."));
+                player.sendOverlayMessage(Component.literal("Your chosen quiver slot is empty or unsupported. Choose another arrow or 0 for inventory ammo."));
                 WARNED.put(player,player.tickCount);
             }
             return ItemStack.EMPTY;
@@ -112,7 +112,7 @@ public final class Quivers {
         if(!quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().contains(SELECTED)) return false;
         int slot=selected(quiver);if(slot<0) return false;
         ItemStack arrow=contents(quiver).get(slot);
-        return !arrow.isEmpty() && arrow.getItem() instanceof ArrowItem && !ranged.getAllSupportedProjectiles().test(arrow);
+        return arrow.isEmpty() || !(arrow.getItem() instanceof ArrowItem) || !ranged.getAllSupportedProjectiles().test(arrow);
     }
     public static boolean validDraw(ItemStack ammo,LivingEntity shooter) {
         Origin origin=DRAWN.get(ammo);
@@ -147,10 +147,9 @@ public final class Quivers {
                 player.openMenu(new SimpleMenuProvider((id,inventory,user)->new QuiverMenu(id,inventory,payload.inventorySlot()),Component.translatable("container.pvpoverhaul.quiver")));
                 return;
             }
-            if(player.containerMenu instanceof QuiverMenu) return;
             select(player,payload.inventorySlot(),payload.arrowSlot());player.getInventory().setChanged();player.inventoryMenu.broadcastChanges();
             ItemStack weapon=player.getMainHandItem().getItem() instanceof ProjectileWeaponItem?player.getMainHandItem():player.getOffhandItem();
-            player.sendOverlayMessage(Component.literal(blocksInventoryFallback(player,weapon)?"Selected arrow is not supported by this weapon. Choose another arrow or 0 for inventory ammo.":
+            player.sendOverlayMessage(Component.literal(blocksInventoryFallback(player,weapon)?"Chosen quiver slot is empty or unsupported. Choose another arrow or 0 for inventory ammo.":
                 payload.arrowSlot()<0?"Using inventory ammunition":"Quiver arrow slot "+(payload.arrowSlot()+1)+" selected; applies to the next shot/load."));
         });
         ServerLifecycleEvents.SERVER_STOPPED.register(server->{DRAWN.clear();WARNED.clear();});

@@ -12,6 +12,8 @@ public interface ThrownItemVisual {
     }
     static boolean usesItemModel(ItemStack stack) {
         return !stack.isEmpty() && (ModItems.isKnife(stack) || ModItems.isBattleaxe(stack)
-            || stack.is(ItemTags.AXES) || ModItems.isSpear(stack));
+            || stack.is(ItemTags.AXES) || ModItems.isSpear(stack) || Enchantments.level(stack,"throwable")>0);
     }
+    static boolean spins(ItemStack stack) { return ModItems.isBattleaxe(stack) || stack.is(ItemTags.AXES); }
+    static float modelScale(ItemStack stack) { return ModItems.isSpear(stack)?1.35f:1f; }
 }

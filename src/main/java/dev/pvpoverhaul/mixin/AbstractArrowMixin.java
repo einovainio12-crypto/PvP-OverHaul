@@ -14,6 +14,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AbstractArrow.class)
 public abstract class AbstractArrowMixin implements GrapplingArrows.Visual {
     @Unique private static final EntityDataAccessor<Boolean> PVP_GRAPPLING=SynchedEntityData.defineId(AbstractArrow.class,EntityDataSerializers.BOOLEAN);
@@ -38,6 +39,15 @@ public abstract class AbstractArrowMixin implements GrapplingArrows.Visual {
         if(!arrow.level().isClientSide()) arrow.getEntityData().set(PVP_GRAPPLING,GrapplingArrows.isGrappling(arrow));
     }
     @Override public boolean pvp$isGrapplingArrow() { return ((AbstractArrow)(Object)this).getEntityData().get(PVP_GRAPPLING); }
+    @Inject(method="canHitEntity",at=@At("HEAD"),cancellable=true)
+    private void pvp$grappleAnyEntity(Entity target,CallbackInfoReturnable<Boolean> cir) {
+        AbstractArrow arrow=(AbstractArrow)(Object)this;
+        if(GrapplingArrows.isGrappling(arrow)) {
+            Entity owner=arrow.getOwner();
+            cir.setReturnValue(target!=arrow && GrapplingArrows.canAttach(owner,target)
+                && (owner==null || target.getRootVehicle()!=owner.getRootVehicle()));
+        }
+    }
     @Redirect(method="canHitEntity",at=@At(value="INVOKE",target="Lnet/minecraft/world/entity/player/Player;canHarmPlayer(Lnet/minecraft/world/entity/player/Player;)Z"))
     private boolean pvp$grappleTeammates(Player owner,Player target) { return GrapplingArrows.isGrappling((AbstractArrow)(Object)this) || owner.canHarmPlayer(target); }
     @Inject(method="onHitEntity",at=@At("HEAD"),cancellable=true)

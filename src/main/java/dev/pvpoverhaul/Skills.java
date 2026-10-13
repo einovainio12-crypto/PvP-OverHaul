@@ -97,12 +97,25 @@ public final class Skills {
                 if (coolingDown(p,now,s.nextPole,"Pole Jump")) return;
                 if (Enchantments.level(p,held,"throwable")>0) return;
                 s.nextPole=now+40; Vec3 look=p.getLookAngle();
-                impulse(p,new Vec3(look.x*0.6,0.65+pole*0.1,look.z*0.6));
+                impulse(p,poleImpulse(look,pole));
                 held.hurtAndBreak(1,p,EquipmentSlot.MAINHAND);
             }
         }
     }
     private static void message(ServerPlayer p,String text) { p.sendOverlayMessage(Component.literal(text)); }
+    public static Vec3 poleImpulse(Vec3 look,int level) {
+        return new Vec3(look.x*0.6,0.65+Math.min(3,level)*0.1,look.z*0.6);
+    }
+    public static Vec3 lungePoleImpulse(ServerPlayer player,ItemStack spear,Vec3 normal) {
+        int pole=Enchantments.level(spear,"pole_jump");
+        if(!ModItems.isSpear(spear) || pole==0 || Enchantments.level(spear,"minecraft:lunge")==0 || player.getXRot()<55
+            || !player.onGround() || player.isPassenger() || player.isFallFlying() || player.isInWater()) return normal;
+        State state=state(player);long now=player.level().getGameTime();
+        if(now<state.nextPole) return Vec3.ZERO;
+        state.nextPole=now+40;
+        // Native Lunge already paid durability/exhaustion; its effect sends motion and applies impulse grace.
+        return poleImpulse(player.getLookAngle(),pole);
+    }
     private static boolean coolingDown(ServerPlayer p,long now,long until,String skill) {
         if(now>=until) return false;
         message(p,skill+" cooldown: "+((until-now+19)/20)+"s");return true;

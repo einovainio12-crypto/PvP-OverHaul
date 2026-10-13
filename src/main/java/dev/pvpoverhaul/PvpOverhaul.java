@@ -10,7 +10,7 @@ public final class PvpOverhaul implements ModInitializer {
     public static final Logger LOGGER=LoggerFactory.getLogger(ID);
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ID,path); }
     @Override public void onInitialize() {
-        ModItems.initialize();VanillaComponents.initialize();Skills.initialize();Interactions.initialize();LootAdditions.initialize();Quivers.initialize();GrapplingArrows.initialize();
+        ModItems.initialize();VanillaComponents.initialize();Skills.initialize();Interactions.initialize();LootAdditions.initialize();Quivers.initialize();GrapplingArrows.initialize();ThrowableCommands.initialize();
         LOGGER.info("PvP Overhaul loaded for Minecraft 26.3");
     }
 }

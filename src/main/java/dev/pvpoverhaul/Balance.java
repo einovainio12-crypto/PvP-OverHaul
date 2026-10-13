@@ -6,7 +6,7 @@ public final class Balance {
     public static final double LOCK_RANGE=24, LOCK_CONE=0.985;
     public static final double DEAD_EYE_DAMAGE=1.05;
     public static final float DEAD_EYE_SPREAD=0.60f;
-    public static final double BOOST_SPEED_CAP=2.0;
+    public static final double BOOST_SPEED_CAP=2.4;
     public static final int BOOST_DURABILITY_COST=3;
     public static final double OVERLOAD_STRENGTH=1.5, OVERLOAD_SPEED_CAP=3.0;
     public static final int OVERLOAD_COOLDOWN=400;
@@ -14,12 +14,16 @@ public final class Balance {
     public static double bowMultiplier(int rank) {
         return switch(bounded(rank,5)) { case 1->1.03;case 2->1.06;case 4->1.09;case 5->1.12;default->1.0; };
     }
-    public static int bowDrawTicks(int rank) { return rank==3 ? 18 : 20; }
+    public static int bowDrawTicks(int rank) { return switch(rank) { case 3->10;case 4->26;case 5->30;default->20; }; }
+    public static int crossbowDrawTicks(int rank) { return switch(rank) { case 3->16;case 4->32;case 5->40;default->25; }; }
+    public static int shieldStunHits(int rank) { return rank>=5?4:rank>=4?3:rank>=2?2:1; }
+    public static float firstJumpMultiplier(int level) { return level>=2?1.25f:1f; }
+    public static float thrownSharpnessBonus(int level) { return level<=0?0:0.5f+0.5f*level; }
     public static int boostCooldown(int level,int aerodynamics) {
         return 180-20*bounded(level,3);
     }
     public static double boostStrength(int level,int aerodynamics) {
-        return 0.24+0.12*bounded(level,3);
+        return 0.36+0.18*bounded(level,3);
     }
     public static int overloadCost(int maximumDurability) { return Math.max(1,(maximumDurability+1)/2); }
     public static double glideGravityMultiplier(int level) { return 1.0-0.10*bounded(level,2); }

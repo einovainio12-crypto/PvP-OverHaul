@@ -14,7 +14,12 @@
     "GlidingMixin",
     "QuiverPlayerMixin",
     "QuiverDrawMixin",
-    "DragonWolfMixin"
+    "DragonWolfMixin",
+    "CrossbowChargeMixin",
+    "FirstJumpMixin",
+    "ThrowableCommandMixin",
+    "ShieldStunMixin",
+    "LungePoleJumpMixin"
   ],
   "injectors": {
     "defaultRequire": 1
