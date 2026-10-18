@@ -32,7 +32,7 @@ public abstract class ThrownWeaponRendererMixin extends EntityRenderer<ThrownTri
             custom.modelPitchOffset=ThrownItemVisual.modelPitchOffset(stack);
             custom.modelScale=ThrownItemVisual.modelScale(stack);
             custom.spinDegrees=ThrownItemVisual.spins(stack) && (entity.isNoPhysics() || entity.getDeltaMovement().lengthSqr()>1e-5)?state.ageInTicks*36f:0;
-            pvp$resolver.updateForNonLiving(custom.weapon,stack,ItemDisplayContext.NONE,entity);
+            pvp$resolver.updateForNonLiving(custom.weapon,ThrownItemVisual.heldProjectileModel(stack),ItemDisplayContext.NONE,entity);
         }
     }
     @Inject(method="submit(Lnet/minecraft/client/renderer/entity/state/ThrownTridentRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",at=@At("HEAD"),cancellable=true)

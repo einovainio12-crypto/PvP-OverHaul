@@ -136,5 +136,7 @@ for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'D
 LANG['container.pvpoverhaul.fletching']='Fletching Table'
 LANG['container.pvpoverhaul.quiver']='Quiver'
 LANG['key.category.pvpoverhaul.combat']='PvP Overhaul'
+from arsenal_resources import extend
+extend(globals())
 write(f'assets/{MOD}/lang/en_us.json',LANG)
 print('Generated',len(items)+len(AMMO)+2,'items and all recipes/models/enchantments.')

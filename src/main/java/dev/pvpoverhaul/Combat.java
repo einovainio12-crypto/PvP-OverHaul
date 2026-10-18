@@ -49,6 +49,7 @@ public final class Combat {
         Entity target=hit.getEntity();
         if (arrow.getOwner() instanceof Player attacker && target instanceof Player defender && !attacker.canHarmPlayer(defender)) return;
         if (target instanceof LivingEntity living) {
+            if(item.ammo==Ammo.ICE) Arsenal.freeze(living,2);
             if (fireSeconds(item.ammo)>0) living.igniteForSeconds(fireSeconds(item.ammo));
             if (item.ammo==Ammo.BREEZE) {
                 Vec3 push=arrow.getDeltaMovement().normalize().scale(0.8);
@@ -62,6 +63,7 @@ public final class Combat {
         return base+Balance.thrownSharpnessBonus(Enchantments.level(weapon,"minecraft:sharpness"));
     }
     public static float thrownBaseDamage(ItemStack weapon,float vanilla) {
+        if(ModItems.KINDS.containsKey(weapon.getItem()))return (float)weapon.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY).compute(Attributes.ATTACK_DAMAGE,1,EquipmentSlot.MAINHAND);
         if(weapon.is(ModItems.STONE_KNIFE)) return 4;
         if(weapon.is(ModItems.STONE_BATTLEAXE)) return 9;
         Tier t=ModItems.TIERS.get(weapon.getItem());

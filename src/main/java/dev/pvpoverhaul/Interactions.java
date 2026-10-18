@@ -27,7 +27,8 @@ public final class Interactions {
     private static InteractionResult throwItem(Player player,Level level,InteractionHand hand) {
             ItemStack held=player.getItemInHand(hand);
             if (player.isSpectator() || player.getCooldowns().isOnCooldown(held)) return InteractionResult.PASS;
-            boolean knife=ModItems.isKnife(held);
+            boolean knife=ModItems.isKnife(held) || "shuriken".equals(ModItems.KINDS.get(held.getItem()));
+            InteractionResult special=Arsenal.use(player,level,hand);if(special!=InteractionResult.PASS)return special;
             boolean throwable=Enchantments.level(player,held,"throwable")>0;
             if (!knife && !(player.isShiftKeyDown() && throwable)) return InteractionResult.PASS;
             if (ModItems.isSpear(held) && (Enchantments.level(player,held,"minecraft:lunge")>0 || Enchantments.level(player,held,"pole_jump")>0)) return InteractionResult.FAIL;
@@ -35,7 +36,7 @@ public final class Interactions {
             if (level instanceof ServerLevel server) {
                 if(held.isDamageableItem()) held.hurtWithoutBreaking(1,player);
                 ItemStack thrown=held.consumeAndReturn(1,player);
-                ThrownTrident entity=Projectile.spawnProjectileFromRotation(ThrownTrident::new,server,thrown,player,0,knife?2.2f:2.5f,1);
+                ThrownTrident entity=Projectile.spawnProjectileFromRotation(WeaponEntities::create,server,thrown,player,0,knife?2.2f:2.5f,1);
                 if (player.hasInfiniteMaterials()) entity.pickup=AbstractArrow.Pickup.CREATIVE_ONLY;
                 player.getCooldowns().addCooldown(thrown,knife?8:15);
                 server.playSound(null,player.getX(),player.getY(),player.getZ(),net.minecraft.sounds.SoundEvents.TRIDENT_THROW,net.minecraft.sounds.SoundSource.PLAYERS,1,1);

@@ -16,6 +16,8 @@ public final class PvpOverhaulClient implements ClientModInitializer {
     private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver;
     private boolean jumpWasDown;
     @Override public void onInitializeClient() {
+        for(var type:WeaponEntities.TYPES.values()) net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(type,net.minecraft.client.renderer.entity.ThrownTridentRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(WeaponEntities.GENERIC,net.minecraft.client.renderer.entity.ThrownTridentRenderer::new);
         KeyMapping.Category category=KeyMapping.Category.register(PvpOverhaul.id("combat"));
         zoom=key("zoom",InputConstants.KEY_Z,category);
         lock=key("target_lock",InputConstants.KEY_R,category);

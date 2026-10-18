@@ -19,7 +19,8 @@
     "FirstJumpMixin",
     "ThrowableCommandMixin",
     "ShieldStunMixin",
-    "LungePoleJumpMixin"
+    "LungePoleJumpMixin",
+    "TridentDataAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

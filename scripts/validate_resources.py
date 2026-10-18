@@ -19,6 +19,8 @@ expected.add('stone_battleaxe')
 expected.add('stone_knife')
 expected.add('grappling_arrow')
 expected.update(['dragon_scale_wolf_armor','quiver'])
+expected.update(f'{t}_{k}' for t in ['wood','stone','copper','iron','gold','diamond','netherite'] for k in ['shuriken','flail','hammer','longsword','scythe','halberd','quarterstaff'])
+expected.update(['weapon_sheath','storm_core','healing_totem','combat_cache','ice_arrow'])
 if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
 lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})
 for item in expected:

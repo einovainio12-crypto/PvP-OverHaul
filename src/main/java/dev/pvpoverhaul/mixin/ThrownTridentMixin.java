@@ -29,6 +29,12 @@ public abstract class ThrownTridentMixin implements ThrownItemVisual {
             self.getEntityData().set(PVP_VISUAL_ITEM,next.isEmpty()?ItemStack.EMPTY:next.copyWithCount(1));
     }
     @Override public ItemStack pvp$getVisualItem() { return ((ThrownTrident)(Object)this).getEntityData().get(PVP_VISUAL_ITEM); }
+    @Redirect(method="onHitEntity",at=@At(value="INVOKE",target="Lnet/minecraft/world/entity/Entity;hurtOrSimulate(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+    private boolean pvp$weaponEffects(net.minecraft.world.entity.Entity victim,net.minecraft.world.damagesource.DamageSource source,float damage) {
+        boolean hit=victim.hurtOrSimulate(source,damage);ThrownTrident self=(ThrownTrident)(Object)this;
+        if(hit && self.getOwner() instanceof net.minecraft.world.entity.player.Player p && victim instanceof net.minecraft.world.entity.LivingEntity target) dev.pvpoverhaul.Arsenal.hit(p,target,self.getPickupItemStackOrigin());
+        return hit;
+    }
     @ModifyConstant(method="onHitEntity",constant=@Constant(floatValue=8f))
     private float pvp$thrownDamage(float vanilla) { return Combat.thrownDamage((AbstractArrow)(Object)this,vanilla); }
 }

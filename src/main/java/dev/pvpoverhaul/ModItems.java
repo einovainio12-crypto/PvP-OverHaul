@@ -19,6 +19,9 @@ public final class ModItems {
     public static final Map<Tier,Item> BOWS=new EnumMap<>(Tier.class), CROSSBOWS=new EnumMap<>(Tier.class),
         KNIVES=new EnumMap<>(Tier.class), SPEARS=new EnumMap<>(Tier.class),
         BATTLEAXES=new EnumMap<>(Tier.class), SHIELDS=new EnumMap<>(Tier.class);
+    public static final Map<String,Item> ARSENAL=new LinkedHashMap<>();
+    public static final Map<Item,String> KINDS=new IdentityHashMap<>();
+    public static Item SHEATH,STORM_CORE,HEALING_TOTEM,COMBAT_CACHE;
     public static final List<Item> ALL=new ArrayList<>();
     public static final Map<Item,Tier> TIERS=new IdentityHashMap<>();
     public static Item DRAGON_SCALE,STONE_BATTLEAXE,STONE_KNIFE,STONE_BOW,STONE_CROSSBOW,DRAGON_SCALE_WOLF_ARMOR,QUIVER;
@@ -95,6 +98,22 @@ public final class ModItems {
             .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
             .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
             .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
+        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite"}) {
+            Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
+            int rank=tier==null?1:tier.rank;
+            for(String kind:new String[]{"shuriken","flail","hammer","longsword","scythe","halberd","quarterstaff"}) {
+                double damage=switch(kind){case "shuriken"->3;case "hammer"->9;case "flail"->7;case "longsword","halberd"->6;case "scythe"->5;default->4;};
+                double speed=switch(kind){case "hammer"->.7;case "flail"->.9;case "halberd"->1;case "scythe"->1.1;case "longsword"->1.3;case "quarterstaff"->2;default->2.5;};
+                double reach=kind.equals("halberd")?1.25:List.of("longsword","quarterstaff","scythe").contains(kind)?.75:0;
+                Item.Properties props=tier==null?new Item.Properties().durability(131).enchantable(5).repairable(ToolMaterial.STONE.repairItems()):base(tier);
+                Item item=register(material+"_"+kind,props.attributes(melee(damage+rank,speed,reach)).component(DataComponents.WEAPON,new Weapon(1,List.of("hammer","halberd","flail").contains(kind)?5f:0f)),Item::new);
+                ARSENAL.put(material+"_"+kind,item);KINDS.put(item,kind);if(tier!=null)TIERS.put(item,tier);
+            }
+        }
+        SHEATH=register("weapon_sheath",new Item.Properties().stacksTo(1).component(DataComponents.CONTAINER,ItemContainerContents.EMPTY),Item::new);
+        STORM_CORE=register("storm_core",new Item.Properties().rarity(Rarity.EPIC),Item::new);
+        COMBAT_CACHE=register("combat_cache",new Item.Properties().rarity(Rarity.RARE),Item::new);
+        HEALING_TOTEM=register("healing_totem",new Item.Properties().durability(64).rarity(Rarity.RARE),Item::new);
         for (Ammo a:Ammo.values()) register(a.id,new Item.Properties(),p->new TierArrowItem(p,a));
         CreativeModeTabEvents.modifyOutputEvent(ResourceKey.create(Registries.CREATIVE_MODE_TAB,net.minecraft.resources.Identifier.withDefaultNamespace("combat"))).register(output->ALL.forEach(output::accept));
     }
