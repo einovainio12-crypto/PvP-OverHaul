@@ -1,3 +1,15 @@
+# 0.10.2 manual gameplay checks
+
+1. Lock onto moving enemies with R; verify outline and crosshair tracking. Test
+   sneak/re-toggle, weapon switch, death, walls, 24-block range and dimension changes.
+2. Fire Dead Eye with one, two, three and four visible enemies. Confirm nearest-three
+   ordering, cooldown, quiver selected slot, empty ammo, Infinity and loaded magazines.
+3. Shoot the slingshot with/without cobblestone; check draw, durability and damage.
+4. Compare all halberds in GUI, first/third person and flight: icon versus held sprite,
+   orientation, scale and the supplied pixels. Check the other supplied textures too.
+
+These interactive checks have not been performed in this environment.
+
 # Validation and gameplay checklist
 
 ## Validation performed in the creation environment

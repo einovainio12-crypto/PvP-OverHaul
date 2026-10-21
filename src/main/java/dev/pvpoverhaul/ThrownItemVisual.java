@@ -8,7 +8,7 @@ public interface ThrownItemVisual {
     ItemStack pvp$getVisualItem();
     static float modelPitchOffset(ItemStack stack) {
         // Native spear sprites point upper-left; knives/axes point upper-right.
-        return ModItems.isSpear(stack)?-135f:-45f;
+        return ModItems.isSpear(stack)||isHalberd(stack)?-135f:-45f;
     }
     static boolean usesItemModel(ItemStack stack) {
         return !stack.isEmpty() && (ModItems.KINDS.containsKey(stack.getItem()) || ModItems.isKnife(stack) || ModItems.isBattleaxe(stack)

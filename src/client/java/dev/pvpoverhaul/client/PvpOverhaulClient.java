@@ -16,6 +16,9 @@ public final class PvpOverhaulClient implements ClientModInitializer {
     private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver;
     private boolean jumpWasDown;
     @Override public void onInitializeClient() {
+        ClientPlayNetworking.registerGlobalReceiver(TargetLockPayload.TYPE,(payload,context)->TargetLockClient.receive(payload.entityId()));
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.DISCONNECT.register((handler,client)->TargetLockClient.clear());
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(SlingshotItem.PEBBLE,net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
         for(var type:WeaponEntities.TYPES.values()) net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(type,net.minecraft.client.renderer.entity.ThrownTridentRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(WeaponEntities.GENERIC,net.minecraft.client.renderer.entity.ThrownTridentRenderer::new);
         KeyMapping.Category category=KeyMapping.Category.register(PvpOverhaul.id("combat"));
@@ -31,8 +34,8 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 stack.getItem() instanceof TierCrossbowItem crossbow && crossbow.tier==Tier.NETHERITE?crossbow.tier:null;
             if(stack.getItem() instanceof TierBowItem || stack.getItem() instanceof TierCrossbowItem)
                 lines.add(Component.literal("Zoom: hold "+zoom.getTranslatedKeyMessage().getString()));
-            if(tier!=null && tier.targetLock()) lines.add(Component.literal("Target Lock: "+lock.getTranslatedKeyMessage().getString()+", then fully charge and fire within 3s"));
-            if(tier!=null && tier.deadEye()) lines.add(Component.literal("Dead Eye: "+dead.getTranslatedKeyMessage().getString()+", then fully charge and fire within 3s"));
+            if(tier!=null && tier.targetLock()) lines.add(Component.literal("Target Lock: "+lock.getTranslatedKeyMessage().getString()+", toggle tracking; sneak to release"));
+            if(tier!=null && tier.deadEye()) lines.add(Component.literal("Dead Eye: "+dead.getTranslatedKeyMessage().getString()+", rapid burst at three nearest enemies"));
             if(stack.is(Items.ELYTRA)) {
                 lines.add(Component.literal("Boost: "+boost.getTranslatedKeyMessage().getString()+" while gliding (requires Boost)"));
                 lines.add(Component.literal("Overload: "+overload.getTranslatedKeyMessage().getString()+" while gliding (requires Overload)"));
@@ -63,6 +66,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 mc.player.sendOverlayMessage(Component.literal("Carry a quiver to select arrows."));
             }
             while(lock.consumeClick()) send(SkillPayload.TARGET_LOCK);
+            TargetLockClient.track();
             while(dead.consumeClick()) send(SkillPayload.DEAD_EYE);
             while(boost.consumeClick()) send(SkillPayload.BOOST);
             while(pole.consumeClick()) send(SkillPayload.POLE_JUMP);

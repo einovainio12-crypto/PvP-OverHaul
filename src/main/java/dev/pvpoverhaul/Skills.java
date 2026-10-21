@@ -16,7 +16,10 @@ public final class Skills {
     private static final Map<UUID,State> STATES=new HashMap<>();
     private static State state(ServerPlayer p) { return STATES.computeIfAbsent(p.getUUID(),id->new State()); }
     private static final class State {
-        long lockUntil,deadUntil,nextLock,nextDead,nextBoost,nextPole;
+        long lockUntil,deadUntil,nextLock,nextDead,nextBoost,nextPole,nextBurst;
+        ItemStack tracked=ItemStack.EMPTY,burstWeapon=ItemStack.EMPTY;
+        final Deque<UUID> burst=new ArrayDeque<>();
+        LivingEntity shootingTarget;
         final long[] lastPacket=new long[6];
         Item lockWeapon,deadWeapon;
         UUID target; boolean jumped; int airborneTicks;
@@ -24,6 +27,7 @@ public final class Skills {
     }
     public static void initialize() {
         PayloadTypeRegistry.serverboundPlay().register(SkillPayload.TYPE,SkillPayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(TargetLockPayload.TYPE,TargetLockPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(SkillPayload.TYPE,(payload,context)->activate(context.player(),payload.action()));
         ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->STATES.remove(handler.player.getUUID()));
         ServerTickEvents.END_SERVER_TICK.register(server->{
@@ -31,6 +35,7 @@ public final class Skills {
                 State s=state(p);
                 if (p.onGround() || p.isInWater() || p.onClimbable()) { s.jumped=false;s.airborneTicks=0; }
                 else s.airborneTicks++;
+                tickCombat(p,s);
                 if (!p.isAlive() || p.isSpectator()) { s.jumped=false;s.airborneTicks=0;s.lockUntil=0;s.deadUntil=0; }
             }
         });
@@ -44,20 +49,26 @@ public final class Skills {
         ItemStack held=rangedWeapon(p);
         switch(action) {
             case SkillPayload.TARGET_LOCK -> {
+                if(s.target!=null){clearLock(p,s);return;}
                 if (skillTier(held)==null || !skillTier(held).targetLock()) { message(p,"Target Lock needs a copper-or-higher bow or netherite crossbow.");return; }
                 if (coolingDown(p,now,s.nextLock,"Target Lock")) return;
                 LivingEntity target=findTarget(p);
                 if (target==null) { p.sendOverlayMessage(Component.literal("No visible target near your crosshair."));return; }
-                s.target=target.getUUID();s.lockUntil=now+Balance.LOCK_DURATION;s.nextLock=now+Balance.LOCK_COOLDOWN;
-                s.lockWeapon=held.getItem();
-                p.sendOverlayMessage(Component.literal("Target lock: one charged shot within 3 seconds"));
+                s.target=target.getUUID();s.lockUntil=Long.MAX_VALUE;s.nextLock=now+Balance.LOCK_COOLDOWN;
+                s.lockWeapon=held.getItem();s.tracked=held;sendLock(p,target.getId());
+                p.sendOverlayMessage(Component.literal("Target Lock active. Use Target Lock again or sneak to release."));
             }
             case SkillPayload.DEAD_EYE -> {
                 if (skillTier(held)==null || !skillTier(held).deadEye()) { message(p,"Dead Eye needs an iron, diamond or netherite bow, or netherite crossbow.");return; }
                 if (coolingDown(p,now,s.nextDead,"Dead Eye")) return;
-                s.deadUntil=now+Balance.DEAD_EYE_DURATION;s.nextDead=now+Balance.DEAD_EYE_COOLDOWN;
-                s.deadWeapon=held.getItem();
-                p.sendOverlayMessage(Component.literal("Dead Eye: one charged shot within 3 seconds"));
+                if(!s.burst.isEmpty())return;
+                List<LivingEntity> targets=p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(Balance.LOCK_RANGE),e->validTarget(p,e,true));
+                targets.sort(Comparator.comparingDouble(p::distanceToSqr));
+                if(targets.isEmpty()){message(p,"No visible enemies in range.");return;}
+                targets.stream().limit(3).forEach(t->s.burst.add(t.getUUID()));
+                s.burstWeapon=held;s.nextBurst=now;s.nextDead=now+Balance.DEAD_EYE_COOLDOWN;
+                tickBurst(p,s);
+
             }
             case SkillPayload.BOOST, SkillPayload.OVERLOAD -> {
                 boolean overload=action==SkillPayload.OVERLOAD;
@@ -136,40 +147,56 @@ public final class Skills {
     private static LivingEntity findTarget(ServerPlayer p) {
         return p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(Balance.LOCK_RANGE),e->e!=p && e.isAlive() && !e.isSpectator() &&
             p.distanceToSqr(e)<=Balance.LOCK_RANGE*Balance.LOCK_RANGE && !p.isAlliedTo(e) && (!(e instanceof Player other) || p.canHarmPlayer(other)) && p.hasLineOfSight(e) &&
-            nearCrosshair(p,e))
+            nearCrosshair(p,e) && validTarget(p,e,false))
             .stream().min(Comparator.comparingDouble(e->1-p.getLookAngle().dot(e.getBoundingBox().getCenter().subtract(p.getEyePosition()).normalize()))).orElse(null);
     }
-    public static boolean deadEyeActive(LivingEntity user) {
-        return deadEyeActive(user,rangedWeapon(user));
+    public static boolean deadEyeActive(LivingEntity user) { return false; }
+    public static boolean deadEyeActive(LivingEntity user,ItemStack weapon) { return false; }
+    public static boolean validTarget(ServerPlayer p,LivingEntity target,boolean automatic) {
+        if(target==p || !target.isAlive() || target.isSpectator() || target.level()!=p.level()
+            || p.distanceToSqr(target)>Balance.LOCK_RANGE*Balance.LOCK_RANGE || p.isAlliedTo(target) || !p.hasLineOfSight(target))return false;
+        if(target instanceof Player other)return !other.isCreative() && p.canHarmPlayer(other);
+        if(target instanceof net.minecraft.world.entity.TamableAnimal pet && pet.isTame())return false;
+        if(target instanceof net.minecraft.world.entity.decoration.ArmorStand)return false;
+        return !automatic || target instanceof net.minecraft.world.entity.monster.Enemy;
     }
-    public static boolean deadEyeActive(LivingEntity user,ItemStack firedWeapon) {
-        Tier tier=firedWeapon==null?null:skillTier(firedWeapon);
-        if(!(user instanceof ServerPlayer p) || tier==null || !tier.deadEye()) return false;
-        State s=STATES.get(p.getUUID());
-        return s!=null && p.level().getGameTime()<s.deadUntil && firedWeapon.getItem()==s.deadWeapon;
+    private static void sendLock(ServerPlayer p,int id) {
+        if(ServerPlayNetworking.canSend(p,TargetLockPayload.TYPE))ServerPlayNetworking.send(p,new TargetLockPayload(id));
+    }
+    private static void clearLock(ServerPlayer p,State s){if(s.target==null)return;s.target=null;s.tracked=ItemStack.EMPTY;s.lockUntil=0;sendLock(p,-1);}
+    private static void tickCombat(ServerPlayer p,State s){
+        if(!p.isAlive()||p.isSpectator()){clearLock(p,s);s.burst.clear();return;}
+        if(s.target!=null){
+            Entity e=p.level().getEntity(s.target);
+            if(p.isShiftKeyDown() || rangedWeapon(p)!=s.tracked || !(e instanceof LivingEntity t) || !validTarget(p,t,false))clearLock(p,s);
+            else if(p.tickCount%10==0)sendLock(p,e.getId());
+        }
+        tickBurst(p,s);
+    }
+    private static void tickBurst(ServerPlayer p,State s){
+        if(s.burst.isEmpty()||p.level().getGameTime()<s.nextBurst)return;
+        if(rangedWeapon(p)!=s.burstWeapon||s.burstWeapon.isEmpty()||!p.isAlive()||p.isSpectator()){s.burst.clear();return;}
+        Entity e=p.level().getEntity(s.burst.removeFirst());s.nextBurst=p.level().getGameTime()+2;
+        if(!(e instanceof LivingEntity target)||!validTarget(p,target,true))return;
+        s.shootingTarget=target;
+        try{
+            var hand=p.getMainHandItem()==s.burstWeapon?net.minecraft.world.InteractionHand.MAIN_HAND:net.minecraft.world.InteractionHand.OFF_HAND;
+            boolean fired=s.burstWeapon.getItem() instanceof TierBowItem bow?bow.fireBurst(p,hand,s.burstWeapon,target):
+                s.burstWeapon.getItem() instanceof TierCrossbowItem crossbow && crossbow.fireBurst(p,hand,s.burstWeapon,target);
+            if(!fired){s.burst.clear();message(p,"Dead Eye stopped: no compatible ammunition.");}
+        }finally{s.shootingTarget=null;}
     }
     public static boolean aim(LivingEntity user,Projectile projectile,float power,float angle) {
-        if (!(user instanceof ServerPlayer p)) return false;
-        if (!(projectile instanceof net.minecraft.world.entity.projectile.arrow.AbstractArrow arrow)) return false;
-        Tier firedTier=arrow.getWeaponItem()==null?null:skillTier(arrow.getWeaponItem());
-        if (firedTier==null || !firedTier.targetLock()) return false;
-        State s=STATES.get(p.getUUID());
-        if (s==null || s.target==null || arrow.getWeaponItem().getItem()!=s.lockWeapon || p.level().getGameTime()>=s.lockUntil || angle!=0 || power<3f) return false;
-        Entity entity=p.level().getEntity(s.target);
-        if (!(entity instanceof LivingEntity target) || !target.isAlive() || target.isSpectator() || p.distanceToSqr(target)>Balance.LOCK_RANGE*Balance.LOCK_RANGE ||
-            !p.hasLineOfSight(target) || p.isAlliedTo(target) || (target instanceof Player other && !p.canHarmPlayer(other))) return false;
-        if (!nearCrosshair(p,target)) return false;
+        if(!(user instanceof ServerPlayer p))return false;
+        State s=STATES.get(p.getUUID());if(s==null)return false;
+        LivingEntity target=s.shootingTarget;
+        if(target==null && s.target!=null && p.level().getEntity(s.target) instanceof LivingEntity t && validTarget(p,t,false))target=t;
+        if(target==null||angle!=0)return false;
         Vec3 delta=target.getBoundingBox().getCenter().subtract(projectile.position());
-        // Aim correction at release only; arrows retain vanilla flight, gravity and collision.
-        double flightTime=delta.horizontalDistance()/power;
-        projectile.shoot(delta.x,delta.y+0.025*flightTime*flightTime,delta.z,power,Combat.uncertainty(projectile,user));return true;
+        double flightTime=delta.horizontalDistance()/Math.max(.1,power);
+        projectile.shoot(delta.x,delta.y+0.025*flightTime*flightTime,delta.z,power,0);return true;
     }
-    public static void finishShot(LivingEntity user) {
-        if (user instanceof ServerPlayer p) {
-            State s=STATES.get(p.getUUID());
-            if (s!=null) { s.lockUntil=0;s.deadUntil=0;s.target=null; }
-        }
-    }
+    public static void finishShot(LivingEntity user) { /* Tracking remains until released or invalid. */ }
     private static Tier skillTier(ItemStack stack) {
         if (stack.getItem() instanceof TierBowItem bow) return bow.tier;
         if (stack.getItem() instanceof TierCrossbowItem crossbow && crossbow.tier==Tier.NETHERITE) return crossbow.tier;

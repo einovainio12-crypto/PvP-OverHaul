@@ -9,6 +9,17 @@ import net.minecraft.world.level.Level;
 public final class TierBowItem extends BowItem {
     public final Tier tier;
     public TierBowItem(Properties properties,Tier tier) { super(properties);this.tier=tier; }
+    public boolean fireBurst(net.minecraft.server.level.ServerPlayer player,net.minecraft.world.InteractionHand hand,ItemStack weapon,LivingEntity target) {
+        ItemStack ammo;
+        ItemStack available=player.getProjectile(weapon);
+        if(available.isEmpty())return false;
+        var drawn=draw(weapon,available,player);
+        if(drawn.isEmpty())return false;
+        ammo=drawn.getFirst();
+        if(ammo.isEmpty())return false;
+        shoot((net.minecraft.server.level.ServerLevel)player.level(),player,hand,weapon,java.util.List.of(ammo),3.15f,0,true,target);
+        return true;
+    }
     @Override public Predicate<ItemStack> getAllSupportedProjectiles() { return s->Ammo.supported(tier,s,false); }
     @Override protected Projectile createProjectile(Level level,LivingEntity shooter,ItemStack weapon,ItemStack ammo,boolean crit) {
         Projectile p=super.createProjectile(level,shooter,weapon,ammo,crit);

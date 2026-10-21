@@ -14,6 +14,24 @@ import net.minecraft.world.level.Level;
 public final class TierCrossbowItem extends CrossbowItem {
     public final Tier tier;
     public TierCrossbowItem(Properties properties,Tier tier) { super(properties);this.tier=tier; }
+    public boolean fireBurst(net.minecraft.server.level.ServerPlayer player,net.minecraft.world.InteractionHand hand,ItemStack weapon,LivingEntity target) {
+        ItemStack ammo;
+        var loaded=new java.util.ArrayList<ItemStack>(weapon.getOrDefault(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY).itemCopies().toList());
+        if(!loaded.isEmpty()){
+            ammo=loaded.removeFirst();
+            while(!loaded.isEmpty()&&loaded.getFirst().has(DataComponents.INTANGIBLE_PROJECTILE))loaded.removeFirst();
+            weapon.set(DataComponents.CHARGED_PROJECTILES,loaded.isEmpty()?ChargedProjectiles.EMPTY:ChargedProjectiles.ofNonEmpty(loaded));
+        }else {
+        ItemStack available=player.getProjectile(weapon);
+        if(available.isEmpty())return false;
+        var drawn=draw(weapon,available,player);
+        if(drawn.isEmpty())return false;
+        ammo=drawn.getFirst();
+        }
+        if(ammo.isEmpty())return false;
+        shoot((net.minecraft.server.level.ServerLevel)player.level(),player,hand,weapon,java.util.List.of(ammo),3.15f,0,true,target);
+        return true;
+    }
     @Override public Predicate<ItemStack> getAllSupportedProjectiles() { return s->Ammo.supported(tier,s,false); }
     @Override public Predicate<ItemStack> getSupportedHeldProjectiles() { return s->Ammo.supported(tier,s,true); }
     @Override public void onUseTick(Level level,LivingEntity user,ItemStack weapon,int remaining) {

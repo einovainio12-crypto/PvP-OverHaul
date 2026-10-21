@@ -21,6 +21,7 @@ public final class ModItems {
         BATTLEAXES=new EnumMap<>(Tier.class), SHIELDS=new EnumMap<>(Tier.class);
     public static final Map<String,Item> ARSENAL=new LinkedHashMap<>();
     public static final Map<Item,String> KINDS=new IdentityHashMap<>();
+    public static Item SLINGSHOT;
     public static Item SHEATH,STORM_CORE,HEALING_TOTEM,COMBAT_CACHE;
     public static final List<Item> ALL=new ArrayList<>();
     public static final Map<Item,Tier> TIERS=new IdentityHashMap<>();
@@ -49,6 +50,7 @@ public final class ModItems {
         return builder.build();
     }
     public static void initialize() {
+        SLINGSHOT=register("slingshot",new Item.Properties().durability(128).repairable(Items.STRING),SlingshotItem::new);
         DRAGON_SCALE=register("dragon_scale",new Item.Properties().rarity(Rarity.RARE),Item::new);
         DRAGON_SCALE_WOLF_ARMOR=register("dragon_scale_wolf_armor",new Item.Properties()
             .wolfArmor(net.minecraft.world.item.equipment.ArmorMaterials.ARMADILLO_SCUTE).durability(128).repairable(DRAGON_SCALE).rarity(Rarity.RARE)

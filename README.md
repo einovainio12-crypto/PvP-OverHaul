@@ -1,3 +1,38 @@
+# Java 0.10.2 — combat and texture update
+
+For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
+
+- Target Lock (R): the selected living target gets a glowing outline visible to you,
+  and your crosshair tracks it. Press R again or sneak to release. Switching weapons,
+  death, loss of sight, changing dimension or leaving the 24-block range releases it.
+  The activation cooldown remains 16 seconds.
+- Dead Eye (V): selects up to three closest visible enemies within 24 blocks and
+  fires one aimed shot at each, two ticks apart (about 0.2 seconds for the whole burst).
+  Targets are hostile mobs and attackable non-creative players; allies and tame pets
+  are excluded. It stops if the weapon changes or ammo runs out. Cooldown: 20 seconds.
+  No tick-rate slowdown. Arrow velocity remains normal to preserve damage balance.
+  Native ammo consumption, Infinity, quiver selection and arrow effects are retained;
+  this ability fires one projectile per target, without extra Multishot copies.
+  Loaded crossbow magazine rounds are used first.
+- One slingshot, without material tiers: 128 durability, cobblestone ammo, 4 damage,
+  twelve ticks to fully draw and an eight-tick cooldown. Craft with three sticks in
+  a Y shape and one string in the center. Repair with string. It has its own pebble entity.
+- All 37 supplied PNGs are included unchanged: seven halberd icons, seven held
+  halberds, seven hammers, seven scythes, seven flails, an ice arrow and the slingshot.
+  Flail_stobe.png maps to stone_flail. Halberds use the small icon in inventory and
+  the large held sprite in hand and when thrown. Thrown size remains 1.35, and the
+  rotation follows the new upper-left-pointing artwork.
+
+Eligible skills: copper through netherite bows have Target Lock; iron, diamond and
+netherite bows have Dead Eye. The netherite crossbow has both. Keybinds are rebindable.
+
+Validation: Java 25 compilation against Minecraft 26.3/Fabric, generated resource
+checks, native recipe/enchantment/registry decoding, and client mixin loading checks.
+Interactive gameplay, appearance and multiplayer latency still need an in-game test.
+The ZIP contains source, not an installable mod JAR. GitHub runs the full Gradle build.
+
+---
+
 # PvP Overhaul — Fabric 26.3
 
 A first playable implementation of the supplied weapon overhaul concept, with a GitHub Actions builder and a Java 25 Codespaces workspace. **Minecraft Java Edition 26.3 only; not Bedrock or older 1.21.x.** Install this mod and Fabric API on the server and every client.
@@ -25,7 +60,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.9.0.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.10.2.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
@@ -108,7 +143,7 @@ The stone knife uses cobblestone above a stick in the crafting grid. It has 4 ba
 | Right-click a knife | Throw |
 | Sneak-right-click a Throwable axe/spear | Throw |
 
-Rebind these in Minecraft's controls and resolve conflicts with other mods. Tooltips show the currently bound skill keys. Hold a supported weapon in either hand, press R or V, then fully draw and fire the bow within three seconds (or fire a loaded netherite crossbow). Target Lock needs a visible target near the crosshair; it aims at the target's body and rechecks range, visibility, teammates and aim at release. Dead Eye needs no target. Skills bind to the armed weapon type, and a charged shot consumes them. R and V can now be armed in the same tick. The action bar explains unsupported items, cooldowns, low Elytra durability, gliding requirements, and speed caps. The client reports a missing server installation. Server movement skills explicitly send the owner's motion packet. These fixes address hand selection, dropped simultaneous activations, aim overshoot and missing feedback; multiplayer gameplay still needs testing. Partial bow shots receive neither Dead Eye bonuses nor Target Lock correction. Arrows keep normal gravity and collision.
+Rebind these in Minecraft Controls. R toggles a visible target lock with a glowing outline and camera tracking; sneak releases. V fires at the three closest visible enemies in a rapid burst. See COMBAT-UPDATE.md for ammo rules, cooldowns, textures and the new untiered slingshot.
 
 ### Ammunition
 

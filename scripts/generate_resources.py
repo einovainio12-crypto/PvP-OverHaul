@@ -138,5 +138,16 @@ LANG['container.pvpoverhaul.quiver']='Quiver'
 LANG['key.category.pvpoverhaul.combat']='PvP Overhaul'
 from arsenal_resources import extend
 extend(globals())
+# Uploaded arsenal textures override generated placeholders after the arsenal pass.
+name('slingshot');model('slingshot')
+recipe('slingshot',pattern=['S S',' L ',' S '],key={'S':'minecraft:stick','L':'minecraft:string'})
+for asset,encoded in PACKED_ART.items():
+ if any(k in asset for k in ['halberd','hammer','scythe','flail']) or asset in ['slingshot.png','ice_arrow.png']:
+  target=ROOT/f'assets/{MOD}/textures/item/{asset}';target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(base64.b64decode(encoded,validate=True))
+for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
+ item=material+'_halberd';held=item+'_held'
+ write(f'assets/{MOD}/models/item/{held}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{held}'}})
+ write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:select','property':'minecraft:display_context','cases':[{'when':['gui','ground','fixed'],'model':{'type':'minecraft:model','model':f'{MOD}:item/{item}'}}],'fallback':{'type':'minecraft:model','model':f'{MOD}:item/{held}'}}})
+ write(f'assets/{MOD}/items/thrown_visual/{item}.json',{'model':{'type':'minecraft:model','model':f'{MOD}:item/{held}'}})
 write(f'assets/{MOD}/lang/en_us.json',LANG)
 print('Generated',len(items)+len(AMMO)+2,'items and all recipes/models/enchantments.')

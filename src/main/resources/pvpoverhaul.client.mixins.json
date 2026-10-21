@@ -1,1 +1,17 @@
-{"required": true, "package": "dev.pvpoverhaul.client.mixin", "compatibilityLevel": "JAVA_25", "client": ["CameraMixin", "WolfArmorLayerMixin", "ThrownWeaponRendererMixin", "GrapplingArrowStateMixin", "GrapplingArrowRendererMixin"], "injectors": {"defaultRequire": 1}}
+{
+  "required": true,
+  "package": "dev.pvpoverhaul.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "CameraMixin",
+    "WolfArmorLayerMixin",
+    "ThrownWeaponRendererMixin",
+    "GrapplingArrowStateMixin",
+    "GrapplingArrowRendererMixin",
+    "TargetGlowMixin",
+    "TargetMouseMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
