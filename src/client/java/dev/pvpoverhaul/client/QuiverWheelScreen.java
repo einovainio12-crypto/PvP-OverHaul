@@ -60,7 +60,7 @@ public final class QuiverWheelScreen extends Screen {
     private void select(int slot) {
         if(slot<-1 || slot>8 || !quiver().is(ModItems.QUIVER)) return;
         if(!ClientPlayNetworking.canSend(QuiverSelectionPayload.TYPE)) {
-            minecraft.player.sendOverlayMessage(Component.literal("PvP Overhaul must also be installed on the server."));onClose();return;
+            minecraft.player.sendOverlayMessage(Component.literal("PvP+ must also be installed on the server."));onClose();return;
         }
         Quivers.select(minecraft.player,inventorySlot,slot);
         ClientPlayNetworking.send(new QuiverSelectionPayload(inventorySlot,slot));

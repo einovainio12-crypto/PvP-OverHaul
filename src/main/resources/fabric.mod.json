@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "pvpoverhaul",
   "version": "${version}",
-  "name": "PvP Overhaul",
+  "name": "PvP+",
   "description": "Tiered ranged weapons, knives, spears, battleaxes, shields and combat enchantments for Minecraft 26.3.",
-  "authors": ["PvP Overhaul contributors"],
+  "authors": ["PvP+ contributors"],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {

@@ -135,7 +135,7 @@ write('data/minecraft/tags/enchantment/exclusive_set/damage.json',{'replace':Fal
 for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel'}.items():LANG[f'key.{MOD}.{key}']=title
 LANG['container.pvpoverhaul.fletching']='Fletching Table'
 LANG['container.pvpoverhaul.quiver']='Quiver'
-LANG['key.category.pvpoverhaul.combat']='PvP Overhaul'
+LANG['key.category.pvpoverhaul.combat']='PvP+'
 from arsenal_resources import extend
 extend(globals())
 # Uploaded arsenal textures override generated placeholders after the arsenal pass.

@@ -1,4 +1,13 @@
-# Java 0.10.2 — combat and texture update
+# PvP+ 0.10.3
+
+Renamed the mod to PvP+ and installed the 60 supplied copper/diamond/gold/iron/netherite/stone bow and
+crossbow textures, including draw stages and loaded arrow/firework states.
+All 0.10.2 features and the other supplied weapon artwork are retained.
+The internal mod ID and item namespace remain pvpoverhaul for saved-world compatibility.
+The build produces pvp-plus-0.10.3.jar. Remove the old mod JAR when installing it;
+this replaces the existing mod and should not be installed alongside it.
+
+# Java 0.10.3 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -33,7 +42,7 @@ The ZIP contains source, not an installable mod JAR. GitHub runs the full Gradle
 
 ---
 
-# PvP Overhaul — Fabric 26.3
+# PvP+ — Fabric 26.3
 
 A first playable implementation of the supplied weapon overhaul concept, with a GitHub Actions builder and a Java 25 Codespaces workspace. **Minecraft Java Edition 26.3 only; not Bedrock or older 1.21.x.** Install this mod and Fabric API on the server and every client.
 
@@ -45,22 +54,22 @@ The fresh kit needs **one project upload**. Extract it, open `UPLOAD-THIS`, and 
 
 The build now runs `generateResources` before validation and packaging. The included Python scripts generate all current PNG textures, models, recipes, tags, enchantments and translations, repairing missing images and old definitions. The browser kit includes Java, scripts, three metadata files and a packed sprite input; it does not require hundreds of individual generated resource uploads.
 
-1. Create an empty GitHub repository, for example `pvp-overhaul`. Leave the “add README” and “add license” options unchecked.
+1. Create an empty GitHub repository, for example `pvp-plus`. Leave the “add README” and “add license” options unchecked.
 2. Extract the ZIP. Open a terminal **inside the extracted `Complete-project` folder**; `build.gradle` and `.github` must be at the repository root.
 3. Run these commands, replacing `YOURNAME` and the repository name:
 
 ```bash
 git init -b main
 git add .
-git commit -m "Add PvP Overhaul for Fabric 26.3"
-git remote add origin https://github.com/YOURNAME/pvp-overhaul.git
+git commit -m "Add PvP+ for Fabric 26.3"
+git remote add origin https://github.com/YOURNAME/pvp-plus.git
 git push -u origin main
 ```
 
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-overhaul-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-overhaul-0.10.2.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.3.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.

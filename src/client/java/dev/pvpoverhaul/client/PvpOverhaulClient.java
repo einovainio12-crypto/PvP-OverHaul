@@ -59,7 +59,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 if(slot>=0) {
                     if(mc.player.isShiftKeyDown()) {
                         if(ClientPlayNetworking.canSend(QuiverSelectionPayload.TYPE)) ClientPlayNetworking.send(new QuiverSelectionPayload(slot,-2));
-                        else mc.player.sendOverlayMessage(Component.literal("PvP Overhaul must also be installed on the server."));
+                        else mc.player.sendOverlayMessage(Component.literal("PvP+ must also be installed on the server."));
                     } else mc.gui.setScreen(new QuiverWheelScreen(slot));
                     return;
                 }
@@ -82,7 +82,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
     private static void send(int action) {
         if (ClientPlayNetworking.canSend(SkillPayload.TYPE)) ClientPlayNetworking.send(new SkillPayload(action));
         else if(Minecraft.getInstance().player!=null)
-            Minecraft.getInstance().player.sendOverlayMessage(net.minecraft.network.chat.Component.literal("PvP Overhaul must also be installed on the server."));
+            Minecraft.getInstance().player.sendOverlayMessage(net.minecraft.network.chat.Component.literal("PvP+ must also be installed on the server."));
     }
     public static boolean zooming() {
         var mc=Minecraft.getInstance();

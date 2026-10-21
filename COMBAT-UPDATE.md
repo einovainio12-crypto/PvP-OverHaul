@@ -1,4 +1,13 @@
-# Java 0.10.2 — combat and texture update
+# PvP+ 0.10.3
+
+Renamed the mod to PvP+ and installed the 60 supplied copper/diamond/gold/iron/netherite/stone bow and
+crossbow textures, including draw stages and loaded arrow/firework states.
+All 0.10.2 features and the other supplied weapon artwork are retained.
+The internal mod ID and item namespace remain pvpoverhaul for saved-world compatibility.
+The build produces pvp-plus-0.10.3.jar. Remove the old mod JAR when installing it;
+this replaces the existing mod and should not be installed alongside it.
+
+# Java 0.10.3 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 

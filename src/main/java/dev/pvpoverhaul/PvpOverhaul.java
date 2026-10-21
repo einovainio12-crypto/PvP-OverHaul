@@ -11,6 +11,6 @@ public final class PvpOverhaul implements ModInitializer {
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ID,path); }
     @Override public void onInitialize() {
         ModItems.initialize();SlingshotItem.initialize();WeaponEntities.initialize();Arsenal.initialize();VanillaComponents.initialize();Skills.initialize();Interactions.initialize();LootAdditions.initialize();Quivers.initialize();GrapplingArrows.initialize();ThrowableCommands.initialize();
-        LOGGER.info("PvP Overhaul loaded for Minecraft 26.3");
+        LOGGER.info("PvP+ loaded for Minecraft 26.3");
     }
 }
