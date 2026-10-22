@@ -1,8 +1,8 @@
-# PvP+ 0.10.13
+# PvP+ 0.10.14
 
-Wood, stone, iron, gold and netherite flails use the supplied handle-only textures
-while cast and return to their full texture on retrieval. Copper and diamond keep
-their current textures; no cast sprites were supplied for those materials.
+Wood, stone, iron, gold, diamond and netherite flails use the supplied handle-only textures
+while cast and return to their full texture on retrieval. Copper keeps its current texture; no copper cast
+sprite has been supplied.
 The duplicate gold upload was identical and is included only once.
 
 Flails cast their material-matched head as a 3D bobber, attached to your hand by
@@ -81,7 +81,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.13 — combat and texture update
+# Java 0.10.14 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 

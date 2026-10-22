@@ -1,8 +1,8 @@
-# PvP+ 0.10.13
+# PvP+ 0.10.14
 
-Wood, stone, iron, gold and netherite flails use the supplied handle-only textures
-while cast and return to their full texture on retrieval. Copper and diamond keep
-their current textures; no cast sprites were supplied for those materials.
+Wood, stone, iron, gold, diamond and netherite flails use the supplied handle-only textures
+while cast and return to their full texture on retrieval. Copper keeps its current texture; no copper cast
+sprite has been supplied.
 The duplicate gold upload was identical and is included only once.
 
 Flails cast their material-matched head as a 3D bobber, attached to your hand by
@@ -81,7 +81,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.13 — combat and texture update
+# Java 0.10.14 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -143,7 +143,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.13.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.14.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
