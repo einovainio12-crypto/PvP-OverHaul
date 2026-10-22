@@ -1,4 +1,7 @@
-# PvP+ 0.10.10
+# PvP+ 0.10.11
+
+Corrected both third-person halberd hand rotations by reversing the 180-degree flip.
+First-person transforms and thrown model scale/rotation are unchanged.
 
 Flails now use the exact vanilla fishing-rod held transforms. Storm hammer Riptide
 has no added cooldown; the half-second charge and durability cost remain.
@@ -18,7 +21,7 @@ Right-click casts a fishing bobber; right-click again reels it in and can pull a
 entity. Native fishing and durability costs apply. Sneak-use still throws a flail
 with Throwable. Flails use vanilla fishing-rod held transforms in first and third person.
 
-Halberds rotate 180 degrees in third person only; first-person transforms are unchanged.
+The reversed third-person halberd rotation is corrected; first-person transforms are unchanged.
 Halberds can take Pole Jump. Hold the halberd and press G to jump; right-click still
 uses its spear-style secondary attack. Pole Jump and Throwable remain exclusive.
 
@@ -45,7 +48,7 @@ Older longsword resource files are cleaned automatically when building.
 
 Halberds now swing for their primary attack and can disable shields like axes.
 Hold use/right-click for the spear's kinetic secondary attack and animation.
-Their held sprites are larger; the third-person view is rotated 180 degrees. Inventory icons and thrown scale are unchanged.
+Their held sprites are larger; the upside-down third-person flip has been reversed. Inventory icons and thrown scale are unchanged.
 
 Use a Storm Core in your main hand with a netherite hammer in your offhand.
 Each core is consumed and has a 5% chance to awaken the hammer. Success grants
@@ -65,7 +68,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.10 — combat and texture update
+# Java 0.10.11 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -127,7 +130,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.10.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.11.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.
