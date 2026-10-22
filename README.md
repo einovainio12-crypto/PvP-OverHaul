@@ -1,4 +1,8 @@
-# PvP+ 0.10.8
+# PvP+ 0.10.9
+
+Scythes now sweep all eligible enemies in a broad forward area, up to 4.5 blocks
+from the player and 3 blocks around the struck target. Sweep damage is 3 HP per
+extra target, with no two-target cap. Walls and allies are excluded.
 
 Target Lock is limited to iron, diamond and netherite bows. Crossbows cannot use it.
 It costs 1 exhaustion to activate and 0.4 per second while tracking; saturation is
@@ -9,7 +13,7 @@ and uses the same minimum food requirement. Downward Lunge retains its native co
 Flails gain 1.5 blocks of melee reach (4.5 blocks total at the default player range).
 Right-click casts a fishing bobber; right-click again reels it in and can pull a hooked
 entity. Native fishing and durability costs apply. Sneak-use still throws a flail
-with Throwable. Flail held models are rotated 180 degrees.
+with Throwable. Flail held models are turned back 180 degrees from 0.10.8.
 
 Halberds rotate 180 degrees in third person only; first-person transforms are unchanged.
 Halberds can take Pole Jump. Hold the halberd and press G to jump; right-click still
@@ -58,7 +62,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.8 — combat and texture update
+# Java 0.10.9 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -120,7 +124,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.8.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.9.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.

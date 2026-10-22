@@ -35,10 +35,21 @@ public final class Arsenal {
         int chain=Enchantments.level(weapon,"chaining");
         if(chain>0||kind.equals("scythe")){
             secondary=true;
-            try{int count=0;for(LivingEntity next:level.getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(chain>0?3:1.5))){
-                if(next==p||next==target||p.isAlliedTo(next)||next instanceof Player other&&!p.canHarmPlayer(other)||!p.hasLineOfSight(next))continue;
-                if(count++>=(chain>0?chain:2))break;next.hurtServer(level,p.damageSources().playerAttack(p),chain>0?2:1.5f);
-            }}finally{secondary=false;}
+            try {
+                int chained=0;
+                boolean scythe=kind.equals("scythe");
+                var look=p.getLookAngle();
+                for(LivingEntity next:level.getEntitiesOfClass(LivingEntity.class,target.getBoundingBox().inflate(3))) {
+                    if(next==p||next==target||!next.isAlive()||next.isSpectator()||p.isAlliedTo(next)
+                        ||next instanceof Player other&&!p.canHarmPlayer(other)||!p.hasLineOfSight(next))continue;
+                    double dx=next.getX()-p.getX(),dz=next.getZ()-p.getZ();
+                    // Broad forward half-circle, bounded vertically and by actual distance.
+                    boolean sweep=scythe && dx*dx+dz*dz<=4.5*4.5 && Math.abs(next.getY()-p.getY())<=2
+                        && dx*look.x+dz*look.z>=0;
+                    if(sweep) next.hurtServer(level,p.damageSources().playerAttack(p),3);
+                    else if(chained<chain) { chained++;next.hurtServer(level,p.damageSources().playerAttack(p),2); }
+                }
+            } finally { secondary=false; }
         }
     }
     private static void message(Player p,String text){if(p instanceof ServerPlayer server)server.sendOverlayMessage(net.minecraft.network.chat.Component.literal(text));}

@@ -156,9 +156,9 @@ for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
 for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
  item=material+'_flail'
  write(f'assets/{MOD}/models/item/{item}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{item}'},'display':{
- 'firstperson_righthand':{'rotation':[0,-90,205],'translation':[1.13,3.2,1.13],'scale':[.68,.68,.68]},
- 'firstperson_lefthand':{'rotation':[0,90,155],'translation':[1.13,3.2,1.13],'scale':[.68,.68,.68]},
- 'thirdperson_righthand':{'rotation':[0,-90,235],'translation':[0,4,.5],'scale':[.85,.85,.85]},
- 'thirdperson_lefthand':{'rotation':[0,90,125],'translation':[0,4,.5],'scale':[.85,.85,.85]}}})
+ 'firstperson_righthand':{'rotation':[0,-90,25],'translation':[1.13,3.2,1.13],'scale':[.68,.68,.68]},
+ 'firstperson_lefthand':{'rotation':[0,90,-25],'translation':[1.13,3.2,1.13],'scale':[.68,.68,.68]},
+ 'thirdperson_righthand':{'rotation':[0,-90,55],'translation':[0,4,.5],'scale':[.85,.85,.85]},
+ 'thirdperson_lefthand':{'rotation':[0,90,-55],'translation':[0,4,.5],'scale':[.85,.85,.85]}}})
 write(f'assets/{MOD}/lang/en_us.json',LANG)
 print('Generated',len(items)+len(AMMO)+2,'items and all recipes/models/enchantments.')
