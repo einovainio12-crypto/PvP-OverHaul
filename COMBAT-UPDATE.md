@@ -1,4 +1,17 @@
-# PvP+ 0.10.11
+# PvP+ 0.10.13
+
+Wood, stone, iron, gold and netherite flails use the supplied handle-only textures
+while cast and return to their full texture on retrieval. Copper and diamond keep
+their current textures; no cast sprites were supplied for those materials.
+The duplicate gold upload was identical and is included only once.
+
+Flails cast their material-matched head as a 3D bobber, attached to your hand by
+interlocking metal chain links. The head samples its existing flail texture.
+Right-click to cast; right-click again to reel in or pull a hooked entity.
+The cast material is synchronized to clients and remains stable if you switch flails.
+Ordinary fishing rods retain their vanilla bobber and line.
+Compilation, native registry loading and client renderer class loading passed;
+visual appearance and multiplayer casting still need an in-game test.
 
 Corrected both third-person halberd hand rotations by reversing the 180-degree flip.
 First-person transforms and thrown model scale/rotation are unchanged.
@@ -68,7 +81,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.11 — combat and texture update
+# Java 0.10.13 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 

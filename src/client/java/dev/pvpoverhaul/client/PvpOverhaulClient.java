@@ -18,6 +18,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
     @Override public void onInitializeClient() {
         ClientPlayNetworking.registerGlobalReceiver(TargetLockPayload.TYPE,(payload,context)->TargetLockClient.receive(payload.entityId()));
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.DISCONNECT.register((handler,client)->TargetLockClient.clear());
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(net.minecraft.world.entity.EntityTypes.FISHING_BOBBER,FlailHookRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(SlingshotItem.PEBBLE,net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
         for(var type:WeaponEntities.TYPES.values()) net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(type,net.minecraft.client.renderer.entity.ThrownTridentRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(WeaponEntities.GENERIC,net.minecraft.client.renderer.entity.ThrownTridentRenderer::new);

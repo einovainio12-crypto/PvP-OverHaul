@@ -86,7 +86,16 @@ public final class Arsenal {
         return true;
     }
     public static InteractionResult use(Player p,Level world,InteractionHand hand){
-        if(hand!=InteractionHand.MAIN_HAND)return InteractionResult.PASS;ItemStack s=p.getItemInHand(hand);
+        ItemStack s=p.getItemInHand(hand);
+        if("flail".equals(ModItems.KINDS.get(s.getItem()))) {
+            if(p.isShiftKeyDown() && Enchantments.level(s,"throwable")>0) return InteractionResult.PASS;
+            boolean casting=p.fishing==null;
+            InteractionResult result=s.getItem().use(world,p,hand);
+            if(casting && world instanceof ServerLevel && p.fishing!=null)
+                ((WeaponEntities.FlailHookVisual)p.fishing).pvp$setFlail(s);
+            return result;
+        }
+        if(hand!=InteractionHand.MAIN_HAND)return InteractionResult.PASS;
         if(s.is(ModItems.SHEATH)){
             if(world instanceof ServerLevel){
                 if(!swapSheath(p,s,InteractionHand.OFF_HAND)) return InteractionResult.FAIL;

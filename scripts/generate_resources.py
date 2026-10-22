@@ -156,5 +156,12 @@ for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
 for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
  item=material+'_flail'
  write(f'assets/{MOD}/models/item/{item}.json',{'parent':'minecraft:item/handheld_rod','textures':{'layer0':f'{MOD}:item/{item}'}})
+# Uploaded handle-only sprites appear only while the fishing hook is cast.
+for material in ['wood','stone','netherite','iron','gold']:
+ item=material+'_flail';cast=item+'_cast'
+ write(f'assets/{MOD}/models/item/{cast}.json',{'parent':'minecraft:item/handheld_rod','textures':{'layer0':f'{MOD}:item/{cast}'}})
+ write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:condition','property':'minecraft:fishing_rod/cast',
+ 'on_true':{'type':'minecraft:model','model':f'{MOD}:item/{cast}'},
+ 'on_false':{'type':'minecraft:model','model':f'{MOD}:item/{item}'}}})
 write(f'assets/{MOD}/lang/en_us.json',LANG)
 print('Generated',len(items)+len(AMMO)+2,'items and all recipes/models/enchantments.')

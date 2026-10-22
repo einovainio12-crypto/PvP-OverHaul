@@ -37,5 +37,9 @@ public final class WeaponEntities {
             getEntityData().set(dev.pvpoverhaul.mixin.TridentDataAccessor.pvp$foil(),stack.hasFoil());
         }
     }
+    public interface FlailHookVisual {
+        ItemStack pvp$getFlail();
+        void pvp$setFlail(ItemStack stack);
+    }
     private WeaponEntities(){}
 }
