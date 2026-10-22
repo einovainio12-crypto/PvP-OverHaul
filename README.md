@@ -1,4 +1,7 @@
-# PvP+ 0.10.9
+# PvP+ 0.10.10
+
+Flails now use the exact vanilla fishing-rod held transforms. Storm hammer Riptide
+has no added cooldown; the half-second charge and durability cost remain.
 
 Scythes now sweep all eligible enemies in a broad forward area, up to 4.5 blocks
 from the player and 3 blocks around the struck target. Sweep damage is 3 HP per
@@ -13,7 +16,7 @@ and uses the same minimum food requirement. Downward Lunge retains its native co
 Flails gain 1.5 blocks of melee reach (4.5 blocks total at the default player range).
 Right-click casts a fishing bobber; right-click again reels it in and can pull a hooked
 entity. Native fishing and durability costs apply. Sneak-use still throws a flail
-with Throwable. Flail held models are turned back 180 degrees from 0.10.8.
+with Throwable. Flails use vanilla fishing-rod held transforms in first and third person.
 
 Halberds rotate 180 degrees in third person only; first-person transforms are unchanged.
 Halberds can take Pole Jump. Hold the halberd and press G to jump; right-click still
@@ -48,7 +51,7 @@ Use a Storm Core in your main hand with a netherite hammer in your offhand.
 Each core is consumed and has a 5% chance to awaken the hammer. Success grants
 Throwable I, Channeling I, Loyalty III and Riptide III together.
 Hold use for at least half a second, then release for a Riptide spin—even on dry land.
-The spin costs four durability and has an eight-second cooldown. Sneak-use throws
+The spin costs four durability and has no added cooldown. Sneak-use throws
 the hammer instead; Loyalty returns it. Channeling still requires vanilla thunderstorm
 and exposed-sky conditions. Other tridents retain their normal water requirements.
 
@@ -62,7 +65,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.9 — combat and texture update
+# Java 0.10.10 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -124,7 +127,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.9.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.10.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.

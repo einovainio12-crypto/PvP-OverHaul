@@ -39,7 +39,6 @@ public final class HammerItem extends Item {
         player.push(impulse.x,impulse.y,impulse.z);
         player.startAutoSpinAttack(20,8.0f,stack);
         if(player.onGround()) player.move(MoverType.SELF,new Vec3(0,1.2,0));
-        player.getCooldowns().addCooldown(stack,160);
         if(level instanceof ServerLevel) {
             stack.hurtWithoutBreaking(4,player);
             player.awardStat(Stats.ITEM_USED.get(this));
