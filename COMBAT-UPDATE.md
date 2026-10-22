@@ -1,4 +1,6 @@
-# PvP+ 0.10.6
+# PvP+ 0.10.7
+
+Removed the pale background from the weapon sheath icon; it now has transparency.
 
 Press H to swap your held weapon with the weapon stored in a sheath. Rebind it in
 Controls > PvP+ > Swap Sheathed Weapon. Carry the sheath in your inventory or
@@ -34,7 +36,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.6 — combat and texture update
+# Java 0.10.7 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
