@@ -32,7 +32,6 @@ public final class Arsenal {
         int leech=Enchantments.level(weapon,"leeching");if(leech>0)p.heal(.5f*leech);
         int stun=Enchantments.level(weapon,"stunning");if(stun>0&&p.getRandom().nextFloat()<.1f*stun)target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS,20+10*stun,3));
         if(kind.equals("hammer")){target.push(0,.25,0);target.syncVelocity=true;}
-        if(kind.equals("quarterstaff")){var v=p.getLookAngle().scale(.3);target.push(v.x,.12,v.z);target.syncVelocity=true;}
         int chain=Enchantments.level(weapon,"chaining");
         if(chain>0||kind.equals("scythe")){
             secondary=true;
@@ -55,7 +54,7 @@ public final class Arsenal {
         if(s.is(ModItems.STORM_CORE)){
             ItemStack hammer=p.getOffhandItem();if(hammer.getItem()!=ModItems.ARSENAL.get("netherite_hammer")||Enchantments.level(hammer,"stormbound")>0)return InteractionResult.FAIL;
             if(world instanceof ServerLevel){s.consume(1,p);if(p.getRandom().nextFloat()<.05f){
-                for(String name:List.of("stormbound","throwable","minecraft:loyalty","minecraft:channeling")){
+                for(String name:List.of("stormbound","throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide")){
                     var key=ResourceKey.create(Registries.ENCHANTMENT,name.contains(":")?net.minecraft.resources.Identifier.parse(name):PvpOverhaul.id(name));
                     hammer.enchant(p.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(key),name.endsWith("loyalty")?3:1);
                 }message(p,"The storm answers. Your hammer is Stormbound.");
@@ -67,9 +66,6 @@ public final class Arsenal {
         }
         if(s.is(ModItems.COMBAT_CACHE)){
             if(world instanceof ServerLevel){s.consume(1,p);Item reward=p.getRandom().nextFloat()<.02f?ModItems.STORM_CORE:new ArrayList<>(ModItems.ARSENAL.values()).get(p.getRandom().nextInt(ModItems.ARSENAL.size()));ItemStack prize=new ItemStack(reward);if(!p.getInventory().add(prize))p.spawnAtLocation((ServerLevel)world,prize);}return InteractionResult.SUCCESS;
-        }
-        if(s.getItem()==ModItems.ARSENAL.get("netherite_hammer")&&Enchantments.level(s,"stormbound")>0&&!p.isShiftKeyDown()){
-            if(world instanceof ServerLevel){var v=p.getLookAngle().scale(1.8);p.push(v.x,v.y+.15,v.z);p.syncVelocity=true;p.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,60,0));s.hurtAndBreak(4,p,EquipmentSlot.MAINHAND);p.getCooldowns().addCooldown(s,160);}return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }

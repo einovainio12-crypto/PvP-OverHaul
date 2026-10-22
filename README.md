@@ -1,13 +1,28 @@
-# PvP+ 0.10.3
+# PvP+ 0.10.4
 
-Renamed the mod to PvP+ and installed the 60 supplied copper/diamond/gold/iron/netherite/stone bow and
-crossbow textures, including draw stages and loaded arrow/firework states.
-All 0.10.2 features and the other supplied weapon artwork are retained.
-The internal mod ID and item namespace remain pvpoverhaul for saved-world compatibility.
-The build produces pvp-plus-0.10.3.jar. Remove the old mod JAR when installing it;
-this replaces the existing mod and should not be installed alongside it.
+Halberds now swing for their primary attack and can disable shields like axes.
+Hold use/right-click for the spear's kinetic secondary attack and animation.
+Their held sprites are larger and upright. Inventory icons and thrown scale are unchanged.
 
-# Java 0.10.3 — combat and texture update
+Use a Storm Core in your main hand with a netherite hammer in your offhand.
+Each core is consumed and has a 5% chance to awaken the hammer. Success grants
+Stormbound, Throwable I, Channeling I, Loyalty III and Riptide I together.
+Hold use for at least half a second, then release for a Riptide spin—even on dry land.
+The spin costs four durability and has an eight-second cooldown. Sneak-use throws
+the hammer instead; Loyalty returns it. Channeling still requires vanilla thunderstorm
+and exposed-sky conditions. Other tridents retain their normal water requirements.
+
+Quarterstaffs and shurikens have been removed from registration, recipes, tags and
+random rewards. Their old generated files are cleaned automatically during builds.
+Existing copies in a saved world are no longer supported.
+The supplied blunt arrow and grappling arrow PNGs are included unchanged.
+
+Java 25 compilation and Fabric registry, recipe, enchantment and client rendering-hook
+checks passed. All 88 registered items and 89 recipes validate. Interactive gameplay,
+held-model alignment and multiplayer movement have not been tested here.
+This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
+
+# Java 0.10.4 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -69,7 +84,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.3.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.4.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.

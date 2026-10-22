@@ -1,13 +1,11 @@
 """Arsenal recipes, sprites, tags and enchantments. Extends the existing code-drawn art."""
 from pixel_art import Canvas,palette,render
 import json,pathlib
-KINDS=['shuriken','flail','hammer','longsword','scythe','halberd','quarterstaff']
-PATTERNS={'shuriken':[' M ','MMM',' M '],'flail':[' MM',' CM','S  '],'hammer':['MMM',' S ',' S '],'longsword':[' M ',' M ','LSL'],'scythe':['MMM','  S',' S '],'halberd':[' MM',' SM','S  '],'quarterstaff':['  M',' S ','M  ']}
+KINDS=['flail','hammer','longsword','scythe','halberd']
+PATTERNS={'flail':[' MM',' CM','S  '],'hammer':['MMM',' S ',' S '],'longsword':[' M ',' M ','LSL'],'scythe':['MMM','  S',' S '],'halberd':[' MM',' SM','S  ']}
 def sprite(path,kind,color):
  c=Canvas();edge,shade,mid,shine=palette(color)
- if kind=='shuriken':
-  c.polygon([(8,1),(10,6),(14,8),(10,10),(8,14),(6,10),(1,8),(6,6)],shade);c.line((8,2),(8,12),mid);c.line((3,8),(12,8),mid);c.dot(8,7,shine);c.dot(8,8,edge)
- elif kind in ['core','totem','cache']:
+ if kind in ['core','totem','cache']:
   c.polygon([(7,1),(13,5),(12,12),(8,14),(2,11),(2,5)],shade);c.polygon([(7,3),(11,6),(10,11),(7,12),(4,9),(4,6)],mid);c.line((8,3),(6,8),shine);c.line((6,8),(9,7),shine);c.line((9,7),(7,12),shine)
  elif kind=='sheath':
   c.polygon([(3,13),(3,10),(11,2),(14,4),(6,13)],shade);c.line((4,12),(12,4),mid);c.line((10,2),(14,6),shine)
@@ -47,7 +45,7 @@ def extend(g):
  for n,l in [('ice_aspect',2),('leeching',3),('chaining',3),('stunning',3)]:ench(n,'#minecraft:enchantable/melee_weapon',['mainhand'],l,exclusive=['minecraft:fire_aspect','minecraft:flame'] if n=='ice_aspect' else None,weight=2)
  ench('stormbound','#pvpoverhaul:storm_hammer',['mainhand'],1,weight=1)
  vanilla=json.loads((pathlib.Path(__file__).parent/'arsenal_vanilla_enchants.json').read_text())
- for n in ['flame','channeling']:
+ for n in ['flame','channeling','riptide']:
   d=vanilla[n]
   if n=='channeling':d=json.loads(json.dumps(d).replace('\"minecraft:trident\"','\"#pvpoverhaul:trident_projectiles\"'))
   tag(ns,n+'_supported',[d['supported_items'],'#pvpoverhaul:knives'] if n=='flame' else [d['supported_items'],'#pvpoverhaul:storm_hammer']);d['supported_items']='#pvpoverhaul:'+n+'_supported';write('data/minecraft/enchantment/'+n+'.json',d)

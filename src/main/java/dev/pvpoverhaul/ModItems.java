@@ -103,12 +103,33 @@ public final class ModItems {
         for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;
-            for(String kind:new String[]{"shuriken","flail","hammer","longsword","scythe","halberd","quarterstaff"}) {
-                double damage=switch(kind){case "shuriken"->3;case "hammer"->9;case "flail"->7;case "longsword","halberd"->6;case "scythe"->5;default->4;};
-                double speed=switch(kind){case "hammer"->.7;case "flail"->.9;case "halberd"->1;case "scythe"->1.1;case "longsword"->1.3;case "quarterstaff"->2;default->2.5;};
-                double reach=kind.equals("halberd")?1.25:List.of("longsword","quarterstaff","scythe").contains(kind)?.75:0;
+            for(String kind:new String[]{"flail","hammer","longsword","scythe","halberd"}) {
+                double damage=switch(kind){case "hammer"->9;case "flail"->7;case "longsword","halberd"->6;case "scythe"->5;default->4;};
+                double speed=switch(kind){case "hammer"->.7;case "flail"->.9;case "halberd"->1;case "scythe"->1.1;case "longsword"->1.3;default->2.5;};
+                double reach=kind.equals("halberd")?1.25:List.of("longsword","scythe").contains(kind)?.75:0;
                 Item.Properties props=tier==null?new Item.Properties().durability(131).enchantable(5).repairable(ToolMaterial.STONE.repairItems()):base(tier);
-                Item item=register(material+"_"+kind,props.attributes(melee(damage+rank,speed,reach)).component(DataComponents.WEAPON,new Weapon(1,List.of("hammer","halberd","flail").contains(kind)?5f:0f)),Item::new);
+                if(kind.equals("halberd")) {
+                    // Same per-material kinetic timings as vanilla spears. Components are
+                    // constructed here: vanilla item components are not bound at registration time.
+                    float[] v=switch(material) {
+                        case "wood" -> new float[]{.7f,.75f,5,14,10,15};
+                        case "stone" -> new float[]{.82f,.7f,4.5f,13,9,13.75f};
+                        case "copper" -> new float[]{.82f,.65f,4,12,8.25f,12.5f};
+                        case "iron" -> new float[]{.95f,.6f,2.5f,11,6.75f,11.25f};
+                        case "gold" -> new float[]{.7f,.7f,3.5f,13,8.5f,13.75f};
+                        case "diamond" -> new float[]{1.075f,.5f,3,10,6.5f,10};
+                        default -> new float[]{1.2f,.4f,2.5f,9,5.5f,8.75f};
+                    };
+                    props.component(DataComponents.KINETIC_WEAPON,new KineticWeapon(10,(int)(v[1]*20),
+                        KineticWeapon.Condition.ofAttackerSpeed((int)(v[2]*20),v[3]),
+                        KineticWeapon.Condition.ofAttackerSpeed((int)(v[4]*20),5.1f),
+                        KineticWeapon.Condition.ofRelativeSpeed((int)(v[5]*20),4.6f),.38f,v[0],
+                        Optional.of(material.equals("wood")?SoundEvents.SPEAR_WOOD_USE:SoundEvents.SPEAR_USE),
+                        Optional.of(material.equals("wood")?SoundEvents.SPEAR_WOOD_HIT:SoundEvents.SPEAR_HIT)))
+                        .component(DataComponents.ATTACK_RANGE,new AttackRange(0,4.5f,0,6.5f,.125f,.5f))
+                        .component(DataComponents.USE_EFFECTS,new UseEffects(true,false,1));
+                }
+                Item item=register(material+"_"+kind,props.attributes(melee(damage+rank,speed,reach)).component(DataComponents.WEAPON,new Weapon(1,List.of("hammer","halberd","flail").contains(kind)?5f:0f)),kind.equals("hammer")?HammerItem::new:Item::new);
                 ARSENAL.put(material+"_"+kind,item);KINDS.put(item,kind);if(tier!=null)TIERS.put(item,tier);
             }
         }

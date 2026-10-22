@@ -14,7 +14,7 @@ public interface ThrownItemVisual {
         return !stack.isEmpty() && (ModItems.KINDS.containsKey(stack.getItem()) || ModItems.isKnife(stack) || ModItems.isBattleaxe(stack)
             || stack.is(ItemTags.AXES) || ModItems.isSpear(stack) || Enchantments.level(stack,"throwable")>0);
     }
-    static boolean spins(ItemStack stack) { return ModItems.isBattleaxe(stack) || stack.is(ItemTags.AXES) || java.util.List.of("shuriken","hammer","flail").contains(ModItems.KINDS.getOrDefault(stack.getItem(),"")); }
+    static boolean spins(ItemStack stack) { return ModItems.isBattleaxe(stack) || stack.is(ItemTags.AXES) || java.util.List.of("hammer","flail").contains(ModItems.KINDS.getOrDefault(stack.getItem(),"")); }
     static boolean isHalberd(ItemStack stack) { return "halberd".equals(ModItems.KINDS.get(stack.getItem())); }
     static float modelScale(ItemStack stack) { return ModItems.isSpear(stack)||isHalberd(stack)?1.35f:1f; }
     static ItemStack heldProjectileModel(ItemStack stack) {

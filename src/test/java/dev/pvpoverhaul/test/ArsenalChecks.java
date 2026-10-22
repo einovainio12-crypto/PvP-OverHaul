@@ -12,7 +12,7 @@ import com.mojang.serialization.JsonOps;
 public final class ArsenalChecks {
     private static void check(boolean ok,String message){if(!ok)throw new AssertionError(message);}
     public static void run(HolderLookup.Provider provider,Path path){
-        check(ModItems.ARSENAL.size()==49,"Seven weapon kinds across seven materials");
+        check(ModItems.ARSENAL.size()==35,"Five weapon kinds across seven materials");
         var unique=new java.util.HashSet<>(WeaponEntities.TYPES.values());
         check(unique.size()==WeaponEntities.TYPES.size(),"Weapon types share a registry ID");
         for(var entry:ModItems.ARSENAL.entrySet()){
@@ -27,8 +27,15 @@ public final class ArsenalChecks {
         for(Item item:ModItems.KNIVES.values())check(flame.value().getSupportedItems().contains(item.builtInRegistryHolder()),"Knife cannot take Flame");
         check(flame.value().getSupportedItems().contains(ModItems.STONE_KNIFE.builtInRegistryHolder()),"Stone knife Flame missing");
         var hammer=new ItemStack(ModItems.ARSENAL.get("netherite_hammer"));
-        for(String n:new String[]{"pvpoverhaul:stormbound","pvpoverhaul:throwable","minecraft:loyalty","minecraft:channeling"}){
+        for(String n:new String[]{"pvpoverhaul:stormbound","pvpoverhaul:throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide"}){
             var e=registry.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT,Identifier.parse(n)));check(e.value().getSupportedItems().contains(hammer.getItem().builtInRegistryHolder()),"Storm hammer rejects "+n);hammer.enchant(e,n.endsWith("loyalty")?3:1);
+        }
+        check(HammerItem.awakened(hammer),"Storm Core hammer cannot use dry Riptide");
+        for(var entry:ModItems.ARSENAL.entrySet()) if(entry.getKey().endsWith("_halberd")) {
+            ItemStack h=new ItemStack(entry.getValue());
+            check(h.get(DataComponents.KINETIC_WEAPON)!=null,"Halberd missing spear secondary attack");
+            check(h.get(DataComponents.PIERCING_WEAPON)==null,"Halberd primary must swing, not stab");
+            check(h.getUseAnimation()==ItemUseAnimation.SPEAR,"Halberd missing spear animation");
         }
         hammer.setDamageValue(71);hammer.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Storm hammer"));
         ItemStack sheath=new ItemStack(ModItems.SHEATH);sheath.set(DataComponents.CONTAINER,ItemContainerContents.fromItems(java.util.List.of(hammer)));
@@ -36,6 +43,6 @@ public final class ArsenalChecks {
         check(ItemStack.isSameItemSameComponents(hammer,loaded.get(DataComponents.CONTAINER).itemCopies().findFirst().orElseThrow()),"Sheath lost weapon components");
         var ice=new ItemStack(BuiltInRegistries.ITEM.getValue(PvpOverhaul.id("ice_arrow")));check(ProjectileWeaponItem.ARROW_ONLY.test(ice),"Ice arrow absent from native ammunition tag");
         check(Ammo.supported(Tier.IRON,ice,false)&&!Ammo.supported(Tier.COPPER,ice,false),"Ice tier bounds incorrect");
-        System.out.println("PVP_ARSENAL_49_WEAPONS_UNIQUE_ENTITIES_FLAME_STORM_SHEATH_AND_ICE_PASSED");
+        System.out.println("PVP_ARSENAL_35_WEAPONS_UNIQUE_ENTITIES_FLAME_STORM_SHEATH_AND_ICE_PASSED");
     }
 }

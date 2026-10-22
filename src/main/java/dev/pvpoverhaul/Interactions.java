@@ -27,7 +27,7 @@ public final class Interactions {
     private static InteractionResult throwItem(Player player,Level level,InteractionHand hand) {
             ItemStack held=player.getItemInHand(hand);
             if (player.isSpectator() || player.getCooldowns().isOnCooldown(held)) return InteractionResult.PASS;
-            boolean knife=ModItems.isKnife(held) || "shuriken".equals(ModItems.KINDS.get(held.getItem()));
+            boolean knife=ModItems.isKnife(held);
             InteractionResult special=Arsenal.use(player,level,hand);if(special!=InteractionResult.PASS)return special;
             boolean throwable=Enchantments.level(player,held,"throwable")>0;
             if (!knife && !(player.isShiftKeyDown() && throwable)) return InteractionResult.PASS;
