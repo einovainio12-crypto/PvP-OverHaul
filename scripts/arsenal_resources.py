@@ -1,8 +1,8 @@
 """Arsenal recipes, sprites, tags and enchantments. Extends the existing code-drawn art."""
 from pixel_art import Canvas,palette,render
 import json,pathlib
-KINDS=['flail','hammer','longsword','scythe','halberd']
-PATTERNS={'flail':[' MM',' CM','S  '],'hammer':['MMM',' S ',' S '],'longsword':[' M ',' M ','LSL'],'scythe':['MMM','  S',' S '],'halberd':[' MM',' SM','S  ']}
+KINDS=['flail','hammer','scythe','halberd']
+PATTERNS={'flail':[' MM',' CM','S  '],'hammer':['MMM',' S ',' S '],'scythe':['MMM','  S',' S '],'halberd':[' MM',' SM','S  ']}
 def sprite(path,kind,color):
  c=Canvas();edge,shade,mid,shine=palette(color)
  if kind in ['core','totem','cache']:
@@ -15,8 +15,6 @@ def sprite(path,kind,color):
    c.polygon([(5,1),(9,1),(14,6),(14,9),(11,11),(3,4)],shade);c.polygon([(6,2),(9,2),(13,6),(11,8),(4,3)],mid);c.line((6,1),(9,1),shine)
   elif kind=='flail':
    c.line((7,9),(8,4),(198,210,213));c.line((8,4),(12,2),(198,210,213));c.polygon([(10,1),(14,1),(15,4),(12,6),(10,4)],mid);c.dot(12,2,shine);c.dot(14,4,edge)
-  elif kind=='longsword':
-   c.polygon([(5,9),(13,1),(14,1),(14,3),(7,11)],shade);c.line((6,9),(13,2),shine);c.line((4,8),(8,12),mid)
   elif kind=='scythe':
    c.polygon([(4,1),(10,1),(14,4),(14,9),(12,5),(9,3)],mid);c.line((5,1),(10,1),shine);c.line((10,1),(14,4),shine)
   elif kind=='halberd':

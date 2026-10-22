@@ -12,7 +12,7 @@ import com.mojang.serialization.JsonOps;
 public final class ArsenalChecks {
     private static void check(boolean ok,String message){if(!ok)throw new AssertionError(message);}
     public static void run(HolderLookup.Provider provider,Path path){
-        check(ModItems.ARSENAL.size()==35,"Five weapon kinds across seven materials");
+        check(ModItems.ARSENAL.size()==28,"Four weapon kinds across seven materials");
         var unique=new java.util.HashSet<>(WeaponEntities.TYPES.values());
         check(unique.size()==WeaponEntities.TYPES.size(),"Weapon types share a registry ID");
         for(var entry:ModItems.ARSENAL.entrySet()){
@@ -43,6 +43,6 @@ public final class ArsenalChecks {
         check(ItemStack.isSameItemSameComponents(hammer,loaded.get(DataComponents.CONTAINER).itemCopies().findFirst().orElseThrow()),"Sheath lost weapon components");
         var ice=new ItemStack(BuiltInRegistries.ITEM.getValue(PvpOverhaul.id("ice_arrow")));check(ProjectileWeaponItem.ARROW_ONLY.test(ice),"Ice arrow absent from native ammunition tag");
         check(Ammo.supported(Tier.IRON,ice,false)&&!Ammo.supported(Tier.COPPER,ice,false),"Ice tier bounds incorrect");
-        System.out.println("PVP_ARSENAL_35_WEAPONS_UNIQUE_ENTITIES_FLAME_STORM_SHEATH_AND_ICE_PASSED");
+        System.out.println("PVP_ARSENAL_28_WEAPONS_UNIQUE_ENTITIES_FLAME_STORM_SHEATH_AND_ICE_PASSED");
     }
 }

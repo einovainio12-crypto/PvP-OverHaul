@@ -1,4 +1,8 @@
-# PvP+ 0.10.4
+# PvP+ 0.10.5
+
+All seven longsword tiers have been removed, including recipes, projectile registrations,
+enchantment tags and combat-cache rewards. Existing longswords are no longer supported.
+Older longsword resource files are cleaned automatically when building.
 
 Halberds now swing for their primary attack and can disable shields like axes.
 Hold use/right-click for the spear's kinetic secondary attack and animation.
@@ -18,11 +22,11 @@ Existing copies in a saved world are no longer supported.
 The supplied blunt arrow and grappling arrow PNGs are included unchanged.
 
 Java 25 compilation and Fabric registry, recipe, enchantment and client rendering-hook
-checks passed. All 88 registered items and 89 recipes validate. Interactive gameplay,
+checks passed. All 81 registered items and 82 recipes validate. Interactive gameplay,
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.4 — combat and texture update
+# Java 0.10.5 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -84,7 +88,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.4.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.5.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.

@@ -103,10 +103,10 @@ public final class ModItems {
         for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;
-            for(String kind:new String[]{"flail","hammer","longsword","scythe","halberd"}) {
-                double damage=switch(kind){case "hammer"->9;case "flail"->7;case "longsword","halberd"->6;case "scythe"->5;default->4;};
-                double speed=switch(kind){case "hammer"->.7;case "flail"->.9;case "halberd"->1;case "scythe"->1.1;case "longsword"->1.3;default->2.5;};
-                double reach=kind.equals("halberd")?1.25:List.of("longsword","scythe").contains(kind)?.75:0;
+            for(String kind:new String[]{"flail","hammer","scythe","halberd"}) {
+                double damage=switch(kind){case "hammer"->9;case "flail"->7;case "halberd"->6;case "scythe"->5;default->4;};
+                double speed=switch(kind){case "hammer"->.7;case "flail"->.9;case "halberd"->1;case "scythe"->1.1;default->2.5;};
+                double reach=kind.equals("halberd")?1.25:List.of("scythe").contains(kind)?.75:0;
                 Item.Properties props=tier==null?new Item.Properties().durability(131).enchantable(5).repairable(ToolMaterial.STONE.repairItems()):base(tier);
                 if(kind.equals("halberd")) {
                     // Same per-material kinetic timings as vanilla spears. Components are

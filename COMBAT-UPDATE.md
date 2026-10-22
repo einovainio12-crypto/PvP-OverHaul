@@ -1,4 +1,8 @@
-# PvP+ 0.10.4
+# PvP+ 0.10.5
+
+All seven longsword tiers have been removed, including recipes, projectile registrations,
+enchantment tags and combat-cache rewards. Existing longswords are no longer supported.
+Older longsword resource files are cleaned automatically when building.
 
 Halberds now swing for their primary attack and can disable shields like axes.
 Hold use/right-click for the spear's kinetic secondary attack and animation.
@@ -18,11 +22,11 @@ Existing copies in a saved world are no longer supported.
 The supplied blunt arrow and grappling arrow PNGs are included unchanged.
 
 Java 25 compilation and Fabric registry, recipe, enchantment and client rendering-hook
-checks passed. All 88 registered items and 89 recipes validate. Interactive gameplay,
+checks passed. All 81 registered items and 82 recipes validate. Interactive gameplay,
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.4 — combat and texture update
+# Java 0.10.5 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
