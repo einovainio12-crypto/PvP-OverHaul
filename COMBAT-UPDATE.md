@@ -1,4 +1,12 @@
-# PvP+ 0.10.5
+# PvP+ 0.10.6
+
+Press H to swap your held weapon with the weapon stored in a sheath. Rebind it in
+Controls > PvP+ > Swap Sheathed Weapon. Carry the sheath in your inventory or
+offhand; offhand takes priority, otherwise the first inventory sheath is used.
+An empty sheath stores the held weapon; an empty hand retrieves the stored weapon.
+The swap preserves damage, names and enchantments and runs on the server.
+The six supplied item textures are installed, including the wolf armor inventory icon.
+Gathca Core maps to Combat Cache and Health Core maps to Healing Totem.
 
 All seven longsword tiers have been removed, including recipes, projectile registrations,
 enchantment tags and combat-cache rewards. Existing longswords are no longer supported.
@@ -26,7 +34,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.5 — combat and texture update
+# Java 0.10.6 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 

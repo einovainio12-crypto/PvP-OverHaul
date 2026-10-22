@@ -13,7 +13,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 
 public final class PvpOverhaulClient implements ClientModInitializer {
-    private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver;
+    private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver,sheath;
     private boolean jumpWasDown;
     @Override public void onInitializeClient() {
         ClientPlayNetworking.registerGlobalReceiver(TargetLockPayload.TYPE,(payload,context)->TargetLockClient.receive(payload.entityId()));
@@ -28,6 +28,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
         boost=key("boost",InputConstants.KEY_B,category);
         pole=key("pole_jump",InputConstants.KEY_G,category);
         overload=key("overload",InputConstants.KEY_O,category);
+        sheath=key("sheath_swap",InputConstants.KEY_H,category);
         quiver=key("quiver",InputConstants.KEY_C,category);
         ItemTooltipCallback.EVENT.register((stack,context,flag,lines)->{
             Tier tier=stack.getItem() instanceof TierBowItem bow?bow.tier:
@@ -45,6 +46,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 lines.add(Component.literal("Hit a block/player to pull yourself; Sneak releases"));
                 lines.add(Component.literal("48-block reach · 5-second tether · no direct damage"));
             }
+            if(stack.is(ModItems.SHEATH)) lines.add(Component.literal(sheath.getTranslatedKeyMessage().getString()+": swap held weapon with sheath (carry in inventory or offhand)"));
             if(stack.is(ModItems.QUIVER)) {
                 lines.add(Component.literal("Right-click: store arrows (9 stacks)"));
                 lines.add(Component.literal(quiver.getTranslatedKeyMessage().getString()+": radial ammunition selector"));
@@ -65,6 +67,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 }
                 mc.player.sendOverlayMessage(Component.literal("Carry a quiver to select arrows."));
             }
+            while(sheath.consumeClick()) send(SkillPayload.SHEATH_SWAP);
             while(lock.consumeClick()) send(SkillPayload.TARGET_LOCK);
             TargetLockClient.track();
             while(dead.consumeClick()) send(SkillPayload.DEAD_EYE);

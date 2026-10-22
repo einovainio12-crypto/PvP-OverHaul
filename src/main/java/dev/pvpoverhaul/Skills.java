@@ -20,7 +20,7 @@ public final class Skills {
         ItemStack tracked=ItemStack.EMPTY,burstWeapon=ItemStack.EMPTY;
         final Deque<UUID> burst=new ArrayDeque<>();
         LivingEntity shootingTarget;
-        final long[] lastPacket=new long[6];
+        final long[] lastPacket=new long[7];
         Item lockWeapon,deadWeapon;
         UUID target; boolean jumped; int airborneTicks;
         State() { Arrays.fill(lastPacket,-100); }
@@ -42,12 +42,13 @@ public final class Skills {
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STOPPED.register(server->STATES.clear());
     }
     public static void activate(ServerPlayer p,int action) {
-        if (action<0 || action>5 || !p.isAlive() || p.isSpectator()) return;
+        if (action<0 || action>SkillPayload.SHEATH_SWAP || !p.isAlive() || p.isSpectator()) return;
         State s=state(p);long now=p.level().getGameTime();
         if (now-s.lastPacket[action]<2) return;
         s.lastPacket[action]=now;
         ItemStack held=rangedWeapon(p);
         switch(action) {
+            case SkillPayload.SHEATH_SWAP -> Arsenal.swapHeldWeapon(p);
             case SkillPayload.TARGET_LOCK -> {
                 if(s.target!=null){clearLock(p,s);return;}
                 if (skillTier(held)==null || !skillTier(held).targetLock()) { message(p,"Target Lock needs a copper-or-higher bow or netherite crossbow.");return; }

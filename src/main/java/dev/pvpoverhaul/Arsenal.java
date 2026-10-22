@@ -42,13 +42,43 @@ public final class Arsenal {
         }
     }
     private static void message(Player p,String text){if(p instanceof ServerPlayer server)server.sendOverlayMessage(net.minecraft.network.chat.Component.literal(text));}
+    /** Offhand sheath takes priority, then the first sheath in the main inventory. */
+    public static void swapHeldWeapon(ServerPlayer p) {
+        if(p.containerMenu!=p.inventoryMenu) return;
+        ItemStack sheath=p.getOffhandItem();
+        if(!sheath.is(ModItems.SHEATH)) {
+            sheath=ItemStack.EMPTY;
+            for(int slot=0;slot<36;slot++) {
+                ItemStack candidate=p.getInventory().getItem(slot);
+                if(candidate.is(ModItems.SHEATH)&&candidate!=p.getMainHandItem()) { sheath=candidate;break; }
+            }
+        }
+        if(sheath.isEmpty()) { message(p,"Carry a weapon sheath in your inventory or offhand.");return; }
+        if(!swapSheath(p,sheath,InteractionHand.MAIN_HAND)) message(p,"The sheath holds one weapon. Hold a weapon or leave your hand empty.");
+    }
+    private static boolean sheathWeapon(ItemStack stack) {
+        return stack.isEmpty() || stack.getCount()==1 && (WeaponEntities.TYPES.containsKey(stack.getItem()) || stack.is(Items.TRIDENT));
+    }
+    /** All validation precedes mutation; copies retain names, durability and enchantments. */
+    private static boolean swapSheath(Player p,ItemStack sheath,InteractionHand hand) {
+        ItemStack held=p.getItemInHand(hand);
+        var contents=sheath.getOrDefault(DataComponents.CONTAINER,ItemContainerContents.EMPTY)
+            .itemCopies().filter(stack->!stack.isEmpty()).toList();
+        if(sheath==held || !sheathWeapon(held) || contents.size()>1) return false;
+        ItemStack stored=contents.isEmpty()?ItemStack.EMPTY:contents.getFirst();
+        if(!sheathWeapon(stored)) return false;
+        p.stopUsingItem();
+        sheath.set(DataComponents.CONTAINER,held.isEmpty()?ItemContainerContents.EMPTY:ItemContainerContents.fromItems(List.of(held.copy())));
+        p.setItemInHand(hand,stored.copy());
+        p.getInventory().setChanged();
+        p.inventoryMenu.broadcastChanges();
+        return true;
+    }
     public static InteractionResult use(Player p,Level world,InteractionHand hand){
         if(hand!=InteractionHand.MAIN_HAND)return InteractionResult.PASS;ItemStack s=p.getItemInHand(hand);
         if(s.is(ModItems.SHEATH)){
             if(world instanceof ServerLevel){
-                var stored=s.getOrDefault(DataComponents.CONTAINER,ItemContainerContents.EMPTY).itemCopies().filter(x->!x.isEmpty()).findFirst().orElse(ItemStack.EMPTY);
-                ItemStack off=p.getOffhandItem();if(!off.isEmpty()&&!WeaponEntities.TYPES.containsKey(off.getItem())&&!off.is(Items.TRIDENT))return InteractionResult.FAIL;
-                s.set(DataComponents.CONTAINER,off.isEmpty()?ItemContainerContents.EMPTY:ItemContainerContents.fromItems(List.of(off.copyWithCount(1))));p.setItemInHand(InteractionHand.OFF_HAND,stored.copy());
+                if(!swapSheath(p,s,InteractionHand.OFF_HAND)) return InteractionResult.FAIL;
             }return InteractionResult.SUCCESS;
         }
         if(s.is(ModItems.STORM_CORE)){

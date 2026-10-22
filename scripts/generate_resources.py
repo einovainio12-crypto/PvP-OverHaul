@@ -135,7 +135,7 @@ write('data/minecraft/enchantment/loyalty.json',loyalty)
 for path in ['in_enchanting_table','tradeable','on_random_loot','on_traded_equipment']:
  write(f'data/minecraft/tags/enchantment/{path}.json',{'replace':False,'values':[f'{MOD}:{n}' for n in ['throwable','pole_jump','double_jump','speed','boost','overload','aerodynamics','cleaving','impact']]})
 write('data/minecraft/tags/enchantment/exclusive_set/damage.json',{'replace':False,'values':['pvpoverhaul:cleaving']})
-for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel'}.items():LANG[f'key.{MOD}.{key}']=title
+for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel','sheath_swap':'Swap Sheathed Weapon'}.items():LANG[f'key.{MOD}.{key}']=title
 LANG['container.pvpoverhaul.fletching']='Fletching Table'
 LANG['container.pvpoverhaul.quiver']='Quiver'
 LANG['key.category.pvpoverhaul.combat']='PvP+'
@@ -145,7 +145,7 @@ extend(globals())
 name('slingshot');model('slingshot')
 recipe('slingshot',pattern=['S S',' L ',' S '],key={'S':'minecraft:stick','L':'minecraft:string'})
 for asset,encoded in PACKED_ART.items():
- if any(k in asset for k in ['halberd','hammer','scythe','flail']) or asset in ['slingshot.png','ice_arrow.png']:
+ if any(k in asset for k in ['halberd','hammer','scythe','flail']) or asset in ['slingshot.png','ice_arrow.png','dragon_scale.png','dragon_scale_wolf_armor.png','weapon_sheath.png','combat_cache.png','healing_totem.png','storm_core.png']:
   target=ROOT/f'assets/{MOD}/textures/item/{asset}';target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(base64.b64decode(encoded,validate=True))
 for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
  item=material+'_halberd';held=item+'_held'
