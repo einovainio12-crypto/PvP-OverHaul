@@ -82,12 +82,12 @@ public final class Arsenal {
             }return InteractionResult.SUCCESS;
         }
         if(s.is(ModItems.STORM_CORE)){
-            ItemStack hammer=p.getOffhandItem();if(hammer.getItem()!=ModItems.ARSENAL.get("netherite_hammer")||Enchantments.level(hammer,"stormbound")>0)return InteractionResult.FAIL;
+            ItemStack hammer=p.getOffhandItem();if(hammer.getItem()!=ModItems.ARSENAL.get("netherite_hammer")||Enchantments.level(hammer,"minecraft:riptide")>=3)return InteractionResult.FAIL;
             if(world instanceof ServerLevel){s.consume(1,p);if(p.getRandom().nextFloat()<.05f){
-                for(String name:List.of("stormbound","throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide")){
+                for(String name:List.of("throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide")){
                     var key=ResourceKey.create(Registries.ENCHANTMENT,name.contains(":")?net.minecraft.resources.Identifier.parse(name):PvpOverhaul.id(name));
-                    hammer.enchant(p.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(key),name.endsWith("loyalty")?3:1);
-                }message(p,"The storm answers. Your hammer is Stormbound.");
+                    hammer.enchant(p.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(key),(name.endsWith("loyalty")||name.endsWith("riptide"))?3:1);
+                }message(p,"The storm answers. Your hammer now commands the storm.");
             }else message(p,"The storm core fades. Try another core.");}return InteractionResult.SUCCESS;
         }
         if(s.is(ModItems.HEALING_TOTEM)){

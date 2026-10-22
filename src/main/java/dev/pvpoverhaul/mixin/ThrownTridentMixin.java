@@ -33,8 +33,12 @@ public abstract class ThrownTridentMixin implements ThrownItemVisual {
     private boolean pvp$weaponEffects(net.minecraft.world.entity.Entity victim,net.minecraft.world.damagesource.DamageSource source,float damage) {
         boolean hit=victim.hurtOrSimulate(source,damage);ThrownTrident self=(ThrownTrident)(Object)this;
         if(hit && self.getOwner() instanceof net.minecraft.world.entity.player.Player p && victim instanceof net.minecraft.world.entity.LivingEntity target) dev.pvpoverhaul.Arsenal.hit(p,target,self.getPickupItemStackOrigin());
+        if(hit) Combat.thrownMaceBurst(self,victim);
         return hit;
     }
+    // Wind Burst is dispatched once at impact; preserve all other native post-hit effects.
+    @ModifyArg(method="onHitEntity",at=@At(value="INVOKE",target="Lnet/minecraft/world/item/enchantment/EnchantmentHelper;doPostAttackEffectsWithItemSourceOnBreak(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Consumer;)V"),index=3)
+    private ItemStack pvp$skipDuplicateWindBurst(ItemStack stack) { return Combat.withoutThrownWindBurst(stack); }
     @ModifyConstant(method="onHitEntity",constant=@Constant(floatValue=8f))
     private float pvp$thrownDamage(float vanilla) { return Combat.thrownDamage((AbstractArrow)(Object)this,vanilla); }
 }

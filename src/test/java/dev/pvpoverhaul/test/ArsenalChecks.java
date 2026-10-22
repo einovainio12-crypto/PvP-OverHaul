@@ -27,8 +27,8 @@ public final class ArsenalChecks {
         for(Item item:ModItems.KNIVES.values())check(flame.value().getSupportedItems().contains(item.builtInRegistryHolder()),"Knife cannot take Flame");
         check(flame.value().getSupportedItems().contains(ModItems.STONE_KNIFE.builtInRegistryHolder()),"Stone knife Flame missing");
         var hammer=new ItemStack(ModItems.ARSENAL.get("netherite_hammer"));
-        for(String n:new String[]{"pvpoverhaul:stormbound","pvpoverhaul:throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide"}){
-            var e=registry.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT,Identifier.parse(n)));check(e.value().getSupportedItems().contains(hammer.getItem().builtInRegistryHolder()),"Storm hammer rejects "+n);hammer.enchant(e,n.endsWith("loyalty")?3:1);
+        for(String n:new String[]{"pvpoverhaul:throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide"}){
+            var e=registry.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT,Identifier.parse(n)));check(e.value().getSupportedItems().contains(hammer.getItem().builtInRegistryHolder()),"Storm hammer rejects "+n);hammer.enchant(e,(n.endsWith("loyalty")||n.endsWith("riptide"))?3:1);
         }
         check(HammerItem.awakened(hammer),"Storm Core hammer cannot use dry Riptide");
         for(var entry:ModItems.ARSENAL.entrySet()) if(entry.getKey().endsWith("_halberd")) {
@@ -37,6 +37,27 @@ public final class ArsenalChecks {
             check(h.get(DataComponents.PIERCING_WEAPON)==null,"Halberd primary must swing, not stab");
             check(h.getUseAnimation()==ItemUseAnimation.SPEAR,"Halberd missing spear animation");
         }
+        for(Tier tier:Tier.values()) {
+            Item bow=ModItems.BOWS.get(tier);
+            if(bow!=null)check(Skills.canTargetLock(new ItemStack(bow))==(tier==Tier.IRON||tier==Tier.DIAMOND||tier==Tier.NETHERITE),"Incorrect Target Lock bow tier");
+            Item crossbow=ModItems.CROSSBOWS.get(tier);
+            if(crossbow!=null)check(!Skills.canTargetLock(new ItemStack(crossbow)),"Crossbow can Target Lock");
+        }
+        var pole=registry.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT,PvpOverhaul.id("pole_jump")));
+        for(var entry:ModItems.ARSENAL.entrySet()) {
+            if(entry.getKey().endsWith("_halberd"))check(pole.value().getSupportedItems().contains(entry.getValue().builtInRegistryHolder()),"Halberd cannot take Pole Jump");
+            if(entry.getKey().endsWith("_flail")) {
+                check(entry.getValue() instanceof FishingRodItem,"Flail cannot cast/reel");
+                double reach=entry.getValue().getDefaultInstance().get(DataComponents.ATTRIBUTE_MODIFIERS).compute(net.minecraft.world.entity.ai.attributes.Attributes.ENTITY_INTERACTION_RANGE,3,net.minecraft.world.entity.EquipmentSlot.MAINHAND);
+                check(reach==4.5,"Flail range incorrect");
+            }
+        }
+        ItemStack mace=new ItemStack(Items.MACE);
+        var wind=registry.getOrThrow(net.minecraft.world.item.enchantment.Enchantments.WIND_BURST);mace.enchant(wind,3);
+        check(Combat.thrownBaseDamage(mace,0)>=6,"Thrown mace lacks damage");
+        check(Enchantments.level(Combat.withoutThrownWindBurst(mace),"minecraft:wind_burst")==0 && Enchantments.level(mace,"minecraft:wind_burst")==3,"Wind Burst suppression modified original weapon");
+        check(Enchantments.level(hammer,"minecraft:riptide")==3,"Storm Core must grant Riptide III");
+        System.out.println("PVP_BOW_ONLY_TARGET_LOCK_FLAIL_RANGE_ROD_HALBERD_POLE_MACE_AND_RIPTIDE_III_PASSED");
         hammer.setDamageValue(71);hammer.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Storm hammer"));
         ItemStack sheath=new ItemStack(ModItems.SHEATH);sheath.set(DataComponents.CONTAINER,ItemContainerContents.fromItems(java.util.List.of(hammer)));
         var ops=provider.createSerializationContext(JsonOps.INSTANCE);ItemStack loaded=ItemStack.CODEC.parse(ops,ItemStack.CODEC.encodeStart(ops,sheath).getOrThrow()).getOrThrow();

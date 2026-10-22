@@ -35,13 +35,14 @@ def extend(g):
   if kind=='arrow':render(path,kind,color,item=item)
   else:sprite(path,kind,color)
  tag(ns,'arsenal',extra)
+ tag(ns,'pole_weapons',['#minecraft:spears']+[item for item in extra if item.endswith('_halberd')])
  for path in ['weapon','melee_weapon','sharp_weapon','durability']:
   p=root/f'data/minecraft/tags/item/enchantable/{path}.json';d=json.loads(p.read_text());d['values']+=extra;write(p.relative_to(root),d)
  for path in ['throwable_weapons','loyalty_weapons']:
   p=root/f'data/{ns}/tags/item/{path}.json';d=json.loads(p.read_text());d['values']+=['#pvpoverhaul:arsenal','#pvpoverhaul:knives','#minecraft:swords','minecraft:mace'];write(p.relative_to(root),d)
  tag(ns,'storm_hammer',['pvpoverhaul:netherite_hammer'])
  for n,l in [('ice_aspect',2),('leeching',3),('chaining',3),('stunning',3)]:ench(n,'#minecraft:enchantable/melee_weapon',['mainhand'],l,exclusive=['minecraft:fire_aspect','minecraft:flame'] if n=='ice_aspect' else None,weight=2)
- ench('stormbound','#pvpoverhaul:storm_hammer',['mainhand'],1,weight=1)
+
  vanilla=json.loads((pathlib.Path(__file__).parent/'arsenal_vanilla_enchants.json').read_text())
  for n in ['flame','channeling','riptide']:
   d=vanilla[n]

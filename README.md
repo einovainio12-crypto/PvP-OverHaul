@@ -1,4 +1,26 @@
-# PvP+ 0.10.7
+# PvP+ 0.10.8
+
+Target Lock is limited to iron, diamond and netherite bows. Crossbows cannot use it.
+It costs 1 exhaustion to activate and 0.4 per second while tracking; saturation is
+used before visible hunger. Tracking stops at six food points (three icons).
+Creative players bypass hunger costs. Pole Jump adds only 0.1 exhaustion per jump
+and uses the same minimum food requirement. Downward Lunge retains its native cost.
+
+Flails gain 1.5 blocks of melee reach (4.5 blocks total at the default player range).
+Right-click casts a fishing bobber; right-click again reels it in and can pull a hooked
+entity. Native fishing and durability costs apply. Sneak-use still throws a flail
+with Throwable. Flail held models are rotated 180 degrees.
+
+Halberds rotate 180 degrees in third person only; first-person transforms are unchanged.
+Halberds can take Pole Jump. Hold the halberd and press G to jump; right-click still
+uses its spear-style secondary attack. Pole Jump and Throwable remain exclusive.
+
+Thrown maces have at least six base damage. A successful entity hit with Wind Burst
+creates the native wind explosion at the impact, once per hit, at the enchantment's
+strength. The thrown hit does not require a melee smash or falling player.
+Stormbound is removed. Successful Storm Core rolls grant Riptide III, Loyalty III,
+Channeling I and Throwable I; the netherite hammer can spin on dry land.
+
 
 Removed the pale background from the weapon sheath icon; it now has transparency.
 
@@ -16,11 +38,11 @@ Older longsword resource files are cleaned automatically when building.
 
 Halberds now swing for their primary attack and can disable shields like axes.
 Hold use/right-click for the spear's kinetic secondary attack and animation.
-Their held sprites are larger and upright. Inventory icons and thrown scale are unchanged.
+Their held sprites are larger; the third-person view is rotated 180 degrees. Inventory icons and thrown scale are unchanged.
 
 Use a Storm Core in your main hand with a netherite hammer in your offhand.
 Each core is consumed and has a 5% chance to awaken the hammer. Success grants
-Stormbound, Throwable I, Channeling I, Loyalty III and Riptide I together.
+Throwable I, Channeling I, Loyalty III and Riptide III together.
 Hold use for at least half a second, then release for a Riptide spin—even on dry land.
 The spin costs four durability and has an eight-second cooldown. Sneak-use throws
 the hammer instead; Loyalty returns it. Channeling still requires vanilla thunderstorm
@@ -36,7 +58,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.7 — combat and texture update
+# Java 0.10.8 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
@@ -61,8 +83,8 @@ For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and c
   the large held sprite in hand and when thrown. Thrown size remains 1.35, and the
   rotation follows the new upper-left-pointing artwork.
 
-Eligible skills: copper through netherite bows have Target Lock; iron, diamond and
-netherite bows have Dead Eye. The netherite crossbow has both. Keybinds are rebindable.
+Eligible skills: iron, diamond and netherite bows have Target Lock and Dead Eye.
+The netherite crossbow has Dead Eye only. Keybinds are rebindable.
 
 Validation: Java 25 compilation against Minecraft 26.3/Fabric, generated resource
 checks, native recipe/enchantment/registry decoding, and client mixin loading checks.
@@ -98,7 +120,7 @@ git push -u origin main
 For browser uploads, follow the single-upload instructions above. Create hidden configuration files directly in GitHub's file editor from the visible templates.
 
 4. Open **Actions → Build Fabric 26.3**. A push starts the build; you can also choose **Run workflow**.
-5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.7.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
+5. Open the completed green run and download `pvp-plus-26.3-ubuntu-latest` from **Artifacts**. Extract it. Install **`pvp-plus-0.10.8.jar`**, not the `-sources.jar`, in your game's `mods` folder. Update the server and clients to the same mod version.
 6. Install Fabric Loader for **26.3** and Fabric API **0.162.0+26.3** or a compatible newer 26.3 release. Use the same mod version on all participants.
 
 The workflow builds on Linux and Windows. It uses no publishing credentials or repository write permissions. It does not create a GitHub release automatically.

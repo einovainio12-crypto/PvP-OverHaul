@@ -160,5 +160,6 @@
   "data/pvpoverhaul/recipe/wood_longsword.json",
   "data/pvpoverhaul/recipe/wood_quarterstaff.json",
   "data/pvpoverhaul/recipe/wood_shuriken.json",
-  "data/pvpoverhaul/recipe/wood_spear.json"
+  "data/pvpoverhaul/recipe/wood_spear.json",
+  "data/pvpoverhaul/enchantment/stormbound.json"
 ]

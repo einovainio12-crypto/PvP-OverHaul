@@ -35,7 +35,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
                 stack.getItem() instanceof TierCrossbowItem crossbow && crossbow.tier==Tier.NETHERITE?crossbow.tier:null;
             if(stack.getItem() instanceof TierBowItem || stack.getItem() instanceof TierCrossbowItem)
                 lines.add(Component.literal("Zoom: hold "+zoom.getTranslatedKeyMessage().getString()));
-            if(tier!=null && tier.targetLock()) lines.add(Component.literal("Target Lock: "+lock.getTranslatedKeyMessage().getString()+", toggle tracking; sneak to release"));
+            if(Skills.canTargetLock(stack)) lines.add(Component.literal("Target Lock: "+lock.getTranslatedKeyMessage().getString()+", toggle tracking; sneak to release"));
             if(tier!=null && tier.deadEye()) lines.add(Component.literal("Dead Eye: "+dead.getTranslatedKeyMessage().getString()+", rapid burst at three nearest enemies"));
             if(stack.is(Items.ELYTRA)) {
                 lines.add(Component.literal("Boost: "+boost.getTranslatedKeyMessage().getString()+" while gliding (requires Boost)"));

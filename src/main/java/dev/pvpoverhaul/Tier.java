@@ -22,7 +22,7 @@ public enum Tier {
     public int bowDrawTicks() { return Balance.bowDrawTicks(rank); }
     public int rangedDurability() { return this==GOLD?48:durability; }
     public int magazineSize() { return rank < 2 ? 1 : rank + 1; }
-    public boolean targetLock() { return rank >= 1; }
+    public boolean targetLock() { return this==IRON || this==DIAMOND || this==NETHERITE; }
     public boolean deadEye() { return this == IRON || this == DIAMOND || this == NETHERITE; }
     public float shieldDisableScale() { return 1.0f - rank * 0.12f; }
 }

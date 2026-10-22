@@ -20,7 +20,8 @@
     "ThrowableCommandMixin",
     "ShieldStunMixin",
     "LungePoleJumpMixin",
-    "TridentDataAccessor"
+    "TridentDataAccessor",
+    "FishingHookMixin"
   ],
   "injectors": {
     "defaultRequire": 1

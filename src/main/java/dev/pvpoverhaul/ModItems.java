@@ -106,7 +106,7 @@ public final class ModItems {
             for(String kind:new String[]{"flail","hammer","scythe","halberd"}) {
                 double damage=switch(kind){case "hammer"->9;case "flail"->7;case "halberd"->6;case "scythe"->5;default->4;};
                 double speed=switch(kind){case "hammer"->.7;case "flail"->.9;case "halberd"->1;case "scythe"->1.1;default->2.5;};
-                double reach=kind.equals("halberd")?1.25:List.of("scythe").contains(kind)?.75:0;
+                double reach=kind.equals("halberd")?1.25:kind.equals("flail")?1.5:List.of("scythe").contains(kind)?.75:0;
                 Item.Properties props=tier==null?new Item.Properties().durability(131).enchantable(5).repairable(ToolMaterial.STONE.repairItems()):base(tier);
                 if(kind.equals("halberd")) {
                     // Same per-material kinetic timings as vanilla spears. Components are
@@ -129,7 +129,7 @@ public final class ModItems {
                         .component(DataComponents.ATTACK_RANGE,new AttackRange(0,4.5f,0,6.5f,.125f,.5f))
                         .component(DataComponents.USE_EFFECTS,new UseEffects(true,false,1));
                 }
-                Item item=register(material+"_"+kind,props.attributes(melee(damage+rank,speed,reach)).component(DataComponents.WEAPON,new Weapon(1,List.of("hammer","halberd","flail").contains(kind)?5f:0f)),kind.equals("hammer")?HammerItem::new:Item::new);
+                Item item=register(material+"_"+kind,props.attributes(melee(damage+rank,speed,reach)).component(DataComponents.WEAPON,new Weapon(1,List.of("hammer","halberd","flail").contains(kind)?5f:0f)),kind.equals("hammer")?HammerItem::new:kind.equals("flail")?FishingRodItem::new:Item::new);
                 ARSENAL.put(material+"_"+kind,item);KINDS.put(item,kind);if(tier!=null)TIERS.put(item,tier);
             }
         }

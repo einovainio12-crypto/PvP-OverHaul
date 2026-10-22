@@ -120,7 +120,7 @@ def ench(id,supported,slots,max_level=1,effects=None,exclusive=None,weight=5):
  write(f'data/{MOD}/enchantment/{id}.json',d)
 linear=lambda base,step:{'type':'minecraft:linear','base':base,'per_level_above_first':step}
 ench('throwable','#pvpoverhaul:throwable_weapons',['mainhand'],exclusive=['minecraft:lunge','pvpoverhaul:pole_jump'])
-ench('pole_jump','#pvpoverhaul:spears',['mainhand'],3,exclusive=['pvpoverhaul:throwable'])
+ench('pole_jump','#pvpoverhaul:pole_weapons',['mainhand'],3,exclusive=['pvpoverhaul:throwable'])
 ench('double_jump','#minecraft:enchantable/foot_armor',['feet'],2,exclusive=['pvpoverhaul:speed'])
 ench('speed','#minecraft:enchantable/foot_armor',['feet'],3,{'minecraft:attributes':[{'id':'pvpoverhaul:speed','attribute':'minecraft:movement_speed','operation':'add_multiplied_base','amount':linear(.03,.03)}]},exclusive=['pvpoverhaul:double_jump'],weight=2)
 ench('boost','#pvpoverhaul:elytra',['chest'],3,weight=2)
@@ -149,8 +149,16 @@ for asset,encoded in PACKED_ART.items():
   target=ROOT/f'assets/{MOD}/textures/item/{asset}';target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(base64.b64decode(encoded,validate=True))
 for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
  item=material+'_halberd';held=item+'_held'
- write(f'assets/{MOD}/models/item/{held}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{held}'},'display':{'firstperson_righthand':{'rotation':[-20,90,-45],'translation':[1.13,3.2,1.13],'scale':[1.25,1.25,1.25]},'firstperson_lefthand':{'rotation':[-20,-90,45],'translation':[1.13,3.2,1.13],'scale':[1.25,1.25,1.25]},'thirdperson_righthand':{'rotation':[5,270,-45],'translation':[0,4,0.5],'scale':[1.3,1.3,1.3]},'thirdperson_lefthand':{'rotation':[5,-270,45],'translation':[0,4,0.5],'scale':[1.3,1.3,1.3]}}})
+ write(f'assets/{MOD}/models/item/{held}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{held}'},'display':{'firstperson_righthand':{'rotation':[-20,90,-45],'translation':[1.13,3.2,1.13],'scale':[1.25,1.25,1.25]},'firstperson_lefthand':{'rotation':[-20,-90,45],'translation':[1.13,3.2,1.13],'scale':[1.25,1.25,1.25]},'thirdperson_righthand':{'rotation':[5,270,135],'translation':[0,4,0.5],'scale':[1.3,1.3,1.3]},'thirdperson_lefthand':{'rotation':[5,-270,225],'translation':[0,4,0.5],'scale':[1.3,1.3,1.3]}}})
  write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:select','property':'minecraft:display_context','cases':[{'when':['gui','ground','fixed'],'model':{'type':'minecraft:model','model':f'{MOD}:item/{item}'}}],'fallback':{'type':'minecraft:model','model':f'{MOD}:item/{held}'}}})
  write(f'assets/{MOD}/items/thrown_visual/{item}.json',{'model':{'type':'minecraft:model','model':f'{MOD}:item/{held}'}})
+# Rotate only the flail's held contexts, keeping GUI and thrown item transforms intact.
+for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
+ item=material+'_flail'
+ write(f'assets/{MOD}/models/item/{item}.json',{'parent':'minecraft:item/handheld','textures':{'layer0':f'{MOD}:item/{item}'},'display':{
+ 'firstperson_righthand':{'rotation':[0,-90,205],'translation':[1.13,3.2,1.13],'scale':[.68,.68,.68]},
+ 'firstperson_lefthand':{'rotation':[0,90,155],'translation':[1.13,3.2,1.13],'scale':[.68,.68,.68]},
+ 'thirdperson_righthand':{'rotation':[0,-90,235],'translation':[0,4,.5],'scale':[.85,.85,.85]},
+ 'thirdperson_lefthand':{'rotation':[0,90,125],'translation':[0,4,.5],'scale':[.85,.85,.85]}}})
 write(f'assets/{MOD}/lang/en_us.json',LANG)
 print('Generated',len(items)+len(AMMO)+2,'items and all recipes/models/enchantments.')

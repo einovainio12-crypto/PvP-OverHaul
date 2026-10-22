@@ -17,7 +17,6 @@ public final class HammerItem extends Item {
     public HammerItem(Properties properties) { super(properties); }
     public static boolean awakened(ItemStack stack) {
         return stack.getItem()==ModItems.ARSENAL.get("netherite_hammer")
-            && Enchantments.level(stack,"stormbound")>0
             && Enchantments.level(stack,"minecraft:riptide")>0;
     }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.TRIDENT; }
@@ -44,7 +43,7 @@ public final class HammerItem extends Item {
         if(level instanceof ServerLevel) {
             stack.hurtWithoutBreaking(4,player);
             player.awardStat(Stats.ITEM_USED.get(this));
-            level.playSound(null,player,SoundEvents.TRIDENT_RIPTIDE_1.value(),SoundSource.PLAYERS,1,1);
+            level.playSound(null,player,SoundEvents.TRIDENT_RIPTIDE_3.value(),SoundSource.PLAYERS,1,1);
         }
         return true;
     }

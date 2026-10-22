@@ -51,10 +51,12 @@ public final class Skills {
             case SkillPayload.SHEATH_SWAP -> Arsenal.swapHeldWeapon(p);
             case SkillPayload.TARGET_LOCK -> {
                 if(s.target!=null){clearLock(p,s);return;}
-                if (skillTier(held)==null || !skillTier(held).targetLock()) { message(p,"Target Lock needs a copper-or-higher bow or netherite crossbow.");return; }
+                if (!canTargetLock(held)) { message(p,"Target Lock needs an iron, diamond or netherite bow.");return; }
+                if(!hasSkillFood(p)){message(p,"Target Lock needs more than three hunger icons.");return;}
                 if (coolingDown(p,now,s.nextLock,"Target Lock")) return;
                 LivingEntity target=findTarget(p);
                 if (target==null) { p.sendOverlayMessage(Component.literal("No visible target near your crosshair."));return; }
+                p.causeFoodExhaustion(1f);
                 s.target=target.getUUID();s.lockUntil=Long.MAX_VALUE;s.nextLock=now+Balance.LOCK_COOLDOWN;
                 s.lockWeapon=held.getItem();s.tracked=held;sendLock(p,target.getId());
                 p.sendOverlayMessage(Component.literal("Target Lock active. Use Target Lock again or sneak to release."));
@@ -104,10 +106,12 @@ public final class Skills {
             case SkillPayload.POLE_JUMP -> {
                 held=p.getMainHandItem();
                 int pole=Enchantments.level(p,held,"pole_jump");
-                if (!ModItems.isSpear(held) || pole==0) { message(p,"Pole Jump needs a spear with the Pole Jump enchantment.");return; }
+                if (!poleWeapon(held) || pole==0) { message(p,"Pole Jump needs a spear or halberd with the Pole Jump enchantment.");return; }
                 if (!p.onGround() || p.isPassenger() || p.isFallFlying()) { message(p,"Pole Jump requires standing on the ground.");return; }
                 if (coolingDown(p,now,s.nextPole,"Pole Jump")) return;
                 if (Enchantments.level(p,held,"throwable")>0) return;
+                if(!hasSkillFood(p)) return;
+                p.causeFoodExhaustion(.1f);
                 s.nextPole=now+40; Vec3 look=p.getLookAngle();
                 impulse(p,poleImpulse(look,pole));
                 held.hurtAndBreak(1,p,EquipmentSlot.MAINHAND);
@@ -120,10 +124,12 @@ public final class Skills {
     }
     public static Vec3 lungePoleImpulse(ServerPlayer player,ItemStack spear,Vec3 normal) {
         int pole=Enchantments.level(spear,"pole_jump");
-        if(!ModItems.isSpear(spear) || pole==0 || Enchantments.level(spear,"minecraft:lunge")==0 || player.getXRot()<55
+        if(!poleWeapon(spear) || pole==0 || Enchantments.level(spear,"minecraft:lunge")==0 || player.getXRot()<55
             || !player.onGround() || player.isPassenger() || player.isFallFlying() || player.isInWater()) return normal;
         State state=state(player);long now=player.level().getGameTime();
         if(now<state.nextPole) return Vec3.ZERO;
+        if(!hasSkillFood(player)) return Vec3.ZERO;
+        player.causeFoodExhaustion(.1f);
         state.nextPole=now+40;
         // Native Lunge already paid durability/exhaustion; its effect sends motion and applies impulse grace.
         return poleImpulse(player.getLookAngle(),pole);
@@ -169,8 +175,11 @@ public final class Skills {
         if(!p.isAlive()||p.isSpectator()){clearLock(p,s);s.burst.clear();return;}
         if(s.target!=null){
             Entity e=p.level().getEntity(s.target);
-            if(p.isShiftKeyDown() || rangedWeapon(p)!=s.tracked || !(e instanceof LivingEntity t) || !validTarget(p,t,false))clearLock(p,s);
-            else if(p.tickCount%10==0)sendLock(p,e.getId());
+            if(!hasSkillFood(p) || !canTargetLock(s.tracked) || p.isShiftKeyDown() || rangedWeapon(p)!=s.tracked || !(e instanceof LivingEntity t) || !validTarget(p,t,false))clearLock(p,s);
+            else {
+                if(p.tickCount%20==0)p.causeFoodExhaustion(.4f);
+                if(p.tickCount%10==0)sendLock(p,e.getId());
+            }
         }
         tickBurst(p,s);
     }
@@ -191,7 +200,7 @@ public final class Skills {
         if(!(user instanceof ServerPlayer p))return false;
         State s=STATES.get(p.getUUID());if(s==null)return false;
         LivingEntity target=s.shootingTarget;
-        if(target==null && s.target!=null && p.level().getEntity(s.target) instanceof LivingEntity t && validTarget(p,t,false))target=t;
+        if(target==null && canTargetLock(projectile instanceof net.minecraft.world.entity.projectile.arrow.AbstractArrow a?a.getWeaponItem():ItemStack.EMPTY) && s.target!=null && p.level().getEntity(s.target) instanceof LivingEntity t && validTarget(p,t,false))target=t;
         if(target==null||angle!=0)return false;
         Vec3 delta=target.getBoundingBox().getCenter().subtract(projectile.position());
         double flightTime=delta.horizontalDistance()/Math.max(.1,power);
@@ -203,5 +212,8 @@ public final class Skills {
         if (stack.getItem() instanceof TierCrossbowItem crossbow && crossbow.tier==Tier.NETHERITE) return crossbow.tier;
         return null;
     }
+    public static boolean canTargetLock(ItemStack stack) { return stack!=null && stack.getItem() instanceof TierBowItem bow && bow.tier.targetLock(); }
+    public static boolean poleWeapon(ItemStack stack) { return ModItems.isSpear(stack)||"halberd".equals(ModItems.KINDS.get(stack.getItem())); }
+    private static boolean hasSkillFood(ServerPlayer p) { return p.hasInfiniteMaterials()||p.getFoodData().getFoodLevel()>6; }
     private Skills() {}
 }

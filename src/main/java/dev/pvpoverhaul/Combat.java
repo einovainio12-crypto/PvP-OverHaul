@@ -63,6 +63,7 @@ public final class Combat {
         return base+Balance.thrownSharpnessBonus(Enchantments.level(weapon,"minecraft:sharpness"));
     }
     public static float thrownBaseDamage(ItemStack weapon,float vanilla) {
+        if(weapon.is(Items.MACE)) return Math.max(6,(float)weapon.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY).compute(Attributes.ATTACK_DAMAGE,1,EquipmentSlot.MAINHAND));
         if(ModItems.KINDS.containsKey(weapon.getItem()))return (float)weapon.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS,net.minecraft.world.item.component.ItemAttributeModifiers.EMPTY).compute(Attributes.ATTACK_DAMAGE,1,EquipmentSlot.MAINHAND);
         if(weapon.is(ModItems.STONE_KNIFE)) return 4;
         if(weapon.is(ModItems.STONE_BATTLEAXE)) return 9;
@@ -77,6 +78,26 @@ public final class Combat {
             return Math.max(4,damage);
         }
         return vanilla;
+    }
+    /** Projectile hits do not satisfy vanilla Wind Burst's melee falling predicate. */
+    public static void thrownMaceBurst(AbstractArrow projectile,Entity victim) {
+        ItemStack stack=projectile.getPickupItemStackOrigin();
+        int strength=Enchantments.level(stack,"minecraft:wind_burst");
+        if(!stack.is(Items.MACE)||strength<=0||!(projectile.level() instanceof ServerLevel level)
+            ||!(projectile.getOwner() instanceof LivingEntity owner)) return;
+        var registry=level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT);
+        var wind=registry.getOrThrow(net.minecraft.world.item.enchantment.Enchantments.WIND_BURST);
+        var inUse=new net.minecraft.world.item.enchantment.EnchantedItemInUse(stack,null,owner,broken->{});
+        for(var effect:wind.value().getEffects(net.minecraft.world.item.enchantment.EnchantmentEffectComponents.POST_ATTACK))
+            if(effect.effect() instanceof net.minecraft.world.item.enchantment.effects.ExplodeEffect)
+                effect.effect().apply(level,strength,inUse,owner,victim.position());
+    }
+    public static ItemStack withoutThrownWindBurst(ItemStack stack) {
+        if(!stack.is(Items.MACE))return stack;
+        ItemStack copy=stack.copy();
+        net.minecraft.world.item.enchantment.EnchantmentHelper.updateEnchantments(copy,
+            mutable->mutable.removeIf(holder->holder.is(net.minecraft.world.item.enchantment.Enchantments.WIND_BURST)));
+        return copy;
     }
     private Combat() {}
 }
