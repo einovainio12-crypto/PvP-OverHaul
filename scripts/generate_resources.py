@@ -145,7 +145,7 @@ extend(globals())
 name('slingshot');model('slingshot')
 recipe('slingshot',pattern=['S S',' L ',' S '],key={'S':'minecraft:stick','L':'minecraft:string'})
 for asset,encoded in PACKED_ART.items():
- if any(k in asset for k in ['halberd','hammer','scythe','flail']) or asset in ['slingshot.png','ice_arrow.png','dragon_scale.png','dragon_scale_wolf_armor.png','weapon_sheath.png','combat_cache.png','healing_totem.png','storm_core.png']:
+ if any(k in asset for k in ['halberd','hammer','scythe','flail']) or asset in ['grappling_hook.png','grappling_rope.png','slingshot.png','ice_arrow.png','dragon_scale.png','dragon_scale_wolf_armor.png','weapon_sheath.png','combat_cache.png','healing_totem.png','storm_core.png']:
   target=ROOT/f'assets/{MOD}/textures/item/{asset}';target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(base64.b64decode(encoded,validate=True))
 for material in ['wood','stone','copper','iron','gold','diamond','netherite']:
  item=material+'_halberd';held=item+'_held'

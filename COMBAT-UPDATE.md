@@ -1,4 +1,12 @@
-# PvP+ 0.10.14
+# PvP+ 0.10.15
+
+When a flail hooks an enemy player, its head appears in front of their first-person
+camera, physically obscuring part of the view until the hook releases. No Blindness
+status effect is applied. Third-person views and hook physics remain normal.
+Grappling arrows now use a custom steel hook sprite and a textured braided-rope
+tether. Normal fishing rods retain their default visuals. Both textures were made
+with the built-in image tool: a transparent steel-hook pixel sprite and an opaque
+seamless golden-brown braided-rope pixel texture.
 
 Wood, stone, iron, gold, diamond and netherite flails use the supplied handle-only textures
 while cast and return to their full texture on retrieval. Copper keeps its current texture; no copper cast
@@ -81,7 +89,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.14 — combat and texture update
+# Java 0.10.15 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 
