@@ -30,6 +30,7 @@ public final class WeaponEntities {
     public static final class WeaponProjectile extends ThrownTrident {
         public WeaponProjectile(EntityType<? extends ThrownTrident> type,Level level){super(type,level);}
         private void initialize(LivingEntity owner,ItemStack stack) {
+            if(ModItems.isKnife(stack) && Enchantments.level(stack,"minecraft:flame")>0) igniteForSeconds(100);
             setOwner(owner);setPos(owner.getX(),owner.getEyeY()-.1,owner.getZ());setPickupItemStack(stack.copyWithCount(1));
             pickup=net.minecraft.world.entity.projectile.arrow.AbstractArrow.Pickup.ALLOWED;
             var access=(dev.pvpoverhaul.mixin.TridentDataAccessor)(Object)this;

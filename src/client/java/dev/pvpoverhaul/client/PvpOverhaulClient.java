@@ -16,6 +16,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
     private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver,sheath;
     private boolean jumpWasDown;
     @Override public void onInitializeClient() {
+        dev.pvpoverhaul.client.compat.CoreItems.initialize();
         ClientPlayNetworking.registerGlobalReceiver(TargetLockPayload.TYPE,(payload,context)->TargetLockClient.receive(payload.entityId()));
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.DISCONNECT.register((handler,client)->TargetLockClient.clear());
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(net.minecraft.world.entity.EntityTypes.FISHING_BOBBER,FlailHookRenderer::new);
