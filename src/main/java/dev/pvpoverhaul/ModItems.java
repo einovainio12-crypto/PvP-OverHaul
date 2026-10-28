@@ -72,7 +72,7 @@ public final class ModItems {
                 CROSSBOWS.put(t,tiered(t,"crossbow",base(t).durability(t.rangedDurability()).component(DataComponents.CHARGED_PROJECTILES,ChargedProjectiles.EMPTY),p->new TierCrossbowItem(p,t)));
             }
             KNIVES.put(t,tiered(t,"knife",base(t).attributes(melee(3+t.rank,3.2,-1))
-                .component(DataComponents.WEAPON,new Weapon(1)),Interactions.KnifeItem::new));
+                .component(DataComponents.WEAPON,new Weapon(1)),Item::new));
             // Extend the existing game item instead of registering a second spear per material.
             Item spear=switch(t) {
                 case WOOD -> Items.WOODEN_SPEAR;
@@ -99,7 +99,7 @@ public final class ModItems {
         STONE_KNIFE=register("stone_knife",new Item.Properties()
             .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
             .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
-            .component(DataComponents.WEAPON,new Weapon(1)),Interactions.KnifeItem::new);
+            .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
         for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;

@@ -1,4 +1,4 @@
-# PvP+ 0.10.16
+# PvP+ 0.10.15
 
 When a flail hooks an enemy player, its head appears in front of their first-person
 camera, physically obscuring part of the view until the hook releases. No Blindness
@@ -89,7 +89,7 @@ checks passed. All 81 registered items and 82 recipes validate. Interactive game
 held-model alignment and multiplayer movement have not been tested here.
 This ZIP contains source; GitHub Actions runs the full Gradle build and produces the JAR.
 
-# Java 0.10.16 — combat and texture update
+# Java 0.10.15 — combat and texture update
 
 For Fabric Minecraft 26.3, Java 25. Install the same mod version on server and clients.
 

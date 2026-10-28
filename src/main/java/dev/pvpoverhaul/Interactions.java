@@ -28,7 +28,6 @@ public final class Interactions {
             ItemStack held=player.getItemInHand(hand);
             if (player.isSpectator() || player.getCooldowns().isOnCooldown(held)) return InteractionResult.PASS;
             boolean knife=ModItems.isKnife(held);
-            if (knife && canCartKnife(player,held)) { player.startUsingItem(hand); return InteractionResult.CONSUME; }
             InteractionResult special=Arsenal.use(player,level,hand);if(special!=InteractionResult.PASS)return special;
             boolean throwable=Enchantments.level(player,held,"throwable")>0;
             if (!knife && !(player.isShiftKeyDown() && throwable)) return InteractionResult.PASS;
@@ -76,40 +75,6 @@ public final class Interactions {
             (id,inventory,user)->new FletchingMenu(id,inventory,ContainerLevelAccess.create(level,hit.getBlockPos())),
             Component.translatable("container.pvpoverhaul.fletching")));
         return InteractionResult.SUCCESS;
-    }
-    // A deliberate crouch-use mode preserves ordinary instant knife throws.
-    public static java.util.function.Consumer<Player> knifeReleased = player -> {};
-    public static boolean canCartKnife(Player player,ItemStack stack) {
-        if(!ModItems.isKnife(stack) || !player.isShiftKeyDown() || player.getXRot()<12
-            || Enchantments.level(player,stack,"minecraft:flame")<=0) return false;
-        boolean rail=false,cart=player.getOffhandItem().is(Items.TNT_MINECART);
-        for(int i=0;i<9;i++) {
-            ItemStack slot=player.getInventory().getItem(i);
-            rail |= slot.is(net.minecraft.tags.ItemTags.RAILS);
-            cart |= slot.is(Items.TNT_MINECART);
-        }
-        return rail && cart;
-    }
-    public static final class KnifeItem extends Item {
-        public KnifeItem(Properties properties) { super(properties); }
-        @Override public int getUseDuration(ItemStack stack,net.minecraft.world.entity.LivingEntity user) { return 72000; }
-        @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.SPEAR; }
-        @Override public boolean releaseUsing(ItemStack stack,Level level,net.minecraft.world.entity.LivingEntity user,int remaining) {
-            if(!(user instanceof Player player) || player.isSpectator() || !canCartKnife(player,stack)
-                || stack.nextDamageWillBreak() || player.getCooldowns().isOnCooldown(stack)) return false;
-            int ticks=getUseDuration(stack,user)-remaining;
-            if(ticks<2) return false;
-            float speed=Math.min(2.2f,BowItem.getPowerForTime(Math.max(3,ticks))*3f);
-            if(level instanceof ServerLevel server) {
-                stack.hurtWithoutBreaking(1,player);
-                ItemStack thrown=stack.consumeAndReturn(1,player);
-                ThrownTrident entity=Projectile.spawnProjectileFromRotation(WeaponEntities::create,server,thrown,player,0,speed,1);
-                if(player.hasInfiniteMaterials()) entity.pickup=AbstractArrow.Pickup.CREATIVE_ONLY;
-                player.getCooldowns().addCooldown(thrown,8);
-                server.playSound(null,player.getX(),player.getY(),player.getZ(),net.minecraft.sounds.SoundEvents.TRIDENT_THROW,net.minecraft.sounds.SoundSource.PLAYERS,1,1);
-            } else knifeReleased.accept(player);
-            return true;
-        }
     }
     private Interactions() {}
 }

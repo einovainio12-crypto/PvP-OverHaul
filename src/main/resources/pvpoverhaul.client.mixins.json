@@ -13,6 +13,5 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "plugin": "dev.pvpoverhaul.client.mixin.CoreBridge"
+  }
 }
