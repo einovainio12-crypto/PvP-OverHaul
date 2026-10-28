@@ -70,7 +70,7 @@ for i,t in enumerate(TIERS):
   elif i==5:
    write(f'data/{MOD}/recipe/{item}.json',{'type':'minecraft:smithing_transform','template':'minecraft:netherite_upgrade_smithing_template','base':f'{MOD}:diamond_{kind}','addition':'minecraft:netherite_ingot','result':{'id':f'{MOD}:{item}'}})
   else:
-   patterns={'knife':[' M','S '],'battleaxe':['MMM','MSM',' S '],'shield':['MSM','MMM',' M ']}
+   patterns={'knife':[' M','S '],'battleaxe':['MMM',' SM',' S '],'shield':['MSM','MMM',' M ']}
    recipe(item,pattern=patterns[kind],key={'M':MATERIAL[i],'S':'minecraft:stick'})
 for kind in ['bow','crossbow']:
  item=f'stone_{kind}';name(item);items.append(f'{MOD}:{item}')
@@ -78,7 +78,7 @@ for kind in ['bow','crossbow']:
  else:crossbow_model(item,(115,115,115))
  recipe(item,[f'minecraft:{kind}','minecraft:cobblestone','minecraft:cobblestone','minecraft:cobblestone'])
 name('stone_battleaxe');items.append(f'{MOD}:stone_battleaxe');model('stone_battleaxe');png('stone_battleaxe','battleaxe',(115,115,115))
-recipe('stone_battleaxe',pattern=['MMM','MSM',' S '],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
+recipe('stone_battleaxe',pattern=['MMM',' SM',' S '],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
 name('stone_knife');items.append(f'{MOD}:stone_knife');model('stone_knife');png('stone_knife','knife',(115,115,115))
 recipe('stone_knife',pattern=[' M','S '],key={'M':'minecraft:cobblestone','S':'minecraft:stick'})
 arrow_ingredients=['#minecraft:planks','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot',f'{MOD}:dragon_scale','minecraft:netherite_scrap','minecraft:iron_nugget','minecraft:blaze_powder','minecraft:wind_charge','minecraft:gunpowder','minecraft:fire_charge']

@@ -2,7 +2,7 @@
 from pixel_art import Canvas,palette,render
 import json,pathlib
 KINDS=['flail','hammer','scythe','halberd']
-PATTERNS={'flail':[' MM',' CM','S  '],'hammer':['MMM',' S ',' S '],'scythe':['MMM','  S',' S '],'halberd':[' MM',' SM','S  ']}
+PATTERNS={'flail':[' MM',' CM','S  '],'hammer':['MMM','MSM',' S '],'scythe':['MMM','  S',' S '],'halberd':[' MM',' SM','S  ']}
 def sprite(path,kind,color):
  c=Canvas();edge,shade,mid,shine=palette(color)
  if kind in ['core','totem','cache']:

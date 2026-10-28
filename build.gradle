@@ -56,3 +56,18 @@ tasks.named('check') { dependsOn 'validateResources', 'balanceChecks' }
 tasks.named('test', org.gradle.api.tasks.testing.Test).configure {
     failOnNoDiscoveredTests.set(false)
 }
+
+// Remove retired bundled adapters left behind by older browser uploads.
+// These exact files are no longer part of the main mod.
+tasks.register('removeRetiredAdapters', Delete) {
+    delete file('src/client/java/dev/pvpoverhaul/client/compat/CoreItems.java')
+    delete file('src/client/java/dev/pvpoverhaul/client/mixin/CoreBridge.java')
+    delete fileTree('build/classes/java/client') {
+        include 'dev/pvpoverhaul/client/compat/CoreItems.class'
+        include 'dev/pvpoverhaul/client/compat/CoreItems$*.class'
+        include 'dev/pvpoverhaul/client/mixin/CoreBridge.class'
+        include 'dev/pvpoverhaul/client/mixin/CoreBridge$*.class'
+    }
+}
+tasks.named('compileClientJava') { dependsOn 'removeRetiredAdapters' }
+tasks.named('sourcesJar') { dependsOn 'removeRetiredAdapters' }
