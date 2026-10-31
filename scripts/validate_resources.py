@@ -22,6 +22,14 @@ expected.add('grappling_arrow')
 expected.update(['dragon_scale_wolf_armor','quiver'])
 expected.update(f'{t}_{k}' for t in ['wood','stone','copper','iron','gold','diamond','netherite'] for k in ['flail','hammer','scythe','halberd'])
 expected.update(['weapon_sheath','storm_core','healing_totem','combat_cache','ice_arrow'])
+expected.update('rose_gold_'+k for k in ['ingot','nugget','sword','pickaxe','axe','shovel','hoe','helmet','chestplate','leggings','boots','block','bow','crossbow','knife','battleaxe','shield','spear','flail','hammer','scythe','halberd','arrow'])
+expected.update(['raw_rose_gold','raw_rose_gold_block'])
+generated=set()
+for source in parsed.get('assets/minecraft/atlases/items.json',{}).get('sources',[]):
+ for texture in source.get('textures',[]):
+  for suffix in source.get('permutations',{}):generated.add(texture+'_'+suffix)
+ for palette in [source.get('palette_key')]+list(source.get('permutations',{}).values()):
+  if palette and palette.startswith(ns+':') and not (res/f'assets/{ns}/textures/palettes/{palette.split(":",1)[1]}.png').exists():error('Missing palette '+palette)
 if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
 lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})
 for item in expected:
@@ -32,9 +40,9 @@ def walk(value):
    if k in ['model','base','parent'] and isinstance(v,str) and v.startswith(ns+':'):
     path=f'assets/{ns}/models/{v.split(":",1)[1]}.json'
     if path not in parsed:error(f'Missing model {path}')
-   if k=='textures':
+   if k=='textures' and isinstance(v,dict):
     for v2 in v.values():
-     if isinstance(v2,str) and v2.startswith(ns+':') and not (res/f'assets/{ns}/textures/{v2.split(":",1)[1]}.png').exists():error(f'Missing texture {v2}')
+     if isinstance(v2,str) and v2.startswith(ns+':') and v2 not in generated and not (res/f'assets/{ns}/textures/{v2.split(":",1)[1]}.png').exists():error(f'Missing texture {v2}')
    walk(v)
  elif isinstance(value,list):
   for v in value:walk(v)
@@ -70,7 +78,7 @@ if speed.get('exclusive_set')!=['pvpoverhaul:double_jump'] or double_jump.get('e
 for path in parsed:
  if path in obsolete:error(f'Obsolete spear resource will be packaged: {path}')
 for path,d in parsed.items():
- if '/recipe/' in path and d.get('result',{}).get('id','').startswith('pvpoverhaul:') and d['result']['id'].endswith('_spear'):error('Duplicate spear recipe')
+ if '/recipe/' in path and d.get('result',{}).get('id','').startswith('pvpoverhaul:') and d['result']['id'].endswith('_spear') and d['result']['id']!='pvpoverhaul:rose_gold_spear':error('Duplicate spear recipe')
 # Check declared Java/mixin entrypoints actually exist; catches mispackaged class names.
 meta=parsed.get('fabric.mod.json',{})
 def class_exists(name):return any((root/f'src/{s}/java'/pathlib.Path(name.replace('.','/')+'.java')).exists() for s in ['main','client'])

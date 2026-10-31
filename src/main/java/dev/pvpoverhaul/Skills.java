@@ -51,7 +51,7 @@ public final class Skills {
             case SkillPayload.SHEATH_SWAP -> Arsenal.swapHeldWeapon(p);
             case SkillPayload.TARGET_LOCK -> {
                 if(s.target!=null){clearLock(p,s);return;}
-                if (!canTargetLock(held)) { message(p,"Target Lock needs an iron, diamond or netherite bow.");return; }
+                if (!canTargetLock(held)) { message(p,"Target Lock needs an iron, rose gold, diamond or netherite bow.");return; }
                 if(!hasSkillFood(p)){message(p,"Target Lock needs more than three hunger icons.");return;}
                 if (coolingDown(p,now,s.nextLock,"Target Lock")) return;
                 LivingEntity target=findTarget(p);
@@ -62,7 +62,7 @@ public final class Skills {
                 p.sendOverlayMessage(Component.literal("Target Lock active. Use Target Lock again or sneak to release."));
             }
             case SkillPayload.DEAD_EYE -> {
-                if (skillTier(held)==null || !skillTier(held).deadEye()) { message(p,"Dead Eye needs an iron, diamond or netherite bow, or netherite crossbow.");return; }
+                if (skillTier(held)==null || !skillTier(held).deadEye()) { message(p,"Dead Eye needs an iron, rose gold, diamond or netherite bow, or netherite crossbow.");return; }
                 if (coolingDown(p,now,s.nextDead,"Dead Eye")) return;
                 if(!s.burst.isEmpty())return;
                 List<LivingEntity> targets=p.level().getEntitiesOfClass(LivingEntity.class,p.getBoundingBox().inflate(Balance.LOCK_RANGE),e->validTarget(p,e,true));

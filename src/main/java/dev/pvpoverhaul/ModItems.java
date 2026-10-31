@@ -50,6 +50,7 @@ public final class ModItems {
         return builder.build();
     }
     public static void initialize() {
+        RoseGold.initialize();
         SLINGSHOT=register("slingshot",new Item.Properties().durability(128).repairable(Items.STRING),SlingshotItem::new);
         DRAGON_SCALE=register("dragon_scale",new Item.Properties().rarity(Rarity.RARE),Item::new);
         DRAGON_SCALE_WOLF_ARMOR=register("dragon_scale_wolf_armor",new Item.Properties()
@@ -78,6 +79,7 @@ public final class ModItems {
                 case WOOD -> Items.WOODEN_SPEAR;
                 case COPPER -> Items.COPPER_SPEAR;
                 case IRON -> Items.IRON_SPEAR;
+                case ROSE_GOLD -> tiered(t,"spear",base(t).spear(t.material,4f,.95f,.6f,2.5f,11f,6.75f,5.1f,11.25f,4.6f),Item::new);
                 case GOLD -> Items.GOLDEN_SPEAR;
                 case DIAMOND -> Items.DIAMOND_SPEAR;
                 case NETHERITE -> Items.NETHERITE_SPEAR;
@@ -100,7 +102,7 @@ public final class ModItems {
             .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
             .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
             .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
-        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite"}) {
+        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","rose_gold"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;
             for(String kind:new String[]{"flail","hammer","scythe","halberd"}) {
@@ -115,7 +117,7 @@ public final class ModItems {
                         case "wood" -> new float[]{.7f,.75f,5,14,10,15};
                         case "stone" -> new float[]{.82f,.7f,4.5f,13,9,13.75f};
                         case "copper" -> new float[]{.82f,.65f,4,12,8.25f,12.5f};
-                        case "iron" -> new float[]{.95f,.6f,2.5f,11,6.75f,11.25f};
+                        case "iron", "rose_gold" -> new float[]{.95f,.6f,2.5f,11,6.75f,11.25f};
                         case "gold" -> new float[]{.7f,.7f,3.5f,13,8.5f,13.75f};
                         case "diamond" -> new float[]{1.075f,.5f,3,10,6.5f,10};
                         default -> new float[]{1.2f,.4f,2.5f,9,5.5f,8.75f};

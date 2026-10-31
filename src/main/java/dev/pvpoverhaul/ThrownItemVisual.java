@@ -20,7 +20,7 @@ public interface ThrownItemVisual {
     static ItemStack heldProjectileModel(ItemStack stack) {
         if(stack.isEmpty())return stack;
         var key=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());
-        if(!(ModItems.isSpear(stack)&&key.getNamespace().equals("minecraft")) && !isHalberd(stack))return stack;
+        if(!(ModItems.isSpear(stack)&&(key.getNamespace().equals("minecraft")||key.getPath().equals("rose_gold_spear"))) && !isHalberd(stack))return stack;
         ItemStack visual=stack.copy();
         visual.set(net.minecraft.core.component.DataComponents.ITEM_MODEL,PvpOverhaul.id("thrown_visual/"+key.getPath()));
         return visual;

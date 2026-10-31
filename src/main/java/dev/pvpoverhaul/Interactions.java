@@ -52,8 +52,8 @@ public final class Interactions {
                 if (level instanceof ServerLevel) { weapon.set(DataComponents.MAX_DAMAGE,tier.durability*3/2); material.consume(1,player); }
                 return InteractionResult.SUCCESS;
             }
-            Tier upgrade=material.is(Items.COPPER_INGOT)?Tier.COPPER:material.is(Items.IRON_INGOT)?Tier.IRON:material.is(Items.GOLD_INGOT)?Tier.GOLD:material.is(Items.DIAMOND)?Tier.DIAMOND:material.is(Items.NETHERITE_INGOT)?Tier.NETHERITE:null;
-            if (upgrade==null || (tier!=null && tier.rank>=upgrade.rank)) return openFletching(player,level,hit);
+            Tier upgrade=material.is(RoseGold.INGOT)?Tier.ROSE_GOLD:material.is(Items.COPPER_INGOT)?Tier.COPPER:material.is(Items.IRON_INGOT)?Tier.IRON:material.is(Items.GOLD_INGOT)?Tier.GOLD:material.is(Items.DIAMOND)?Tier.DIAMOND:material.is(Items.NETHERITE_INGOT)?Tier.NETHERITE:null;
+            if (upgrade==null || (tier!=null && (tier.rank>upgrade.rank || tier==upgrade || tier.rank==upgrade.rank && upgrade!=Tier.ROSE_GOLD))) return openFletching(player,level,hit);
             boolean bow=weapon.getItem() instanceof BowItem, crossbow=weapon.getItem() instanceof CrossbowItem;
             if (!bow && !crossbow) return openFletching(player,level,hit);
             int cost=upgrade==Tier.NETHERITE?1:3;
