@@ -1,0 +1,979 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "pvpplus_slash_right": {
+      "animation_length": 0.45,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -25,
+              0,
+              8
+            ],
+            "0.13": [
+              -95,
+              -35,
+              35
+            ],
+            "0.25": [
+              -35,
+              45,
+              -30
+            ],
+            "0.45": [
+              -25,
+              0,
+              8
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_slash_left": {
+      "animation_length": 0.45,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -25,
+              0,
+              -8
+            ],
+            "0.13": [
+              -95,
+              35,
+              -35
+            ],
+            "0.25": [
+              -35,
+              -45,
+              30
+            ],
+            "0.45": [
+              -25,
+              0,
+              -8
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_heavy_right": {
+      "animation_length": 0.6,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -20,
+              0,
+              5
+            ],
+            "0.2": [
+              -150,
+              0,
+              15
+            ],
+            "0.32": [
+              -45,
+              0,
+              -8
+            ],
+            "0.6": [
+              -20,
+              0,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_heavy_left": {
+      "animation_length": 0.6,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -20,
+              0,
+              -5
+            ],
+            "0.2": [
+              -150,
+              0,
+              -15
+            ],
+            "0.32": [
+              -45,
+              0,
+              8
+            ],
+            "0.6": [
+              -20,
+              0,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_sweep_right": {
+      "animation_length": 0.6,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -25,
+              0,
+              10
+            ],
+            "0.15": [
+              -80,
+              -65,
+              20
+            ],
+            "0.35": [
+              -80,
+              65,
+              -20
+            ],
+            "0.6": [
+              -25,
+              0,
+              10
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_sweep_left": {
+      "animation_length": 0.6,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -25,
+              0,
+              -10
+            ],
+            "0.15": [
+              -80,
+              65,
+              -20
+            ],
+            "0.35": [
+              -80,
+              -65,
+              20
+            ],
+            "0.6": [
+              -25,
+              0,
+              -10
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_jab_right": {
+      "animation_length": 0.4,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -40,
+              0,
+              5
+            ],
+            "0.12": [
+              -65,
+              -15,
+              10
+            ],
+            "0.23": [
+              -100,
+              0,
+              0
+            ],
+            "0.4": [
+              -40,
+              0,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_jab_left": {
+      "animation_length": 0.4,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -40,
+              0,
+              -5
+            ],
+            "0.12": [
+              -65,
+              15,
+              -10
+            ],
+            "0.23": [
+              -100,
+              0,
+              0
+            ],
+            "0.4": [
+              -40,
+              0,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_spear_hold_right": {
+      "animation_length": 0.2,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -65,
+              -10,
+              5
+            ],
+            "0.2": [
+              -85,
+              -10,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_spear_hold_left": {
+      "animation_length": 0.2,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -65,
+              10,
+              -5
+            ],
+            "0.2": [
+              -85,
+              10,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_throw_right": {
+      "animation_length": 0.4,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -150,
+              0,
+              15
+            ],
+            "0.15": [
+              -80,
+              0,
+              0
+            ],
+            "0.4": [
+              -25,
+              0,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_throw_left": {
+      "animation_length": 0.4,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -150,
+              0,
+              -15
+            ],
+            "0.15": [
+              -80,
+              0,
+              0
+            ],
+            "0.4": [
+              -25,
+              0,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_throw_draw_right": {
+      "animation_length": 0.5,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -25,
+              0,
+              5
+            ],
+            "0.5": [
+              -150,
+              0,
+              15
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_throw_draw_left": {
+      "animation_length": 0.5,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -25,
+              0,
+              -5
+            ],
+            "0.5": [
+              -150,
+              0,
+              -15
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_cast_right": {
+      "animation_length": 0.5,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -30,
+              0,
+              5
+            ],
+            "0.15": [
+              -135,
+              -10,
+              10
+            ],
+            "0.3": [
+              -65,
+              0,
+              0
+            ],
+            "0.5": [
+              -30,
+              0,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_cast_left": {
+      "animation_length": 0.5,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -30,
+              0,
+              -5
+            ],
+            "0.15": [
+              -135,
+              10,
+              -10
+            ],
+            "0.3": [
+              -65,
+              0,
+              0
+            ],
+            "0.5": [
+              -30,
+              0,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_reel_right": {
+      "animation_length": 0.4,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -65,
+              0,
+              0
+            ],
+            "0.18": [
+              -105,
+              0,
+              10
+            ],
+            "0.4": [
+              -30,
+              0,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_reel_left": {
+      "animation_length": 0.4,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -65,
+              0,
+              0
+            ],
+            "0.18": [
+              -105,
+              0,
+              -10
+            ],
+            "0.4": [
+              -30,
+              0,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_idle_right": {
+      "animation_length": 0.2,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -15,
+              0,
+              5
+            ],
+            "0.2": [
+              -15,
+              0,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_idle_left": {
+      "animation_length": 0.2,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -15,
+              0,
+              -5
+            ],
+            "0.2": [
+              -15,
+              0,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_block_right": {
+      "animation_length": 0.2,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -60,
+              -35,
+              10
+            ],
+            "0.2": [
+              -60,
+              -35,
+              10
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_block_left": {
+      "animation_length": 0.2,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -60,
+              35,
+              -10
+            ],
+            "0.2": [
+              -60,
+              35,
+              -10
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_bow_draw_right": {
+      "animation_length": 1,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -35,
+              -15,
+              0
+            ],
+            "1": [
+              -90,
+              -20,
+              0
+            ]
+          }
+        },
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -35,
+              15,
+              0
+            ],
+            "1": [
+              -90,
+              55,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_bow_draw_left": {
+      "animation_length": 1,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -35,
+              15,
+              0
+            ],
+            "1": [
+              -90,
+              20,
+              0
+            ]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -35,
+              -15,
+              0
+            ],
+            "1": [
+              -90,
+              -55,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_bow_hold_right": {
+      "animation_length": 0.2,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              -20,
+              0
+            ],
+            "0.2": [
+              -90,
+              -20,
+              0
+            ]
+          }
+        },
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              55,
+              -5
+            ],
+            "0.2": [
+              -90,
+              55,
+              -5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_bow_hold_left": {
+      "animation_length": 0.2,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              20,
+              0
+            ],
+            "0.2": [
+              -90,
+              20,
+              0
+            ]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              -55,
+              5
+            ],
+            "0.2": [
+              -90,
+              -55,
+              5
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_bow_release_right": {
+      "animation_length": 0.35,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              -20,
+              0
+            ],
+            "0.1": [
+              -95,
+              -20,
+              0
+            ],
+            "0.35": [
+              -35,
+              -15,
+              0
+            ]
+          }
+        },
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              55,
+              -5
+            ],
+            "0.1": [
+              -95,
+              70,
+              -5
+            ],
+            "0.35": [
+              -35,
+              15,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_bow_release_left": {
+      "animation_length": 0.35,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              20,
+              0
+            ],
+            "0.1": [
+              -95,
+              20,
+              0
+            ],
+            "0.35": [
+              -35,
+              15,
+              0
+            ]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -90,
+              -55,
+              5
+            ],
+            "0.1": [
+              -95,
+              -70,
+              5
+            ],
+            "0.35": [
+              -35,
+              -15,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_crossbow_draw_right": {
+      "animation_length": 1,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -55,
+              -10,
+              0
+            ],
+            "1": [
+              -75,
+              -10,
+              0
+            ]
+          }
+        },
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -55,
+              20,
+              0
+            ],
+            "1": [
+              -65,
+              40,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_crossbow_draw_left": {
+      "animation_length": 1,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -55,
+              10,
+              0
+            ],
+            "1": [
+              -75,
+              10,
+              0
+            ]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -55,
+              -20,
+              0
+            ],
+            "1": [
+              -65,
+              -40,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_crossbow_hold_right": {
+      "animation_length": 0.2,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -85,
+              -10,
+              0
+            ],
+            "0.2": [
+              -85,
+              -10,
+              0
+            ]
+          }
+        },
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -75,
+              30,
+              0
+            ],
+            "0.2": [
+              -75,
+              30,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_crossbow_hold_left": {
+      "animation_length": 0.2,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -85,
+              10,
+              0
+            ],
+            "0.2": [
+              -85,
+              10,
+              0
+            ]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -75,
+              -30,
+              0
+            ],
+            "0.2": [
+              -75,
+              -30,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_crossbow_fire_right": {
+      "animation_length": 0.3,
+      "bones": {
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -85,
+              -10,
+              0
+            ],
+            "0.08": [
+              -95,
+              -10,
+              0
+            ],
+            "0.3": [
+              -85,
+              -10,
+              0
+            ]
+          }
+        },
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -75,
+              30,
+              0
+            ],
+            "0.08": [
+              -85,
+              30,
+              0
+            ],
+            "0.3": [
+              -75,
+              30,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "pvpplus_crossbow_fire_left": {
+      "animation_length": 0.3,
+      "bones": {
+        "left_arm": {
+          "rotation": {
+            "0": [
+              -85,
+              10,
+              0
+            ],
+            "0.08": [
+              -95,
+              10,
+              0
+            ],
+            "0.3": [
+              -85,
+              10,
+              0
+            ]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0": [
+              -75,
+              -30,
+              0
+            ],
+            "0.08": [
+              -85,
+              -30,
+              0
+            ],
+            "0.3": [
+              -75,
+              -30,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

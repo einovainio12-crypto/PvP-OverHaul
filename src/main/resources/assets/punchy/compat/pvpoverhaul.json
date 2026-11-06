@@ -1,0 +1,520 @@
+{
+  "itemSpecific": {
+    "pvpoverhaul:brass_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:brass_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:brass_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:brass_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:brass_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:brass_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:brass_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:brass_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:brass_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:brass_spear": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:bronze_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:bronze_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:bronze_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:bronze_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:bronze_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:bronze_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:bronze_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:bronze_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:bronze_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:bronze_spear": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:copper_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:copper_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:copper_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:copper_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:copper_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:copper_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:copper_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:copper_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:copper_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:diamond_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:diamond_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:diamond_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:diamond_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:diamond_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:diamond_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:diamond_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:diamond_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:diamond_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:gold_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:gold_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:gold_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:gold_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:gold_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:gold_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:gold_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:gold_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:gold_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:iron_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:iron_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:iron_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:iron_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:iron_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:iron_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:iron_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:iron_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:iron_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:lead_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:lead_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:lead_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:lead_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:lead_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:lead_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:lead_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:lead_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:lead_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:netherite_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:netherite_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:netherite_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:netherite_diamond_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:netherite_diamond_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:netherite_diamond_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:netherite_diamond_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:netherite_diamond_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:netherite_diamond_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:netherite_diamond_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:netherite_diamond_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:netherite_diamond_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:netherite_emerald_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:netherite_emerald_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:netherite_emerald_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:netherite_emerald_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:netherite_emerald_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:netherite_emerald_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:netherite_emerald_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:netherite_emerald_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:netherite_emerald_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:netherite_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:netherite_gold_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:netherite_gold_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:netherite_gold_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:netherite_gold_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:netherite_gold_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:netherite_gold_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:netherite_gold_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:netherite_gold_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:netherite_gold_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:netherite_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:netherite_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:netherite_iron_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:netherite_iron_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:netherite_iron_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:netherite_iron_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:netherite_iron_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:netherite_iron_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:netherite_iron_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:netherite_iron_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:netherite_iron_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:netherite_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:netherite_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:netherite_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:rose_gold_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:rose_gold_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:rose_gold_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:rose_gold_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:rose_gold_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:rose_gold_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:rose_gold_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:rose_gold_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:rose_gold_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:rose_gold_spear": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:siftite_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:siftite_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:siftite_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:siftite_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:siftite_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:siftite_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:siftite_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:siftite_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:siftite_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:silver_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:silver_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:silver_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:silver_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:silver_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:silver_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:silver_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:silver_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:silver_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:steel_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:steel_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:steel_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:steel_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:steel_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:steel_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:steel_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:steel_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:steel_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:stone_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:stone_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:stone_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:stone_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:stone_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:stone_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:stone_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:stone_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:wood_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:wood_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:wood_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:wood_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:wood_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:wood_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:wood_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:zinc_battleaxe": {
+      "kind": "AXE"
+    },
+    "pvpoverhaul:zinc_bow": {
+      "kind": "BOW"
+    },
+    "pvpoverhaul:zinc_crossbow": {
+      "kind": "CROSSBOW"
+    },
+    "pvpoverhaul:zinc_flail": {
+      "kind": "FISHING_ROD"
+    },
+    "pvpoverhaul:zinc_halberd": {
+      "kind": "SPEAR"
+    },
+    "pvpoverhaul:zinc_hammer": {
+      "kind": "MACE"
+    },
+    "pvpoverhaul:zinc_knife": {
+      "kind": "SWORD"
+    },
+    "pvpoverhaul:zinc_scythe": {
+      "kind": "HOE"
+    },
+    "pvpoverhaul:zinc_shield": {
+      "kind": "SHIELD"
+    },
+    "pvpoverhaul:zinc_spear": {
+      "kind": "SPEAR"
+    }
+  }
+}

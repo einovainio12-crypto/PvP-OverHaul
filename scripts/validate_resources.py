@@ -97,3 +97,5 @@ print(f'PASS: {len(parsed)} JSON files; {len(items)} items; all internal links, 
 
 from validate_compat import check as check_compat
 check_compat(root)
+from validate_punchy import check as check_punchy
+check_punchy(root)

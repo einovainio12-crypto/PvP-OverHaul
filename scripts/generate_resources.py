@@ -167,5 +167,7 @@ from rose_gold_resources import extend as extend_rose_gold
 extend_rose_gold(globals())
 from compat_resources import extend as extend_compat
 extend_compat(globals())
+from punchy_resources import extend as extend_punchy
+extend_punchy(globals())
 write(f'assets/{MOD}/lang/en_us.json',LANG)
 print('Generated',len(list((ROOT/f'assets/{MOD}/items').glob('*.json'))),'item definitions and recipes/models/enchantments.')
