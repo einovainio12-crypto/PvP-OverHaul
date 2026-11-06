@@ -30,7 +30,7 @@ public final class ModItems {
     private static Item register(String path, Item.Properties properties, Function<Item.Properties,Item> factory) {
         ResourceKey<Item> key=ResourceKey.create(Registries.ITEM,PvpOverhaul.id(path));
         Item item=Registry.register(BuiltInRegistries.ITEM,key,factory.apply(properties.setId(key)));
-        ALL.add(item);
+        if(CompatMaterials.visible(path))ALL.add(item);
         return item;
     }
     private static Item tiered(Tier t,String suffix,Item.Properties props,Function<Item.Properties,Item> factory) {
@@ -39,7 +39,7 @@ public final class ModItems {
     private static Item.Properties base(Tier t) {
         Item.Properties p=new Item.Properties().durability(t.durability).enchantable(t.material.enchantmentValue())
             .repairable(t.material.repairItems());
-        return t==Tier.NETHERITE ? p.fireResistant() : p;
+        return (t==Tier.NETHERITE || CompatMaterials.fireproof(t.id)) ? p.fireResistant() : p;
     }
     private static ItemAttributeModifiers melee(double damage, double speed, double reach) {
         var builder=ItemAttributeModifiers.builder()
@@ -83,8 +83,9 @@ public final class ModItems {
                 case GOLD -> Items.GOLDEN_SPEAR;
                 case DIAMOND -> Items.DIAMOND_SPEAR;
                 case NETHERITE -> Items.NETHERITE_SPEAR;
+                default -> CompatMaterials.externalSpear(t.id)?null:tiered(t,"spear",base(t).spear(t.material,4f,.95f,.6f,2.5f,11f,6.75f,5.1f,11.25f,4.6f),Item::new);
             };
-            SPEARS.put(t,spear);TIERS.put(spear,t);
+            if(spear!=null){SPEARS.put(t,spear);TIERS.put(spear,t);}
             BATTLEAXES.put(t,tiered(t,"battleaxe",base(t).axe(t.material,8,-3.2f)
                 .component(DataComponents.WEAPON,new Weapon(1,5.0f)),Item::new));
             SHIELDS.put(t,tiered(t,"shield",base(t).equippableUnswappable(EquipmentSlot.OFFHAND)
@@ -102,7 +103,7 @@ public final class ModItems {
             .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
             .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
             .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
-        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","rose_gold"}) {
+        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","rose_gold","brass","zinc","bronze","steel","silver","lead","siftite","netherite_iron","netherite_gold","netherite_emerald","netherite_diamond"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;
             for(String kind:new String[]{"flail","hammer","scythe","halberd"}) {
@@ -120,7 +121,7 @@ public final class ModItems {
                         case "iron", "rose_gold" -> new float[]{.95f,.6f,2.5f,11,6.75f,11.25f};
                         case "gold" -> new float[]{.7f,.7f,3.5f,13,8.5f,13.75f};
                         case "diamond" -> new float[]{1.075f,.5f,3,10,6.5f,10};
-                        default -> new float[]{1.2f,.4f,2.5f,9,5.5f,8.75f};
+                        default -> rank>=5?new float[]{1.2f,.4f,2.5f,9,5.5f,8.75f}:rank>=4?new float[]{1.075f,.5f,3,10,6.5f,10}:new float[]{.95f,.6f,2.5f,11,6.75f,11.25f};
                     };
                     props.component(DataComponents.KINETIC_WEAPON,new KineticWeapon(10,(int)(v[1]*20),
                         KineticWeapon.Condition.ofAttackerSpeed((int)(v[2]*20),v[3]),
@@ -139,6 +140,7 @@ public final class ModItems {
         STORM_CORE=register("storm_core",new Item.Properties().rarity(Rarity.EPIC),Item::new);
         COMBAT_CACHE=register("combat_cache",new Item.Properties().rarity(Rarity.RARE),Item::new);
         HEALING_TOTEM=register("healing_totem",new Item.Properties().durability(64).rarity(Rarity.RARE),Item::new);
+        CompatMaterials.initialize();
         for (Ammo a:Ammo.values()) register(a.id,new Item.Properties(),p->new TierArrowItem(p,a));
         CreativeModeTabEvents.modifyOutputEvent(ResourceKey.create(Registries.CREATIVE_MODE_TAB,net.minecraft.resources.Identifier.withDefaultNamespace("combat"))).register(output->ALL.forEach(output::accept));
     }

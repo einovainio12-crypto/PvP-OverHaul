@@ -1,3 +1,7 @@
+# Material compatibility update
+
+Adds the Create Fly, Alloyed, Silver Age, Lead Age, Sift and Advanced Netherite material sets, animal armor, rose-gold trims, lower shields and 3×3 crop harvesting. See [COMPATIBILITY-UPDATE.md](COMPATIBILITY-UPDATE.md) for the full list and testing limits.
+
 # PvP+ 0.10.15
 
 When a flail hooks an enemy player, its head appears in front of their first-person

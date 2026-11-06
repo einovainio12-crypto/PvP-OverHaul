@@ -21,7 +21,8 @@
     "ShieldStunMixin",
     "LungePoleJumpMixin",
     "TridentDataAccessor",
-    "FishingHookMixin"
+    "FishingHookMixin",
+    "ArmoredFoesCompatMixin"
   ],
   "injectors": {
     "defaultRequire": 1

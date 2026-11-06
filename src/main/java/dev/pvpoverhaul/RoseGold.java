@@ -27,7 +27,7 @@ public final class RoseGold {
     }
     public static void initialize() {
         item("raw_rose_gold",new Item.Properties());
-        INGOT=item("rose_gold_ingot",new Item.Properties());
+        INGOT=item("rose_gold_ingot",new Item.Properties().trimMaterial(ResourceKey.create(Registries.TRIM_MATERIAL,PvpOverhaul.id("rose_gold"))));
         item("rose_gold_nugget",new Item.Properties());
         item("rose_gold_sword",new Item.Properties().sword(TOOL,3,-2.4f));
         item("rose_gold_pickaxe",new Item.Properties().pickaxe(TOOL,1,-2.8f));
@@ -36,6 +36,9 @@ public final class RoseGold {
         item("rose_gold_hoe",new Item.Properties().hoe(TOOL,-2,-1f));
         for(ArmorType type:new ArmorType[]{ArmorType.HELMET,ArmorType.CHESTPLATE,ArmorType.LEGGINGS,ArmorType.BOOTS})
             item("rose_gold_"+type.getName(),new Item.Properties().humanoidArmor(ARMOR,type));
+        item("rose_gold_nautilus_armor",new Item.Properties().nautilusArmor(ARMOR));
+        item("rose_gold_horse_armor",new Item.Properties().horseArmor(ARMOR));
+        item("rose_gold_wolf_armor",new Item.Properties().wolfArmor(ARMOR));
         for(String name:new String[]{"rose_gold_block","raw_rose_gold_block"}) {
             var key=ResourceKey.create(Registries.BLOCK,PvpOverhaul.id(name));
             Block block=Registry.register(BuiltInRegistries.BLOCK,key,new Block(BlockBehaviour.Properties.of()

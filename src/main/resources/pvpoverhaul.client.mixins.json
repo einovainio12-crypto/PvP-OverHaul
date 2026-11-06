@@ -9,7 +9,9 @@
     "GrapplingArrowStateMixin",
     "GrapplingArrowRendererMixin",
     "TargetGlowMixin",
-    "TargetMouseMixin"
+    "TargetMouseMixin",
+    "LowShieldMixin",
+    "MaterialEquipmentTextureMixin"
   ],
   "injectors": {
     "defaultRequire": 1

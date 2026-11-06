@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 
 /** Material-specific flail head and interlocking chain; ordinary rods use vanilla rendering. */
 public final class FlailHookRenderer extends FishingHookRenderer {
-    public static final class State extends FishingHookRenderState { public Identifier texture; public Vec3 viewOffset=Vec3.ZERO; }
+    public static final class State extends FishingHookRenderState { public Identifier texture; public net.minecraft.client.renderer.texture.TextureAtlasSprite sprite; public Vec3 viewOffset=Vec3.ZERO; }
     public FlailHookRenderer(EntityRendererProvider.Context context) { super(context); }
     @Override public FishingHookRenderState createRenderState() { return new State(); }
     @Override public void extractRenderState(FishingHook hook,FishingHookRenderState state,float partial) {
@@ -27,6 +27,12 @@ public final class FlailHookRenderer extends FishingHookRenderer {
         var flail=((WeaponEntities.FlailHookVisual)hook).pvp$getFlail();
         custom.texture="flail".equals(ModItems.KINDS.get(flail.getItem()))
             ?PvpOverhaul.id("textures/item/"+BuiltInRegistries.ITEM.getKey(flail.getItem()).getPath()+".png"):null;
+        custom.sprite=null;
+        String material=BuiltInRegistries.ITEM.getKey(flail.getItem()).getPath().replace("_flail","");
+        if (CompatMaterials.find(material)!=null || material.equals("rose_gold")) {
+            custom.sprite=Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(net.minecraft.client.renderer.texture.TextureAtlas.LOCATION_ITEMS).getSprite(PvpOverhaul.id(material.equals("rose_gold")?"item/gold_flail_rose_gold":"item/iron_flail_pvp_"+material));
+            custom.texture=custom.sprite.atlasLocation();
+        }
         custom.viewOffset=Vec3.ZERO;
         var mc=Minecraft.getInstance();
         var owner=hook.getPlayerOwner();
@@ -46,12 +52,12 @@ public final class FlailHookRenderer extends FishingHookRenderer {
         // UVs sample only the 3x3 head pixels (12..14) from the existing 16x16 flail sprite.
         collector.submitCustomGeometry(poses,RenderTypes.entityCutoutCull(custom.texture),(pose,buffer)->{
             float a=-.14f,b=.14f;
-            face(buffer,pose,state.lightCoords,new float[][]{{a,a,b},{b,a,b},{b,b,b},{a,b,b}},0,0,1);
-            face(buffer,pose,state.lightCoords,new float[][]{{b,a,a},{a,a,a},{a,b,a},{b,b,a}},0,0,-1);
-            face(buffer,pose,state.lightCoords,new float[][]{{b,a,b},{b,a,a},{b,b,a},{b,b,b}},1,0,0);
-            face(buffer,pose,state.lightCoords,new float[][]{{a,a,a},{a,a,b},{a,b,b},{a,b,a}},-1,0,0);
-            face(buffer,pose,state.lightCoords,new float[][]{{a,b,b},{b,b,b},{b,b,a},{a,b,a}},0,1,0);
-            face(buffer,pose,state.lightCoords,new float[][]{{a,a,a},{b,a,a},{b,a,b},{a,a,b}},0,-1,0);
+            face(buffer,pose,state.lightCoords,custom.sprite,new float[][]{{a,a,b},{b,a,b},{b,b,b},{a,b,b}},0,0,1);
+            face(buffer,pose,state.lightCoords,custom.sprite,new float[][]{{b,a,a},{a,a,a},{a,b,a},{b,b,a}},0,0,-1);
+            face(buffer,pose,state.lightCoords,custom.sprite,new float[][]{{b,a,b},{b,a,a},{b,b,a},{b,b,b}},1,0,0);
+            face(buffer,pose,state.lightCoords,custom.sprite,new float[][]{{a,a,a},{a,a,b},{a,b,b},{a,b,a}},-1,0,0);
+            face(buffer,pose,state.lightCoords,custom.sprite,new float[][]{{a,b,b},{b,b,b},{b,b,a},{a,b,a}},0,1,0);
+            face(buffer,pose,state.lightCoords,custom.sprite,new float[][]{{a,a,a},{b,a,a},{b,a,b},{a,a,b}},0,-1,0);
         });
         poses.popPose();
         Vec3 end=state.lineOriginOffset;
@@ -119,8 +125,9 @@ public final class FlailHookRenderer extends FishingHookRenderer {
         b.addVertex(pose,(float)v.x,(float)v.y,(float)v.z).setColor(color)
             .setNormal(pose,(float)normal.x,(float)normal.y,(float)normal.z).setLineWidth(width);
     }
-    private static void face(VertexConsumer b,PoseStack.Pose pose,int light,float[][] points,float nx,float ny,float nz) {
+    private static void face(VertexConsumer b,PoseStack.Pose pose,int light,net.minecraft.client.renderer.texture.TextureAtlasSprite sprite,float[][] points,float nx,float ny,float nz) {
         float u0=12f/16,u1=15f/16,v0=12f/16,v1=15f/16;
+        if(sprite!=null){u0=sprite.getU(u0);u1=sprite.getU(u1);v0=sprite.getV(v0);v1=sprite.getV(v1);}
         float[][] uv={{u0,v1},{u1,v1},{u1,v0},{u0,v0}};
         for(int i=0;i<4;i++)b.addVertex(pose,points[i][0],points[i][1],points[i][2]).setColor(-1)
             .setUv(uv[i][0],uv[i][1]).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light).setNormal(pose,nx,ny,nz);

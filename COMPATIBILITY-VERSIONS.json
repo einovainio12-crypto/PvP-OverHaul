@@ -1,0 +1,67 @@
+{
+  "icb": {
+    "version": "0.1.11+26.3-fabric",
+    "version_id": "1qxHXCt9",
+    "url": "https://modrinth.com/mod/icb"
+  },
+  "armored-foes": {
+    "version": "26.3.0",
+    "version_id": "PEU7vsJj",
+    "url": "https://modrinth.com/mod/armored-foes"
+  },
+  "more-armor-trims": {
+    "version": "1.5.4-26.3",
+    "version_id": "Jjf0RyDF",
+    "url": "https://modrinth.com/mod/more-armor-trims"
+  },
+  "create-fly": {
+    "version": "26.3-6.0.9-1",
+    "version_id": "vx36LTf6",
+    "url": "https://modrinth.com/mod/create-fly"
+  },
+  "iron-wolf-armor": {
+    "version": "26.3.0.2",
+    "version_id": "3XEgdpne",
+    "url": "https://modrinth.com/mod/iron-wolf-armor"
+  },
+  "the-lead-age": {
+    "version": "1.2.0",
+    "version_id": "YKfrfubT",
+    "url": "https://modrinth.com/mod/the-lead-age"
+  },
+  "elytra-trims": {
+    "version": "4.9.1",
+    "version_id": "KiDLWRiF",
+    "url": "https://modrinth.com/mod/elytra-trims"
+  },
+  "advanced-netherite": {
+    "version": "fabric-2.4.4-mc26.3",
+    "version_id": "B1BwWD6L",
+    "url": "https://modrinth.com/mod/advanced-netherite"
+  },
+  "tiered-backpacks": {
+    "version": "1.0.21+26.3",
+    "version_id": "Fh8qqxFD",
+    "url": "https://modrinth.com/mod/tiered-backpacks"
+  },
+  "mielons-the-sift": {
+    "version": "1.1.2",
+    "version_id": "QK8RaspH",
+    "url": "https://modrinth.com/mod/mielons-the-sift"
+  },
+  "the-silver-age": {
+    "version": "1.4.0",
+    "version_id": "zSGK2foI",
+    "url": "https://modrinth.com/mod/the-silver-age"
+  },
+  "create-alloyed": {
+    "version": "3.0.13+26.3-fabric",
+    "version_id": "ImjVL7fd",
+    "url": "https://modrinth.com/mod/create-alloyed"
+  },
+  "detail-armor-bar-reconstructed": {
+    "version": "5.3.3-beta.1-26.3-fabric",
+    "version_id": "kKis7mrk",
+    "url": "https://modrinth.com/mod/detail-armor-bar-reconstructed"
+  }
+}
