@@ -30,7 +30,7 @@ public final class FlailHookRenderer extends FishingHookRenderer {
         custom.sprite=null;
         String material=BuiltInRegistries.ITEM.getKey(flail.getItem()).getPath().replace("_flail","");
         if (CompatMaterials.find(material)!=null || material.equals("rose_gold")) {
-            custom.sprite=Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(net.minecraft.client.renderer.texture.TextureAtlas.LOCATION_ITEMS).getSprite(PvpOverhaul.id(material.equals("rose_gold")?"item/gold_flail_rose_gold":"item/iron_flail_pvp_"+material));
+            custom.sprite=Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(net.minecraft.data.AtlasIds.ITEMS).getSprite(PvpOverhaul.id(material.equals("rose_gold")?"item/gold_flail_rose_gold":"item/iron_flail_pvp_"+material));
             custom.texture=custom.sprite.atlasLocation();
         }
         custom.viewOffset=Vec3.ZERO;

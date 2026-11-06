@@ -22,7 +22,8 @@
     "LungePoleJumpMixin",
     "TridentDataAccessor",
     "FishingHookMixin",
-    "ArmoredFoesCompatMixin"
+    "ArmoredFoesCompatMixin",
+    "CreateRecipeLoaderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
