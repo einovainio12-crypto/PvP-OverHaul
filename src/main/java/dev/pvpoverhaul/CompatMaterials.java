@@ -22,7 +22,9 @@ public final class CompatMaterials {
         new Material("netherite_iron","advancednetherite","advancednetherite:netherite_iron_ingot",true,true,false,true),
         new Material("netherite_gold","advancednetherite","advancednetherite:netherite_gold_ingot",true,true,false,true),
         new Material("netherite_emerald","advancednetherite","advancednetherite:netherite_emerald_ingot",true,true,false,true),
-        new Material("netherite_diamond","advancednetherite","advancednetherite:netherite_diamond_ingot",true,true,false,true));
+        new Material("netherite_diamond","advancednetherite","advancednetherite:netherite_diamond_ingot",true,true,false,true),
+        new Material("rose_gold","rosegoldequipment","rosegoldequipment:rose_gold_ingot",true,false,false,false),
+        new Material("enderite","enderitemod","enderitemod:enderite_ingot",true,true,true,true));
  public static Material find(String id){return MATERIALS.stream().filter(m->m.id().equals(id)).findFirst().orElse(null);}
  public static boolean active(Material m){return FabricLoader.getInstance().isModLoaded(m.mod());}
  public static boolean visible(String path){for(var m:MATERIALS)if(path.startsWith(m.id()+"_"))return active(m);return true;}

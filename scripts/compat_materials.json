@@ -319,5 +319,60 @@
     "external_spear": true,
     "external_horse": false,
     "fireproof": true
+  },
+  {
+    "id": "rose_gold",
+    "mod": "rosegoldequipment",
+    "slug": "rose-gold-equipment",
+    "version": "1.10.0",
+    "ingot": "rosegoldequipment:rose_gold_ingot",
+    "palette": [
+      "452929",
+      "8c5454",
+      "b68585",
+      "c7a1a1",
+      "e0cbcb",
+      "f2e9e9",
+      "fdfbfb",
+      "ffffff"
+    ],
+    "palette_source": "assets/rosegoldequipment/textures/item/rose_gold_ingot.png",
+    "rank": 2,
+    "durability": 900,
+    "speed": 12,
+    "enchant": 25,
+    "standard": true,
+    "external_spear": false,
+    "external_horse": false,
+    "fireproof": false,
+    "external_prefix": "rose_golden"
+  },
+  {
+    "id": "enderite",
+    "mod": "enderitemod",
+    "slug": "enderite-mod",
+    "version": "1.10.0",
+    "ingot": "enderitemod:enderite_ingot",
+    "palette": [
+      "040e0c",
+      "081916",
+      "0b241f",
+      "0e2b26",
+      "0f302a",
+      "113831",
+      "123a33",
+      "133e36",
+      "174940",
+      "1d5e53"
+    ],
+    "palette_source": "assets/enderitemod/textures/item/enderite_ingot.png",
+    "rank": 5,
+    "durability": 4096,
+    "speed": 12,
+    "enchant": 20,
+    "standard": true,
+    "external_spear": true,
+    "external_horse": true,
+    "fireproof": true
   }
 ]

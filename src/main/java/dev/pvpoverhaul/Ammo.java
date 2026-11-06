@@ -19,7 +19,8 @@ public enum Ammo {
     NETHERITE_IRON("netherite_iron_arrow",5,0.4f),
     NETHERITE_GOLD("netherite_gold_arrow",5,0.4f),
     NETHERITE_EMERALD("netherite_emerald_arrow",5,0.4f),
-    NETHERITE_DIAMOND("netherite_diamond_arrow",5,0.4f);
+    NETHERITE_DIAMOND("netherite_diamond_arrow",5,0.4f),
+    ENDERITE("enderite_arrow",5,0.4f);
 
     public final String id;
     public final int rank;

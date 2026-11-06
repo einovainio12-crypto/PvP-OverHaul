@@ -50,7 +50,6 @@ public final class ModItems {
         return builder.build();
     }
     public static void initialize() {
-        RoseGold.initialize();
         SLINGSHOT=register("slingshot",new Item.Properties().durability(128).repairable(Items.STRING),SlingshotItem::new);
         DRAGON_SCALE=register("dragon_scale",new Item.Properties().rarity(Rarity.RARE),Item::new);
         DRAGON_SCALE_WOLF_ARMOR=register("dragon_scale_wolf_armor",new Item.Properties()
@@ -103,7 +102,7 @@ public final class ModItems {
             .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
             .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
             .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
-        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","rose_gold","brass","zinc","bronze","steel","silver","lead","siftite","netherite_iron","netherite_gold","netherite_emerald","netherite_diamond"}) {
+        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","rose_gold","brass","zinc","bronze","steel","silver","lead","siftite","netherite_iron","netherite_gold","netherite_emerald","netherite_diamond","enderite"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;
             for(String kind:new String[]{"flail","hammer","scythe","halberd"}) {

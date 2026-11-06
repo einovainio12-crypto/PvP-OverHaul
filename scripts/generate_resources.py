@@ -8,6 +8,8 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]/'src/main/resources'
 # Remove retired resources even when uploaded over an older repository.
 for obsolete in json.loads((pathlib.Path(__file__).parent/'obsolete_resources.json').read_text()):
  (ROOT/obsolete).unlink(missing_ok=True)
+from retire_native_rose import cleanup
+cleanup(ROOT)
 MOD='pvpoverhaul' 
 TIERS=['wood','copper','iron','gold','diamond','netherite']
 MATERIAL=['#minecraft:planks','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot','minecraft:diamond','minecraft:netherite_ingot']
@@ -163,8 +165,7 @@ for material in ['wood','stone','netherite','iron','gold','diamond']:
  write(f'assets/{MOD}/items/{item}.json',{'model':{'type':'minecraft:condition','property':'minecraft:fishing_rod/cast',
  'on_true':{'type':'minecraft:model','model':f'{MOD}:item/{cast}'},
  'on_false':{'type':'minecraft:model','model':f'{MOD}:item/{item}'}}})
-from rose_gold_resources import extend as extend_rose_gold
-extend_rose_gold(globals())
+write('assets/minecraft/atlases/items.json',{'sources':[]})
 from compat_resources import extend as extend_compat
 extend_compat(globals())
 from punchy_resources import extend as extend_punchy

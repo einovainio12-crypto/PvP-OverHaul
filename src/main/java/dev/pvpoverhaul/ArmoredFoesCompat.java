@@ -14,8 +14,9 @@ public final class ArmoredFoesCompat {
     || reason!=EntitySpawnReason.NATURAL && reason!=EntitySpawnReason.CHUNK_GENERATION || mob.getRandom().nextInt(8)!=0)return;
   String namespace="pvpoverhaul",material="rose_gold";
   List<CompatMaterials.Material> candidates=CompatMaterials.MATERIALS.stream().filter(CompatMaterials::active).filter(m->Tier.valueOf(m.id().toUpperCase(Locale.ROOT)).rank<=2).toList();
-  int pick=mob.getRandom().nextInt(candidates.size()+1);
-  if(pick<candidates.size()){var m=candidates.get(pick);material=m.id();namespace=m.standard()?m.mod():"pvpoverhaul";}
+  if(candidates.isEmpty())return;
+  int pick=mob.getRandom().nextInt(candidates.size());
+  if(pick<candidates.size()){var m=candidates.get(pick);material=m.id().equals("rose_gold")?"rose_golden":m.id();namespace=m.standard()?m.mod():"pvpoverhaul";}
   String[] kinds={"helmet","chestplate","leggings","boots"};EquipmentSlot[] slots={EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET};
   for(int i=0;i<slots.length;i++){
    var old=mob.getItemBySlot(slots[i]);if(old.isEmpty())continue;

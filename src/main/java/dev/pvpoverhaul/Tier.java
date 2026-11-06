@@ -20,7 +20,8 @@ public enum Tier {
     NETHERITE_IRON("netherite_iron", 5, 2300, CompatMaterials.tool("netherite_iron",2300,9f,5f,16)),
     NETHERITE_GOLD("netherite_gold", 5, 2600, CompatMaterials.tool("netherite_gold",2600,10f,5f,18)),
     NETHERITE_EMERALD("netherite_emerald", 5, 2900, CompatMaterials.tool("netherite_emerald",2900,11f,5f,20)),
-    NETHERITE_DIAMOND("netherite_diamond", 5, 3200, CompatMaterials.tool("netherite_diamond",3200,12f,5f,22));
+    NETHERITE_DIAMOND("netherite_diamond", 5, 3200, CompatMaterials.tool("netherite_diamond",3200,12f,5f,22)),
+    ENDERITE("enderite",5,4096,CompatMaterials.tool("enderite",4096,12f,5f,20));
 
     public final String id;
     public final int rank;

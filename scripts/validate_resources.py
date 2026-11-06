@@ -22,8 +22,6 @@ expected.add('grappling_arrow')
 expected.update(['dragon_scale_wolf_armor','quiver'])
 expected.update(f'{t}_{k}' for t in ['wood','stone','copper','iron','gold','diamond','netherite'] for k in ['flail','hammer','scythe','halberd'])
 expected.update(['weapon_sheath','storm_core','healing_totem','combat_cache','ice_arrow'])
-expected.update('rose_gold_'+k for k in ['ingot','nugget','sword','pickaxe','axe','shovel','hoe','helmet','chestplate','leggings','boots','block','bow','crossbow','knife','battleaxe','shield','spear','flail','hammer','scythe','halberd','arrow'])
-expected.update(['raw_rose_gold','raw_rose_gold_block'])
 generated=set()
 for source in parsed.get('assets/minecraft/atlases/items.json',{}).get('sources',[]):
  for texture in source.get('textures',[]):
