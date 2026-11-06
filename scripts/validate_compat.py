@@ -19,7 +19,11 @@ def check(root):
    if not p.exists():continue
    target=colors(p);assert len(target)==len(data['colors']);metal={tuple(c) for c in data['metal']}
    for before,after in zip(data['colors'],target):
-    if tuple(before) in metal:assert after in allowed,(m['id'],source,after)
+    if tuple(before) in metal:
+     assert after in allowed,(m['id'],source,after)
+     ramp=[tuple(bytes.fromhex(c)) for c in m['palette']]
+     expected=ramp[round((max(before)/255)*(len(ramp)-1))]
+     assert after==expected,('Source shading changed',m['id'],source,before,after,expected)
     else:assert tuple(before)==after,('Handle/string changed',source)
    count+=1
   for p in (res/'data/pvpoverhaul/recipe').glob(m['id']+'_*.json'):

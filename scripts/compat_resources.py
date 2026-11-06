@@ -27,7 +27,9 @@ def extend(g):
   pair=(source,m['id'])
   if pair in generated:return generated[pair]
   data=SOURCES[source];colors=data['colors'];metal=data['metal'];target=[tuple(bytes.fromhex(c)) for c in m['palette']]
-  mapping={tuple(c):target[round(i*(len(target)-1)/max(1,len(metal)-1))] for i,c in enumerate(metal)}
+  # Preserve the source shade's brightness position. Stretching a two-colour
+  # bow/flail across the whole ramp incorrectly turns midtones into outlines.
+  mapping={tuple(c):target[round((max(c)/255)*(len(target)-1))] for c in metal}
   path='compat/'+m['id']+'/'+source.replace(':','/');
   for suffix,c in [('key',colors),('palette',[mapping.get(tuple(c),c) for c in colors])]:
    p=root/f'assets/pvpoverhaul/textures/palettes/{path}_{suffix}.png';p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(png(c))
