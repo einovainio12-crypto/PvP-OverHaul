@@ -54,9 +54,9 @@ def extend(g):
  # Inherit the equivalent gold custom-item tags without replacing other mods' entries.
  for p in list((root/'data').glob('*/tags/item/**/*.json')):
   d=json.loads(p.read_text());values=d.get('values',[]);add=[swap(v) for v in values if isinstance(v,str) and v.startswith(ns+':gold_')]
-  if add:d['values']=list(dict.fromkeys(values+add));write(p.relative_to(root).as_posix(),d)
+  if add:d['values']=list({json.dumps(x,sort_keys=True):x for x in values+add}.values());write(p.relative_to(root).as_posix(),d)
  def tag(path,values,namespace='minecraft',kind='item'):
-  path=f'data/{namespace}/tags/{kind}/{path}.json';p=root/path;d=json.loads(p.read_text()) if p.exists() else {'replace':False,'values':[]};d['values']=list(dict.fromkeys(d['values']+values));write(path,d)
+  path=f'data/{namespace}/tags/{kind}/{path}.json';p=root/path;d=json.loads(p.read_text()) if p.exists() else {'replace':False,'values':[]};d['values']=list({json.dumps(x,sort_keys=True):x for x in d['values']+values}.values());write(path,d)
  def ids(*k):return [ns+':rose_gold_'+x for x in k]
  tag('rose_gold_repair',[ingot],ns)
  tag('spears',ids('spear'));tag('pole_weapons',ids('spear'),ns);tag('throwable_weapons',ids('spear','sword','axe'),ns);tag('loyalty_weapons',ids('spear','sword','axe'),ns)

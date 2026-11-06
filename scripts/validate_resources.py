@@ -30,6 +30,8 @@ for source in parsed.get('assets/minecraft/atlases/items.json',{}).get('sources'
   for suffix in source.get('permutations',{}):generated.add(texture+'_'+suffix)
  for palette in [source.get('palette_key')]+list(source.get('permutations',{}).values()):
   if palette and palette.startswith(ns+':') and not (res/f'assets/{ns}/textures/palettes/{palette.split(":",1)[1]}.png').exists():error('Missing palette '+palette)
+expected.update(parsed.get('assets/pvpoverhaul/compat_expected_items.json',[]))
+runtime_textures=parsed.get('assets/pvpoverhaul/compat_equipment.json',{})
 if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
 lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})
 for item in expected:
@@ -52,7 +54,7 @@ for path,d in parsed.items():
   for kind,layers in d.get('layers',{}).items():
    for layer in layers:
     texture=layer.get('texture','')
-    if texture.startswith(ns+':') and not (res/f'assets/{ns}/textures/entity/equipment/{kind}/{texture.split(":",1)[1]}.png').exists():error(f'Missing equipment texture {texture}')
+    if texture.startswith(ns+':') and f'{ns}:textures/entity/equipment/{kind}/{texture.split(":",1)[1]}.png' not in runtime_textures and not (res/f'assets/{ns}/textures/entity/equipment/{kind}/{texture.split(":",1)[1]}.png').exists():error(f'Missing equipment texture {texture}')
  if '/recipe/' in path:
   result=d.get('result',{})
   if result.get('id','').startswith(ns+':') and result['id'].split(':')[1] not in items:error(f'Unknown result {path}')
@@ -78,7 +80,7 @@ if speed.get('exclusive_set')!=['pvpoverhaul:double_jump'] or double_jump.get('e
 for path in parsed:
  if path in obsolete:error(f'Obsolete spear resource will be packaged: {path}')
 for path,d in parsed.items():
- if '/recipe/' in path and d.get('result',{}).get('id','').startswith('pvpoverhaul:') and d['result']['id'].endswith('_spear') and d['result']['id']!='pvpoverhaul:rose_gold_spear':error('Duplicate spear recipe')
+ if '/recipe/' in path and d.get('result',{}).get('id','').startswith('pvpoverhaul:') and d['result']['id'].endswith('_spear') and d['result']['id'].removeprefix('pvpoverhaul:') not in expected:error('Duplicate spear recipe')
 # Check declared Java/mixin entrypoints actually exist; catches mispackaged class names.
 meta=parsed.get('fabric.mod.json',{})
 def class_exists(name):return any((root/f'src/{s}/java'/pathlib.Path(name.replace('.','/')+'.java')).exists() for s in ['main','client'])
@@ -92,3 +94,6 @@ for path in ['pvpoverhaul.mixins.json','pvpoverhaul.client.mixins.json']:
 if errors:
  print('\n'.join(errors),file=sys.stderr);sys.exit(1)
 print(f'PASS: {len(parsed)} JSON files; {len(items)} items; all internal links, recipes and enchantment rules checked.')
+
+from validate_compat import check as check_compat
+check_compat(root)
