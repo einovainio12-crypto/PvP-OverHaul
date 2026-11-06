@@ -15,8 +15,12 @@ import net.minecraft.world.phys.Vec3;
 /** Storm Core awakening enables a charged, dry-land Riptide. Sneak-use remains Throwable. */
 public final class HammerItem extends Item {
     public HammerItem(Properties properties) { super(properties); }
-    public static boolean awakened(ItemStack stack) {
+    public static boolean acceptsStormCore(ItemStack stack) {
         return stack.getItem()==ModItems.ARSENAL.get("netherite_hammer")
+            || stack.getItem()==ModItems.ARSENAL.get("siftite_hammer");
+    }
+    public static boolean awakened(ItemStack stack) {
+        return acceptsStormCore(stack)
             && Enchantments.level(stack,"minecraft:riptide")>0;
     }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.TRIDENT; }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "the_sift:siftite_upgrade_smithing_template",
+  "base": "pvpoverhaul:netherite_crossbow",
+  "addition": "the_sift:siftite_ingot",
+  "result": {
+    "id": "pvpoverhaul:siftite_crossbow"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "the_sift"
+      ]
+    }
+  ]
+}

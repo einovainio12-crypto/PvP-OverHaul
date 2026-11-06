@@ -60,6 +60,8 @@ def extend(g):
     if m.get('fireproof') and kind!='arrow':
      prev={'netherite_iron':'netherite','netherite_gold':'netherite_iron','netherite_emerald':'netherite_gold','netherite_diamond':'netherite_emerald'}[mid]
      d={'type':'minecraft:smithing_transform','template':'minecraft:netherite_upgrade_smithing_template','base':'pvpoverhaul:'+prev+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
+    if mid=='siftite' and kind!='arrow':
+     d={'type':'minecraft:smithing_transform','template':'the_sift:siftite_upgrade_smithing_template','base':'pvpoverhaul:netherite_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:siftite_'+kind},'fabric:load_conditions':condition(m)}
     write(f'data/pvpoverhaul/recipe/{mid}_{kind}.json',d)
    if not m['external_spear']:
     simple(mid+'_spear','minecraft:item/iron_spear',m);simple(mid+'_spear_in_hand','minecraft:item/iron_spear_in_hand',m,'spear_in_hand');(root/f'assets/pvpoverhaul/items/{mid}_spear_in_hand.json').unlink()

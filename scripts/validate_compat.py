@@ -24,6 +24,14 @@ def check(root):
    count+=1
   for p in (res/'data/pvpoverhaul/recipe').glob(m['id']+'_*.json'):
    d=json.loads(p.read_text());assert d.get('fabric:load_conditions')==[{'condition':'fabric:all_mods_loaded','values':[m['mod']]}],p
+ # Custom Siftite equipment must follow The Sift's netherite upgrade progression.
+ for kind in ['bow','crossbow','knife','battleaxe','shield','flail','hammer','scythe','halberd']:
+  d=json.loads((res/f'data/pvpoverhaul/recipe/siftite_{kind}.json').read_text())
+  assert d['type']=='minecraft:smithing_transform',kind
+  assert d['template']=='the_sift:siftite_upgrade_smithing_template',kind
+  assert d['base']=='pvpoverhaul:netherite_'+kind,kind
+  assert d['addition']=='the_sift:siftite_ingot',kind
+  assert d['result']=={'id':'pvpoverhaul:siftite_'+kind},kind
  for p in (res/'assets/pvpoverhaul/armor_bar').glob('*.json'):
   d=json.loads(p.read_text());assert d['type']=='armor';assert len(d['render']['color'])==6
  print(f'PASS: {count} material palette maps; handles/strings preserved; optional recipes guarded.')

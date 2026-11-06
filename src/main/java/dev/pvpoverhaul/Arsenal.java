@@ -102,7 +102,7 @@ public final class Arsenal {
             }return InteractionResult.SUCCESS;
         }
         if(s.is(ModItems.STORM_CORE)){
-            ItemStack hammer=p.getOffhandItem();if(hammer.getItem()!=ModItems.ARSENAL.get("netherite_hammer")||Enchantments.level(hammer,"minecraft:riptide")>=3)return InteractionResult.FAIL;
+            ItemStack hammer=p.getOffhandItem();if(!HammerItem.acceptsStormCore(hammer)||Enchantments.level(hammer,"minecraft:riptide")>=3)return InteractionResult.FAIL;
             if(world instanceof ServerLevel){s.consume(1,p);if(p.getRandom().nextFloat()<.05f){
                 for(String name:List.of("throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide")){
                     var key=ResourceKey.create(Registries.ENCHANTMENT,name.contains(":")?net.minecraft.resources.Identifier.parse(name):PvpOverhaul.id(name));

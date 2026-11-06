@@ -81,3 +81,24 @@ need playtesting. Compatibility is based on the 26.3 Fabric versions recorded in
 
 New weapon artwork and third-party mod JARs are not bundled. The earlier licensed
 Rose Gold Equipment textures and their notices remain included.
+
+## Siftite smithing correction
+
+Custom siftite bows, crossbows, knives, battleaxes, shields, flails, hammers,
+scythes and halberds now upgrade their netherite equivalents at a smithing table.
+Use The Sift's Siftite Upgrade Smithing Template and one siftite ingot.
+This matches The Sift 1.1.2's own equipment progression. Existing recipe IDs
+are replaced, so no crafting-table bypass remains for these nine items.
+Arrows and animal armor retain their existing recipes.
+
+Recipe validation and native recipe decoding passed. A full Gradle build and
+in-game testing remain outstanding. All previous fixes are included.
+
+## Siftite Storm Core support
+
+Hold the siftite hammer in your offhand and use a Storm Core in your main hand.
+It has the same 5% awakening chance as the netherite hammer; each attempt consumes
+a core. Success grants Throwable I, Channeling I, Loyalty III and Riptide III.
+The awakened siftite hammer uses the same water-free Riptide and sneak-to-throw
+behavior as the netherite version, with no added cooldown. Upgrading an awakened
+netherite hammer to siftite retains its enchantments through normal smithing.
