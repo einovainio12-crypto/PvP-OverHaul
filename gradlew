@@ -245,4 +245,5 @@ eval "set -- $(
         tr '\n' ' '
     )" '"$@"'
 
+python3 "$APP_HOME/tools/mount-update/apply.py" || exit 1
 exec "$JAVACMD" "$@"

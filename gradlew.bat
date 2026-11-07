@@ -72,6 +72,8 @@ echo location of your Java installation. 1>&2
 
 
 
+python "%APP_HOME%\tools\mount-update\apply.py"
+if errorlevel 1 exit /b 1
 @rem Execute gradlew
 @rem endlocal doesn't take effect until after the line is parsed and variables are expanded
 @rem which allows us to clear the local environment before executing the java command
