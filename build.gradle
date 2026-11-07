@@ -1,10 +1,85 @@
-plugins { id 'net.fabricmc.fabric-loom' version '1.17.21' }
-version = '1.0.0'
-group = 'dev.pvpplusmounts'
-base { archivesName = 'pvpplus-dragon-mounts' }
-dependencies {
- minecraft 'com.mojang:minecraft:26.3'
- implementation 'net.fabricmc:fabric-loader:0.19.5'
- implementation 'net.fabricmc.fabric-api:fabric-api:0.162.0+26.3'
+import groovy.json.JsonSlurper
+
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
 }
-java { toolchain.languageVersion = JavaLanguageVersion.of(25) }
+version = project.mod_version
+group = project.maven_group
+base { archivesName = project.archives_base_name }
+loom {
+    splitEnvironmentSourceSets()
+    mods {
+        pvpoverhaul {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+dependencies {
+    // Fabric Loader 0.19.5 supplies MixinExtras at runtime.
+    compileOnly "io.github.llamalad7:mixinextras-fabric:0.5.5"
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+def obsoleteResourcePaths = new JsonSlurper().parse(file("scripts/obsolete_resources.json"))
+tasks.register('generateResources', Exec) {
+    description = 'Generate current textures, models, recipes, tags and enchantments before packaging.'
+    commandLine 'python3', 'scripts/generate_resources.py'
+}
+processResources {
+    dependsOn 'validateResources'
+    // Old browser uploads may leave v0.1 spear resources behind; never package those.
+    exclude obsoleteResourcePaths
+    inputs.property 'version', project.version
+    inputs.property 'minecraft_version', project.minecraft_version
+    inputs.property 'loader_version', project.loader_version
+    inputs.property 'fabric_api_version', project.fabric_api_version
+    filesMatching('fabric.mod.json') { expand version: project.version, minecraft_version: project.minecraft_version, loader_version: project.loader_version, fabric_api_version: project.fabric_api_version }
+}
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(25) }
+    withSourcesJar()
+}
+tasks.withType(JavaCompile).configureEach { options.release = 25 }
+jar { from('LICENSE') { rename { "${it}_${project.base.archivesName.get()}" } } }
+tasks.register('validateResources', Exec) {
+    dependsOn tasks.named('generateResources')
+    commandLine 'python3', 'scripts/validate_resources.py'
+}
+tasks.named('sourcesJar') { dependsOn tasks.named('validateResources') }
+tasks.register('balanceChecks', JavaExec) {
+    dependsOn tasks.named('testClasses')
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.pvpoverhaul.BalanceChecks'
+}
+tasks.named('check') { dependsOn 'validateResources', 'balanceChecks' }
+
+// BalanceChecks is a standalone Java main executed by balanceChecks, not a JUnit test.
+// Keep real framework test failures fatal, but permit this source set to discover none.
+tasks.named('test', org.gradle.api.tasks.testing.Test).configure {
+    failOnNoDiscoveredTests.set(false)
+}
+
+// Remove retired bundled adapters left behind by older browser uploads.
+// These exact files are no longer part of the main mod.
+tasks.register('removeRetiredAdapters', Delete) {
+    delete file('src/client/java/dev/pvpoverhaul/client/compat/CoreItems.java')
+    delete file('src/client/java/dev/pvpoverhaul/client/mixin/CoreBridge.java')
+    delete fileTree('build/classes/java/client') {
+        include 'dev/pvpoverhaul/client/compat/CoreItems.class'
+        include 'dev/pvpoverhaul/client/compat/CoreItems$*.class'
+        include 'dev/pvpoverhaul/client/mixin/CoreBridge.class'
+        include 'dev/pvpoverhaul/client/mixin/CoreBridge$*.class'
+    }
+}
+tasks.named('compileClientJava') { dependsOn 'removeRetiredAdapters' }
+tasks.named('sourcesJar') { dependsOn 'removeRetiredAdapters' }
+
+// Keep resource definitions and Java registration lists in sync.
+tasks.register('syncMaterialSources', Exec) {
+    commandLine 'python3', 'scripts/sync_materials.py'
+}
+tasks.named('compileJava') { dependsOn 'syncMaterialSources' }
+tasks.named('generateResources') { dependsOn 'syncMaterialSources' }
