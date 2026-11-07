@@ -1,0 +1,101 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpoverhaul:siftite_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_battle_axe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_crossbow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_arrow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_spear",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_sword",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_pickaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_axe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_shovel",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_hoe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_helmet",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_chestplate",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_leggings",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_boots",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_wolf_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_nautilus_armor",
+      "required": false
+    }
+  ]
+}
