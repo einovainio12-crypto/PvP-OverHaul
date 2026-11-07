@@ -10,18 +10,20 @@ public enum Tier {
     ROSE_GOLD("rose_gold", 2, 900, RoseGold.TOOL),
     DIAMOND("diamond", 4, 1561, ToolMaterial.DIAMOND),
     NETHERITE("netherite", 5, 2031, ToolMaterial.NETHERITE),
-    BRASS("brass", 2, 650, CompatMaterials.tool("brass",650,8f,2f,18)),
-    ZINC("zinc", 1, 220, CompatMaterials.tool("zinc",220,5f,1f,12)),
-    BRONZE("bronze", 2, 600, CompatMaterials.tool("bronze",600,7f,2f,16)),
-    STEEL("steel", 4, 1200, CompatMaterials.tool("steel",1200,8f,4f,12)),
-    SILVER("silver", 2, 350, CompatMaterials.tool("silver",350,8f,2f,22)),
-    LEAD("lead", 2, 450, CompatMaterials.tool("lead",450,5f,2f,12)),
-    SIFTITE("siftite", 4, 1700, CompatMaterials.tool("siftite",1700,9f,4f,18)),
-    NETHERITE_IRON("netherite_iron", 5, 2300, CompatMaterials.tool("netherite_iron",2300,9f,5f,16)),
-    NETHERITE_GOLD("netherite_gold", 5, 2600, CompatMaterials.tool("netherite_gold",2600,10f,5f,18)),
-    NETHERITE_EMERALD("netherite_emerald", 5, 2900, CompatMaterials.tool("netherite_emerald",2900,11f,5f,20)),
-    NETHERITE_DIAMOND("netherite_diamond", 5, 3200, CompatMaterials.tool("netherite_diamond",3200,12f,5f,22)),
-    ENDERITE("enderite",5,4096,CompatMaterials.tool("enderite",4096,12f,5f,20));
+// BEGIN GENERATED MATERIALS
+    BRASS("brass", 2, 650, CompatMaterials.tool("brass",650,8.0f,2.0f,18)),
+    ZINC("zinc", 1, 220, CompatMaterials.tool("zinc",220,5.0f,1.0f,12)),
+    BRONZE("bronze", 2, 600, CompatMaterials.tool("bronze",600,7.0f,2.0f,16)),
+    STEEL("steel", 4, 1200, CompatMaterials.tool("steel",1200,8.0f,4.0f,12)),
+    SILVER("silver", 2, 350, CompatMaterials.tool("silver",350,8.0f,2.0f,22)),
+    LEAD("lead", 2, 450, CompatMaterials.tool("lead",450,5.0f,2.0f,12)),
+    SIFTITE("siftite", 4, 1700, CompatMaterials.tool("siftite",1700,9.0f,4.0f,18)),
+    NETHERITE_IRON("netherite_iron", 5, 2300, CompatMaterials.tool("netherite_iron",2300,9.0f,5.0f,16)),
+    NETHERITE_GOLD("netherite_gold", 5, 2600, CompatMaterials.tool("netherite_gold",2600,10.0f,5.0f,18)),
+    NETHERITE_EMERALD("netherite_emerald", 5, 2900, CompatMaterials.tool("netherite_emerald",2900,11.0f,5.0f,20)),
+    NETHERITE_DIAMOND("netherite_diamond", 5, 3200, CompatMaterials.tool("netherite_diamond",3200,12.0f,5.0f,22)),
+    ENDERITE("enderite", 5, 4096, CompatMaterials.tool("enderite",4096,12.0f,5.0f,20));
+// END GENERATED MATERIALS
 
     public final String id;
     public final int rank;

@@ -9,6 +9,7 @@ public enum Ammo {
     DRAGON("dragon_scale_arrow",4,0.2f), NETHERITE("netherite_arrow",5,0.05f),
     ICE("ice_arrow",2,0.7f), BLUNT("blunt_arrow",2,0.9f), BLAZE("blaze_arrow",4,0.7f), BREEZE("breeze_arrow",4,0.7f),
     FIREWORK("firework_arrow",4,0.8f), FIRE_CHARGE("fire_charge_arrow",4,0.8f), GRAPPLING("grappling_arrow",0,1.0f),
+// BEGIN GENERATED MATERIALS
     BRASS("brass_arrow",2,0.4f),
     ZINC("zinc_arrow",1,0.4f),
     BRONZE("bronze_arrow",2,0.4f),
@@ -21,6 +22,7 @@ public enum Ammo {
     NETHERITE_EMERALD("netherite_emerald_arrow",5,0.4f),
     NETHERITE_DIAMOND("netherite_diamond_arrow",5,0.4f),
     ENDERITE("enderite_arrow",5,0.4f);
+// END GENERATED MATERIALS
 
     public final String id;
     public final int rank;

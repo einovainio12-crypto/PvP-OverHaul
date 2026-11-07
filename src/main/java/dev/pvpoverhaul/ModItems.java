@@ -102,7 +102,7 @@ public final class ModItems {
             .durability(ToolMaterial.STONE.durability()).enchantable(ToolMaterial.STONE.enchantmentValue())
             .repairable(ToolMaterial.STONE.repairItems()).attributes(melee(4,3.2,-1))
             .component(DataComponents.WEAPON,new Weapon(1)),Item::new);
-        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","rose_gold","brass","zinc","bronze","steel","silver","lead","siftite","netherite_iron","netherite_gold","netherite_emerald","netherite_diamond","enderite"}) {
+        for(String material:new String[]{"wood","stone","copper","iron","gold","diamond","netherite","brass","zinc","bronze","steel","silver","lead","siftite","netherite_iron","netherite_gold","netherite_emerald","netherite_diamond","rose_gold","enderite"}) {
             Tier tier=Arrays.stream(Tier.values()).filter(t->t.id.equals(material)).findFirst().orElse(null);
             int rank=tier==null?1:tier.rank;
             for(String kind:new String[]{"flail","hammer","scythe","halberd"}) {

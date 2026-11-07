@@ -56,11 +56,13 @@ def extend(g):
     write(f'assets/pvpoverhaul/{folder}/{p.name.replace("iron_",mid+"_",1)}',obj)
   for kind in CUSTOM:
    p=root/f'data/pvpoverhaul/recipe/iron_{kind}.json';d=clone(json.loads(p.read_text()),m);d['fabric:load_conditions']=condition(m)
-   if mid.startswith('netherite_') and kind!='arrow':
+   if mid in ['netherite_iron','netherite_gold','netherite_emerald','netherite_diamond'] and kind!='arrow':
     prev={'netherite_iron':'netherite','netherite_gold':'netherite_iron','netherite_emerald':'netherite_gold','netherite_diamond':'netherite_emerald'}[mid]
     d={'type':'minecraft:smithing_transform','template':'minecraft:netherite_upgrade_smithing_template','base':'pvpoverhaul:'+prev+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
    if mid in ['siftite','enderite'] and kind!='arrow':
     d={'type':'minecraft:smithing_transform','template':('the_sift:siftite_upgrade_smithing_template' if mid=='siftite' else 'enderitemod:enderite_upgrade_smithing_template'),'base':'pvpoverhaul:netherite_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
+   if m.get('upgrade_from') and kind!='arrow':
+    d={'type':'minecraft:smithing_transform','template':m['upgrade_template'],'base':'pvpoverhaul:'+m['upgrade_from']+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
    write(f'data/pvpoverhaul/recipe/{mid}_{kind}.json',d)
   if not m['external_spear']:
    simple(mid+'_spear','minecraft:item/iron_spear',m);simple(mid+'_spear_in_hand','minecraft:item/iron_spear_in_hand',m,'spear_in_hand');(root/f'assets/pvpoverhaul/items/{mid}_spear_in_hand.json').unlink()
