@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.decisive_battle",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.decisive_battle"
+  },
+  "length_in_seconds": 106.718912,
+  "comparator_output": 8
+}

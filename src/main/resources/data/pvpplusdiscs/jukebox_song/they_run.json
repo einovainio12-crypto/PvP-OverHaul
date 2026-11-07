@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.they_run",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.they_run"
+  },
+  "length_in_seconds": 136.788753,
+  "comparator_output": 1
+}

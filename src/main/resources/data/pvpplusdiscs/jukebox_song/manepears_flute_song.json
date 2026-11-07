@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.manepears_flute_song",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.manepears_flute_song"
+  },
+  "length_in_seconds": 14.396372,
+  "comparator_output": 10
+}
