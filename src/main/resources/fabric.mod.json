@@ -1,21 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "pvpoverhaul",
-  "version": "${version}",
-  "name": "PvP+",
-  "description": "Tiered ranged weapons, knives, spears, battleaxes, shields and combat enchantments for Minecraft 26.3.",
-  "authors": ["PvP+ contributors"],
-  "license": "MIT",
+  "id": "pvpplusmounts",
+  "version": "1.0.0",
+  "name": "PvP+ Dragon Mount Armor",
   "environment": "*",
   "entrypoints": {
-    "main": ["dev.pvpoverhaul.PvpOverhaul"],
-    "client": ["dev.pvpoverhaul.client.PvpOverhaulClient"]
+    "main": [
+      "dev.pvpplusmounts.DragonMounts"
+    ]
   },
-  "mixins": ["pvpoverhaul.mixins.json", {"config":"pvpoverhaul.client.mixins.json", "environment":"client"}],
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}",
+    "minecraft": "26.3",
     "java": ">=25",
-    "fabric-api": ">=${fabric_api_version}"
+    "fabricloader": ">=0.19.5",
+    "fabric-api": "*",
+    "pvpoverhaul": ">=0.10.15"
   }
 }
