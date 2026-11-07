@@ -1,0 +1,61 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#minecraft:horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:rose_gold_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:brass_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:zinc_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:bronze_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:siftite_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_iron_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_gold_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_emerald_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_diamond_horse_armor",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_horse_armor",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_horse_armor",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_horse_armor",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_horse_armor",
+      "required": false
+    }
+  ]
+}
