@@ -8,14 +8,15 @@ if d.get('id')!='pvpoverhaul':
     raise SystemExit('Expected PvP+ project metadata. Restore the PvP+ fabric.mod.json from before the standalone upload.')
 props=root/'gradle.properties'
 old=props.read_text()
-pat=r'(?m)^(mod_version[ \t]*=[ \t]*)0\.10\.(15|16|17|18|19|20)([ \t]*)$'
-if not re.search(pat,old):raise SystemExit('Expected PvP+ 0.10.15–0.10.20 compatibility sources.')
-edits={props:re.sub(pat,r'\g<1>0.10.20\3',old)}
-if d.get('version') in ('0.10.15','0.10.16','0.10.17','0.10.18','0.10.19'): d['version']='0.10.20'
+pat=r'(?m)^(mod_version[ \t]*=[ \t]*)0\.10\.(15|16|17|18|19|20|21)([ \t]*)$'
+if not re.search(pat,old):raise SystemExit('Expected PvP+ 0.10.15–0.10.21 compatibility sources.')
+edits={props:re.sub(pat,r'\g<1>0.10.21\3',old)}
+if d.get('version') in ('0.10.15','0.10.16','0.10.17','0.10.18','0.10.19','0.10.20'): d['version']='0.10.21'
 entry='dev.pvpplusmounts.DragonMounts'
 ep=d['entrypoints']['main']
 if entry not in [x.get('value') if isinstance(x,dict) else x for x in ep]:ep.append(entry)
 if 'dev.pvpplusdiscs.DiscUpdate' not in ep:ep.append('dev.pvpplusdiscs.DiscUpdate')
+if 'dev.pvpplusores.OreCompat' not in ep:ep.append('dev.pvpplusores.OreCompat')
 d.setdefault('breaks',{})['pvpplusmounts']='*'
 dump=lambda obj:json.dumps(obj,indent=2,ensure_ascii=False)+'\n'
 edits[meta]=dump(d)

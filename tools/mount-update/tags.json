@@ -71,6 +71,716 @@
     {
       "id": "pvpplusmounts:dragon_scale_horse_armor",
       "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_horse_armor",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_horse_armor",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_horse_armor",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/pvpoverhaul/tags/item/battleaxes.json": [
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/minecraft/tags/item/axes.json": [
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/minecraft/tags/item/arrows.json": [
+    {
+      "id": "pvpplusores:vibranium_arrow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_arrow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_arrow",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/wooden_tools.json": [
+    {
+      "id": "pvpoverhaul:wood_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_shield",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/weapon_age_restricted_weapons.json": [
+    {
+      "id": "pvpoverhaul:wood_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:wood_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_scythe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_paxel",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_paxel",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_paxel",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/stone_tools.json": [
+    {
+      "id": "pvpoverhaul:stone_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:stone_crossbow",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/copper_tools.json": [
+    {
+      "id": "pvpoverhaul:copper_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:copper_crossbow",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/iron_tools.json": [
+    {
+      "id": "pvpoverhaul:iron_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:iron_crossbow",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/golden_tools.json": [
+    {
+      "id": "pvpoverhaul:gold_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:gold_crossbow",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/diamond_tools.json": [
+    {
+      "id": "pvpoverhaul:diamond_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:diamond_crossbow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_knife",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_flail",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_shield",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_bow",
+      "required": false
+    },
+    {
+      "id": "pvpoverhaul:netherite_crossbow",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_paxel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_excavator",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_shovel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_hoe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_pickaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_paxel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_excavator",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_shovel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_hoe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_pickaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_paxel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_excavator",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_shovel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_hoe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_pickaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    }
+  ],
+  "src/main/resources/data/genesis/tags/item/diamond_armor.json": [
+    {
+      "id": "immersiveores:vibranium_helmet",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_chestplate",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_leggings",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_boots",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_helmet",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_chestplate",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_leggings",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_boots",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_helmet",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_chestplate",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_leggings",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_boots",
+      "required": false
     }
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "immersiveores"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": "immersiveores:vibranium_ingot",
+    "S": "immersiveores:vibranium_stick"
+  },
+  "pattern": [
+    "MMM",
+    " SM",
+    " S "
+  ],
+  "result": {
+    "id": "pvpplusores:vibranium_battleaxe",
+    "count": 1
+  }
+}

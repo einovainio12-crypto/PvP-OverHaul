@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "immersiveores"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": "immersiveores:vulpus_ingot",
+    "S": "immersiveores:vulpus_stick"
+  },
+  "pattern": [
+    "MMM",
+    " SM",
+    " S "
+  ],
+  "result": {
+    "id": "pvpplusores:vulpus_battleaxe",
+    "count": 1
+  }
+}
