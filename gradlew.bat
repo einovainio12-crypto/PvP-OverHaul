@@ -72,6 +72,8 @@ echo location of your Java installation. 1>&2
 
 
 
+python "%APP_HOME%\tools\gear\prepare.py"
+if errorlevel 1 exit /b 1
 python "%APP_HOME%\tools\mount-update\apply.py"
 if errorlevel 1 exit /b 1
 @rem Execute gradlew

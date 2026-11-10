@@ -35,8 +35,8 @@ public final class Spellbook extends Item {
   var stack=p.getItemInHand(hand);
   int id=Math.floorMod(stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().getIntOr("pvpplus_page",0),P.length);
   if(p.isShiftKeyDown()){
-   int next=(id+1)%P.length; CustomData.update(DataComponents.CUSTOM_DATA,stack,t->t.putInt("pvpplus_page",next));
-   say(p,(next+1)+"/8  "+P[next].name+" | "+cost(P[next]));return InteractionResult.SUCCESS;
+   p.openMenu(new SimpleMenuProvider((menu,inv,user)->new SpellPages(menu,inv,hand,stack,id),Component.literal("Spellbook • Choose a spell")));
+   return InteractionResult.SUCCESS;
   }
   var pg=P[id];if(p.isSpectator())return InteractionResult.FAIL;
   String prefix="pvpplusmagic:"+id+":";long now=l.getServer().overworld().getGameTime();

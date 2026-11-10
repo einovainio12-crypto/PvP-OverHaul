@@ -32,6 +32,7 @@ public final class DragonMounts implements ModInitializer {
  public void onInitialize(){
   Hellfork.register();
   Spellbook.register();
+  Loadouts.register();
   horse=register("dragon_scale_horse_armor",new Item.Properties().horseArmor(ArmorMaterials.NETHERITE).component(DataComponents.UNBREAKABLE,Unit.INSTANCE));
   nautilus=register("dragon_scale_nautilus_armor",new Item.Properties().nautilusArmor(ArmorMaterials.NETHERITE));
   ServerLivingEntityEvents.ALLOW_DEATH.register((mob,source,damage)->{

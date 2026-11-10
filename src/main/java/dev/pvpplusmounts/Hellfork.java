@@ -26,6 +26,9 @@ public final class Hellfork extends TridentItem {
  static void register(){
   var key=ResourceKey.create(Registries.ITEM,Identifier.parse("pvpplushell:hellfork"));
   var fork=Registry.register(BuiltInRegistries.ITEM,key,new Hellfork(new Properties().setId(key).rarity(Rarity.EPIC)
+   .delayedComponent(DataComponents.ENCHANTMENTS,lookup->{
+    var e=new net.minecraft.world.item.enchantment.ItemEnchantments.Mutable(net.minecraft.world.item.enchantment.ItemEnchantments.EMPTY);
+    e.upgrade(lookup.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.RIPTIDE),3);return e.toImmutable();})
    .durability(250).fireResistant().enchantable(1).attributes(createAttributes()).component(DataComponents.TOOL,createToolProperties()).component(DataComponents.WEAPON,new Weapon(1))));
   ServerLivingEntityEvents.ALLOW_DAMAGE.register((mob,source,amount)->!(source.is(DamageTypeTags.IS_FIRE)
    && (mob.getMainHandItem().is(fork)||mob.getOffhandItem().is(fork))));
@@ -34,6 +37,11 @@ public final class Hellfork extends TridentItem {
    if(source.isBuiltin() && bastions.contains(id))table.withPool(LootPool.lootPool().setRolls(Holder.direct(new ConstantValue(1)))
     .when(Holder.direct(LootItemRandomChanceCondition.randomChance(.02f).build())).add(LootItem.lootTableItem(fork)));
   });
+ }
+ @Override public void inventoryTick(ItemStack stack,net.minecraft.server.level.ServerLevel level,Entity owner,EquipmentSlot slot){
+  super.inventoryTick(stack,level,owner,slot);
+  var r=level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.RIPTIDE);
+  if(stack.getEnchantments().getLevel(r)<3)stack.enchant(r,3);
  }
  private static boolean fueled(Player p){return p.isInLava()||p.getOffhandItem().is(Items.LAVA_BUCKET);}
  @Override public InteractionResult use(Level world,Player p,InteractionHand hand){

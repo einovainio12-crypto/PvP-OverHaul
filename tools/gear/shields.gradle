@@ -1,0 +1,6 @@
+tasks.named('processResources') {
+    inputs.file('tools/gear/shields.py')
+    doLast {
+        def proc = new ProcessBuilder('python3', project.file('tools/gear/shields.py').absolutePath, destinationDir.absolutePath).inheritIO().start(); if (proc.waitFor() != 0) throw new GradleException('Shield resource generation failed')
+    }
+}
