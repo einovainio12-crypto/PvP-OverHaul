@@ -30,6 +30,8 @@ public final class DragonMounts implements ModInitializer {
   return Registry.register(BuiltInRegistries.ITEM,key,new Item(props.setId(key).rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE,true)));
  }
  public void onInitialize(){
+  Hellfork.register();
+  Spellbook.register();
   horse=register("dragon_scale_horse_armor",new Item.Properties().horseArmor(ArmorMaterials.NETHERITE).component(DataComponents.UNBREAKABLE,Unit.INSTANCE));
   nautilus=register("dragon_scale_nautilus_armor",new Item.Properties().nautilusArmor(ArmorMaterials.NETHERITE));
   ServerLivingEntityEvents.ALLOW_DEATH.register((mob,source,damage)->{
