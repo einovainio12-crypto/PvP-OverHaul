@@ -10,6 +10,14 @@ public final class Balance {
     public static final int BOOST_DURABILITY_COST=3;
     public static final double OVERLOAD_STRENGTH=1.5, OVERLOAD_SPEED_CAP=3.0;
     public static final int OVERLOAD_COOLDOWN=400;
+    public static final int PARRY_WINDOW_TICKS=6;
+    public static final int PARRY_COOLDOWN_TICKS=20;
+    public static final int PARRY_STAGGER_TICKS=40;
+    public static final float PARRY_COUNTER_DAMAGE_MULTIPLIER=0.25f;
+    public static float parryCounterDamage(float damage) {
+        if (!Float.isFinite(damage) || damage<=0) return 0;
+        return Math.max(1,Math.min(4,damage*PARRY_COUNTER_DAMAGE_MULTIPLIER));
+    }
     private static int bounded(int level,int max) { return Math.max(0,Math.min(level,max)); }
     public static double bowMultiplier(int rank) {
         return switch(bounded(rank,5)) { case 1->1.03;case 2->1.06;case 4->1.09;case 5->1.12;default->1.0; };

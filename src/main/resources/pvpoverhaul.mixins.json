@@ -19,6 +19,7 @@
     "FirstJumpMixin",
     "ThrowableCommandMixin",
     "ShieldStunMixin",
+    "LivingEntityParryMixin",
     "LungePoleJumpMixin",
     "TridentDataAccessor",
     "FishingHookMixin",

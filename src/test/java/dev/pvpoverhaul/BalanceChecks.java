@@ -45,6 +45,10 @@ public final class BalanceChecks {
         }
         require(Balance.overloadCost(432)==216 && Balance.overloadCost(433)==217,"Overload must cost half the maximum durability, rounded up");
         require(Balance.allowedImpulse(4,0,0,1,0,0,1.5,3)==0,"Overload must not add speed to above-cap momentum");
+        require(Balance.PARRY_WINDOW_TICKS==6,"Parry opening must be six ticks");
+        require(Balance.PARRY_COOLDOWN_TICKS==20,"Parry cooldown must be one second");
+        require(Balance.PARRY_STAGGER_TICKS==40,"Parry must stagger attackers for two seconds");
+        require(Balance.parryCounterDamage(8)==2 && Balance.parryCounterDamage(20)==4,"Parry counter damage must stay bounded");
         require(glideTicks(2)>glideTicks(1) && glideTicks(1)>glideTicks(0),"Aerodynamics must increase level-glide airtime");
         for(int level=1;level<=20;level++) {
             require(Balance.glideGravityMultiplier(level)>=0.8,"Overleveled Aerodynamics must remain bounded");
