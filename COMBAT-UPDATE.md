@@ -35,7 +35,9 @@ Target Lock is limited to iron, diamond and netherite bows. Crossbows cannot use
 It costs 1 exhaustion to activate and 0.4 per second while tracking; saturation is
 used before visible hunger. Tracking stops at six food points (three icons).
 Creative players bypass hunger costs. Pole Jump adds only 0.1 exhaustion per jump
-and uses the same minimum food requirement. Downward Lunge retains its native cost.
+and uses the same minimum food requirement. A grounded spear/halberd Lunge with both
+enchantments triggers Pole Jump without downward aim; ordinary Lunge remains available
+while Pole Jump is cooling down or its food requirement is unmet.
 
 Flails gain 1.5 blocks of melee reach (4.5 blocks total at the default player range).
 Right-click casts a fishing bobber; right-click again reels it in and can pull a hooked

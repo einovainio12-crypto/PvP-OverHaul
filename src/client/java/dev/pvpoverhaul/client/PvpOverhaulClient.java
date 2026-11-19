@@ -13,7 +13,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 
 public final class PvpOverhaulClient implements ClientModInitializer {
-    private static KeyMapping zoom,lock,dead,boost,pole,quiver,sheath;
+    private static KeyMapping zoom,lock,dead,boost,quiver,sheath;
     private boolean jumpWasDown;
     @Override public void onInitializeClient() {
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(client->CompatMaterials.bindExternal());
@@ -28,7 +28,6 @@ public final class PvpOverhaulClient implements ClientModInitializer {
         lock=key("target_lock",InputConstants.KEY_R,category);
         dead=key("dead_eye",InputConstants.KEY_V,category);
         boost=key("boost",InputConstants.KEY_B,category);
-        pole=key("pole_jump",InputConstants.KEY_G,category);
         sheath=key("sheath_swap",InputConstants.KEY_H,category);
         quiver=key("quiver",InputConstants.KEY_C,category);
         ItemTooltipCallback.EVENT.register((stack,context,flag,lines)->{
@@ -73,7 +72,6 @@ public final class PvpOverhaulClient implements ClientModInitializer {
             TargetLockClient.track();
             while(dead.consumeClick()) send(SkillPayload.DEAD_EYE);
             while(boost.consumeClick()) send(SkillPayload.BOOST);
-            while(pole.consumeClick()) send(SkillPayload.POLE_JUMP);
             boolean jump=mc.options.keyJump.isDown();
             if (jump && !jumpWasDown && !mc.player.onGround()) send(SkillPayload.DOUBLE_JUMP);
             jumpWasDown=jump;

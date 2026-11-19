@@ -137,7 +137,7 @@ write('data/minecraft/enchantment/loyalty.json',loyalty)
 for path in ['in_enchanting_table','tradeable','on_random_loot','on_traded_equipment']:
  write(f'data/minecraft/tags/enchantment/{path}.json',{'replace':False,'values':[f'{MOD}:{n}' for n in ['throwable','pole_jump','double_jump','speed','boost','overload','aerodynamics','cleaving','impact']]})
 write('data/minecraft/tags/enchantment/exclusive_set/damage.json',{'replace':False,'values':['pvpplus:cleaving']})
-for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel','sheath_swap':'Swap Sheathed Weapon'}.items():LANG[f'key.{MOD}.{key}']=title
+for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel','sheath_swap':'Swap Sheathed Weapon'}.items():LANG[f'key.{MOD}.{key}']=title
 LANG['container.pvpplus.fletching']='Fletching Table'
 LANG['container.pvpplus.quiver']='Quiver'
 LANG['key.category.pvpplus.combat']='PvP+'

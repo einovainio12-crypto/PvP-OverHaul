@@ -76,7 +76,7 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 
 - Throw all seven knife materials, including stone, and all axe/spear tiers. Retrieve the original item, durability, name and enchantments.
 - Test Loyalty I–III after entity hits, block hits, chunk unload/reload, player death and server restart. No duplicated survival pickups from creative projectiles.
-- Add Throwable first and then try Lunge/Pole Jump; reverse the order. Both anvil/enchanting paths must reject combinations. Pole Jump + Lunge must work.
+- Add Throwable first and then try Lunge/Pole Jump; reverse the order. Both anvil/enchanting paths must reject combinations. Pole Jump + Lunge must work without downward aim.
 - Verify Cleaving's exclusion with Sharpness/Smite/Bane, Impact knockback, Unbreaking/Mending and normal weapon enchants.
 - Test crafting, smithing, fletching upgrades, copper waxing twice, survival ingredient costs and creative costs. Upgrades preserve charged ammo and item patches while changing maximum durability.
 
@@ -89,12 +89,12 @@ Use a disposable test world with two clients and a dedicated Fabric 26.3 server.
 - Aerodynamics: compare gliding from the same altitude/pitch with no enchantment, I and II. Verify longer glide time/distance, identical client/server movement, normal falling unaffected and no infinite level flight.
 - Fletching table: craft every arrow, shift-click outputs, use the recipe book, close with inputs remaining, move too far away, break the table and disconnect. Ensure ingredient conservation and no non-arrow outputs; verify old upgrades/waxing still work.
 - Loot: open previously unopened End City and ship treasure chests; check extra 1–3 scales occur alongside original loot. Confirm other chests and already filled chests are unaffected.
-- Powers: test both hands, R/V on the same tick, supported and unsupported weapon tiers, full/partial shots, expiration, cooldowns and reconnects. Watch owner velocity changes for Boost, Overload, Double Jump and Pole Jump. Check the tooltip's rebound key labels and messages on a server missing the mod.
+- Powers: test both hands, R/V on the same tick, supported and unsupported weapon tiers, full/partial shots, expiration, cooldowns and reconnects. Watch owner velocity changes for Boost, Overload, Double Jump and Pole Jump. Check remaining rebound key labels and messages on a server missing the mod.
 - Speed: verify +3%/+6%/+9%, mutually exclusive enchanting/anvil paths with Double Jump, and old boots carrying both (Speed takes priority). Depth Strider and Soul Speed must remain compatible.
-- Pole Jump needs enchanted spear + ground contact and cannot activate with Throwable.
+- Pole Jump activates on grounded spear/halberd Lunge when paired with Lunge, regardless of aim pitch; cooldown/low food must not cancel native Lunge. It cannot activate with Throwable.
 - Target Lock is limited to one charged shot/volley within three seconds and a 16-second cooldown, obeys line of sight, 24-block range, allies, PvP protection and target validity on release. Swapping to a bow that lacks the skill must not retain its benefit.
 - Dead Eye grants +5% damage and 40% less random spread to one charged shot/volley, with a three-second window and 20-second cooldown. Partial bow shots must not gain the effect. Check cooldown packet spam and reconnect behavior.
-- Confirm key rebinding, zoom, all 96 textures and their bow draw/crossbow load states, all six custom shield models in both hands, the new 1.5-unit inward position, blocking/normal poses, GUI/ground/item-frame/shelf contexts, enchantment glint, native spear visuals, translations and creative entries. Supplied shield geometry does not render banner layers. Thrown weapons must show their actual item textures/models and glint in flight, at impact, on Loyalty return and after unload/reload. Ordinary tridents must retain their native model.
+- Confirm remaining key rebinding, zoom, all 96 textures and their bow draw/crossbow load states, all six custom shield models in both hands, the new 1.5-unit inward position, blocking/normal poses, GUI/ground/item-frame/shelf contexts, enchantment glint, native spear visuals, translations and creative entries. Supplied shield geometry does not render banner layers. Thrown weapons must show their actual item textures/models and glint in flight, at impact, on Loyalty return and after unload/reload. Ordinary tridents must retain their native model.
 
 Record the server/client versions, exact combo steps and observed damage/timing before changing combat hooks.
 

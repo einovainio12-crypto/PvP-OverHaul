@@ -106,19 +106,6 @@ public final class Skills {
                 syncMovement(p);
                 // Preserve accumulated fall distance so this cannot silently erase falling damage or smash setups.
             }
-            case SkillPayload.POLE_JUMP -> {
-                held=p.getMainHandItem();
-                int pole=Enchantments.level(p,held,"pole_jump");
-                if (!poleWeapon(held) || pole==0) { message(p,"Pole Jump needs a spear or halberd with the Pole Jump enchantment.");return; }
-                if (!p.onGround() || p.isPassenger() || p.isFallFlying()) { message(p,"Pole Jump requires standing on the ground.");return; }
-                if (coolingDown(p,now,s.nextPole,"Pole Jump")) return;
-                if (Enchantments.level(p,held,"throwable")>0) return;
-                if(!hasSkillFood(p)) return;
-                p.causeFoodExhaustion(.1f);
-                s.nextPole=now+40; Vec3 look=p.getLookAngle();
-                impulse(p,poleImpulse(look,pole));
-                held.hurtAndBreak(1,p,EquipmentSlot.MAINHAND);
-            }
         }
     }
     private static void message(ServerPlayer p,String text) { p.sendOverlayMessage(Component.literal(text)); }
@@ -127,11 +114,10 @@ public final class Skills {
     }
     public static Vec3 lungePoleImpulse(ServerPlayer player,ItemStack spear,Vec3 normal) {
         int pole=Enchantments.level(spear,"pole_jump");
-        if(!poleWeapon(spear) || pole==0 || Enchantments.level(spear,"minecraft:lunge")==0 || player.getXRot()<55
+        if(!poleWeapon(spear) || pole==0 || Enchantments.level(spear,"minecraft:lunge")==0
             || !player.onGround() || player.isPassenger() || player.isFallFlying() || player.isInWater()) return normal;
         State state=state(player);long now=player.level().getGameTime();
-        if(now<state.nextPole) return Vec3.ZERO;
-        if(!hasSkillFood(player)) return Vec3.ZERO;
+        if(now<state.nextPole || !hasSkillFood(player)) return normal;
         player.causeFoodExhaustion(.1f);
         state.nextPole=now+40;
         // Native Lunge already paid durability/exhaustion; its effect sends motion and applies impulse grace.
