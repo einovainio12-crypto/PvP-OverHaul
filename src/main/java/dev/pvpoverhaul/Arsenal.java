@@ -54,8 +54,8 @@ public final class Arsenal {
     }
     private static void message(Player p,String text){if(p instanceof ServerPlayer server)server.sendOverlayMessage(net.minecraft.network.chat.Component.literal(text));}
     /** Offhand sheath takes priority, then the first sheath in the main inventory. */
-    public static void swapHeldWeapon(ServerPlayer p) {
-        if(p.containerMenu!=p.inventoryMenu) return;
+    public static boolean swapHeldWeapon(ServerPlayer p) {
+        if(p.containerMenu!=p.inventoryMenu) return false;
         ItemStack sheath=p.getOffhandItem();
         if(!sheath.is(ModItems.SHEATH)) {
             sheath=ItemStack.EMPTY;
@@ -64,8 +64,7 @@ public final class Arsenal {
                 if(candidate.is(ModItems.SHEATH)&&candidate!=p.getMainHandItem()) { sheath=candidate;break; }
             }
         }
-        if(sheath.isEmpty()) { message(p,"Carry a weapon sheath in your inventory or offhand.");return; }
-        if(!swapSheath(p,sheath,InteractionHand.MAIN_HAND)) message(p,"The sheath holds one weapon. Hold a weapon or leave your hand empty.");
+        return !sheath.isEmpty() && swapSheath(p,sheath,InteractionHand.MAIN_HAND);
     }
     private static boolean sheathWeapon(ItemStack stack) {
         return stack.isEmpty() || stack.getCount()==1 && (WeaponEntities.TYPES.containsKey(stack.getItem()) || stack.is(Items.TRIDENT));

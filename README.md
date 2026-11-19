@@ -27,7 +27,7 @@ Use the same mod version everywhere.
 
 GitHub Actions builds are in the Actions tab. Open a successful build and
 download the JAR artifact. The regular JAR is named like
-`pvp-plus-0.10.15.jar`; do not install the `-sources.jar`.
+`pvp-plus-0.10.21.jar`; do not install the `-sources.jar`.
 
 ## What's included
 
@@ -55,11 +55,10 @@ download the JAR artifact. The regular JAR is named like
 | Z | Hold to zoom |
 | R | Target Lock |
 | V | Dead Eye |
-| B | Elytra Boost |
-| O | Elytra Overload |
+| B | Elytra Boost or Overload (Overload takes priority if equipped) |
 | G | Pole Jump |
 | C | Open or use quiver selection |
-| H | Swap with a held sheath |
+| H | Swap with an inventory, offhand or worn sheath |
 
 You can change all of these under Minecraft's Controls menu. Weapon abilities
 usually require the matching tier and enchantment.

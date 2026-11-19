@@ -13,9 +13,9 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 
 public final class PvpOverhaulClient implements ClientModInitializer {
-    private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver,sheath;
+    private static KeyMapping zoom,lock,dead,boost,pole,quiver,sheath;
     private boolean jumpWasDown;
-    @Override public void onInitializeClient() { dev.pvpplusgear.SheathKey.init();
+    @Override public void onInitializeClient() {
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(client->CompatMaterials.bindExternal());
         ClientPlayNetworking.registerGlobalReceiver(TargetLockPayload.TYPE,(payload,context)->TargetLockClient.receive(payload.entityId()));
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.DISCONNECT.register((handler,client)->TargetLockClient.clear());
@@ -29,7 +29,6 @@ public final class PvpOverhaulClient implements ClientModInitializer {
         dead=key("dead_eye",InputConstants.KEY_V,category);
         boost=key("boost",InputConstants.KEY_B,category);
         pole=key("pole_jump",InputConstants.KEY_G,category);
-        overload=key("overload",InputConstants.KEY_O,category);
         sheath=key("sheath_swap",InputConstants.KEY_H,category);
         quiver=key("quiver",InputConstants.KEY_C,category);
         ItemTooltipCallback.EVENT.register((stack,context,flag,lines)->{
@@ -40,8 +39,8 @@ public final class PvpOverhaulClient implements ClientModInitializer {
             if(Skills.canTargetLock(stack)) lines.add(Component.literal("Target Lock: "+lock.getTranslatedKeyMessage().getString()+", toggle tracking; sneak to release"));
             if(tier!=null && tier.deadEye()) lines.add(Component.literal("Dead Eye: "+dead.getTranslatedKeyMessage().getString()+", rapid burst at three nearest enemies"));
             if(stack.is(Items.ELYTRA)) {
-                lines.add(Component.literal("Boost: "+boost.getTranslatedKeyMessage().getString()+" while gliding (requires Boost)"));
-                lines.add(Component.literal("Overload: "+overload.getTranslatedKeyMessage().getString()+" while gliding (requires Overload)"));
+                lines.add(Component.literal("Boost: "+boost.getTranslatedKeyMessage().getString()+" while gliding (requires Boost; Overload takes priority if equipped)"));
+                lines.add(Component.literal("Overload: "+boost.getTranslatedKeyMessage().getString()+" while gliding (requires Overload)"));
                 lines.add(Component.literal("Overload costs "+Balance.overloadCost(stack.getMaxDamage())+" durability; Unbreaking does not reduce it"));
             }
             if(stack.getItem() instanceof TierArrowItem arrow && arrow.ammo==Ammo.GRAPPLING) {
@@ -75,7 +74,6 @@ public final class PvpOverhaulClient implements ClientModInitializer {
             while(dead.consumeClick()) send(SkillPayload.DEAD_EYE);
             while(boost.consumeClick()) send(SkillPayload.BOOST);
             while(pole.consumeClick()) send(SkillPayload.POLE_JUMP);
-            while(overload.consumeClick()) send(SkillPayload.OVERLOAD);
             boolean jump=mc.options.keyJump.isDown();
             if (jump && !jumpWasDown && !mc.player.onGround()) send(SkillPayload.DOUBLE_JUMP);
             jumpWasDown=jump;

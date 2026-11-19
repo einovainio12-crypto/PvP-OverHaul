@@ -48,7 +48,10 @@ public final class Skills {
         s.lastPacket[action]=now;
         ItemStack held=rangedWeapon(p);
         switch(action) {
-            case SkillPayload.SHEATH_SWAP -> Arsenal.swapHeldWeapon(p);
+            case SkillPayload.SHEATH_SWAP -> {
+                if (!Arsenal.swapHeldWeapon(p) && dev.pvpplusmounts.Loadouts.sheath(p)==0)
+                    message(p,"Carry a weapon sheath in your inventory, offhand, or sheath trinket.");
+            }
             case SkillPayload.TARGET_LOCK -> {
                 if(s.target!=null){clearLock(p,s);return;}
                 if (!canTargetLock(held)) { message(p,"Target Lock needs an iron, rose gold, diamond or netherite bow.");return; }
@@ -74,9 +77,9 @@ public final class Skills {
 
             }
             case SkillPayload.BOOST, SkillPayload.OVERLOAD -> {
-                boolean overload=action==SkillPayload.OVERLOAD;
-                String label=overload?"Overload":"Boost";
                 ItemStack elytra=p.getItemBySlot(EquipmentSlot.CHEST);
+                boolean overload=action==SkillPayload.OVERLOAD || Enchantments.level(p,elytra,"overload")>0;
+                String label=overload?"Overload":"Boost";
                 int enchantment=Enchantments.level(p,elytra,overload?"overload":"boost");
                 if (!elytra.is(Items.ELYTRA) || enchantment==0) { message(p,label+" needs an equipped Elytra with its enchantment.");return; }
                 if (!p.isFallFlying() || p.isPassenger() || p.getAbilities().flying) { message(p,"Start gliding before using "+label+".");return; }

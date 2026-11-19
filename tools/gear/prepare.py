@@ -18,8 +18,6 @@ for f in (root/'src').rglob('*.java'):
    s=re.sub(r'(?<![.\w])'+re.escape(expr),lambda _:helper+'.at('+who+'.getInventory(),'+idx+')',s)
  if f.stem=='QuiverMenu':
   s=s.replace('inventory.getItem(source)',helper+'.at(inventory,source)').replace('setContents(quiver,saved);inventory.setChanged();','setContents(quiver,saved);'+helper+'.dirty(inventory.player);inventory.setChanged();')
- if f.stem=='PvpOverhaulClient' and 'dev.pvpplusgear.SheathKey.init()' not in s:
-  s=re.sub(r'(void onInitializeClient\(\)\s*\{)',r'\1 dev.pvpplusgear.SheathKey.init();',s,count=1)
  if old!=s:f.write_text(s)
 build=root/'build.gradle'
 line="apply from: 'tools/gear/shields.gradle'"
