@@ -5,9 +5,9 @@ def extend(g):
  root,write=g['ROOT'],g['write']
  kinds={'bow':'BOW','crossbow':'CROSSBOW','shield':'SHIELD','knife':'SWORD','battleaxe':'AXE','hammer':'MACE','scythe':'HOE','halberd':'SPEAR','spear':'SPEAR','flail':'FISHING_ROD'}
  items={}
- for p in (root/'assets/pvpoverhaul/items').glob('*.json'):
+ for p in (root/'assets/pvpplus/items').glob('*.json'):
   kind=p.stem.rsplit('_',1)[-1]
-  if kind in kinds:items['pvpoverhaul:'+p.stem]=kind
+  if kind in kinds:items['pvpplus:'+p.stem]=kind
  # Exact IDs avoid assigning other mods' weapons or overriding vanilla groups.
  write('assets/punchy/compat/pvpoverhaul.json',{'itemSpecific':{i:{'kind':kinds[k]} for i,k in sorted(items.items())}})
  clips={}

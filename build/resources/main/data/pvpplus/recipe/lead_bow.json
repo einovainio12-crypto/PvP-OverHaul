@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:bow",
+    "theleadage:lead_ingot",
+    "theleadage:lead_ingot",
+    "theleadage:lead_ingot"
+  ],
+  "result": {
+    "id": "pvpplus:lead_bow",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "theleadage"
+      ]
+    }
+  ]
+}

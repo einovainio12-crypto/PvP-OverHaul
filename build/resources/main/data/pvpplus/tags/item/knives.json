@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:wood_knife",
+    "pvpplus:copper_knife",
+    "pvpplus:iron_knife",
+    "pvpplus:gold_knife",
+    "pvpplus:diamond_knife",
+    "pvpplus:netherite_knife",
+    "pvpplus:stone_knife",
+    "pvpplus:brass_knife",
+    "pvpplus:zinc_knife",
+    "pvpplus:bronze_knife",
+    "pvpplus:steel_knife",
+    "pvpplus:silver_knife",
+    "pvpplus:lead_knife",
+    "pvpplus:siftite_knife",
+    "pvpplus:netherite_iron_knife",
+    "pvpplus:netherite_gold_knife",
+    "pvpplus:netherite_emerald_knife",
+    "pvpplus:netherite_diamond_knife",
+    "pvpplus:rose_gold_knife",
+    "pvpplus:enderite_knife"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.final_stand",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.final_stand"
+  },
+  "length_in_seconds": 180.024308,
+  "comparator_output": 12
+}

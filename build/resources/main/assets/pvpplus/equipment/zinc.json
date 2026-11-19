@@ -1,0 +1,34 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "pvpplus:compat_zinc"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "pvpplus:compat_zinc"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "pvpplus:compat_zinc"
+      }
+    ],
+    "wolf_body": [
+      {
+        "texture": "pvpplus:compat_zinc"
+      }
+    ],
+    "horse_body": [
+      {
+        "texture": "pvpplus:compat_zinc"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "pvpplus:compat_zinc"
+      }
+    ]
+  }
+}

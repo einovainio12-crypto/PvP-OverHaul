@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:wood_arrow",
+    "pvpplus:copper_arrow",
+    "pvpplus:iron_arrow",
+    "pvpplus:gold_arrow",
+    "pvpplus:dragon_scale_arrow",
+    "pvpplus:netherite_arrow",
+    "pvpplus:blunt_arrow",
+    "pvpplus:blaze_arrow",
+    "pvpplus:breeze_arrow",
+    "pvpplus:firework_arrow",
+    "pvpplus:fire_charge_arrow",
+    "pvpplus:grappling_arrow",
+    "pvpplus:ice_arrow",
+    "pvpplus:brass_arrow",
+    "pvpplus:zinc_arrow",
+    "pvpplus:bronze_arrow",
+    "pvpplus:steel_arrow",
+    "pvpplus:silver_arrow",
+    "pvpplus:lead_arrow",
+    "pvpplus:siftite_arrow",
+    "pvpplus:netherite_iron_arrow",
+    "pvpplus:netherite_gold_arrow",
+    "pvpplus:netherite_emerald_arrow",
+    "pvpplus:netherite_diamond_arrow",
+    "pvpplus:rose_gold_arrow",
+    "pvpplus:enderite_arrow"
+  ]
+}

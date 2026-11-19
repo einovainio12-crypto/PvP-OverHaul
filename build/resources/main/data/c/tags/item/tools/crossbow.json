@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_crossbow",
+    "pvpplus:bronze_crossbow",
+    "pvpplus:copper_crossbow",
+    "pvpplus:diamond_crossbow",
+    "pvpplus:enderite_crossbow",
+    "pvpplus:gold_crossbow",
+    "pvpplus:iron_crossbow",
+    "pvpplus:lead_crossbow",
+    "pvpplus:netherite_crossbow",
+    "pvpplus:netherite_diamond_crossbow",
+    "pvpplus:netherite_emerald_crossbow",
+    "pvpplus:netherite_gold_crossbow",
+    "pvpplus:netherite_iron_crossbow",
+    "pvpplus:rose_gold_crossbow",
+    "pvpplus:siftite_crossbow",
+    "pvpplus:silver_crossbow",
+    "pvpplus:steel_crossbow",
+    "pvpplus:stone_crossbow",
+    "pvpplus:zinc_crossbow"
+  ]
+}

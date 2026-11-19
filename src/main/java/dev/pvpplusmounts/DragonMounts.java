@@ -24,13 +24,12 @@ import net.minecraft.sounds.*;
 public final class DragonMounts implements ModInitializer {
  static Item horse,nautilus;
  static final String PREFIX="pvpplusmounts.dash.";
- static final Identifier SCALE=Identifier.parse("pvpoverhaul:dragon_scale");
+ static final Identifier SCALE=Identifier.parse("pvpplus:dragon_scale");
  static Item register(String path,Item.Properties props){
   var key=ResourceKey.create(Registries.ITEM,Identifier.parse("pvpplusmounts:"+path));
   return Registry.register(BuiltInRegistries.ITEM,key,new Item(props.setId(key).rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE,true)));
  }
  public void onInitialize(){
-  Hellfork.register();
   Spellbook.register();
   Loadouts.register();
   horse=register("dragon_scale_horse_armor",new Item.Properties().horseArmor(ArmorMaterials.NETHERITE).component(DataComponents.UNBREAKABLE,Unit.INSTANCE));

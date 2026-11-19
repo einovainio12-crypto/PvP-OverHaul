@@ -1,0 +1,177 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_helmet",
+    "pvpplus:brass_chestplate",
+    "pvpplus:brass_leggings",
+    "pvpplus:brass_boots",
+    "pvpplus:zinc_helmet",
+    "pvpplus:zinc_chestplate",
+    "pvpplus:zinc_leggings",
+    "pvpplus:zinc_boots",
+    "pvpplus:bronze_helmet",
+    "pvpplus:bronze_chestplate",
+    "pvpplus:bronze_leggings",
+    "pvpplus:bronze_boots",
+    {
+      "id": "alloyed:steel_helmet",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_chestplate",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_leggings",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_boots",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_helmet",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_chestplate",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_leggings",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_boots",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_helmet",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_chestplate",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_leggings",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_boots",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_helmet",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_chestplate",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_leggings",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_boots",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_helmet",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_chestplate",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_leggings",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_boots",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_helmet",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_chestplate",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_leggings",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_boots",
+      "required": false
+    }
+  ]
+}

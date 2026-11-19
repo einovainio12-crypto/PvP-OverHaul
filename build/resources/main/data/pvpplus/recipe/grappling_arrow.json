@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:arrow",
+    "minecraft:string",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "id": "pvpplus:grappling_arrow",
+    "count": 1
+  }
+}

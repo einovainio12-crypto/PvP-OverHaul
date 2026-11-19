@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:chest",
+    "minecraft:diamond",
+    "minecraft:echo_shard"
+  ],
+  "result": {
+    "id": "pvpplus:combat_cache",
+    "count": 1
+  }
+}

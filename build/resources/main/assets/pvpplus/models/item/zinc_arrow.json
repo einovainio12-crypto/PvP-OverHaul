@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "pvpplus:item/iron_arrow_pvp_zinc"
+  }
+}

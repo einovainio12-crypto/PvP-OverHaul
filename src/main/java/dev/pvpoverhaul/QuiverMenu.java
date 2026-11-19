@@ -14,16 +14,16 @@ public final class QuiverMenu extends AbstractContainerMenu {
     private final ItemStack quiver;
     private final SimpleContainer arrows;
     public QuiverMenu(int id,Inventory inventory,int source) {
-        super(MenuType.GENERIC_9x1,id);this.inventory=inventory;this.source=source;this.quiver=inventory.getItem(source);
+        super(MenuType.GENERIC_9x1,id);this.inventory=inventory;this.source=source;this.quiver=dev.pvpplusmounts.GearSlots.at(inventory,source);
         arrows=new SimpleContainer(Quivers.SLOTS) {
             private boolean ready;
             { List<ItemStack> saved=Quivers.contents(quiver);for(int i=0;i<Quivers.SLOTS;i++) setItem(i,saved.get(i));ready=true; }
             @Override public boolean canPlaceItem(int slot,ItemStack stack) { return stack.getItem() instanceof ArrowItem; }
             @Override public void setChanged() {
                 super.setChanged();
-                if(ready && inventory.getItem(source)==quiver) {
+                if(ready && dev.pvpplusmounts.GearSlots.at(inventory,source)==quiver) {
                     List<ItemStack> saved=new java.util.ArrayList<>();for(int i=0;i<Quivers.SLOTS;i++) saved.add(getItem(i).copy());
-                    Quivers.setContents(quiver,saved);inventory.setChanged();
+                    Quivers.setContents(quiver,saved);dev.pvpplusmounts.GearSlots.dirty(inventory.player);inventory.setChanged();
                 }
             }
         };
@@ -39,7 +39,7 @@ public final class QuiverMenu extends AbstractContainerMenu {
             @Override public boolean mayPlace(ItemStack stack) { return index!=source; }
         });
     }
-    @Override public boolean stillValid(Player player) { return player==inventory.player && inventory.getItem(source)==quiver && quiver.is(ModItems.QUIVER); }
+    @Override public boolean stillValid(Player player) { return player==inventory.player && dev.pvpplusmounts.GearSlots.at(inventory,source)==quiver && quiver.is(ModItems.QUIVER); }
     @Override public void clicked(int slot,int button,ContainerInput input,Player player) {
         if(input==ContainerInput.SWAP && button==source) return;
         super.clicked(slot,button,input,player);

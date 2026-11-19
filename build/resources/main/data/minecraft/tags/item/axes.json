@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    },
+    "pvpplus:brass_axe",
+    "pvpplus:zinc_axe",
+    "pvpplus:bronze_axe"
+  ]
+}

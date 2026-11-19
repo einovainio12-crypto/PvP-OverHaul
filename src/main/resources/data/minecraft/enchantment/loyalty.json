@@ -29,6 +29,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#pvpoverhaul:loyalty_weapons",
+  "supported_items": "#pvpplus:loyalty_weapons",
   "weight": 5
 }

@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:copper_bow",
+    "pvpplus:iron_bow",
+    "pvpplus:gold_bow",
+    "pvpplus:diamond_bow",
+    "pvpplus:netherite_bow",
+    "pvpplus:stone_bow",
+    "pvpplus:brass_bow",
+    "pvpplus:zinc_bow",
+    "pvpplus:bronze_bow",
+    "pvpplus:steel_bow",
+    "pvpplus:silver_bow",
+    "pvpplus:lead_bow",
+    "pvpplus:siftite_bow",
+    "pvpplus:netherite_iron_bow",
+    "pvpplus:netherite_gold_bow",
+    "pvpplus:netherite_emerald_bow",
+    "pvpplus:netherite_diamond_bow",
+    "pvpplus:rose_gold_bow",
+    "pvpplus:enderite_bow"
+  ]
+}

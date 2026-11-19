@@ -14,8 +14,8 @@ def check(root):
    for x in v:yield from refs(x)
   elif isinstance(v,str) and v.startswith('pvpplus_'):yield v
  for item,entry in moves['items'].items():
-  assert item.startswith('pvpoverhaul:')
-  assert (res/'pvpoverhaul/items'/(item.split(':')[1]+'.json')).exists(),item
+  assert item.startswith('pvpplus:')
+  assert (res/'pvpplus/items'/(item.split(':')[1]+'.json')).exists(),item
   for name in refs(entry):
    for hand in ['left','right']:assert name+'_'+hand in clips,(item,name,hand)
  for name,clip in clips.items():
@@ -23,7 +23,7 @@ def check(root):
   for bone,channels in clip['bones'].items():
    assert bone in ['right_arm','left_arm','body','head','right_item','left_item']
    for t,v in channels['rotation'].items():assert 0<=float(t)<=clip['animation_length'] and len(v)==3 and all(isinstance(n,(int,float)) for n in v)
- assert moves['items']['pvpoverhaul:gold_bow']['sequence']['charge_ticks']==10
- assert moves['items']['pvpoverhaul:rose_gold_bow']['sequence']['charge_ticks']==16
+ assert moves['items']['pvpplus:gold_bow']['sequence']['charge_ticks']==10
+ assert moves['items']['pvpplus:rose_gold_bow']['sequence']['charge_ticks']==16
  print(f'PASS: {len(first)} Punchy mappings; all Moves clips resolve for both hands.')
 if __name__=='__main__':check(pathlib.Path(__file__).resolve().parents[1])

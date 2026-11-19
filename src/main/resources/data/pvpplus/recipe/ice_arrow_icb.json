@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "I",
+    "A"
+  ],
+  "key": {
+    "I": "ice_caves_backport:ice_ball",
+    "A": "minecraft:arrow"
+  },
+  "result": {
+    "id": "pvpplus:ice_arrow",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "ice_caves_backport"
+      ]
+    }
+  ]
+}

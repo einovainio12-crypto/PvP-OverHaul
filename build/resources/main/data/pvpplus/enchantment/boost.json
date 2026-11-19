@@ -1,0 +1,21 @@
+{
+  "description": {
+    "translate": "enchantment.pvpplus.boost"
+  },
+  "supported_items": "#pvpplus:elytra",
+  "weight": 2,
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 8
+  },
+  "max_cost": {
+    "base": 40,
+    "per_level_above_first": 8
+  },
+  "anvil_cost": 3,
+  "slots": [
+    "chest"
+  ],
+  "effects": {}
+}

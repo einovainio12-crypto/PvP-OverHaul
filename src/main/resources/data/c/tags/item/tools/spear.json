@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_halberd",
+    "pvpplus:brass_spear",
+    "pvpplus:bronze_halberd",
+    "pvpplus:bronze_spear",
+    "pvpplus:copper_halberd",
+    "pvpplus:diamond_halberd",
+    "pvpplus:enderite_halberd",
+    "pvpplus:gold_halberd",
+    "pvpplus:iron_halberd",
+    "pvpplus:lead_halberd",
+    "pvpplus:netherite_diamond_halberd",
+    "pvpplus:netherite_emerald_halberd",
+    "pvpplus:netherite_gold_halberd",
+    "pvpplus:netherite_halberd",
+    "pvpplus:netherite_iron_halberd",
+    "pvpplus:rose_gold_halberd",
+    "pvpplus:rose_gold_spear",
+    "pvpplus:siftite_halberd",
+    "pvpplus:silver_halberd",
+    "pvpplus:steel_halberd",
+    "pvpplus:stone_halberd",
+    "pvpplus:wood_halberd",
+    "pvpplus:zinc_halberd",
+    "pvpplus:zinc_spear"
+  ]
+}

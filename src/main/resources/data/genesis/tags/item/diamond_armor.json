@@ -1,0 +1,53 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "immersiveores:vibranium_helmet",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_chestplate",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_leggings",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_boots",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_helmet",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_chestplate",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_leggings",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_boots",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_helmet",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_chestplate",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_leggings",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_boots",
+      "required": false
+    }
+  ]
+}

@@ -20,7 +20,7 @@ public final class QuiverWheelScreen extends Screen {
     private final IntConsumer selectionHandler;
     public QuiverWheelScreen(int inventorySlot) { this(inventorySlot,null); }
     public QuiverWheelScreen(int inventorySlot,IntConsumer selectionHandler) {
-        super(Minecraft.getInstance(),Minecraft.getInstance()==null?null:Minecraft.getInstance().font,Component.translatable("container.pvpoverhaul.quiver"));
+        super(Minecraft.getInstance(),Minecraft.getInstance()==null?null:Minecraft.getInstance().font,Component.translatable("container.pvpplus.quiver"));
         this.inventorySlot=inventorySlot;this.selectionHandler=selectionHandler;
     }
     @Override protected void init() {
@@ -33,7 +33,7 @@ public final class QuiverWheelScreen extends Screen {
         addWidget(Button.builder(Component.literal("Inventory ammunition"),button->choose(-1)).bounds(center[0]-27,center[1]-18,54,36).build());
     }
     private void choose(int slot) { if(selectionHandler!=null) selectionHandler.accept(slot);else select(slot); }
-    private ItemStack quiver() { return minecraft.player==null?ItemStack.EMPTY:minecraft.player.getInventory().getItem(inventorySlot); }
+    private ItemStack quiver() { return minecraft.player==null?ItemStack.EMPTY:dev.pvpplusmounts.GearSlots.at(minecraft.player.getInventory(),inventorySlot); }
     private boolean supported(ItemStack arrow) {
         if(minecraft.player==null || arrow.isEmpty()) return true;
         ItemStack main=minecraft.player.getMainHandItem(),off=minecraft.player.getOffhandItem();

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:crossbow",
+    "thesilverage:silver_ingot",
+    "thesilverage:silver_ingot",
+    "thesilverage:silver_ingot"
+  ],
+  "result": {
+    "id": "pvpplus:silver_crossbow",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thesilverage"
+      ]
+    }
+  ]
+}

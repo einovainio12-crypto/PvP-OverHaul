@@ -12,6 +12,9 @@ import com.mojang.serialization.JsonOps;
 public final class ArsenalChecks {
     private static void check(boolean ok,String message){if(!ok)throw new AssertionError(message);}
     public static void run(HolderLookup.Provider provider,Path path){
+        Item hellfork=BuiltInRegistries.ITEM.getValue(PvpOverhaul.id("hellfork"));
+        check(BuiltInRegistries.ITEM.getKey(hellfork).equals(PvpOverhaul.id("hellfork")),"Hellfork must use the PvP+ command namespace");
+        check(ModItems.ALL.contains(hellfork),"Hellfork missing from the Combat creative tab items");
         check(ModItems.ARSENAL.size()==28,"Four weapon kinds across seven materials");
         var unique=new java.util.HashSet<>(WeaponEntities.TYPES.values());
         check(unique.size()==WeaponEntities.TYPES.size(),"Weapon types share a registry ID");
@@ -27,7 +30,7 @@ public final class ArsenalChecks {
         for(Item item:ModItems.KNIVES.values())check(flame.value().getSupportedItems().contains(item.builtInRegistryHolder()),"Knife cannot take Flame");
         check(flame.value().getSupportedItems().contains(ModItems.STONE_KNIFE.builtInRegistryHolder()),"Stone knife Flame missing");
         var hammer=new ItemStack(ModItems.ARSENAL.get("netherite_hammer"));
-        for(String n:new String[]{"pvpoverhaul:throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide"}){
+        for(String n:new String[]{"pvpplus:throwable","minecraft:loyalty","minecraft:channeling","minecraft:riptide"}){
             var e=registry.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT,Identifier.parse(n)));check(e.value().getSupportedItems().contains(hammer.getItem().builtInRegistryHolder()),"Storm hammer rejects "+n);hammer.enchant(e,(n.endsWith("loyalty")||n.endsWith("riptide"))?3:1);
         }
         check(HammerItem.awakened(hammer),"Storm Core hammer cannot use dry Riptide");

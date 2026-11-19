@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.chaos_construct",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.chaos_construct"
+  },
+  "length_in_seconds": 110.457324,
+  "comparator_output": 5
+}

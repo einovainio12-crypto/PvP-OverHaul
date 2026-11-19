@@ -15,7 +15,7 @@ public final class QuiverItem extends Item {
         if(level instanceof ServerLevel) {
             int slot=hand==InteractionHand.MAIN_HAND?player.getInventory().getSelectedSlot():40;
             player.openMenu(new SimpleMenuProvider((id,inventory,user)->new QuiverMenu(id,inventory,slot),
-                Component.translatable("container.pvpoverhaul.quiver")));
+                Component.translatable("container.pvpplus.quiver")));
         }
         return InteractionResult.SUCCESS;
     }

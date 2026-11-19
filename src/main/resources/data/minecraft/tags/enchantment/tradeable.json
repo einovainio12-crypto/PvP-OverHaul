@@ -1,13 +1,18 @@
 {
   "replace": false,
   "values": [
-    "pvpoverhaul:throwable",
-    "pvpoverhaul:pole_jump",
-    "pvpoverhaul:double_jump",
-    "pvpoverhaul:speed",
-    "pvpoverhaul:boost",
-    "pvpoverhaul:aerodynamics",
-    "pvpoverhaul:cleaving",
-    "pvpoverhaul:impact"
+    "pvpplus:throwable",
+    "pvpplus:pole_jump",
+    "pvpplus:double_jump",
+    "pvpplus:speed",
+    "pvpplus:boost",
+    "pvpplus:overload",
+    "pvpplus:aerodynamics",
+    "pvpplus:cleaving",
+    "pvpplus:impact",
+    "pvpplus:ice_aspect",
+    "pvpplus:leeching",
+    "pvpplus:chaining",
+    "pvpplus:stunning"
   ]
 }

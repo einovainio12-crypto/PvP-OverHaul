@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow_pulling_1",
+  "textures": {
+    "layer0": "pvpplus:item/iron_crossbow_pulling_1_pvp_silver"
+  }
+}

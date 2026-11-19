@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:bow",
+    "thesilverage:silver_ingot",
+    "thesilverage:silver_ingot",
+    "thesilverage:silver_ingot"
+  ],
+  "result": {
+    "id": "pvpplus:silver_bow",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thesilverage"
+      ]
+    }
+  ]
+}

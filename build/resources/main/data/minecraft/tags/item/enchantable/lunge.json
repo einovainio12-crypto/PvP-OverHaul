@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:spears",
+    "pvpplus:brass_spear",
+    "pvpplus:zinc_spear",
+    "pvpplus:bronze_spear",
+    "pvpplus:rose_gold_spear"
+  ]
+}

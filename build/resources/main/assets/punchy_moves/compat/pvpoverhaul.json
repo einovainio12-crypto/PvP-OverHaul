@@ -1,0 +1,2905 @@
+{
+  "format_version": 2,
+  "items": {
+    "pvpplus:brass_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:brass_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:brass_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:brass_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:brass_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:brass_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:brass_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:brass_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:brass_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:brass_spear": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_jab",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:bronze_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:bronze_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:bronze_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:bronze_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:bronze_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:bronze_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:bronze_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:bronze_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:bronze_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:bronze_spear": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_jab",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:copper_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:copper_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:copper_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:copper_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:copper_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:copper_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:copper_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:copper_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:copper_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:diamond_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:diamond_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 26,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:diamond_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:diamond_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:diamond_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:diamond_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:diamond_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:diamond_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:diamond_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:enderite_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:enderite_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 30,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:enderite_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:enderite_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:enderite_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:enderite_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:enderite_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:enderite_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:enderite_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:gold_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:gold_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 10,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:gold_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:gold_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:gold_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:gold_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:gold_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:gold_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:gold_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:iron_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:iron_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:iron_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:iron_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:iron_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:iron_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:iron_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:iron_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:iron_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:lead_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:lead_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:lead_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:lead_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:lead_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:lead_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:lead_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:lead_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:lead_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:netherite_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 30,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:netherite_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 30,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:netherite_diamond_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:netherite_diamond_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_diamond_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:netherite_emerald_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_emerald_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 30,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:netherite_emerald_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:netherite_emerald_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:netherite_emerald_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_emerald_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_emerald_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_emerald_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_emerald_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:netherite_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:netherite_gold_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_gold_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 30,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:netherite_gold_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:netherite_gold_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:netherite_gold_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_gold_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_gold_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_gold_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_gold_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:netherite_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_iron_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_iron_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 30,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:netherite_iron_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:netherite_iron_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:netherite_iron_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_iron_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_iron_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_iron_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_iron_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:netherite_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:netherite_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:rose_gold_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:rose_gold_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 16,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:rose_gold_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:rose_gold_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:rose_gold_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:rose_gold_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:rose_gold_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:rose_gold_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:rose_gold_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:rose_gold_spear": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_jab",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:siftite_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:siftite_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 26,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:siftite_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:siftite_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:siftite_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:siftite_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:siftite_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:siftite_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:siftite_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:silver_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:silver_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:silver_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:silver_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:silver_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:silver_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:silver_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:silver_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:silver_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:steel_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:steel_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 26,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:steel_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:steel_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:steel_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:steel_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:steel_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:steel_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:steel_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:stone_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:stone_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:stone_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:stone_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:stone_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:stone_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:stone_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:stone_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:wood_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:wood_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:wood_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:wood_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:wood_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:wood_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:wood_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:zinc_battleaxe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:zinc_bow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "charge": "pvpplus_bow_draw",
+        "hold": {
+          "clip": "pvpplus_bow_hold",
+          "hold_last_frame": true
+        },
+        "release": "pvpplus_bow_release"
+      },
+      "sequence": {
+        "behavior": "bow",
+        "charge_ticks": 20,
+        "minimum_charge_ticks": 3
+      }
+    },
+    "pvpplus:zinc_crossbow": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "crossbow": {
+          "charge": "pvpplus_crossbow_draw",
+          "charge_idle": "pvpplus_crossbow_hold",
+          "idle": "pvpplus_idle",
+          "charged": "pvpplus_crossbow_hold",
+          "shoot": "pvpplus_crossbow_fire"
+        }
+      }
+    },
+    "pvpplus:zinc_flail": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        },
+        "equip": "pvpplus_idle",
+        "idle": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "cast": "pvpplus_cast",
+        "fishing": {
+          "clip": "pvpplus_idle",
+          "hold_last_frame": true
+        },
+        "reel": "pvpplus_reel"
+      },
+      "sequence": {
+        "behavior": "fishing"
+      }
+    },
+    "pvpplus:zinc_halberd": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:zinc_hammer": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_heavy",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:zinc_knife": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:zinc_scythe": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_sweep",
+          "retrigger_progress": 50
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    },
+    "pvpplus:zinc_shield": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_slash",
+          "retrigger_progress": 50
+        },
+        "shield_pose": "pvpplus_block"
+      }
+    },
+    "pvpplus:zinc_spear": {
+      "animations": {
+        "attack": {
+          "clip": "pvpplus_jab",
+          "retrigger_progress": 50
+        },
+        "spear": {
+          "charge": "pvpplus_spear_hold",
+          "attack": "pvpplus_jab"
+        },
+        "trident": {
+          "charge": "pvpplus_throw_draw",
+          "release": "pvpplus_throw",
+          "minimum_charge_ticks": 10
+        }
+      }
+    }
+  }
+}

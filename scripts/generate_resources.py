@@ -10,7 +10,7 @@ for obsolete in json.loads((pathlib.Path(__file__).parent/'obsolete_resources.js
  (ROOT/obsolete).unlink(missing_ok=True)
 from retire_native_rose import cleanup
 cleanup(ROOT)
-MOD='pvpoverhaul' 
+MOD='pvpplus' 
 TIERS=['wood','copper','iron','gold','diamond','netherite']
 MATERIAL=['#minecraft:planks','minecraft:copper_ingot','minecraft:iron_ingot','minecraft:gold_ingot','minecraft:diamond','minecraft:netherite_ingot']
 COLORS=[(139,92,47),(213,119,73),(209,218,228),(255,207,67),(73,221,209),(87,73,86)]
@@ -104,9 +104,9 @@ recipe('craftable_trident',pattern=[' PP',' SP','S  '],key={'P':'minecraft:prism
 bykind=lambda k:[f'{MOD}:{t}_{k}' for t in TIERS if not (t=='wood' and k in ['bow','crossbow'])]+([f'{MOD}:stone_{k}'] if k in ['bow','crossbow','battleaxe','knife'] else [])
 for kind in ['knives','spears','battleaxes','shields']:
  singular={'knives':'knife','battleaxes':'battleaxe','shields':'shield'}.get(kind);tag(MOD,kind,bykind(singular) if singular else ['#minecraft:spears'])
-tag(MOD,'throwable_weapons',['#pvpoverhaul:spears','#pvpoverhaul:battleaxes','#minecraft:axes','#minecraft:spears'])
+tag(MOD,'throwable_weapons',['#pvpplus:spears','#pvpplus:battleaxes','#minecraft:axes','#minecraft:spears'])
 tag(MOD,'elytra',['minecraft:elytra'])
-tag(MOD,'loyalty_weapons',['minecraft:trident','#pvpoverhaul:throwable_weapons','#pvpoverhaul:knives'])
+tag(MOD,'loyalty_weapons',['minecraft:trident','#pvpplus:throwable_weapons','#pvpplus:knives'])
 tag('minecraft','arrows',[f'{MOD}:{a}' for a in AMMO])
 # Native spear items, recipes and models are reused without registering duplicates.
 for enchant,values in {
@@ -121,26 +121,27 @@ def ench(id,supported,slots,max_level=1,effects=None,exclusive=None,weight=5):
  if exclusive:d['exclusive_set']=exclusive
  write(f'data/{MOD}/enchantment/{id}.json',d)
 linear=lambda base,step:{'type':'minecraft:linear','base':base,'per_level_above_first':step}
-ench('throwable','#pvpoverhaul:throwable_weapons',['mainhand'],exclusive=['minecraft:lunge','pvpoverhaul:pole_jump'])
-ench('pole_jump','#pvpoverhaul:pole_weapons',['mainhand'],3,exclusive=['pvpoverhaul:throwable'])
-ench('double_jump','#minecraft:enchantable/foot_armor',['feet'],2,exclusive=['pvpoverhaul:speed'])
-ench('speed','#minecraft:enchantable/foot_armor',['feet'],3,{'minecraft:attributes':[{'id':'pvpoverhaul:speed','attribute':'minecraft:movement_speed','operation':'add_multiplied_base','amount':linear(.03,.03)}]},exclusive=['pvpoverhaul:double_jump'],weight=2)
-ench('boost','#pvpoverhaul:elytra',['chest'],3,weight=2)
-ench('overload','#pvpoverhaul:elytra',['chest'],1,weight=1)
-ench('aerodynamics','#pvpoverhaul:elytra',['chest'],2)
-ench('cleaving','#pvpoverhaul:battleaxes',['mainhand'],3,{'minecraft:damage':[{'effect':{'type':'minecraft:add','value':linear(1,1)}}]},'#minecraft:exclusive_set/damage')
-ench('impact','#pvpoverhaul:battleaxes',['mainhand'],2,{'minecraft:knockback':[{'effect':{'type':'minecraft:add','value':linear(.5,.5)}}]})
+ench('throwable','#pvpplus:throwable_weapons',['mainhand'],exclusive=['minecraft:lunge','pvpplus:pole_jump'])
+ench('pole_jump','#pvpplus:pole_weapons',['mainhand'],3,exclusive=['pvpplus:throwable'])
+ench('double_jump','#minecraft:enchantable/foot_armor',['feet'],2,exclusive=['pvpplus:speed'])
+ench('speed','#minecraft:enchantable/foot_armor',['feet'],3,{'minecraft:attributes':[{'id':'pvpplus:speed','attribute':'minecraft:movement_speed','operation':'add_multiplied_base','amount':linear(.03,.03)}]},exclusive=['pvpplus:double_jump'],weight=2)
+ench('boost','#pvpplus:elytra',['chest'],3,weight=2)
+ench('overload','#pvpplus:elytra',['chest'],1,weight=1)
+ench('aerodynamics','#pvpplus:elytra',['chest'],2)
+ench('cleaving','#pvpplus:battleaxes',['mainhand'],3,{'minecraft:damage':[{'effect':{'type':'minecraft:add','value':linear(1,1)}}]},'#minecraft:exclusive_set/damage')
+ench('impact','#pvpplus:battleaxes',['mainhand'],2,{'minecraft:knockback':[{'effect':{'type':'minecraft:add','value':linear(.5,.5)}}]})
 # Patch only the supported-items and one mutual exclusion field of the 26.3 vanilla definitions.
-loyalty={'anvil_cost':2,'description':{'translate':'enchantment.minecraft.loyalty'},'effects':{'minecraft:trident_return_acceleration':[{'effect':{'type':'minecraft:add','value':linear(1,1)}}]},'max_cost':{'base':50,'per_level_above_first':0},'max_level':3,'min_cost':{'base':12,'per_level_above_first':7},'slots':['mainhand'],'supported_items':'#pvpoverhaul:loyalty_weapons','weight':5}
+loyalty={'anvil_cost':2,'description':{'translate':'enchantment.minecraft.loyalty'},'effects':{'minecraft:trident_return_acceleration':[{'effect':{'type':'minecraft:add','value':linear(1,1)}}]},'max_cost':{'base':50,'per_level_above_first':0},'max_level':3,'min_cost':{'base':12,'per_level_above_first':7},'slots':['mainhand'],'supported_items':'#pvpplus:loyalty_weapons','weight':5}
 write('data/minecraft/enchantment/loyalty.json',loyalty)
 # Compatibility checks both enchantments' exclusive sets; Lunge's original effects stay intact.
 for path in ['in_enchanting_table','tradeable','on_random_loot','on_traded_equipment']:
  write(f'data/minecraft/tags/enchantment/{path}.json',{'replace':False,'values':[f'{MOD}:{n}' for n in ['throwable','pole_jump','double_jump','speed','boost','overload','aerodynamics','cleaving','impact']]})
-write('data/minecraft/tags/enchantment/exclusive_set/damage.json',{'replace':False,'values':['pvpoverhaul:cleaving']})
+write('data/minecraft/tags/enchantment/exclusive_set/damage.json',{'replace':False,'values':['pvpplus:cleaving']})
 for key,title in {'zoom':'Zoom (hold)','target_lock':'Target Lock','dead_eye':'Dead Eye','boost':'Elytra Boost','pole_jump':'Pole Jump','overload':'Elytra Overload','quiver':'Quiver Arrow Wheel','sheath_swap':'Swap Sheathed Weapon'}.items():LANG[f'key.{MOD}.{key}']=title
-LANG['container.pvpoverhaul.fletching']='Fletching Table'
-LANG['container.pvpoverhaul.quiver']='Quiver'
-LANG['key.category.pvpoverhaul.combat']='PvP+'
+LANG['container.pvpplus.fletching']='Fletching Table'
+LANG['container.pvpplus.quiver']='Quiver'
+LANG['key.category.pvpplus.combat']='PvP+'
+LANG['item.pvpplus.hellfork']='Hellfork'
 from arsenal_resources import extend
 extend(globals())
 # Uploaded arsenal textures override generated placeholders after the arsenal pass.

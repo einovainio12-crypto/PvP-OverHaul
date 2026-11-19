@@ -2,7 +2,7 @@
 """Check internal resource links, recipes, item coverage and enchantment rules before packaging."""
 import json,pathlib,re,sys
 root=pathlib.Path(__file__).resolve().parents[1]
-res=root/'src/main/resources';ns='pvpoverhaul';errors=[]
+res=root/'src/main/resources';ns='pvpplus';errors=[]
 def error(message):errors.append(message)
 obsolete=set(json.loads((root/'scripts/obsolete_resources.json').read_text()))
 parsed={}
@@ -21,15 +21,15 @@ expected.add('slingshot')
 expected.add('grappling_arrow')
 expected.update(['dragon_scale_wolf_armor','quiver'])
 expected.update(f'{t}_{k}' for t in ['wood','stone','copper','iron','gold','diamond','netherite'] for k in ['flail','hammer','scythe','halberd'])
-expected.update(['weapon_sheath','storm_core','healing_totem','combat_cache','ice_arrow'])
+expected.update(['weapon_sheath','storm_core','healing_totem','combat_cache','ice_arrow','hellfork'])
 generated=set()
 for source in parsed.get('assets/minecraft/atlases/items.json',{}).get('sources',[]):
  for texture in source.get('textures',[]):
   for suffix in source.get('permutations',{}):generated.add(texture+'_'+suffix)
  for palette in [source.get('palette_key')]+list(source.get('permutations',{}).values()):
   if palette and palette.startswith(ns+':') and not (res/f'assets/{ns}/textures/palettes/{palette.split(":",1)[1]}.png').exists():error('Missing palette '+palette)
-expected.update(parsed.get('assets/pvpoverhaul/compat_expected_items.json',[]))
-runtime_textures=parsed.get('assets/pvpoverhaul/compat_equipment.json',{})
+expected.update(parsed.get('assets/pvpplus/compat_expected_items.json',[]))
+runtime_textures=parsed.get('assets/pvpplus/compat_equipment.json',{})
 if items!=expected:error(f'Item coverage mismatch: missing={expected-items}, unexpected={items-expected}')
 lang=parsed.get(f'assets/{ns}/lang/en_us.json',{})
 for item in expected:
@@ -66,19 +66,20 @@ for path,d in parsed.items():
 craftable={d.get('result',{}).get('id','').removeprefix(ns+':') for path,d in parsed.items()
  if '/recipe/' in path and d.get('type') in ['minecraft:crafting_shaped','minecraft:crafting_shapeless','minecraft:smithing_transform']
  and d.get('result',{}).get('id','').startswith(ns+':')}
-if expected-craftable:error(f'Missing survival recipes: {sorted(expected-craftable)}')
+missing_recipes=expected-craftable-{'hellfork'}
+if missing_recipes:error(f'Missing survival recipes: {sorted(missing_recipes)}')
 throwable=parsed.get(f'data/{ns}/enchantment/throwable.json',{})
 pole=parsed.get(f'data/{ns}/enchantment/pole_jump.json',{})
-if set(throwable.get('exclusive_set',[]))!={'minecraft:lunge','pvpoverhaul:pole_jump'}:error('Throwable must exclude Lunge and Pole Jump')
-if pole.get('exclusive_set')!=['pvpoverhaul:throwable']:error('Pole Jump must allow Lunge and exclude Throwable')
-if 'pvpoverhaul:throwable' in parsed.get('data/minecraft/enchantment/loyalty.json',{}).get('exclusive_set',[]):error('Loyalty must allow Throwable')
+if set(throwable.get('exclusive_set',[]))!={'minecraft:lunge','pvpplus:pole_jump'}:error('Throwable must exclude Lunge and Pole Jump')
+if pole.get('exclusive_set')!=['pvpplus:throwable']:error('Pole Jump must allow Lunge and exclude Throwable')
+if 'pvpplus:throwable' in parsed.get('data/minecraft/enchantment/loyalty.json',{}).get('exclusive_set',[]):error('Loyalty must allow Throwable')
 speed=parsed.get(f'data/{ns}/enchantment/speed.json',{})
 double_jump=parsed.get(f'data/{ns}/enchantment/double_jump.json',{})
-if speed.get('exclusive_set')!=['pvpoverhaul:double_jump'] or double_jump.get('exclusive_set')!=['pvpoverhaul:speed']:error('Boot mobility enchantments must be mutually exclusive')
+if speed.get('exclusive_set')!=['pvpplus:double_jump'] or double_jump.get('exclusive_set')!=['pvpplus:speed']:error('Boot mobility enchantments must be mutually exclusive')
 for path in parsed:
  if path in obsolete:error(f'Obsolete spear resource will be packaged: {path}')
 for path,d in parsed.items():
- if '/recipe/' in path and d.get('result',{}).get('id','').startswith('pvpoverhaul:') and d['result']['id'].endswith('_spear') and d['result']['id'].removeprefix('pvpoverhaul:') not in expected:error('Duplicate spear recipe')
+ if '/recipe/' in path and d.get('result',{}).get('id','').startswith('pvpplus:') and d['result']['id'].endswith('_spear') and d['result']['id'].removeprefix('pvpplus:') not in expected:error('Duplicate spear recipe')
 # Check declared Java/mixin entrypoints actually exist; catches mispackaged class names.
 meta=parsed.get('fabric.mod.json',{})
 def class_exists(name):return any((root/f'src/{s}/java'/pathlib.Path(name.replace('.','/')+'.java')).exists() for s in ['main','client'])

@@ -73,7 +73,7 @@ public final class Interactions {
     private static InteractionResult openFletching(Player player,Level level,BlockHitResult hit) {
         if(level instanceof ServerLevel) player.openMenu(new SimpleMenuProvider(
             (id,inventory,user)->new FletchingMenu(id,inventory,ContainerLevelAccess.create(level,hit.getBlockPos())),
-            Component.translatable("container.pvpoverhaul.fletching")));
+            Component.translatable("container.pvpplus.fletching")));
         return InteractionResult.SUCCESS;
     }
     private Interactions() {}

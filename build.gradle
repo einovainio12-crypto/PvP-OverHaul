@@ -83,3 +83,5 @@ tasks.register('syncMaterialSources', Exec) {
 }
 tasks.named('compileJava') { dependsOn 'syncMaterialSources' }
 tasks.named('generateResources') { dependsOn 'syncMaterialSources' }
+
+apply from: 'tools/gear/shields.gradle'

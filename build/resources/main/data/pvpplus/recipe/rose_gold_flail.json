@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " MM",
+    " CM",
+    "S  "
+  ],
+  "key": {
+    "M": "rosegoldequipment:rose_gold_ingot",
+    "S": "minecraft:stick",
+    "C": "rosegoldequipment:rose_gold_ingot"
+  },
+  "result": {
+    "id": "pvpplus:rose_gold_flail",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "rosegoldequipment"
+      ]
+    }
+  ]
+}

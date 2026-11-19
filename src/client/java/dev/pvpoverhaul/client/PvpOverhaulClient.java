@@ -15,7 +15,7 @@ import net.minecraft.client.Minecraft;
 public final class PvpOverhaulClient implements ClientModInitializer {
     private static KeyMapping zoom,lock,dead,boost,pole,overload,quiver,sheath;
     private boolean jumpWasDown;
-    @Override public void onInitializeClient() {
+    @Override public void onInitializeClient() { dev.pvpplusgear.SheathKey.init();
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(client->CompatMaterials.bindExternal());
         ClientPlayNetworking.registerGlobalReceiver(TargetLockPayload.TYPE,(payload,context)->TargetLockClient.receive(payload.entityId()));
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.DISCONNECT.register((handler,client)->TargetLockClient.clear());
@@ -82,7 +82,7 @@ public final class PvpOverhaulClient implements ClientModInitializer {
         });
     }
     private static KeyMapping key(String name,int code,KeyMapping.Category category) {
-        return KeyMappingHelper.registerKeyMapping(new KeyMapping("key.pvpoverhaul."+name,InputConstants.Type.KEYBOARD,code,category));
+        return KeyMappingHelper.registerKeyMapping(new KeyMapping("key.pvpplus."+name,InputConstants.Type.KEYBOARD,code,category));
     }
     private static void send(int action) {
         if (ClientPlayNetworking.canSend(SkillPayload.TYPE)) ClientPlayNetworking.send(new SkillPayload(action));

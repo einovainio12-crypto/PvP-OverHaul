@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "immersiveores"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": "immersiveores:enderium_ingot",
+    "S": "immersiveores:enderium_stick",
+    "F": "minecraft:feather"
+  },
+  "pattern": [
+    "M",
+    "S",
+    "F"
+  ],
+  "result": {
+    "id": "pvpplusores:enderium_arrow",
+    "count": 4
+  }
+}

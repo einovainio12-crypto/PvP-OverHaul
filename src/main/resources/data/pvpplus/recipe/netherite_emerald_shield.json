@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:netherite_upgrade_smithing_template",
+  "base": "pvpplus:netherite_gold_shield",
+  "addition": "advancednetherite:netherite_emerald_ingot",
+  "result": {
+    "id": "pvpplus:netherite_emerald_shield"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "advancednetherite"
+      ]
+    }
+  ]
+}

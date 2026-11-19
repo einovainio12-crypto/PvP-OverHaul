@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow_arrow",
+  "textures": {
+    "layer0": "pvpplus:item/iron_crossbow_arrow_pvp_enderite"
+  }
+}

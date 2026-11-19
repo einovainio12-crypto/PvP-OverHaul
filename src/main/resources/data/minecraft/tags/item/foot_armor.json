@@ -1,0 +1,48 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_boots",
+    "pvpplus:zinc_boots",
+    "pvpplus:bronze_boots",
+    {
+      "id": "alloyed:steel_boots",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_boots",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_boots",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_boots",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_boots",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_boots",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_boots",
+      "required": false
+    }
+  ]
+}

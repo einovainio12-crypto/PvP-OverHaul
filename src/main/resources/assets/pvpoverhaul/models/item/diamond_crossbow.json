@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/crossbow",
-  "textures": {
-    "layer0": "pvpoverhaul:item/diamond_crossbow"
-  }
-}

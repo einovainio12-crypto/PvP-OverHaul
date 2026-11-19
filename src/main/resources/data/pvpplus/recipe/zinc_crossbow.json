@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:crossbow",
+    "create:zinc_ingot",
+    "create:zinc_ingot",
+    "create:zinc_ingot"
+  ],
+  "result": {
+    "id": "pvpplus:zinc_crossbow",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ]
+}

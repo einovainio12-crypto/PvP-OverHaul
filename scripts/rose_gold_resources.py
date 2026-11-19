@@ -2,7 +2,7 @@
 import json,base64,pathlib
 
 def extend(g):
- root=g['ROOT'];write=g['write'];recipe=g['recipe'];name=g['name'];model=g['model'];ns='pvpoverhaul';ingot=ns+':rose_gold_ingot'
+ root=g['ROOT'];write=g['write'];recipe=g['recipe'];name=g['name'];model=g['model'];ns='pvpplus';ingot=ns+':rose_gold_ingot'
  for path,data in json.loads((pathlib.Path(__file__).parent/'art/rose_gold_assets.json').read_text()).items():
   p=root/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(base64.b64decode(data))
  # Clone the user's gold model geometry, display transforms and animation trees.

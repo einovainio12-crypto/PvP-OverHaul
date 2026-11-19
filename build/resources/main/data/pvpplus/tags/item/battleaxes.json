@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:wood_battleaxe",
+    "pvpplus:copper_battleaxe",
+    "pvpplus:iron_battleaxe",
+    "pvpplus:gold_battleaxe",
+    "pvpplus:diamond_battleaxe",
+    "pvpplus:netherite_battleaxe",
+    "pvpplus:stone_battleaxe",
+    "pvpplus:brass_battleaxe",
+    "pvpplus:zinc_battleaxe",
+    "pvpplus:bronze_battleaxe",
+    "pvpplus:steel_battleaxe",
+    "pvpplus:silver_battleaxe",
+    "pvpplus:lead_battleaxe",
+    "pvpplus:siftite_battleaxe",
+    "pvpplus:netherite_iron_battleaxe",
+    "pvpplus:netherite_gold_battleaxe",
+    "pvpplus:netherite_emerald_battleaxe",
+    "pvpplus:netherite_diamond_battleaxe",
+    "pvpplus:rose_gold_battleaxe",
+    "pvpplus:enderite_battleaxe"
+  ]
+}

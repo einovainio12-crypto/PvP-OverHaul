@@ -12,11 +12,11 @@ public final class ArmoredFoesCompat {
  public static void onSpawn(Mob mob,EntitySpawnReason reason){
   if(!FabricLoader.getInstance().isModLoaded("armoredfoes") || !(mob instanceof Monster)
     || reason!=EntitySpawnReason.NATURAL && reason!=EntitySpawnReason.CHUNK_GENERATION || mob.getRandom().nextInt(8)!=0)return;
-  String namespace="pvpoverhaul",material="rose_gold";
+  String namespace="pvpplus",material="rose_gold";
   List<CompatMaterials.Material> candidates=CompatMaterials.MATERIALS.stream().filter(CompatMaterials::active).filter(m->Tier.valueOf(m.id().toUpperCase(Locale.ROOT)).rank<=2).toList();
   if(candidates.isEmpty())return;
   int pick=mob.getRandom().nextInt(candidates.size());
-  if(pick<candidates.size()){var m=candidates.get(pick);material=m.id().equals("rose_gold")?"rose_golden":m.id();namespace=m.standard()?m.mod():"pvpoverhaul";}
+  if(pick<candidates.size()){var m=candidates.get(pick);material=m.id().equals("rose_gold")?"rose_golden":m.id();namespace=m.standard()?m.mod():"pvpplus";}
   String[] kinds={"helmet","chestplate","leggings","boots"};EquipmentSlot[] slots={EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET};
   for(int i=0;i<slots.length;i++){
    var old=mob.getItemBySlot(slots[i]);if(old.isEmpty())continue;

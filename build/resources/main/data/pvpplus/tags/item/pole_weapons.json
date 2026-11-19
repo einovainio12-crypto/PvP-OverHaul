@@ -1,0 +1,66 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:spears",
+    "pvpplus:wood_halberd",
+    "pvpplus:copper_halberd",
+    "pvpplus:iron_halberd",
+    "pvpplus:gold_halberd",
+    "pvpplus:diamond_halberd",
+    "pvpplus:netherite_halberd",
+    "pvpplus:stone_halberd",
+    "pvpplus:brass_halberd",
+    "pvpplus:brass_spear",
+    "pvpplus:zinc_halberd",
+    "pvpplus:zinc_spear",
+    "pvpplus:bronze_halberd",
+    "pvpplus:bronze_spear",
+    "pvpplus:steel_halberd",
+    {
+      "id": "alloyed:steel_spear",
+      "required": false
+    },
+    "pvpplus:silver_halberd",
+    {
+      "id": "thesilverage:silver_spear",
+      "required": false
+    },
+    "pvpplus:lead_halberd",
+    {
+      "id": "theleadage:lead_spear",
+      "required": false
+    },
+    "pvpplus:siftite_halberd",
+    {
+      "id": "the_sift:siftite_spear",
+      "required": false
+    },
+    "pvpplus:netherite_iron_halberd",
+    {
+      "id": "advancednetherite:netherite_iron_spear",
+      "required": false
+    },
+    "pvpplus:netherite_gold_halberd",
+    {
+      "id": "advancednetherite:netherite_gold_spear",
+      "required": false
+    },
+    "pvpplus:netherite_emerald_halberd",
+    {
+      "id": "advancednetherite:netherite_emerald_spear",
+      "required": false
+    },
+    "pvpplus:netherite_diamond_halberd",
+    {
+      "id": "advancednetherite:netherite_diamond_spear",
+      "required": false
+    },
+    "pvpplus:rose_gold_halberd",
+    "pvpplus:rose_gold_spear",
+    "pvpplus:enderite_halberd",
+    {
+      "id": "enderitemod:enderite_spear",
+      "required": false
+    }
+  ]
+}

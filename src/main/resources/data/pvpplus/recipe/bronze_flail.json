@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " MM",
+    " CM",
+    "S  "
+  ],
+  "key": {
+    "M": "alloyed:bronze_ingot",
+    "S": "minecraft:stick",
+    "C": "alloyed:bronze_ingot"
+  },
+  "result": {
+    "id": "pvpplus:bronze_flail",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "alloyed"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.playful_massacre",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.playful_massacre"
+  },
+  "length_in_seconds": 131.564263,
+  "comparator_output": 4
+}

@@ -1,0 +1,48 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_helmet",
+    "pvpplus:zinc_helmet",
+    "pvpplus:bronze_helmet",
+    {
+      "id": "alloyed:steel_helmet",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_helmet",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_helmet",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_helmet",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_helmet",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_helmet",
+      "required": false
+    }
+  ]
+}

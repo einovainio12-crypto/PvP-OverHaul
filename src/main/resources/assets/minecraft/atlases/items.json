@@ -1,0 +1,3264 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_spear_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_spear_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear_in_hand"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_spear_in_hand_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_spear_in_hand_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_sword"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_sword_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_sword_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_pickaxe"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_pickaxe_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_pickaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_axe"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_axe_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_axe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_shovel"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_shovel_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_shovel_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_hoe"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_hoe_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_hoe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_helmet"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_helmet_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_helmet_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_chestplate"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_chestplate_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_chestplate_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_leggings"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_leggings_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_leggings_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_boots"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_boots_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_boots_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/brass/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_brass": "pvpplus:compat/brass/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_spear_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_spear_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear_in_hand"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_spear_in_hand_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_spear_in_hand_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_sword"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_sword_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_sword_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_pickaxe"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_pickaxe_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_pickaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_axe"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_axe_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_axe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_shovel"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_shovel_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_shovel_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_hoe"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_hoe_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_hoe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_helmet"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_helmet_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_helmet_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_chestplate"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_chestplate_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_chestplate_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_leggings"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_leggings_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_leggings_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_boots"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_boots_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_boots_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/zinc/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_zinc": "pvpplus:compat/zinc/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_spear_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_spear_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear_in_hand"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_spear_in_hand_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_spear_in_hand_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_sword"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_sword_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_sword_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_pickaxe"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_pickaxe_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_pickaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_axe"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_axe_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_axe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_shovel"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_shovel_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_shovel_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_hoe"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_hoe_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_hoe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_helmet"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_helmet_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_helmet_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_chestplate"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_chestplate_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_chestplate_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_leggings"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_leggings_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_leggings_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_boots"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_boots_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_boots_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/bronze/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_bronze": "pvpplus:compat/bronze/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/steel/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_steel": "pvpplus:compat/steel/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/silver/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_silver": "pvpplus:compat/silver/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/lead/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_lead": "pvpplus:compat/lead/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/siftite/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/siftite/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/siftite/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_siftite": "pvpplus:compat/siftite/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_iron/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_netherite_iron": "pvpplus:compat/netherite_iron/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_gold/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_netherite_gold": "pvpplus:compat/netherite_gold/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_emerald/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_netherite_emerald": "pvpplus:compat/netherite_emerald/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/netherite_diamond/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_netherite_diamond": "pvpplus:compat/netherite_diamond/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/minecraft/item/iron_spear_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/minecraft/item/iron_spear_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_spear_in_hand"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/minecraft/item/iron_spear_in_hand_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/minecraft/item/iron_spear_in_hand_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/minecraft/item/wolf_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_horse_armor"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/minecraft/item/iron_horse_armor_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/minecraft/item/iron_horse_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/iron_nautilus_armor"
+      ],
+      "palette_key": "pvpplus:compat/rose_gold/minecraft/item/iron_nautilus_armor_key",
+      "permutations": {
+        "pvp_rose_gold": "pvpplus:compat/rose_gold/minecraft/item/iron_nautilus_armor_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_halberd_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_halberd_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail_cast"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_flail_cast_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_flail_cast_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_knife"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_knife_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_knife_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_bow_pulling_1_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_bow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_bow_pulling_2_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_bow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_hammer"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_hammer_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_hammer_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_arrow"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_arrow_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_shield"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_shield_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_shield_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_pulling_0_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_arrow"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_arrow_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_arrow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_bow_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_bow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_firework"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_firework_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_firework_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_scythe"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_scythe_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_scythe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_battleaxe"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_battleaxe_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_battleaxe_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_1"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_pulling_1_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_pulling_1_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_bow_pulling_0"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_bow_pulling_0_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_bow_pulling_0_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_flail"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_flail_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_flail_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_halberd_held"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_halberd_held_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_halberd_held_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow_pulling_2"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_pulling_2_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_pulling_2_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "pvpplus:item/iron_crossbow"
+      ],
+      "palette_key": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/pvpplus/item/iron_crossbow_palette"
+      }
+    },
+    {
+      "type": "minecraft:paletted_permutations",
+      "textures": [
+        "minecraft:item/wolf_armor"
+      ],
+      "palette_key": "pvpplus:compat/enderite/minecraft/item/wolf_armor_key",
+      "permutations": {
+        "pvp_enderite": "pvpplus:compat/enderite/minecraft/item/wolf_armor_palette"
+      }
+    }
+  ]
+}

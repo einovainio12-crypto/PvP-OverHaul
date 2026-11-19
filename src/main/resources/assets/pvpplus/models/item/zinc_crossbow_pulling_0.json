@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow_pulling_0",
+  "textures": {
+    "layer0": "pvpplus:item/iron_crossbow_pulling_0_pvp_zinc"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "pvpplus:item/iron_bow_pvp_siftite"
+  }
+}

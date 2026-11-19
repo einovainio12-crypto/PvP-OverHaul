@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow_firework",
+  "textures": {
+    "layer0": "pvpplus:item/iron_crossbow_firework_pvp_lead"
+  }
+}

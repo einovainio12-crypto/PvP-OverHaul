@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_hammer",
+    "pvpplus:bronze_hammer",
+    "pvpplus:copper_hammer",
+    "pvpplus:diamond_hammer",
+    "pvpplus:enderite_hammer",
+    "pvpplus:gold_hammer",
+    "pvpplus:iron_hammer",
+    "pvpplus:lead_hammer",
+    "pvpplus:netherite_diamond_hammer",
+    "pvpplus:netherite_emerald_hammer",
+    "pvpplus:netherite_gold_hammer",
+    "pvpplus:netherite_hammer",
+    "pvpplus:netherite_iron_hammer",
+    "pvpplus:rose_gold_hammer",
+    "pvpplus:siftite_hammer",
+    "pvpplus:silver_hammer",
+    "pvpplus:steel_hammer",
+    "pvpplus:stone_hammer",
+    "pvpplus:wood_hammer",
+    "pvpplus:zinc_hammer"
+  ]
+}

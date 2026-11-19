@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_scythe",
+    "pvpplus:bronze_scythe",
+    "pvpplus:copper_scythe",
+    "pvpplus:diamond_scythe",
+    "pvpplus:enderite_scythe",
+    "pvpplus:gold_scythe",
+    "pvpplus:iron_scythe",
+    "pvpplus:lead_scythe",
+    "pvpplus:netherite_diamond_scythe",
+    "pvpplus:netherite_emerald_scythe",
+    "pvpplus:netherite_gold_scythe",
+    "pvpplus:netherite_iron_scythe",
+    "pvpplus:netherite_scythe",
+    "pvpplus:rose_gold_scythe",
+    "pvpplus:siftite_scythe",
+    "pvpplus:silver_scythe",
+    "pvpplus:steel_scythe",
+    "pvpplus:stone_scythe",
+    "pvpplus:wood_scythe",
+    "pvpplus:zinc_scythe"
+  ]
+}

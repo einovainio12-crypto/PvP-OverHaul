@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:trident",
-    "#pvpoverhaul:throwable_weapons",
-    "#pvpoverhaul:knives"
-  ]
-}

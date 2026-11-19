@@ -17,39 +17,39 @@
       "required": false
     },
     {
-      "id": "pvpoverhaul:rose_gold_horse_armor",
+      "id": "pvpplus:rose_gold_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:brass_horse_armor",
+      "id": "pvpplus:brass_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:zinc_horse_armor",
+      "id": "pvpplus:zinc_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:bronze_horse_armor",
+      "id": "pvpplus:bronze_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:siftite_horse_armor",
+      "id": "pvpplus:siftite_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_iron_horse_armor",
+      "id": "pvpplus:netherite_iron_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_gold_horse_armor",
+      "id": "pvpplus:netherite_gold_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_emerald_horse_armor",
+      "id": "pvpplus:netherite_emerald_horse_armor",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_diamond_horse_armor",
+      "id": "pvpplus:netherite_diamond_horse_armor",
       "required": false
     },
     {
@@ -85,7 +85,7 @@
       "required": false
     }
   ],
-  "src/main/resources/data/pvpoverhaul/tags/item/battleaxes.json": [
+  "src/main/resources/data/pvpplus/tags/item/battleaxes.json": [
     {
       "id": "pvpplusores:vibranium_battleaxe",
       "required": false
@@ -129,201 +129,201 @@
   ],
   "src/main/resources/data/genesis/tags/item/wooden_tools.json": [
     {
-      "id": "pvpoverhaul:wood_knife",
+      "id": "pvpplus:wood_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_hammer",
+      "id": "pvpplus:wood_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_flail",
+      "id": "pvpplus:wood_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_battleaxe",
+      "id": "pvpplus:wood_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_halberd",
+      "id": "pvpplus:wood_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_scythe",
+      "id": "pvpplus:wood_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_shield",
+      "id": "pvpplus:wood_shield",
       "required": false
     }
   ],
   "src/main/resources/data/genesis/tags/item/weapon_age_restricted_weapons.json": [
     {
-      "id": "pvpoverhaul:wood_knife",
+      "id": "pvpplus:wood_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_hammer",
+      "id": "pvpplus:wood_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_flail",
+      "id": "pvpplus:wood_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_battleaxe",
+      "id": "pvpplus:wood_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_halberd",
+      "id": "pvpplus:wood_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:wood_scythe",
+      "id": "pvpplus:wood_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_knife",
+      "id": "pvpplus:stone_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_hammer",
+      "id": "pvpplus:stone_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_flail",
+      "id": "pvpplus:stone_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_battleaxe",
+      "id": "pvpplus:stone_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_halberd",
+      "id": "pvpplus:stone_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_scythe",
+      "id": "pvpplus:stone_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_knife",
+      "id": "pvpplus:copper_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_hammer",
+      "id": "pvpplus:copper_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_flail",
+      "id": "pvpplus:copper_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_battleaxe",
+      "id": "pvpplus:copper_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_halberd",
+      "id": "pvpplus:copper_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_scythe",
+      "id": "pvpplus:copper_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_knife",
+      "id": "pvpplus:iron_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_hammer",
+      "id": "pvpplus:iron_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_flail",
+      "id": "pvpplus:iron_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_battleaxe",
+      "id": "pvpplus:iron_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_halberd",
+      "id": "pvpplus:iron_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_scythe",
+      "id": "pvpplus:iron_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_knife",
+      "id": "pvpplus:gold_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_hammer",
+      "id": "pvpplus:gold_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_flail",
+      "id": "pvpplus:gold_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_battleaxe",
+      "id": "pvpplus:gold_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_halberd",
+      "id": "pvpplus:gold_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_scythe",
+      "id": "pvpplus:gold_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_knife",
+      "id": "pvpplus:diamond_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_hammer",
+      "id": "pvpplus:diamond_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_flail",
+      "id": "pvpplus:diamond_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_battleaxe",
+      "id": "pvpplus:diamond_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_halberd",
+      "id": "pvpplus:diamond_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_scythe",
+      "id": "pvpplus:diamond_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_knife",
+      "id": "pvpplus:netherite_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_hammer",
+      "id": "pvpplus:netherite_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_flail",
+      "id": "pvpplus:netherite_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_battleaxe",
+      "id": "pvpplus:netherite_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_halberd",
+      "id": "pvpplus:netherite_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_scythe",
+      "id": "pvpplus:netherite_scythe",
       "required": false
     },
     {
@@ -389,227 +389,227 @@
   ],
   "src/main/resources/data/genesis/tags/item/stone_tools.json": [
     {
-      "id": "pvpoverhaul:stone_knife",
+      "id": "pvpplus:stone_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_hammer",
+      "id": "pvpplus:stone_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_flail",
+      "id": "pvpplus:stone_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_battleaxe",
+      "id": "pvpplus:stone_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_halberd",
+      "id": "pvpplus:stone_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_scythe",
+      "id": "pvpplus:stone_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_shield",
+      "id": "pvpplus:stone_shield",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_bow",
+      "id": "pvpplus:stone_bow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:stone_crossbow",
+      "id": "pvpplus:stone_crossbow",
       "required": false
     }
   ],
   "src/main/resources/data/genesis/tags/item/copper_tools.json": [
     {
-      "id": "pvpoverhaul:copper_knife",
+      "id": "pvpplus:copper_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_hammer",
+      "id": "pvpplus:copper_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_flail",
+      "id": "pvpplus:copper_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_battleaxe",
+      "id": "pvpplus:copper_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_halberd",
+      "id": "pvpplus:copper_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_scythe",
+      "id": "pvpplus:copper_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_shield",
+      "id": "pvpplus:copper_shield",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_bow",
+      "id": "pvpplus:copper_bow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:copper_crossbow",
+      "id": "pvpplus:copper_crossbow",
       "required": false
     }
   ],
   "src/main/resources/data/genesis/tags/item/iron_tools.json": [
     {
-      "id": "pvpoverhaul:iron_knife",
+      "id": "pvpplus:iron_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_hammer",
+      "id": "pvpplus:iron_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_flail",
+      "id": "pvpplus:iron_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_battleaxe",
+      "id": "pvpplus:iron_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_halberd",
+      "id": "pvpplus:iron_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_scythe",
+      "id": "pvpplus:iron_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_shield",
+      "id": "pvpplus:iron_shield",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_bow",
+      "id": "pvpplus:iron_bow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:iron_crossbow",
+      "id": "pvpplus:iron_crossbow",
       "required": false
     }
   ],
   "src/main/resources/data/genesis/tags/item/golden_tools.json": [
     {
-      "id": "pvpoverhaul:gold_knife",
+      "id": "pvpplus:gold_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_hammer",
+      "id": "pvpplus:gold_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_flail",
+      "id": "pvpplus:gold_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_battleaxe",
+      "id": "pvpplus:gold_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_halberd",
+      "id": "pvpplus:gold_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_scythe",
+      "id": "pvpplus:gold_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_shield",
+      "id": "pvpplus:gold_shield",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_bow",
+      "id": "pvpplus:gold_bow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:gold_crossbow",
+      "id": "pvpplus:gold_crossbow",
       "required": false
     }
   ],
   "src/main/resources/data/genesis/tags/item/diamond_tools.json": [
     {
-      "id": "pvpoverhaul:diamond_knife",
+      "id": "pvpplus:diamond_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_hammer",
+      "id": "pvpplus:diamond_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_flail",
+      "id": "pvpplus:diamond_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_battleaxe",
+      "id": "pvpplus:diamond_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_halberd",
+      "id": "pvpplus:diamond_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_scythe",
+      "id": "pvpplus:diamond_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_shield",
+      "id": "pvpplus:diamond_shield",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_bow",
+      "id": "pvpplus:diamond_bow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:diamond_crossbow",
+      "id": "pvpplus:diamond_crossbow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_knife",
+      "id": "pvpplus:netherite_knife",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_hammer",
+      "id": "pvpplus:netherite_hammer",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_flail",
+      "id": "pvpplus:netherite_flail",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_battleaxe",
+      "id": "pvpplus:netherite_battleaxe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_halberd",
+      "id": "pvpplus:netherite_halberd",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_scythe",
+      "id": "pvpplus:netherite_scythe",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_shield",
+      "id": "pvpplus:netherite_shield",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_bow",
+      "id": "pvpplus:netherite_bow",
       "required": false
     },
     {
-      "id": "pvpoverhaul:netherite_crossbow",
+      "id": "pvpplus:netherite_crossbow",
       "required": false
     },
     {

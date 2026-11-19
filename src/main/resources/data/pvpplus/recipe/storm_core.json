@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:netherite_scrap",
+    "minecraft:echo_shard",
+    "minecraft:heart_of_the_sea"
+  ],
+  "result": {
+    "id": "pvpplus:storm_core",
+    "count": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:gold_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_crossbow",
+      "required": false
+    }
+  ]
+}

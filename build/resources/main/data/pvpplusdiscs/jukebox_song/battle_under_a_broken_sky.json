@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.battle_under_a_broken_sky",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.battle_under_a_broken_sky"
+  },
+  "length_in_seconds": 76.67229,
+  "comparator_output": 6
+}

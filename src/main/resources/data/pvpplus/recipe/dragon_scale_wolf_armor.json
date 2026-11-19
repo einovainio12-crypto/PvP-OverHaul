@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "S S",
+    "SAS",
+    "S S"
+  ],
+  "key": {
+    "S": "pvpplus:dragon_scale",
+    "A": "minecraft:wolf_armor"
+  },
+  "result": {
+    "id": "pvpplus:dragon_scale_wolf_armor",
+    "count": 1
+  }
+}

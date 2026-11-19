@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "theleadage:lead_ingot",
+      "required": false
+    }
+  ]
+}

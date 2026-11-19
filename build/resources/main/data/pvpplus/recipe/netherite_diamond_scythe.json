@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:netherite_upgrade_smithing_template",
+  "base": "pvpplus:netherite_emerald_scythe",
+  "addition": "advancednetherite:netherite_diamond_ingot",
+  "result": {
+    "id": "pvpplus:netherite_diamond_scythe"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "advancednetherite"
+      ]
+    }
+  ]
+}

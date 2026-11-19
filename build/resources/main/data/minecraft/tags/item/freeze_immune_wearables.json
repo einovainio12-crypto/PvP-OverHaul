@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:netherite_iron_wolf_armor",
+    "pvpplus:netherite_gold_wolf_armor",
+    "pvpplus:netherite_emerald_wolf_armor",
+    "pvpplus:netherite_diamond_wolf_armor",
+    "pvpplus:enderite_wolf_armor"
+  ]
+}

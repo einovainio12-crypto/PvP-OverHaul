@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:music_disc_cat",
+    "minecraft:red_dye"
+  ],
+  "result": {
+    "id": "pvpplusdiscs:music_disc_decisive_battle"
+  }
+}

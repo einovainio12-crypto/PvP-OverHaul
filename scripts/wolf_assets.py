@@ -33,9 +33,9 @@ def export_wolf(resources):
         parts.append(part)
     assert {p['name'] for p in parts} == set(ROLES.values())
     assert sum(len(p['cubes']) for p in parts)==11
-    dest = resources / 'assets/pvpoverhaul/models/entity/dragon_scale_wolf_armor.json'
+    dest = resources / 'assets/pvpplus/models/entity/dragon_scale_wolf_armor.json'
     dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(json.dumps({'texture_width':64,'texture_height':32,'parts':parts},indent=2)+'\n')
-    texture = resources / 'assets/pvpoverhaul/textures/entity/equipment/wolf_body/dragon_scale.png'
+    texture = resources / 'assets/pvpplus/textures/entity/equipment/wolf_body/dragon_scale.png'
     texture.parent.mkdir(parents=True,exist_ok=True)
     shutil.copyfile(source / 'wolf_armor.png',texture)

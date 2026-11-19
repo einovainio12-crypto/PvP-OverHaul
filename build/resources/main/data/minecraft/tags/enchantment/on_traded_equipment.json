@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:throwable",
+    "pvpplus:pole_jump",
+    "pvpplus:double_jump",
+    "pvpplus:speed",
+    "pvpplus:boost",
+    "pvpplus:overload",
+    "pvpplus:aerodynamics",
+    "pvpplus:cleaving",
+    "pvpplus:impact",
+    "pvpplus:ice_aspect",
+    "pvpplus:leeching",
+    "pvpplus:chaining",
+    "pvpplus:stunning"
+  ]
+}

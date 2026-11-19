@@ -1,0 +1,8 @@
+{
+  "amount": 1,
+  "order": 20,
+  "icon": "trinkets:container/slots/back",
+  "validator_predicates": [
+    "trinkets:default"
+  ]
+}

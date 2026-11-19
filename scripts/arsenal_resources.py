@@ -39,22 +39,22 @@ def extend(g):
  for path in ['weapon','melee_weapon','sharp_weapon','durability']:
   p=root/f'data/minecraft/tags/item/enchantable/{path}.json';d=json.loads(p.read_text());d['values']+=extra;write(p.relative_to(root),d)
  for path in ['throwable_weapons','loyalty_weapons']:
-  p=root/f'data/{ns}/tags/item/{path}.json';d=json.loads(p.read_text());d['values']+=['#pvpoverhaul:arsenal','#pvpoverhaul:knives','#minecraft:swords','minecraft:mace'];write(p.relative_to(root),d)
- tag(ns,'storm_hammer',['pvpoverhaul:netherite_hammer','pvpoverhaul:siftite_hammer'])
+  p=root/f'data/{ns}/tags/item/{path}.json';d=json.loads(p.read_text());d['values']+=['#pvpplus:arsenal','#pvpplus:knives','#minecraft:swords','minecraft:mace'];write(p.relative_to(root),d)
+ tag(ns,'storm_hammer',['pvpplus:netherite_hammer','pvpplus:siftite_hammer'])
  for n,l in [('ice_aspect',2),('leeching',3),('chaining',3),('stunning',3)]:ench(n,'#minecraft:enchantable/melee_weapon',['mainhand'],l,exclusive=['minecraft:fire_aspect','minecraft:flame'] if n=='ice_aspect' else None,weight=2)
 
  vanilla=json.loads((pathlib.Path(__file__).parent/'arsenal_vanilla_enchants.json').read_text())
  for n in ['flame','channeling','riptide']:
   d=vanilla[n]
-  if n=='channeling':d=json.loads(json.dumps(d).replace('\"minecraft:trident\"','\"#pvpoverhaul:trident_projectiles\"'))
-  tag(ns,n+'_supported',[d['supported_items'],'#pvpoverhaul:knives'] if n=='flame' else [d['supported_items'],'#pvpoverhaul:storm_hammer']);d['supported_items']='#pvpoverhaul:'+n+'_supported';write('data/minecraft/enchantment/'+n+'.json',d)
+  if n=='channeling':d=json.loads(json.dumps(d).replace('\"minecraft:trident\"','\"#pvpplus:trident_projectiles\"'))
+  tag(ns,n+'_supported',[d['supported_items'],'#pvpplus:knives'] if n=='flame' else [d['supported_items'],'#pvpplus:storm_hammer']);d['supported_items']='#pvpplus:'+n+'_supported';write('data/minecraft/enchantment/'+n+'.json',d)
  for path in ['in_enchanting_table','tradeable','on_random_loot','on_traded_equipment']:
   p=root/f'data/minecraft/tags/enchantment/{path}.json';d=json.loads(p.read_text());d['values'] += [ns+':'+n for n in ['ice_aspect','leeching','chaining','stunning']];write(p.relative_to(root),d)
 
  # Projectile predicates must include the new entity ID, not only minecraft:trident.
- write('data/pvpoverhaul/tags/entity_type/trident_projectiles.json',{'replace':False,'values':['minecraft:trident','pvpoverhaul:thrown_pvpoverhaul_netherite_hammer','pvpoverhaul:thrown_pvpoverhaul_siftite_hammer']})
+ write('data/pvpplus/tags/entity_type/trident_projectiles.json',{'replace':False,'values':['minecraft:trident','pvpplus:thrown_pvpoverhaul_netherite_hammer','pvpplus:thrown_pvpoverhaul_siftite_hammer']})
 
- p=root/'data/minecraft/tags/item/arrows.json';d=json.loads(p.read_text());d['values'].append('pvpoverhaul:ice_arrow');write(p.relative_to(root),d)
+ p=root/'data/minecraft/tags/item/arrows.json';d=json.loads(p.read_text());d['values'].append('pvpplus:ice_arrow');write(p.relative_to(root),d)
 
  for material in ['wooden','stone','copper','iron','golden','diamond','netherite']:
   write(f'assets/{ns}/items/thrown_visual/{material}_spear.json',{'model':{'type':'minecraft:model','model':f'minecraft:item/{material}_spear_in_hand'}})

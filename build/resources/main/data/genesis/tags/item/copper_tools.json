@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:copper_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_crossbow",
+      "required": false
+    }
+  ]
+}

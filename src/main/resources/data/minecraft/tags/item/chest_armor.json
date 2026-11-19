@@ -1,0 +1,48 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_chestplate",
+    "pvpplus:zinc_chestplate",
+    "pvpplus:bronze_chestplate",
+    {
+      "id": "alloyed:steel_chestplate",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_chestplate",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_chestplate",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_chestplate",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_chestplate",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_chestplate",
+      "required": false
+    }
+  ]
+}

@@ -36,10 +36,10 @@ def export_shield(resources, item):
         texture_name = item if i == 0 else f'{item}_{i}'
         png = base64.b64decode(texture['source'].split(',', 1)[1], validate=True)
         assert png[:8] == b'\x89PNG\r\n\x1a\n'
-        dest = resources / f'assets/pvpoverhaul/textures/item/{texture_name}.png'
+        dest = resources / f'assets/pvpplus/textures/item/{texture_name}.png'
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(png)
-        textures[str(i)] = f'pvpoverhaul:item/{texture_name}'
+        textures[str(i)] = f'pvpplus:item/{texture_name}'
     textures['particle'] = textures['0']
     elements = []
     # Center the grip, not the plate pivot, on the hand's item origin. For the
@@ -67,12 +67,12 @@ def export_shield(resources, item):
     assert len(elements) == 5, source
     for suffix, display in [('', NORMAL_DISPLAY), ('_blocking', BLOCKING_DISPLAY)]:
         data = {'gui_light': 'side', 'textures': textures, 'display': display, 'elements': elements}
-        dest = resources / f'assets/pvpoverhaul/models/item/{item}{suffix}.json'
+        dest = resources / f'assets/pvpplus/models/item/{item}{suffix}.json'
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(json.dumps(data, indent=2) + '\n')
     def ref(suffix):
-        return {'type': 'minecraft:model', 'model': f'pvpoverhaul:item/{item}{suffix}'}
+        return {'type': 'minecraft:model', 'model': f'pvpplus:item/{item}{suffix}'}
     definition = {'model': {'type': 'minecraft:condition', 'property': 'minecraft:using_item',
                             'on_false': ref(''), 'on_true': ref('_blocking')}}
-    dest = resources / f'assets/pvpoverhaul/items/{item}.json'
+    dest = resources / f'assets/pvpplus/items/{item}.json'
     dest.write_text(json.dumps(definition, indent=2) + '\n')

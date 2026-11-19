@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:wood_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_shield",
+      "required": false
+    }
+  ]
+}

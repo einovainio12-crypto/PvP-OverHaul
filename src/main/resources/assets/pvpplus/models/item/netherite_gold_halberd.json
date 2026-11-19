@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "pvpplus:item/iron_halberd_pvp_netherite_gold"
+  }
+}

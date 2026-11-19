@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "enderitemod:enderite_upgrade_smithing_template",
+  "base": "pvpplus:netherite_hammer",
+  "addition": "enderitemod:enderite_ingot",
+  "result": {
+    "id": "pvpplus:enderite_hammer"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "enderitemod"
+      ]
+    }
+  ]
+}

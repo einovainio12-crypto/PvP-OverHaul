@@ -1,0 +1,197 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:diamond_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_crossbow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_crossbow",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_paxel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_excavator",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_shovel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_hoe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_pickaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_paxel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_excavator",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_shovel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_hoe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_pickaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_paxel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_excavator",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_shovel",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_hoe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_pickaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_wolf_armor",
+    "pvpplus:zinc_wolf_armor",
+    "pvpplus:bronze_wolf_armor",
+    "pvpplus:steel_wolf_armor",
+    "pvpplus:silver_wolf_armor",
+    "pvpplus:lead_wolf_armor",
+    "pvpplus:siftite_wolf_armor",
+    "pvpplus:netherite_iron_wolf_armor",
+    "pvpplus:netherite_gold_wolf_armor",
+    "pvpplus:netherite_emerald_wolf_armor",
+    "pvpplus:netherite_diamond_wolf_armor",
+    "pvpplus:rose_gold_wolf_armor",
+    "pvpplus:enderite_wolf_armor"
+  ]
+}

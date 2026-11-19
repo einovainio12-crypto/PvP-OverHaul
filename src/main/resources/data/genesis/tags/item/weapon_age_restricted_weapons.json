@@ -1,0 +1,233 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:wood_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:wood_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:copper_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:gold_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:diamond_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:netherite_scythe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vibranium_paxel",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vibranium_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:vulpus_paxel",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:vulpus_battleaxe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_sword",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_axe",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_hammer",
+      "required": false
+    },
+    {
+      "id": "immersiveores:enderium_paxel",
+      "required": false
+    },
+    {
+      "id": "pvpplusores:enderium_battleaxe",
+      "required": false
+    }
+  ]
+}

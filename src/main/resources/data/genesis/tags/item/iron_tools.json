@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:iron_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:iron_crossbow",
+      "required": false
+    }
+  ]
+}

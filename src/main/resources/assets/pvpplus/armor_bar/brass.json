@@ -1,0 +1,30 @@
+{
+  "type": "armor",
+  "items": [
+    "pvpplus:brass_helmet",
+    "pvpplus:brass_chestplate",
+    "pvpplus:brass_leggings",
+    "pvpplus:brass_boots"
+  ],
+  "render": {
+    "full": {
+      "texture": "detailab:textures/armor_bar.png",
+      "texture_width": 128,
+      "texture_height": 128,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "half": {
+      "texture": "detailab:textures/armor_bar.png",
+      "texture_width": 128,
+      "texture_height": 128,
+      "offset": [
+        18,
+        0
+      ]
+    },
+    "color": "d3a155"
+  }
+}

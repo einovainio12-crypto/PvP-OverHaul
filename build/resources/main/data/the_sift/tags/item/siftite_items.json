@@ -1,0 +1,101 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:siftite_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_battle_axe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_crossbow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_arrow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_spear",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_sword",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_pickaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_axe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_shovel",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_hoe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_helmet",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_chestplate",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_leggings",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_boots",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_horse_armor",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_wolf_armor",
+      "required": false
+    },
+    {
+      "id": "pvpplus:siftite_nautilus_armor",
+      "required": false
+    }
+  ]
+}

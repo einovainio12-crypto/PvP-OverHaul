@@ -66,13 +66,14 @@ public final class Quivers {
         }
     }
     public static void select(Player player,int inventorySlot,int arrowSlot) {
-        ItemStack quiver=player.getInventory().getItem(inventorySlot);
+        ItemStack quiver=dev.pvpplusmounts.GearSlots.at(player.getInventory(),inventorySlot);
         if(!quiver.is(ModItems.QUIVER)) return;
         List<ItemStack> carried=new ArrayList<>();
         for(int i=0;i<36;i++) carried.add(player.getInventory().getItem(i));
-        carried.add(player.getOffhandItem());activate(carried,quiver);select(quiver,arrowSlot);
+        carried.add(player.getOffhandItem());carried.add(dev.pvpplusmounts.GearSlots.worn(player,"chest/quiver"));activate(carried,quiver);select(quiver,arrowSlot);
     }
     public static int find(Player player) {
+        if(!dev.pvpplusmounts.GearSlots.worn(player,"chest/quiver").isEmpty())return 101;
         List<ItemStack> carried=new ArrayList<>();
         for(int i=0;i<=40;i++) carried.add(player.getInventory().getItem(i));
         return preferredSlot(carried,player.getInventory().getSelectedSlot());
@@ -91,7 +92,7 @@ public final class Quivers {
         if(!(weapon.getItem() instanceof ProjectileWeaponItem ranged)) return ItemStack.EMPTY;
         int inventorySlot=find(player);
         if(inventorySlot<0) return ItemStack.EMPTY;
-        ItemStack quiver=player.getInventory().getItem(inventorySlot);int slot=ammunitionSlot(quiver,ranged.getAllSupportedProjectiles());
+        ItemStack quiver=dev.pvpplusmounts.GearSlots.at(player.getInventory(),inventorySlot);int slot=ammunitionSlot(quiver,ranged.getAllSupportedProjectiles());
         if(slot<0) {
             if(blocksInventoryFallback(player,weapon) && !player.level().isClientSide()
                     && player.tickCount-WARNED.getOrDefault(player,-100)>=40) {
@@ -108,7 +109,7 @@ public final class Quivers {
     public static boolean blocksInventoryFallback(Player player,ItemStack weapon) {
         if(player.containerMenu instanceof QuiverMenu || !(weapon.getItem() instanceof ProjectileWeaponItem ranged)) return false;
         int inventorySlot=find(player);if(inventorySlot<0) return false;
-        ItemStack quiver=player.getInventory().getItem(inventorySlot);
+        ItemStack quiver=dev.pvpplusmounts.GearSlots.at(player.getInventory(),inventorySlot);
         if(!quiver.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag().contains(SELECTED)) return false;
         int slot=selected(quiver);if(slot<0) return false;
         ItemStack arrow=contents(quiver).get(slot);
@@ -117,7 +118,7 @@ public final class Quivers {
     public static boolean validDraw(ItemStack ammo,LivingEntity shooter) {
         Origin origin=DRAWN.get(ammo);
         if(origin==null) return true;
-        if(shooter!=origin.owner || origin.owner.getInventory().getItem(origin.inventorySlot)!=origin.quiver) return false;
+        if(shooter!=origin.owner || dev.pvpplusmounts.GearSlots.at(origin.owner.getInventory(),origin.inventorySlot)!=origin.quiver) return false;
         ItemStack current=contents(origin.quiver).get(origin.arrowSlot);
         return current.getCount()==origin.before.getCount() && ItemStack.isSameItemSameComponents(current,origin.before);
     }
@@ -131,23 +132,23 @@ public final class Quivers {
     public static boolean finishDraw(ItemStack ammo) {
         Origin origin=DRAWN.remove(ammo);
         if(origin==null) return true;
-        if(origin.owner.getInventory().getItem(origin.inventorySlot)!=origin.quiver
+        if(dev.pvpplusmounts.GearSlots.at(origin.owner.getInventory(),origin.inventorySlot)!=origin.quiver
             || !commitDraw(origin.quiver,origin.arrowSlot,origin.before,ammo)) return false;
-        origin.owner.getInventory().setChanged();origin.owner.inventoryMenu.broadcastChanges();return true;
+        dev.pvpplusmounts.GearSlots.dirty(origin.owner);origin.owner.getInventory().setChanged();origin.owner.inventoryMenu.broadcastChanges();return true;
     }
     public static void initialize() {
         PayloadTypeRegistry.serverboundPlay().register(QuiverSelectionPayload.TYPE,QuiverSelectionPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(QuiverSelectionPayload.TYPE,(payload,context)->{
             ServerPlayer player=context.player();
-            if(!player.isAlive() || player.isSpectator() || payload.inventorySlot()<0 || (payload.inventorySlot()>=36 && payload.inventorySlot()!=40)
+            if(!player.isAlive() || player.isSpectator() || payload.inventorySlot()<0 || (payload.inventorySlot()!=101 && payload.inventorySlot()>=36 && payload.inventorySlot()!=40)
                     || payload.arrowSlot()<-2 || payload.arrowSlot()>=SLOTS) return;
-            ItemStack quiver=player.getInventory().getItem(payload.inventorySlot());
+            ItemStack quiver=dev.pvpplusmounts.GearSlots.at(player.getInventory(),payload.inventorySlot());
             if(!quiver.is(ModItems.QUIVER)) return;
             if(payload.arrowSlot()==-2) {
-                player.openMenu(new SimpleMenuProvider((id,inventory,user)->new QuiverMenu(id,inventory,payload.inventorySlot()),Component.translatable("container.pvpoverhaul.quiver")));
+                player.openMenu(new SimpleMenuProvider((id,inventory,user)->new QuiverMenu(id,inventory,payload.inventorySlot()),Component.translatable("container.pvpplus.quiver")));
                 return;
             }
-            select(player,payload.inventorySlot(),payload.arrowSlot());player.getInventory().setChanged();player.inventoryMenu.broadcastChanges();
+            select(player,payload.inventorySlot(),payload.arrowSlot());dev.pvpplusmounts.GearSlots.dirty(player);player.getInventory().setChanged();player.inventoryMenu.broadcastChanges();
             ItemStack weapon=player.getMainHandItem().getItem() instanceof ProjectileWeaponItem?player.getMainHandItem():player.getOffhandItem();
             player.sendOverlayMessage(Component.literal(blocksInventoryFallback(player,weapon)?"Chosen quiver slot is empty or unsupported. Choose another arrow or 0 for inventory ammo.":
                 payload.arrowSlot()<0?"Using inventory ammunition":"Quiver arrow slot "+(payload.arrowSlot()+1)+" selected; applies to the next shot/load."));

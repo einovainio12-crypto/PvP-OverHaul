@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow",
+  "textures": {
+    "layer0": "pvpplus:item/diamond_crossbow"
+  }
+}

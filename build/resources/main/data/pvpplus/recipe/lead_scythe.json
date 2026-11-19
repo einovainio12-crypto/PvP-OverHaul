@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "MMM",
+    "  S",
+    " S "
+  ],
+  "key": {
+    "M": "theleadage:lead_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "pvpplus:lead_scythe",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "theleadage"
+      ]
+    }
+  ]
+}

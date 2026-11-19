@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:bow",
+    "rosegoldequipment:rose_gold_ingot",
+    "rosegoldequipment:rose_gold_ingot",
+    "rosegoldequipment:rose_gold_ingot"
+  ],
+  "result": {
+    "id": "pvpplus:rose_gold_bow",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "rosegoldequipment"
+      ]
+    }
+  ]
+}

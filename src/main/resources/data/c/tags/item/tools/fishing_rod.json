@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_flail",
+    "pvpplus:bronze_flail",
+    "pvpplus:copper_flail",
+    "pvpplus:diamond_flail",
+    "pvpplus:enderite_flail",
+    "pvpplus:gold_flail",
+    "pvpplus:iron_flail",
+    "pvpplus:lead_flail",
+    "pvpplus:netherite_diamond_flail",
+    "pvpplus:netherite_emerald_flail",
+    "pvpplus:netherite_flail",
+    "pvpplus:netherite_gold_flail",
+    "pvpplus:netherite_iron_flail",
+    "pvpplus:rose_gold_flail",
+    "pvpplus:siftite_flail",
+    "pvpplus:silver_flail",
+    "pvpplus:steel_flail",
+    "pvpplus:stone_flail",
+    "pvpplus:wood_flail",
+    "pvpplus:zinc_flail"
+  ]
+}

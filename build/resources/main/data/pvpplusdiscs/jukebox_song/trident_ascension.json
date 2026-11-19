@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.trident_ascension",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.trident_ascension"
+  },
+  "length_in_seconds": 184.48254,
+  "comparator_output": 11
+}

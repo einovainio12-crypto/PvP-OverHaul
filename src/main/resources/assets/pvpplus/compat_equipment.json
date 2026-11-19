@@ -1,0 +1,639 @@
+{
+  "pvpplus:textures/entity/equipment/humanoid/compat_brass.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid/iron.png",
+    "palette": [
+      "602f24",
+      "76462d",
+      "995a3d",
+      "b57849",
+      "d3a155",
+      "fbcc68",
+      "ffeb94",
+      "fff9c7",
+      "fffef5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid_baby/compat_brass.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid_baby/iron.png",
+    "palette": [
+      "602f24",
+      "76462d",
+      "995a3d",
+      "b57849",
+      "d3a155",
+      "fbcc68",
+      "ffeb94",
+      "fff9c7",
+      "fffef5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid_leggings/compat_brass.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid_leggings/iron.png",
+    "palette": [
+      "602f24",
+      "76462d",
+      "995a3d",
+      "b57849",
+      "d3a155",
+      "fbcc68",
+      "ffeb94",
+      "fff9c7",
+      "fffef5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_brass.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "602f24",
+      "76462d",
+      "995a3d",
+      "b57849",
+      "d3a155",
+      "fbcc68",
+      "ffeb94",
+      "fff9c7",
+      "fffef5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_brass.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "602f24",
+      "76462d",
+      "995a3d",
+      "b57849",
+      "d3a155",
+      "fbcc68",
+      "ffeb94",
+      "fff9c7",
+      "fffef5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_brass.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "602f24",
+      "76462d",
+      "995a3d",
+      "b57849",
+      "d3a155",
+      "fbcc68",
+      "ffeb94",
+      "fff9c7",
+      "fffef5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid/compat_zinc.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid/iron.png",
+    "palette": [
+      "213b3f",
+      "31544e",
+      "506d63",
+      "788273",
+      "929b87",
+      "a5c0a0",
+      "b9e9c1",
+      "d6ffdc",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid_baby/compat_zinc.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid_baby/iron.png",
+    "palette": [
+      "213b3f",
+      "31544e",
+      "506d63",
+      "788273",
+      "929b87",
+      "a5c0a0",
+      "b9e9c1",
+      "d6ffdc",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid_leggings/compat_zinc.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid_leggings/iron.png",
+    "palette": [
+      "213b3f",
+      "31544e",
+      "506d63",
+      "788273",
+      "929b87",
+      "a5c0a0",
+      "b9e9c1",
+      "d6ffdc",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_zinc.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "213b3f",
+      "31544e",
+      "506d63",
+      "788273",
+      "929b87",
+      "a5c0a0",
+      "b9e9c1",
+      "d6ffdc",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_zinc.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "213b3f",
+      "31544e",
+      "506d63",
+      "788273",
+      "929b87",
+      "a5c0a0",
+      "b9e9c1",
+      "d6ffdc",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_zinc.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "213b3f",
+      "31544e",
+      "506d63",
+      "788273",
+      "929b87",
+      "a5c0a0",
+      "b9e9c1",
+      "d6ffdc",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid/compat_bronze.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid/iron.png",
+    "palette": [
+      "3a0e06",
+      "4c1909",
+      "56240d",
+      "632f11",
+      "72431a",
+      "89592c",
+      "a57b48",
+      "d3b176",
+      "ffe6a8",
+      "fff2ce"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid_baby/compat_bronze.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid_baby/iron.png",
+    "palette": [
+      "3a0e06",
+      "4c1909",
+      "56240d",
+      "632f11",
+      "72431a",
+      "89592c",
+      "a57b48",
+      "d3b176",
+      "ffe6a8",
+      "fff2ce"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/humanoid_leggings/compat_bronze.png": {
+    "source": "minecraft:textures/entity/equipment/humanoid_leggings/iron.png",
+    "palette": [
+      "3a0e06",
+      "4c1909",
+      "56240d",
+      "632f11",
+      "72431a",
+      "89592c",
+      "a57b48",
+      "d3b176",
+      "ffe6a8",
+      "fff2ce"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_bronze.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "3a0e06",
+      "4c1909",
+      "56240d",
+      "632f11",
+      "72431a",
+      "89592c",
+      "a57b48",
+      "d3b176",
+      "ffe6a8",
+      "fff2ce"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_bronze.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "3a0e06",
+      "4c1909",
+      "56240d",
+      "632f11",
+      "72431a",
+      "89592c",
+      "a57b48",
+      "d3b176",
+      "ffe6a8",
+      "fff2ce"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_bronze.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "3a0e06",
+      "4c1909",
+      "56240d",
+      "632f11",
+      "72431a",
+      "89592c",
+      "a57b48",
+      "d3b176",
+      "ffe6a8",
+      "fff2ce"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_steel.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "1d1c21",
+      "3f3b44",
+      "4a444c",
+      "5b535a",
+      "726b71",
+      "878486",
+      "aaa7a8",
+      "cecacb",
+      "e5e3e3"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_silver.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "293b47",
+      "48596b",
+      "6c8398",
+      "7f97ad",
+      "9eb4ca",
+      "b6cbe2",
+      "d3e3f3",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_lead.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "141b24",
+      "1f2739",
+      "272d40",
+      "333950",
+      "414665",
+      "52537a",
+      "6a6b93",
+      "9292b5"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_siftite.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "2a3732",
+      "435650",
+      "556a63",
+      "6c887e",
+      "90b4a8",
+      "cadfd7",
+      "d6ece3",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_siftite.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "2a3732",
+      "435650",
+      "556a63",
+      "6c887e",
+      "90b4a8",
+      "cadfd7",
+      "d6ece3",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_siftite.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "2a3732",
+      "435650",
+      "556a63",
+      "6c887e",
+      "90b4a8",
+      "cadfd7",
+      "d6ece3",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_netherite_iron.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "353535",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "585858",
+      "5e5e5e",
+      "737173",
+      "727272",
+      "828282",
+      "a8a8a8",
+      "d8d8d8",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_netherite_iron.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "353535",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "585858",
+      "5e5e5e",
+      "737173",
+      "727272",
+      "828282",
+      "a8a8a8",
+      "d8d8d8",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_netherite_iron.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "353535",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "585858",
+      "5e5e5e",
+      "737173",
+      "727272",
+      "828282",
+      "a8a8a8",
+      "d8d8d8",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_netherite_gold.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "752802",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "b26411",
+      "737173",
+      "cd740b",
+      "e0940d",
+      "e9b115",
+      "f8c52f",
+      "fcf13f",
+      "fffde0"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_netherite_gold.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "752802",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "b26411",
+      "737173",
+      "cd740b",
+      "e0940d",
+      "e9b115",
+      "f8c52f",
+      "fcf13f",
+      "fffde0"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_netherite_gold.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "752802",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "b26411",
+      "737173",
+      "cd740b",
+      "e0940d",
+      "e9b115",
+      "f8c52f",
+      "fcf13f",
+      "fffde0"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_netherite_emerald.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "271c1d",
+      "002d00",
+      "31292a",
+      "3b393b",
+      "005300",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "007b18",
+      "009529",
+      "00aa2c",
+      "17dd62",
+      "affdcd",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_netherite_emerald.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "271c1d",
+      "002d00",
+      "31292a",
+      "3b393b",
+      "005300",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "007b18",
+      "009529",
+      "00aa2c",
+      "17dd62",
+      "affdcd",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_netherite_emerald.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "271c1d",
+      "002d00",
+      "31292a",
+      "3b393b",
+      "005300",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "5a575a",
+      "007b18",
+      "009529",
+      "00aa2c",
+      "17dd62",
+      "affdcd",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_netherite_diamond.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "145e53",
+      "5a575a",
+      "11727a",
+      "1c919a",
+      "1aaaa7",
+      "20c5b5",
+      "4aedd9",
+      "a1fbe8",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_netherite_diamond.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "145e53",
+      "5a575a",
+      "11727a",
+      "1c919a",
+      "1aaaa7",
+      "20c5b5",
+      "4aedd9",
+      "a1fbe8",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_netherite_diamond.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "271c1d",
+      "31292a",
+      "3b393b",
+      "4c4143",
+      "484548",
+      "4d494d",
+      "145e53",
+      "5a575a",
+      "11727a",
+      "1c919a",
+      "1aaaa7",
+      "20c5b5",
+      "4aedd9",
+      "a1fbe8",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_rose_gold.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "452929",
+      "8c5454",
+      "b68585",
+      "c7a1a1",
+      "e0cbcb",
+      "f2e9e9",
+      "fdfbfb",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/horse_body/compat_rose_gold.png": {
+    "source": "minecraft:textures/entity/equipment/horse_body/iron.png",
+    "palette": [
+      "452929",
+      "8c5454",
+      "b68585",
+      "c7a1a1",
+      "e0cbcb",
+      "f2e9e9",
+      "fdfbfb",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/nautilus_body/compat_rose_gold.png": {
+    "source": "minecraft:textures/entity/equipment/nautilus_body/iron.png",
+    "palette": [
+      "452929",
+      "8c5454",
+      "b68585",
+      "c7a1a1",
+      "e0cbcb",
+      "f2e9e9",
+      "fdfbfb",
+      "ffffff"
+    ]
+  },
+  "pvpplus:textures/entity/equipment/wolf_body/compat_enderite.png": {
+    "source": "minecraft:textures/entity/equipment/wolf_body/armadillo_scute.png",
+    "palette": [
+      "040e0c",
+      "081916",
+      "0b241f",
+      "0e2b26",
+      "0f302a",
+      "113831",
+      "123a33",
+      "133e36",
+      "174940",
+      "1d5e53"
+    ]
+  }
+}

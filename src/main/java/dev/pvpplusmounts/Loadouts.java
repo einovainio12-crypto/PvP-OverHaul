@@ -38,7 +38,7 @@ public final class Loadouts {
   }catch(Exception e){src.sendFailure(Component.literal("Kit unavailable: "+e.getClass().getSimpleName()));return 0;}
  }
  static int sheath(ServerPlayer p){ItemStack sheath=GearSlots.worn(p,"legs/sheath");
-  if(!BuiltInRegistries.ITEM.getKey(sheath.getItem()).toString().equals("pvpoverhaul:weapon_sheath"))return 0;
+  if(!BuiltInRegistries.ITEM.getKey(sheath.getItem()).toString().equals("pvpplus:weapon_sheath"))return 0;
   ItemStack hand=p.getMainHandItem(),old=sheath.getOrDefault(DataComponents.CONTAINER,ItemContainerContents.EMPTY).itemCopies().filter(x->!x.isEmpty()).findFirst().orElse(ItemStack.EMPTY);
   if(!hand.isEmpty()&&(hand.getCount()!=1||hand.has(DataComponents.CONTAINER)||(!hand.has(DataComponents.WEAPON)&&!hand.has(DataComponents.ATTRIBUTE_MODIFIERS)&&!(hand.getItem() instanceof ProjectileWeaponItem))))return 0;
   sheath.set(DataComponents.CONTAINER,hand.isEmpty()?ItemContainerContents.EMPTY:ItemContainerContents.fromItems(List.of(hand.copy())));

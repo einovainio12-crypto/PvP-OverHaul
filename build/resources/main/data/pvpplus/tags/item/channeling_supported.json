@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:enchantable/trident",
+    "#pvpplus:storm_hammer"
+  ]
+}

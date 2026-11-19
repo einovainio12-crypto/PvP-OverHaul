@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:wood_shield",
+    "pvpplus:copper_shield",
+    "pvpplus:iron_shield",
+    "pvpplus:gold_shield",
+    "pvpplus:diamond_shield",
+    "pvpplus:netherite_shield",
+    "pvpplus:brass_shield",
+    "pvpplus:zinc_shield",
+    "pvpplus:bronze_shield",
+    "pvpplus:steel_shield",
+    "pvpplus:silver_shield",
+    "pvpplus:lead_shield",
+    "pvpplus:siftite_shield",
+    "pvpplus:netherite_iron_shield",
+    "pvpplus:netherite_gold_shield",
+    "pvpplus:netherite_emerald_shield",
+    "pvpplus:netherite_diamond_shield",
+    "pvpplus:rose_gold_shield",
+    "pvpplus:enderite_shield"
+  ]
+}

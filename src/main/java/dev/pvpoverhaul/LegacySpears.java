@@ -9,16 +9,16 @@ import net.minecraft.world.item.Item;
 /** Read removed item IDs as their native replacements; saving writes the canonical native ID. */
 public final class LegacySpears {
     private static final Map<String,String> IDS=Map.of(
-        "pvpoverhaul:wood_spear","minecraft:wooden_spear",
-        "pvpoverhaul:copper_spear","minecraft:copper_spear",
-        "pvpoverhaul:iron_spear","minecraft:iron_spear",
-        "pvpoverhaul:gold_spear","minecraft:golden_spear",
-        "pvpoverhaul:diamond_spear","minecraft:diamond_spear",
-        "pvpoverhaul:netherite_spear","minecraft:netherite_spear",
-        "pvpoverhaul:stone_arrow","minecraft:arrow",
-        "pvpoverhaul:flint_arrow","minecraft:arrow",
-        "pvpoverhaul:wood_bow","minecraft:bow",
-        "pvpoverhaul:wood_crossbow","minecraft:crossbow");
+        "pvpplus:wood_spear","minecraft:wooden_spear",
+        "pvpplus:copper_spear","minecraft:copper_spear",
+        "pvpplus:iron_spear","minecraft:iron_spear",
+        "pvpplus:gold_spear","minecraft:golden_spear",
+        "pvpplus:diamond_spear","minecraft:diamond_spear",
+        "pvpplus:netherite_spear","minecraft:netherite_spear",
+        "pvpplus:stone_arrow","minecraft:arrow",
+        "pvpplus:flint_arrow","minecraft:arrow",
+        "pvpplus:wood_bow","minecraft:bow",
+        "pvpplus:wood_crossbow","minecraft:crossbow");
     public static Codec<Holder<Item>> codec(Codec<Holder<Item>> original) {
         return new Codec<>() {
             @Override public <T> DataResult<Pair<Holder<Item>,T>> decode(DynamicOps<T> ops,T input) {

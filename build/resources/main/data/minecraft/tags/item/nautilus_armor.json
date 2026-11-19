@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplusmounts:dragon_scale_nautilus_armor",
+      "required": false
+    },
+    "pvpplus:brass_nautilus_armor",
+    "pvpplus:zinc_nautilus_armor",
+    "pvpplus:bronze_nautilus_armor",
+    "pvpplus:siftite_nautilus_armor",
+    "pvpplus:netherite_iron_nautilus_armor",
+    "pvpplus:netherite_gold_nautilus_armor",
+    "pvpplus:netherite_emerald_nautilus_armor",
+    "pvpplus:netherite_diamond_nautilus_armor",
+    "pvpplus:rose_gold_nautilus_armor"
+  ]
+}

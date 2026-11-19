@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.playing_with_fire",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.playing_with_fire"
+  },
+  "length_in_seconds": 198.344853,
+  "comparator_output": 7
+}

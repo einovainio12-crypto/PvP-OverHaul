@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/crossbow_firework",
-  "textures": {
-    "layer0": "pvpoverhaul:item/copper_crossbow_firework"
-  }
-}

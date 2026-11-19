@@ -1,41 +1,374 @@
 {
   "replace": false,
   "values": [
-    "pvpoverhaul:wood_bow",
-    "pvpoverhaul:wood_crossbow",
-    "pvpoverhaul:wood_knife",
-    "pvpoverhaul:wood_spear",
-    "pvpoverhaul:wood_battleaxe",
-    "pvpoverhaul:wood_shield",
-    "pvpoverhaul:copper_bow",
-    "pvpoverhaul:copper_crossbow",
-    "pvpoverhaul:copper_knife",
-    "pvpoverhaul:copper_spear",
-    "pvpoverhaul:copper_battleaxe",
-    "pvpoverhaul:copper_shield",
-    "pvpoverhaul:iron_bow",
-    "pvpoverhaul:iron_crossbow",
-    "pvpoverhaul:iron_knife",
-    "pvpoverhaul:iron_spear",
-    "pvpoverhaul:iron_battleaxe",
-    "pvpoverhaul:iron_shield",
-    "pvpoverhaul:gold_bow",
-    "pvpoverhaul:gold_crossbow",
-    "pvpoverhaul:gold_knife",
-    "pvpoverhaul:gold_spear",
-    "pvpoverhaul:gold_battleaxe",
-    "pvpoverhaul:gold_shield",
-    "pvpoverhaul:diamond_bow",
-    "pvpoverhaul:diamond_crossbow",
-    "pvpoverhaul:diamond_knife",
-    "pvpoverhaul:diamond_spear",
-    "pvpoverhaul:diamond_battleaxe",
-    "pvpoverhaul:diamond_shield",
-    "pvpoverhaul:netherite_bow",
-    "pvpoverhaul:netherite_crossbow",
-    "pvpoverhaul:netherite_knife",
-    "pvpoverhaul:netherite_spear",
-    "pvpoverhaul:netherite_battleaxe",
-    "pvpoverhaul:netherite_shield"
+    "pvpplus:wood_knife",
+    "pvpplus:wood_battleaxe",
+    "pvpplus:wood_shield",
+    "pvpplus:copper_bow",
+    "pvpplus:copper_crossbow",
+    "pvpplus:copper_knife",
+    "pvpplus:copper_battleaxe",
+    "pvpplus:copper_shield",
+    "pvpplus:iron_bow",
+    "pvpplus:iron_crossbow",
+    "pvpplus:iron_knife",
+    "pvpplus:iron_battleaxe",
+    "pvpplus:iron_shield",
+    "pvpplus:gold_bow",
+    "pvpplus:gold_crossbow",
+    "pvpplus:gold_knife",
+    "pvpplus:gold_battleaxe",
+    "pvpplus:gold_shield",
+    "pvpplus:diamond_bow",
+    "pvpplus:diamond_crossbow",
+    "pvpplus:diamond_knife",
+    "pvpplus:diamond_battleaxe",
+    "pvpplus:diamond_shield",
+    "pvpplus:netherite_bow",
+    "pvpplus:netherite_crossbow",
+    "pvpplus:netherite_knife",
+    "pvpplus:netherite_battleaxe",
+    "pvpplus:netherite_shield",
+    "pvpplus:stone_bow",
+    "pvpplus:stone_crossbow",
+    "pvpplus:stone_battleaxe",
+    "pvpplus:stone_knife",
+    "pvpplus:dragon_scale_wolf_armor",
+    "pvpplus:wood_flail",
+    "pvpplus:wood_hammer",
+    "pvpplus:wood_scythe",
+    "pvpplus:wood_halberd",
+    "pvpplus:copper_flail",
+    "pvpplus:copper_hammer",
+    "pvpplus:copper_scythe",
+    "pvpplus:copper_halberd",
+    "pvpplus:iron_flail",
+    "pvpplus:iron_hammer",
+    "pvpplus:iron_scythe",
+    "pvpplus:iron_halberd",
+    "pvpplus:gold_flail",
+    "pvpplus:gold_hammer",
+    "pvpplus:gold_scythe",
+    "pvpplus:gold_halberd",
+    "pvpplus:diamond_flail",
+    "pvpplus:diamond_hammer",
+    "pvpplus:diamond_scythe",
+    "pvpplus:diamond_halberd",
+    "pvpplus:netherite_flail",
+    "pvpplus:netherite_hammer",
+    "pvpplus:netherite_scythe",
+    "pvpplus:netherite_halberd",
+    "pvpplus:stone_flail",
+    "pvpplus:stone_hammer",
+    "pvpplus:stone_scythe",
+    "pvpplus:stone_halberd",
+    "pvpplus:brass_bow",
+    "pvpplus:brass_crossbow",
+    "pvpplus:brass_knife",
+    "pvpplus:brass_battleaxe",
+    "pvpplus:brass_shield",
+    "pvpplus:brass_flail",
+    "pvpplus:brass_hammer",
+    "pvpplus:brass_scythe",
+    "pvpplus:brass_halberd",
+    "pvpplus:brass_helmet",
+    "pvpplus:brass_chestplate",
+    "pvpplus:brass_leggings",
+    "pvpplus:brass_boots",
+    "pvpplus:brass_sword",
+    "pvpplus:brass_axe",
+    "pvpplus:brass_pickaxe",
+    "pvpplus:brass_shovel",
+    "pvpplus:brass_hoe",
+    "pvpplus:brass_spear",
+    "pvpplus:zinc_bow",
+    "pvpplus:zinc_crossbow",
+    "pvpplus:zinc_knife",
+    "pvpplus:zinc_battleaxe",
+    "pvpplus:zinc_shield",
+    "pvpplus:zinc_flail",
+    "pvpplus:zinc_hammer",
+    "pvpplus:zinc_scythe",
+    "pvpplus:zinc_halberd",
+    "pvpplus:zinc_helmet",
+    "pvpplus:zinc_chestplate",
+    "pvpplus:zinc_leggings",
+    "pvpplus:zinc_boots",
+    "pvpplus:zinc_sword",
+    "pvpplus:zinc_axe",
+    "pvpplus:zinc_pickaxe",
+    "pvpplus:zinc_shovel",
+    "pvpplus:zinc_hoe",
+    "pvpplus:zinc_spear",
+    "pvpplus:bronze_bow",
+    "pvpplus:bronze_crossbow",
+    "pvpplus:bronze_knife",
+    "pvpplus:bronze_battleaxe",
+    "pvpplus:bronze_shield",
+    "pvpplus:bronze_flail",
+    "pvpplus:bronze_hammer",
+    "pvpplus:bronze_scythe",
+    "pvpplus:bronze_halberd",
+    "pvpplus:bronze_helmet",
+    "pvpplus:bronze_chestplate",
+    "pvpplus:bronze_leggings",
+    "pvpplus:bronze_boots",
+    "pvpplus:bronze_sword",
+    "pvpplus:bronze_axe",
+    "pvpplus:bronze_pickaxe",
+    "pvpplus:bronze_shovel",
+    "pvpplus:bronze_hoe",
+    "pvpplus:bronze_spear",
+    "pvpplus:steel_bow",
+    "pvpplus:steel_crossbow",
+    "pvpplus:steel_knife",
+    "pvpplus:steel_battleaxe",
+    "pvpplus:steel_shield",
+    "pvpplus:steel_flail",
+    "pvpplus:steel_hammer",
+    "pvpplus:steel_scythe",
+    "pvpplus:steel_halberd",
+    {
+      "id": "alloyed:steel_helmet",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_chestplate",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_leggings",
+      "required": false
+    },
+    {
+      "id": "alloyed:steel_boots",
+      "required": false
+    },
+    "pvpplus:silver_bow",
+    "pvpplus:silver_crossbow",
+    "pvpplus:silver_knife",
+    "pvpplus:silver_battleaxe",
+    "pvpplus:silver_shield",
+    "pvpplus:silver_flail",
+    "pvpplus:silver_hammer",
+    "pvpplus:silver_scythe",
+    "pvpplus:silver_halberd",
+    {
+      "id": "thesilverage:silver_helmet",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_chestplate",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_leggings",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_boots",
+      "required": false
+    },
+    "pvpplus:lead_bow",
+    "pvpplus:lead_crossbow",
+    "pvpplus:lead_knife",
+    "pvpplus:lead_battleaxe",
+    "pvpplus:lead_shield",
+    "pvpplus:lead_flail",
+    "pvpplus:lead_hammer",
+    "pvpplus:lead_scythe",
+    "pvpplus:lead_halberd",
+    {
+      "id": "theleadage:lead_helmet",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_chestplate",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_leggings",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_boots",
+      "required": false
+    },
+    "pvpplus:siftite_bow",
+    "pvpplus:siftite_crossbow",
+    "pvpplus:siftite_knife",
+    "pvpplus:siftite_battleaxe",
+    "pvpplus:siftite_shield",
+    "pvpplus:siftite_flail",
+    "pvpplus:siftite_hammer",
+    "pvpplus:siftite_scythe",
+    "pvpplus:siftite_halberd",
+    {
+      "id": "the_sift:siftite_helmet",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_chestplate",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_leggings",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_boots",
+      "required": false
+    },
+    "pvpplus:netherite_iron_bow",
+    "pvpplus:netherite_iron_crossbow",
+    "pvpplus:netherite_iron_knife",
+    "pvpplus:netherite_iron_battleaxe",
+    "pvpplus:netherite_iron_shield",
+    "pvpplus:netherite_iron_flail",
+    "pvpplus:netherite_iron_hammer",
+    "pvpplus:netherite_iron_scythe",
+    "pvpplus:netherite_iron_halberd",
+    {
+      "id": "advancednetherite:netherite_iron_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_boots",
+      "required": false
+    },
+    "pvpplus:netherite_gold_bow",
+    "pvpplus:netherite_gold_crossbow",
+    "pvpplus:netherite_gold_knife",
+    "pvpplus:netherite_gold_battleaxe",
+    "pvpplus:netherite_gold_shield",
+    "pvpplus:netherite_gold_flail",
+    "pvpplus:netherite_gold_hammer",
+    "pvpplus:netherite_gold_scythe",
+    "pvpplus:netherite_gold_halberd",
+    {
+      "id": "advancednetherite:netherite_gold_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_boots",
+      "required": false
+    },
+    "pvpplus:netherite_emerald_bow",
+    "pvpplus:netherite_emerald_crossbow",
+    "pvpplus:netherite_emerald_knife",
+    "pvpplus:netherite_emerald_battleaxe",
+    "pvpplus:netherite_emerald_shield",
+    "pvpplus:netherite_emerald_flail",
+    "pvpplus:netherite_emerald_hammer",
+    "pvpplus:netherite_emerald_scythe",
+    "pvpplus:netherite_emerald_halberd",
+    {
+      "id": "advancednetherite:netherite_emerald_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_boots",
+      "required": false
+    },
+    "pvpplus:netherite_diamond_bow",
+    "pvpplus:netherite_diamond_crossbow",
+    "pvpplus:netherite_diamond_knife",
+    "pvpplus:netherite_diamond_battleaxe",
+    "pvpplus:netherite_diamond_shield",
+    "pvpplus:netherite_diamond_flail",
+    "pvpplus:netherite_diamond_hammer",
+    "pvpplus:netherite_diamond_scythe",
+    "pvpplus:netherite_diamond_halberd",
+    {
+      "id": "advancednetherite:netherite_diamond_helmet",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_chestplate",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_boots",
+      "required": false
+    },
+    "pvpplus:rose_gold_bow",
+    "pvpplus:rose_gold_crossbow",
+    "pvpplus:rose_gold_knife",
+    "pvpplus:rose_gold_battleaxe",
+    "pvpplus:rose_gold_shield",
+    "pvpplus:rose_gold_flail",
+    "pvpplus:rose_gold_hammer",
+    "pvpplus:rose_gold_scythe",
+    "pvpplus:rose_gold_halberd",
+    {
+      "id": "rosegoldequipment:rose_golden_helmet",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_chestplate",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_leggings",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_boots",
+      "required": false
+    },
+    "pvpplus:rose_gold_spear",
+    "pvpplus:enderite_bow",
+    "pvpplus:enderite_crossbow",
+    "pvpplus:enderite_knife",
+    "pvpplus:enderite_battleaxe",
+    "pvpplus:enderite_shield",
+    "pvpplus:enderite_flail",
+    "pvpplus:enderite_hammer",
+    "pvpplus:enderite_scythe",
+    "pvpplus:enderite_halberd",
+    {
+      "id": "enderitemod:enderite_helmet",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_chestplate",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_leggings",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_boots",
+      "required": false
+    }
   ]
 }

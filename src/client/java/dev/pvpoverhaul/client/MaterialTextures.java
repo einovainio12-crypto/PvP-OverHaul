@@ -12,7 +12,7 @@ import dev.pvpoverhaul.PvpOverhaul;
 public final class MaterialTextures {
  private static final Set<Identifier> registered=new HashSet<>();
  public static void ensure(Identifier id){
-  if(!id.getNamespace().equals("pvpoverhaul") || !id.getPath().contains("/compat_"))return;
+  if(!id.getNamespace().equals("pvpplus") || !id.getPath().contains("/compat_"))return;
   if(registered.add(id))Minecraft.getInstance().getTextureManager().registerAndLoad(id,new SimpleTexture(id){
    @Override public TextureContents loadContents(ResourceManager manager)throws IOException{
     JsonObject mapping;

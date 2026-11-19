@@ -6,11 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class PvpOverhaul implements ModInitializer {
-    public static final String ID="pvpoverhaul";
+    public static final String ID="pvpplus";
     public static final Logger LOGGER=LoggerFactory.getLogger(ID);
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ID,path); }
     @Override public void onInitialize() {
-        ModItems.initialize();SlingshotItem.initialize();WeaponEntities.initialize();Arsenal.initialize();VanillaComponents.initialize();Skills.initialize();Interactions.initialize();LootAdditions.initialize();Quivers.initialize();GrapplingArrows.initialize();ThrowableCommands.initialize();ScytheHarvest.initialize();
+        ModItems.initialize();ModItems.ALL.add(Hellfork.register());SlingshotItem.initialize();WeaponEntities.initialize();Arsenal.initialize();VanillaComponents.initialize();Skills.initialize();Interactions.initialize();LootAdditions.initialize();Quivers.initialize();GrapplingArrows.initialize();ThrowableCommands.initialize();ScytheHarvest.initialize();
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STARTING.register(server->CompatMaterials.bindExternal());
         LOGGER.info("PvP+ loaded for Minecraft 26.3");
     }

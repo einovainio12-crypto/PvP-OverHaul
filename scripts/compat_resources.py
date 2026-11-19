@@ -20,9 +20,9 @@ def extend(g):
   write(p,d)
  def condition(m):return [{'condition':'fabric:all_mods_loaded','values':[m['mod']]}] if m.get('mod') else []
  def recipe(id,pattern,key,result=None,count=1,m=None):
-  d={'type':'minecraft:crafting_shaped','category':'equipment','pattern':pattern,'key':key,'result':{'id':result or 'pvpoverhaul:'+id,'count':count}}
+  d={'type':'minecraft:crafting_shaped','category':'equipment','pattern':pattern,'key':key,'result':{'id':result or 'pvpplus:'+id,'count':count}}
   if m and condition(m):d['fabric:load_conditions']=condition(m)
-  write('data/pvpoverhaul/recipe/'+id+'.json',d)
+  write('data/pvpplus/recipe/'+id+'.json',d)
  def sprite(source,m):
   pair=(source,m['id'])
   if pair in generated:return generated[pair]
@@ -32,42 +32,42 @@ def extend(g):
   mapping={tuple(c):target[round((max(c)/255)*(len(target)-1))] for c in metal}
   path='compat/'+m['id']+'/'+source.replace(':','/');
   for suffix,c in [('key',colors),('palette',[mapping.get(tuple(c),c) for c in colors])]:
-   p=root/f'assets/pvpoverhaul/textures/palettes/{path}_{suffix}.png';p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(png(c))
-  atlas['sources'].append({'type':'minecraft:paletted_permutations','textures':[source],'palette_key':'pvpoverhaul:'+path+'_key','permutations':{'pvp_'+m['id']:'pvpoverhaul:'+path+'_palette'}})
+   p=root/f'assets/pvpplus/textures/palettes/{path}_{suffix}.png';p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(png(c))
+  atlas['sources'].append({'type':'minecraft:paletted_permutations','textures':[source],'palette_key':'pvpplus:'+path+'_key','permutations':{'pvp_'+m['id']:'pvpplus:'+path+'_palette'}})
   generated[pair]=source+'_pvp_'+m['id'];return generated[pair]
  def clone(v,m,textures=False):
   if isinstance(v,dict):return {k:clone(x,m,textures or k=='textures') for k,x in v.items()}
   if isinstance(v,list):return [clone(x,m,textures) for x in v]
   if isinstance(v,str):
    if textures and v in SOURCES:return sprite(v,m)
-   return v.replace('pvpoverhaul:item/iron_','pvpoverhaul:item/'+m['id']+'_').replace('pvpoverhaul:iron_','pvpoverhaul:'+m['id']+'_').replace('minecraft:iron_ingot',m['ingot'])
+   return v.replace('pvpplus:item/iron_','pvpplus:item/'+m['id']+'_').replace('pvpplus:iron_','pvpplus:'+m['id']+'_').replace('minecraft:iron_ingot',m['ingot'])
   return v
  def simple(item,src,m,parent='generated'):
-  write('assets/pvpoverhaul/models/item/'+item+'.json',{'parent':'minecraft:item/'+parent,'textures':{'layer0':sprite(src,m)}})
-  write('assets/pvpoverhaul/items/'+item+'.json',{'model':{'type':'minecraft:model','model':'pvpoverhaul:item/'+item}})
- def armor_item(m,k):return (m['mod'] if m['standard'] else 'pvpoverhaul')+':'+m.get('external_prefix',m['id'])+'_'+k
+  write('assets/pvpplus/models/item/'+item+'.json',{'parent':'minecraft:item/'+parent,'textures':{'layer0':sprite(src,m)}})
+  write('assets/pvpplus/items/'+item+'.json',{'model':{'type':'minecraft:model','model':'pvpplus:item/'+item}})
+ def armor_item(m,k):return (m['mod'] if m['standard'] else 'pvpplus')+':'+m.get('external_prefix',m['id'])+'_'+k
  for m in MATERIALS:
   mid=m['id'];newitems+=own_items(m)
   # Preserve each supplied PvP+ weapon's model, transforms, handle and animation sequence.
   for folder in ['models/item','items','items/thrown_visual']:
-   for p in (root/f'assets/pvpoverhaul/{folder}').glob('iron_*.json'):
+   for p in (root/f'assets/pvpplus/{folder}').glob('iron_*.json'):
     obj=clone(json.loads(p.read_text()),m)
     if folder=='items' and p.name=='iron_bow.json':obj['model']['on_true']['scale']=1/(30 if m.get('rank',2)>=5 else 26 if m.get('rank',2)>=4 else 20)
-    write(f'assets/pvpoverhaul/{folder}/{p.name.replace("iron_",mid+"_",1)}',obj)
+    write(f'assets/pvpplus/{folder}/{p.name.replace("iron_",mid+"_",1)}',obj)
   for kind in CUSTOM:
-   p=root/f'data/pvpoverhaul/recipe/iron_{kind}.json';d=clone(json.loads(p.read_text()),m);d['fabric:load_conditions']=condition(m)
+   p=root/f'data/pvpplus/recipe/iron_{kind}.json';d=clone(json.loads(p.read_text()),m);d['fabric:load_conditions']=condition(m)
    if mid in ['netherite_iron','netherite_gold','netherite_emerald','netherite_diamond'] and kind!='arrow':
     prev={'netherite_iron':'netherite','netherite_gold':'netherite_iron','netherite_emerald':'netherite_gold','netherite_diamond':'netherite_emerald'}[mid]
-    d={'type':'minecraft:smithing_transform','template':'minecraft:netherite_upgrade_smithing_template','base':'pvpoverhaul:'+prev+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
+    d={'type':'minecraft:smithing_transform','template':'minecraft:netherite_upgrade_smithing_template','base':'pvpplus:'+prev+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpplus:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
    if mid in ['siftite','enderite'] and kind!='arrow':
-    d={'type':'minecraft:smithing_transform','template':('the_sift:siftite_upgrade_smithing_template' if mid=='siftite' else 'enderitemod:enderite_upgrade_smithing_template'),'base':'pvpoverhaul:netherite_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
+    d={'type':'minecraft:smithing_transform','template':('the_sift:siftite_upgrade_smithing_template' if mid=='siftite' else 'enderitemod:enderite_upgrade_smithing_template'),'base':'pvpplus:netherite_'+kind,'addition':m['ingot'],'result':{'id':'pvpplus:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
    if m.get('upgrade_from') and kind!='arrow':
-    d={'type':'minecraft:smithing_transform','template':m['upgrade_template'],'base':'pvpoverhaul:'+m['upgrade_from']+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpoverhaul:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
-   write(f'data/pvpoverhaul/recipe/{mid}_{kind}.json',d)
+    d={'type':'minecraft:smithing_transform','template':m['upgrade_template'],'base':'pvpplus:'+m['upgrade_from']+'_'+kind,'addition':m['ingot'],'result':{'id':'pvpplus:'+mid+'_'+kind},'fabric:load_conditions':condition(m)}
+   write(f'data/pvpplus/recipe/{mid}_{kind}.json',d)
   if not m['external_spear']:
-   simple(mid+'_spear','minecraft:item/iron_spear',m);simple(mid+'_spear_in_hand','minecraft:item/iron_spear_in_hand',m,'spear_in_hand');(root/f'assets/pvpoverhaul/items/{mid}_spear_in_hand.json').unlink()
-   write(f'assets/pvpoverhaul/items/{mid}_spear.json',{'model':{'type':'minecraft:select','property':'minecraft:display_context','cases':[{'when':['gui','ground','fixed','on_shelf'],'model':{'type':'minecraft:model','model':f'pvpoverhaul:item/{mid}_spear'}}],'fallback':{'type':'minecraft:model','model':f'pvpoverhaul:item/{mid}_spear_in_hand'}}})
-   write(f'assets/pvpoverhaul/items/thrown_visual/{mid}_spear.json',{'model':{'type':'minecraft:model','model':f'pvpoverhaul:item/{mid}_spear_in_hand'}})
+   simple(mid+'_spear','minecraft:item/iron_spear',m);simple(mid+'_spear_in_hand','minecraft:item/iron_spear_in_hand',m,'spear_in_hand');(root/f'assets/pvpplus/items/{mid}_spear_in_hand.json').unlink()
+   write(f'assets/pvpplus/items/{mid}_spear.json',{'model':{'type':'minecraft:select','property':'minecraft:display_context','cases':[{'when':['gui','ground','fixed','on_shelf'],'model':{'type':'minecraft:model','model':f'pvpplus:item/{mid}_spear'}}],'fallback':{'type':'minecraft:model','model':f'pvpplus:item/{mid}_spear_in_hand'}}})
+   write(f'assets/pvpplus/items/thrown_visual/{mid}_spear.json',{'model':{'type':'minecraft:model','model':f'pvpplus:item/{mid}_spear_in_hand'}})
    recipe(mid+'_spear',['  M',' S ','S  '],{'M':m['ingot'],'S':'minecraft:stick'},m=m)
   if not m['standard']:
    patterns={'sword':['M','M','S'],'pickaxe':['MMM',' S ',' S '],'axe':['MM','MS',' S'],'shovel':['M','S','S'],'hoe':['MM',' S',' S'],'helmet':['MMM','M M'],'chestplate':['M M','MMM','MMM'],'leggings':['MMM','M M','M M'],'boots':['M M','M M']}
@@ -77,42 +77,42 @@ def extend(g):
     recipe(mid+'_'+k,pat,keys,m=m)
   # Match tag behavior of existing PvP+ iron weapons.
   for p in list((root/'data').glob('*/tags/item/**/*.json')):
-   d=json.loads(p.read_text());add=[clone(v,m) for v in d.get('values',[]) if isinstance(v,str) and v.startswith('pvpoverhaul:iron_')]
+   d=json.loads(p.read_text());add=[clone(v,m) for v in d.get('values',[]) if isinstance(v,str) and v.startswith('pvpplus:iron_')]
    if add:
     for v in add:
      if v not in d['values']:d['values'].append(v)
     write(p.relative_to(root).as_posix(),d)
-  tag(mid+'_repair',[{'id':m['ingot'],'required':False}],'pvpoverhaul')
+  tag(mid+'_repair',[{'id':m['ingot'],'required':False}],'pvpplus')
   # Animal equipment uses ordinary equipment components: works without Iron Wolf Armor too.
   for k in ['wolf_armor','horse_armor','nautilus_armor']:
    if k in ['horse_armor','nautilus_armor'] and m['external_horse']:continue
    simple(mid+'_'+k,'minecraft:item/'+('wolf_armor' if k=='wolf_armor' else 'iron_'+k),m)
    recipe(mid+'_'+k,['M M','MMM','M M'] if k=='wolf_armor' else ['MMM','M M',' M '] if k=='nautilus_armor' else ['  M','MLM','MMM'],{'M':m['ingot'],**({'L':'minecraft:leather'} if k=='horse_armor' else {})},m=m)
-   for t in ['wolf_armor','enchantable/wolf_armor'] if k=='wolf_armor' else [k]:tag(t,['pvpoverhaul:'+mid+'_'+k])
-  for t in ['absorbs_wolf_damage','new_wolf_armors']:tag(t,['pvpoverhaul:'+mid+'_wolf_armor'],'ironwolfarmor')
-  tag('armors/wolf',['pvpoverhaul:'+mid+'_wolf_armor'],'c')
-  layers={};equipment=root/f'assets/pvpoverhaul/equipment/{mid}.json'
+   for t in ['wolf_armor','enchantable/wolf_armor'] if k=='wolf_armor' else [k]:tag(t,['pvpplus:'+mid+'_'+k])
+  for t in ['absorbs_wolf_damage','new_wolf_armors']:tag(t,['pvpplus:'+mid+'_wolf_armor'],'ironwolfarmor')
+  tag('armors/wolf',['pvpplus:'+mid+'_wolf_armor'],'c')
+  layers={};equipment=root/f'assets/pvpplus/equipment/{mid}.json'
   if equipment.exists():layers=json.loads(equipment.read_text()).get('layers',{})
   for k in (['humanoid','humanoid_baby','humanoid_leggings'] if not m['standard'] else [])+['wolf_body']+([] if m['external_horse'] else ['horse_body','nautilus_body']):
-   tex=f'pvpoverhaul:textures/entity/equipment/{k}/compat_{mid}.png';base='minecraft:textures/entity/equipment/'+k+'/'+('armadillo_scute' if k=='wolf_body' else 'iron')+'.png'
-   runtime[tex]={'source':base,'palette':m['palette']};layers[k]=[{'texture':'pvpoverhaul:compat_'+mid}]
-  write(f'assets/pvpoverhaul/equipment/{mid}.json',{'layers':layers})
+   tex=f'pvpplus:textures/entity/equipment/{k}/compat_{mid}.png';base='minecraft:textures/entity/equipment/'+k+'/'+('armadillo_scute' if k=='wolf_body' else 'iron')+'.png'
+   runtime[tex]={'source':base,'palette':m['palette']};layers[k]=[{'texture':'pvpplus:compat_'+mid}]
+  write(f'assets/pvpplus/equipment/{mid}.json',{'layers':layers})
   for k in TOOLS:
-   if not m['standard']:tag(k+'s',['pvpoverhaul:'+mid+'_'+k])
+   if not m['standard']:tag(k+'s',['pvpplus:'+mid+'_'+k])
   for slot,k in zip(['head','chest','leg','foot'],ARMOR):
    a=armor_item(m,k);value={'id':a,'required':False} if m['standard'] else a
    for t in [slot+'_armor','enchantable/'+slot+'_armor','enchantable/armor','enchantable/durability','trimmable_armor']:tag(t,[value])
   if not m['standard']:
-   for t in ['mining','mining_loot','durability']:tag('enchantable/'+t,['pvpoverhaul:'+mid+'_'+k for k in TOOLS])
-   tag('enchantable/sword',['pvpoverhaul:'+mid+'_sword'])
+   for t in ['mining','mining_loot','durability']:tag('enchantable/'+t,['pvpplus:'+mid+'_'+k for k in TOOLS])
+   tag('enchantable/sword',['pvpplus:'+mid+'_sword'])
   if not m['external_spear']:
-   for t in ['spears','enchantable/lunge','enchantable/weapon','enchantable/sharp_weapon','enchantable/melee_weapon','enchantable/durability']:tag(t,['pvpoverhaul:'+mid+'_spear'])
-   for t in ['pole_weapons','loyalty_weapons','throwable_weapons']:tag(t,['pvpoverhaul:'+mid+'_spear'],'pvpoverhaul')
+   for t in ['spears','enchantable/lunge','enchantable/weapon','enchantable/sharp_weapon','enchantable/melee_weapon','enchantable/durability']:tag(t,['pvpplus:'+mid+'_spear'])
+   for t in ['pole_weapons','loyalty_weapons','throwable_weapons']:tag(t,['pvpplus:'+mid+'_spear'],'pvpplus')
   else:
-   for t in ['pole_weapons','loyalty_weapons','throwable_weapons']:tag(t,[{'id':m['mod']+':'+mid+'_spear','required':False}],'pvpoverhaul')
+   for t in ['pole_weapons','loyalty_weapons','throwable_weapons']:tag(t,[{'id':m['mod']+':'+mid+'_spear','required':False}],'pvpplus')
   # Tiered Backpacks uses this standard chest-slot tag, not a hardcoded item list.
-  if m.get('fireproof'):tag('freeze_immune_wearables',['pvpoverhaul:'+mid+'_wolf_armor'])
-  for item in own_items(m):lang['item.pvpoverhaul.'+item]=item.replace('_',' ').title()
+  if m.get('fireproof'):tag('freeze_immune_wearables',['pvpplus:'+mid+'_wolf_armor'])
+  for item in own_items(m):lang['item.pvpplus.'+item]=item.replace('_',' ').title()
   # Original horse armor IDs remain unchanged; provide a crafting route where absent.
   if m['external_horse'] and m['id'] not in ['steel','enderite']:recipe(mid+'_horse_armor',['  M','MLM','MMM'],{'M':m['ingot'],'L':'minecraft:leather'},result=m['mod']+':'+mid+'_horse_armor',m=m)
  for mat,item in [('copper','copper'),('iron','iron'),('gold','golden'),('diamond','diamond')]:
@@ -120,25 +120,25 @@ def extend(g):
   recipe('craft_'+item+'_nautilus_armor',['MMM','M M',' M '],{'M':ingredient},'minecraft:'+item+'_nautilus_armor')
  # Keep vanilla leather crafting and netherite smithing recipes.
  # Ice Caves Backport's exact item registry ID; vanilla fallback remains when absent.
- ice=root/'data/pvpoverhaul/recipe/ice_arrow.json';old=json.loads(ice.read_text());old['fabric:load_conditions']=[{'condition':'fabric:not','value':{'condition':'fabric:all_mods_loaded','values':['ice_caves_backport']}}];write(ice.relative_to(root).as_posix(),old)
- recipe('ice_arrow_icb',['I','A'],{'I':'ice_caves_backport:ice_ball','A':'minecraft:arrow'},'pvpoverhaul:ice_arrow',m={'mod':'ice_caves_backport'})
+ ice=root/'data/pvpplus/recipe/ice_arrow.json';old=json.loads(ice.read_text());old['fabric:load_conditions']=[{'condition':'fabric:not','value':{'condition':'fabric:all_mods_loaded','values':['ice_caves_backport']}}];write(ice.relative_to(root).as_posix(),old)
+ recipe('ice_arrow_icb',['I','A'],{'I':'ice_caves_backport:ice_ball','A':'minecraft:arrow'},'pvpplus:ice_arrow',m={'mod':'ice_caves_backport'})
  for m in MATERIALS:
   if m['external_horse'] and m['id'] not in ['steel','enderite']:recipe(m['id']+'_nautilus_armor',['MMM','M M',' M '],{'M':m['ingot']},m['mod']+':'+m['id']+'_nautilus_armor',m=m)
  # Detail Armor Bar Reconstructed resource API, using its neutral icon and material color.
  for m in [m for m in MATERIALS if not m['standard']]:
   def bar(x):return {'texture':'detailab:textures/armor_bar.png','texture_width':128,'texture_height':128,'offset':[x,0]}
-  write('assets/pvpoverhaul/armor_bar/'+m['id']+'.json',{'type':'armor','items':['pvpoverhaul:'+m['id']+'_'+k for k in ARMOR],'render':{'full':bar(0),'half':bar(18),'color':m['palette'][len(m['palette'])//2]}})
+  write('assets/pvpplus/armor_bar/'+m['id']+'.json',{'type':'armor','items':['pvpplus:'+m['id']+'_'+k for k in ARMOR],'render':{'full':bar(0),'half':bar(18),'color':m['palette'][len(m['palette'])//2]}})
  for m in [m for m in MATERIALS if not m['standard']]:
   for k in ARMOR:
-   item=m['id']+'_'+k;modelpath=f'assets/pvpoverhaul/models/item/{item}.json';base=json.loads((root/modelpath).read_text());cases=[]
+   item=m['id']+'_'+k;modelpath=f'assets/pvpplus/models/item/{item}.json';base=json.loads((root/modelpath).read_text());cases=[]
    for trim in ['quartz','iron','netherite','redstone','copper','gold','emerald','diamond','lapis','amethyst','resin']:
     model=copy.deepcopy(base);model['textures']['layer1']='minecraft:trims/items/'+k+'_trim_'+('pvp_rose_gold' if trim=='rose_gold' else trim)
-    modelname=item+'_'+trim+'_trim';write(f'assets/pvpoverhaul/models/item/{modelname}.json',model)
-    cases.append({'when':('pvpoverhaul:' if trim=='rose_gold' else 'minecraft:')+trim,'model':{'type':'minecraft:model','model':'pvpoverhaul:item/'+modelname}})
-   write('assets/pvpoverhaul/items/'+item+'.json',{'model':{'type':'minecraft:select','property':'minecraft:trim_material','cases':cases,'fallback':{'type':'minecraft:model','model':'pvpoverhaul:item/'+item}}})
- write('assets/pvpoverhaul/compat_equipment.json',runtime)
+    modelname=item+'_'+trim+'_trim';write(f'assets/pvpplus/models/item/{modelname}.json',model)
+    cases.append({'when':('pvpplus:' if trim=='rose_gold' else 'minecraft:')+trim,'model':{'type':'minecraft:model','model':'pvpplus:item/'+modelname}})
+   write('assets/pvpplus/items/'+item+'.json',{'model':{'type':'minecraft:select','property':'minecraft:trim_material','cases':cases,'fallback':{'type':'minecraft:model','model':'pvpplus:item/'+item}}})
+ write('assets/pvpplus/compat_equipment.json',runtime)
  write('assets/minecraft/atlases/items.json',atlas)
- write('assets/pvpoverhaul/compat_materials.json',MATERIALS)
- write('assets/pvpoverhaul/compat_expected_items.json',sorted(newitems))
- for old in ['steel_horse_armor','steel_nautilus_armor','enderite_horse_armor','enderite_nautilus_armor']:(root/f'data/pvpoverhaul/recipe/{old}.json').unlink(missing_ok=True)
+ write('assets/pvpplus/compat_materials.json',MATERIALS)
+ write('assets/pvpplus/compat_expected_items.json',sorted(newitems))
+ for old in ['steel_horse_armor','steel_nautilus_armor','enderite_horse_armor','enderite_nautilus_armor']:(root/f'data/pvpplus/recipe/{old}.json').unlink(missing_ok=True)
  print('Compatibility:',len(MATERIALS),'materials,',len(newitems),'new items')

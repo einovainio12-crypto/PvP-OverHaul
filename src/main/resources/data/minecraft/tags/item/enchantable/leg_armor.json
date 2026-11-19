@@ -1,0 +1,48 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_leggings",
+    "pvpplus:zinc_leggings",
+    "pvpplus:bronze_leggings",
+    {
+      "id": "alloyed:steel_leggings",
+      "required": false
+    },
+    {
+      "id": "thesilverage:silver_leggings",
+      "required": false
+    },
+    {
+      "id": "theleadage:lead_leggings",
+      "required": false
+    },
+    {
+      "id": "the_sift:siftite_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_iron_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_gold_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_emerald_leggings",
+      "required": false
+    },
+    {
+      "id": "advancednetherite:netherite_diamond_leggings",
+      "required": false
+    },
+    {
+      "id": "rosegoldequipment:rose_golden_leggings",
+      "required": false
+    },
+    {
+      "id": "enderitemod:enderite_leggings",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "package": "dev.pvpoverhaul.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "PlayerMixin",
+    "TridentItemMixin",
+    "AbstractArrowMixin",
+    "ThrownTridentMixin",
+    "ProjectileMixin",
+    "AbstractArrowAccessor",
+    "ItemCodecMixin",
+    "FireworkRocketAccessor",
+    "GlidingMixin",
+    "QuiverPlayerMixin",
+    "QuiverDrawMixin",
+    "DragonWolfMixin",
+    "CrossbowChargeMixin",
+    "FirstJumpMixin",
+    "ThrowableCommandMixin",
+    "ShieldStunMixin",
+    "LivingEntityParryMixin",
+    "LungePoleJumpMixin",
+    "TridentDataAccessor",
+    "FishingHookMixin",
+    "ArmoredFoesCompatMixin",
+    "CreateRecipeLoaderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

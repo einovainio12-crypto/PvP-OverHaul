@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "wolf_body": [
+      {
+        "texture": "pvpplus:compat_netherite_emerald"
+      }
+    ],
+    "horse_body": [
+      {
+        "texture": "pvpplus:compat_netherite_emerald"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "pvpplus:compat_netherite_emerald"
+      }
+    ]
+  }
+}

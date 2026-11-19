@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "pvpplus:brass_sword",
+    "pvpplus:brass_axe",
+    "pvpplus:brass_pickaxe",
+    "pvpplus:brass_shovel",
+    "pvpplus:brass_hoe",
+    "pvpplus:zinc_sword",
+    "pvpplus:zinc_axe",
+    "pvpplus:zinc_pickaxe",
+    "pvpplus:zinc_shovel",
+    "pvpplus:zinc_hoe",
+    "pvpplus:bronze_sword",
+    "pvpplus:bronze_axe",
+    "pvpplus:bronze_pickaxe",
+    "pvpplus:bronze_shovel",
+    "pvpplus:bronze_hoe"
+  ]
+}

@@ -15,7 +15,7 @@ def check(root):
  for m in mats:
   allowed={tuple(bytes.fromhex(c)) for c in m['palette']}
   for source,data in sources.items():
-   p=res/('assets/pvpoverhaul/textures/palettes/compat/'+m['id']+'/'+source.replace(':','/')+'_palette.png')
+   p=res/('assets/pvpplus/textures/palettes/compat/'+m['id']+'/'+source.replace(':','/')+'_palette.png')
    if not p.exists():continue
    target=colors(p);assert len(target)==len(data['colors']);metal={tuple(c) for c in data['metal']}
    for before,after in zip(data['colors'],target):
@@ -26,17 +26,17 @@ def check(root):
      assert after==expected,('Source shading changed',m['id'],source,before,after,expected)
     else:assert tuple(before)==after,('Handle/string changed',source)
    count+=1
-  for p in (res/'data/pvpoverhaul/recipe').glob(m['id']+'_*.json'):
+  for p in (res/'data/pvpplus/recipe').glob(m['id']+'_*.json'):
    d=json.loads(p.read_text());assert d.get('fabric:load_conditions')==[{'condition':'fabric:all_mods_loaded','values':[m['mod']]}],p
  # Custom Siftite equipment must follow The Sift's netherite upgrade progression.
  for kind in ['bow','crossbow','knife','battleaxe','shield','flail','hammer','scythe','halberd']:
-  d=json.loads((res/f'data/pvpoverhaul/recipe/siftite_{kind}.json').read_text())
+  d=json.loads((res/f'data/pvpplus/recipe/siftite_{kind}.json').read_text())
   assert d['type']=='minecraft:smithing_transform',kind
   assert d['template']=='the_sift:siftite_upgrade_smithing_template',kind
-  assert d['base']=='pvpoverhaul:netherite_'+kind,kind
+  assert d['base']=='pvpplus:netherite_'+kind,kind
   assert d['addition']=='the_sift:siftite_ingot',kind
-  assert d['result']=={'id':'pvpoverhaul:siftite_'+kind},kind
- for p in (res/'assets/pvpoverhaul/armor_bar').glob('*.json'):
+  assert d['result']=={'id':'pvpplus:siftite_'+kind},kind
+ for p in (res/'assets/pvpplus/armor_bar').glob('*.json'):
   d=json.loads(p.read_text());assert d['type']=='armor';assert len(d['render']['color'])==6
  print(f'PASS: {count} material palette maps; handles/strings preserved; optional recipes guarded.')
 

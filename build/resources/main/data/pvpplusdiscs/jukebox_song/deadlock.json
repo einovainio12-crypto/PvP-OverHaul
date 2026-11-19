@@ -1,0 +1,8 @@
+{
+  "sound_event": "pvpplusdiscs:music_disc.deadlock",
+  "description": {
+    "translate": "jukebox_song.pvpplusdiscs.deadlock"
+  },
+  "length_in_seconds": 160.960726,
+  "comparator_output": 2
+}

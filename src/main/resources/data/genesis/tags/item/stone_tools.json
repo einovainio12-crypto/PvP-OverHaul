@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "pvpplus:stone_knife",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_hammer",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_flail",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_battleaxe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_halberd",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_scythe",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_shield",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_bow",
+      "required": false
+    },
+    {
+      "id": "pvpplus:stone_crossbow",
+      "required": false
+    }
+  ]
+}

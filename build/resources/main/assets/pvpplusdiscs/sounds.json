@@ -1,0 +1,90 @@
+{
+  "music_disc.they_run": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/they_run",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.deadlock": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/deadlock",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.playful_massacre": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/playful_massacre",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.chaos_construct": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/chaos_construct",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.battle_under_a_broken_sky": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/battle_under_a_broken_sky",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.playing_with_fire": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/playing_with_fire",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.decisive_battle": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/decisive_battle",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.rival": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/rival",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.manepears_flute_song": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/manepears_flute_song",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.trident_ascension": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/trident_ascension",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.final_stand": {
+    "sounds": [
+      {
+        "name": "pvpplusdiscs:records/final_stand",
+        "stream": true
+      }
+    ]
+  }
+}
