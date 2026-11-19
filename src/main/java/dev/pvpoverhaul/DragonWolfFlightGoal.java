@@ -1,6 +1,7 @@
 package dev.pvpoverhaul;
 
 import java.util.EnumSet;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.animal.wolf.Wolf;
@@ -48,12 +49,16 @@ public final class DragonWolfFlightGoal extends Goal {
         Vec3 observed=previousOwnerPosition==null?Vec3.ZERO:owner.position().subtract(previousOwnerPosition);
         previousOwnerPosition=owner.position();
         if(observed.lengthSqr()>100) observed=Vec3.ZERO;
-        Vec3 motion=target.subtract(wolf.position()).scale(flying?0.20:0.12).add(flying?observed:Vec3.ZERO);
+        Vec3 desired=target.subtract(wolf.position()).scale(flying?0.20:0.12).add(flying?observed:Vec3.ZERO);
         double maximum=flying?4.0:0.8;
+        if(desired.lengthSqr()>maximum*maximum) desired=desired.normalize().scale(maximum);
+        Vec3 motion=wolf.getDeltaMovement().lerp(desired,flying?0.24:0.3);
         if(motion.lengthSqr()>maximum*maximum) motion=motion.normalize().scale(maximum);
         if(!flying) { landingTicks++;motion=new Vec3(motion.x,Math.max(-0.30,motion.y),motion.z); }
         else landingTicks=0;
         wolf.setDeltaMovement(motion);wolf.syncVelocity=true;wolf.needsSync=true;
-        wolf.getLookControl().setLookAt(owner,30,30);
+        double dx=owner.getX()-wolf.getX(),dz=owner.getZ()-wolf.getZ();
+        float yaw=dx*dx+dz*dz<0.01?owner.getYRot():(float)(Mth.atan2(dz,dx)*Mth.RAD_TO_DEG)-90;
+        wolf.setYRot(yaw);wolf.setYBodyRot(yaw);wolf.setYHeadRot(yaw);
     }
 }

@@ -1,6 +1,7 @@
 package dev.pvpplusmounts;
 import java.util.*;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.core.BlockPos;
@@ -34,6 +35,8 @@ public final class DragonMounts implements ModInitializer {
   Loadouts.register();
   horse=register("dragon_scale_horse_armor",new Item.Properties().horseArmor(ArmorMaterials.NETHERITE).component(DataComponents.UNBREAKABLE,Unit.INSTANCE));
   nautilus=register("dragon_scale_nautilus_armor",new Item.Properties().nautilusArmor(ArmorMaterials.NETHERITE));
+  CreativeModeTabEvents.modifyOutputEvent(ResourceKey.create(Registries.CREATIVE_MODE_TAB,Identifier.parse("minecraft:combat")))
+   .register(output->{output.accept(horse);output.accept(nautilus);});
   ServerLivingEntityEvents.ALLOW_DEATH.register((mob,source,damage)->{
    if(!(mob.level() instanceof ServerLevel level)||source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)||!mob.getType().builtInRegistryHolder().is(EntityTypeTags.CAN_WEAR_HORSE_ARMOR)||!mob.getItemBySlot(EquipmentSlot.BODY).is(horse))return true;
    mob.setItemSlot(EquipmentSlot.BODY,ItemStack.EMPTY);

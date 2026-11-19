@@ -47,7 +47,7 @@ public abstract class ThrownTridentMixin implements ThrownItemVisual, ThrownTrid
             || self.pickup!=AbstractArrow.Pickup.ALLOWED
             || self.getEntityData().get(dev.pvpoverhaul.mixin.TridentDataAccessor.pvp$loyalty())<=0) return;
         Inventory inventory=player.getInventory();
-        if(pvp$returnSlot>=Inventory.INVENTORY_SIZE) return;
+        if(pvp$returnSlot>=Inventory.INVENTORY_SIZE && pvp$returnSlot!=Inventory.SLOT_OFFHAND) return;
         ItemStack returned=self.getPickupItemStackOrigin().copy(),existing=inventory.getItem(pvp$returnSlot);
         if(existing.isEmpty()) inventory.setItem(pvp$returnSlot,returned);
         else if(existing.isStackable() && ItemStack.isSameItemSameComponents(existing,returned)
