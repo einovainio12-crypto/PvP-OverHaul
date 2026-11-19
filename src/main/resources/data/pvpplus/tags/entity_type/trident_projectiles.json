@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:trident",
-    "pvpplus:thrown_pvpoverhaul_netherite_hammer",
-    "pvpplus:thrown_pvpoverhaul_siftite_hammer"
+    "pvpplus:thrown_pvpplus_netherite_hammer",
+    "pvpplus:thrown_pvpplus_siftite_hammer"
   ]
 }

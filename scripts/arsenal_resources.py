@@ -52,7 +52,7 @@ def extend(g):
   p=root/f'data/minecraft/tags/enchantment/{path}.json';d=json.loads(p.read_text());d['values'] += [ns+':'+n for n in ['ice_aspect','leeching','chaining','stunning']];write(p.relative_to(root),d)
 
  # Projectile predicates must include the new entity ID, not only minecraft:trident.
- write('data/pvpplus/tags/entity_type/trident_projectiles.json',{'replace':False,'values':['minecraft:trident','pvpplus:thrown_pvpoverhaul_netherite_hammer','pvpplus:thrown_pvpoverhaul_siftite_hammer']})
+ write('data/pvpplus/tags/entity_type/trident_projectiles.json',{'replace':False,'values':['minecraft:trident','pvpplus:thrown_pvpplus_netherite_hammer','pvpplus:thrown_pvpplus_siftite_hammer']})
 
  p=root/'data/minecraft/tags/item/arrows.json';d=json.loads(p.read_text());d['values'].append('pvpplus:ice_arrow');write(p.relative_to(root),d)
 

@@ -70,6 +70,10 @@ missing_recipes=expected-craftable-{'hellfork'}
 if missing_recipes:error(f'Missing survival recipes: {sorted(missing_recipes)}')
 throwable=parsed.get(f'data/{ns}/enchantment/throwable.json',{})
 pole=parsed.get(f'data/{ns}/enchantment/pole_jump.json',{})
+trident_projectiles=parsed.get(f'data/{ns}/tags/entity_type/trident_projectiles.json',{}).get('values',[])
+for item in ['netherite_hammer','siftite_hammer']:
+ entity=f'{ns}:thrown_{ns}_{item}'
+ if entity not in trident_projectiles:error(f'Missing registered projectile {entity} from trident_projectiles')
 if set(throwable.get('exclusive_set',[]))!={'minecraft:lunge','pvpplus:pole_jump'}:error('Throwable must exclude Lunge and Pole Jump')
 if pole.get('exclusive_set')!=['pvpplus:throwable']:error('Pole Jump must allow Lunge and exclude Throwable')
 if 'pvpplus:throwable' in parsed.get('data/minecraft/enchantment/loyalty.json',{}).get('exclusive_set',[]):error('Loyalty must allow Throwable')
