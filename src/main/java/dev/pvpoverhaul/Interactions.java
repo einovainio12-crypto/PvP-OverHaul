@@ -5,6 +5,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.*;
@@ -37,6 +38,8 @@ public final class Interactions {
                 if(held.isDamageableItem()) held.hurtWithoutBreaking(1,player);
                 ItemStack thrown=held.consumeAndReturn(1,player);
                 ThrownTrident entity=Projectile.spawnProjectileFromRotation(WeaponEntities::create,server,thrown,player,0,knife?2.2f:2.5f,1);
+                ((ThrownTridentReturnSlot)entity).pvp$setReturnSlot(hand==InteractionHand.MAIN_HAND
+                    ? player.getInventory().getSelectedSlot() : Inventory.SLOT_OFFHAND);
                 if (player.hasInfiniteMaterials()) entity.pickup=AbstractArrow.Pickup.CREATIVE_ONLY;
                 player.getCooldowns().addCooldown(thrown,knife?8:15);
                 server.playSound(null,player.getX(),player.getY(),player.getZ(),net.minecraft.sounds.SoundEvents.TRIDENT_THROW,net.minecraft.sounds.SoundSource.PLAYERS,1,1);
